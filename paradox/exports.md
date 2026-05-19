@@ -1,5 +1,28 @@
 # Public API
 
+## createGraphQlDataSource
+
+Kind: `function`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:144:1`
+
+### Signatures
+
+- `(definition: GraphQlDataSourceDefinition) => DataSourceDiagnosticResult<GraphQlDataSourceConfig>`
+  - definition: `GraphQlDataSourceDefinition`
+  - returns: `DataSourceDiagnosticResult<GraphQlDataSourceConfig>`
+
+## createGraphQlIntrospectionRequest
+
+Kind: `function`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:128:1`
+
+### Signatures
+
+- `() => GraphQlIntrospectionRequest`
+  - returns: `GraphQlIntrospectionRequest`
+
 ## createManualRestDataSource
 
 Kind: `function`
@@ -16,13 +39,13 @@ Source: `src/rest/index.ts:166:1`
 
 Kind: `value`
 Module: `src/index.ts`
-Source: `src/index.ts:6:14`
+Source: `src/index.ts:7:14`
 
 ## DataSourcesPackageInfo
 
 Kind: `type`
 Module: `src/index.ts`
-Source: `src/index.ts:16:1`
+Source: `src/index.ts:17:1`
 
 ### Members
 
@@ -47,7 +70,7 @@ Source: `src/rest/index.ts:68:1`
 
 Kind: `function`
 Module: `src/index.ts`
-Source: `src/index.ts:32:1`
+Source: `src/index.ts:33:1`
 
 ### Signatures
 
@@ -59,12 +82,180 @@ Source: `src/index.ts:32:1`
 
 Kind: `function`
 Module: `src/index.ts`
-Source: `src/index.ts:21:1`
+Source: `src/index.ts:22:1`
 
 ### Signatures
 
 - `() => DataSourcesPackageInfo`
   - returns: `DataSourcesPackageInfo`
+
+## GRAPHQL_INTROSPECTION_QUERY
+
+Kind: `value`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:16:14`
+
+## GraphQlDataSourceDefinition
+
+Kind: `type`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:110:1`
+
+### Members
+
+| Name                 | Kind     | Type                                                 | Required | Description |
+| -------------------- | -------- | ---------------------------------------------------- | -------- | ----------- |
+| credential           | property | `CredentialRef \| undefined`                         | no       |             |
+| description          | property | `string \| undefined`                                | no       |             |
+| endpointUrl          | property | `string`                                             | yes      |             |
+| id                   | property | `string`                                             | yes      |             |
+| introspection        | property | `GraphQlIntrospectionResult \| undefined`            | no       |             |
+| introspectionEnabled | property | `boolean \| undefined`                               | no       |             |
+| metadata             | property | `DataContractValue \| undefined`                     | no       |             |
+| name                 | property | `string \| undefined`                                | no       |             |
+| operations           | property | `readonly GraphQlOperationDefinition[] \| undefined` | no       |             |
+| schemaVersion        | property | `string \| undefined`                                | no       |             |
+
+## GraphQlIntrospectionEnumValue
+
+Kind: `type`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:72:1`
+
+### Members
+
+| Name        | Kind     | Type                          | Required | Description |
+| ----------- | -------- | ----------------------------- | -------- | ----------- |
+| description | property | `string \| null \| undefined` | no       |             |
+| name        | property | `string`                      | yes      |             |
+
+## GraphQlIntrospectionField
+
+Kind: `type`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:65:1`
+
+### Members
+
+| Name        | Kind     | Type                                                             | Required | Description |
+| ----------- | -------- | ---------------------------------------------------------------- | -------- | ----------- |
+| args        | property | `readonly GraphQlIntrospectionInputValue[] \| null \| undefined` | no       |             |
+| description | property | `string \| null \| undefined`                                    | no       |             |
+| name        | property | `string`                                                         | yes      |             |
+| type        | property | `GraphQlIntrospectionTypeRef`                                    | yes      |             |
+
+## GraphQlIntrospectionInputValue
+
+Kind: `type`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:58:1`
+
+### Members
+
+| Name         | Kind     | Type                          | Required | Description |
+| ------------ | -------- | ----------------------------- | -------- | ----------- |
+| defaultValue | property | `string \| null \| undefined` | no       |             |
+| description  | property | `string \| null \| undefined` | no       |             |
+| name         | property | `string`                      | yes      |             |
+| type         | property | `GraphQlIntrospectionTypeRef` | yes      |             |
+
+## GraphQlIntrospectionRequest
+
+Kind: `type`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:123:1`
+
+### Members
+
+| Name          | Kind     | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Required | Description |
+| ------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| operationName | property | `"AnkhorageGraphQlIntrospection"`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | yes      |             |
+| query         | property | `"query AnkhorageGraphQlIntrospection {\n  __schema {\n    queryType { name }\n    mutationType { name }\n    subscriptionType { name }\n    types {\n      kind\n      name\n      description\n      fields {\n        name\n        description\n        args {\n          name\n          description\n          type { kind name ofType { kind name ofType { kind name ofType { kind name } } } }\n          defaultValue\n        }\n        type { kind name ofType { kind name ofType { kind name ofType { kind name } } } }\n      }\n      inputFields {\n        name\n        description\n        type { kind name ofType { kind name ofType { kind name ofType { kind name } } } }\n        defaultValue\n      }\n      enumValues { name description }\n      possibleTypes { kind name }\n    }\n  }\n}"` | yes      |             |
+
+## GraphQlIntrospectionResult
+
+Kind: `type`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:94:1`
+
+### Members
+
+| Name       | Kind     | Type                                      | Required | Description |
+| ---------- | -------- | ----------------------------------------- | -------- | ----------- |
+| \_\_schema | property | `GraphQlIntrospectionSchema \| undefined` | no       |             |
+
+## GraphQlIntrospectionSchema
+
+Kind: `type`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:87:1`
+
+### Members
+
+| Name             | Kind     | Type                                                       | Required | Description |
+| ---------------- | -------- | ---------------------------------------------------------- | -------- | ----------- |
+| mutationType     | property | `{ readonly name?: string \| null; } \| null \| undefined` | no       |             |
+| queryType        | property | `{ readonly name?: string \| null; } \| null \| undefined` | no       |             |
+| subscriptionType | property | `{ readonly name?: string \| null; } \| null \| undefined` | no       |             |
+| types            | property | `readonly GraphQlIntrospectionType[] \| null \| undefined` | no       |             |
+
+## GraphQlIntrospectionType
+
+Kind: `type`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:77:1`
+
+### Members
+
+| Name          | Kind     | Type                                                             | Required | Description |
+| ------------- | -------- | ---------------------------------------------------------------- | -------- | ----------- |
+| description   | property | `string \| null \| undefined`                                    | no       |             |
+| enumValues    | property | `readonly GraphQlIntrospectionEnumValue[] \| null \| undefined`  | no       |             |
+| fields        | property | `readonly GraphQlIntrospectionField[] \| null \| undefined`      | no       |             |
+| inputFields   | property | `readonly GraphQlIntrospectionInputValue[] \| null \| undefined` | no       |             |
+| kind          | property | `string`                                                         | yes      |             |
+| name          | property | `string \| null \| undefined`                                    | no       |             |
+| possibleTypes | property | `readonly GraphQlIntrospectionTypeRef[] \| null \| undefined`    | no       |             |
+
+## GraphQlIntrospectionTypeRef
+
+Kind: `type`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:52:1`
+
+### Members
+
+| Name   | Kind     | Type                                               | Required | Description |
+| ------ | -------- | -------------------------------------------------- | -------- | ----------- |
+| kind   | property | `string`                                           | yes      |             |
+| name   | property | `string \| null \| undefined`                      | no       |             |
+| ofType | property | `GraphQlIntrospectionTypeRef \| null \| undefined` | no       |             |
+
+## GraphQlOperationDefinition
+
+Kind: `type`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:98:1`
+
+### Members
+
+| Name          | Kind     | Type                             | Required | Description |
+| ------------- | -------- | -------------------------------- | -------- | ----------- |
+| description   | property | `string \| undefined`            | no       |             |
+| document      | property | `string \| undefined`            | no       |             |
+| id            | property | `string`                         | yes      |             |
+| kind          | property | `GraphQlOperationKind`           | yes      |             |
+| metadata      | property | `DataContractValue \| undefined` | no       |             |
+| name          | property | `string \| undefined`            | no       |             |
+| response      | property | `DataSchema \| undefined`        | no       |             |
+| selectionPath | property | `string \| undefined`            | no       |             |
+| variables     | property | `DataSchema \| undefined`        | no       |             |
+
+## GraphQlOperationKind
+
+Kind: `unknown`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:48:1`
 
 ## importOpenApiDocument
 
@@ -94,7 +285,7 @@ Source: `src/rest/index.ts:60:1`
 
 Kind: `function`
 Module: `src/index.ts`
-Source: `src/index.ts:28:1`
+Source: `src/index.ts:29:1`
 
 ### Signatures
 
@@ -167,6 +358,55 @@ Source: `src/rest/index.ts:24:1`
 | path        | property | `string \| undefined`                            | no       |             |
 | request     | property | `DataOperationRequest \| undefined`              | no       |             |
 | response    | property | `DataOperationResponse \| undefined`             | no       |             |
+
+## normalizeGraphQlDataSource
+
+Kind: `function`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:198:1`
+
+### Signatures
+
+- `(definition: GraphQlDataSourceDefinition) => GraphQlDataSourceConfig`
+  - definition: `GraphQlDataSourceDefinition`
+  - returns: `GraphQlDataSourceConfig`
+
+## normalizeGraphQlIntrospectionOperations
+
+Kind: `function`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:256:1`
+
+### Signatures
+
+- `(introspection: GraphQlIntrospectionResult | undefined) => readonly GraphQlOperationDefinition[]`
+  - introspection: `GraphQlIntrospectionResult | undefined`
+  - returns: `readonly GraphQlOperationDefinition[]`
+
+## normalizeGraphQlIntrospectionSchemas
+
+Kind: `function`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:240:1`
+
+### Signatures
+
+- `(introspection: GraphQlIntrospectionResult | undefined) => Readonly<Record<string, DataSchema>> | undefined`
+  - introspection: `GraphQlIntrospectionResult | undefined`
+  - returns: `Readonly<Record<string, DataSchema>> | undefined`
+
+## normalizeGraphQlOperationId
+
+Kind: `function`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:135:1`
+
+### Signatures
+
+- `(kind: GraphQlOperationKind, name: string) => string`
+  - kind: `GraphQlOperationKind`
+  - name: `string`
+  - returns: `string`
 
 ## normalizeManualRestDataSource
 
@@ -414,7 +654,19 @@ Source: `src/openapi/index.ts:34:1`
 
 Kind: `value`
 Module: `src/index.ts`
-Source: `src/index.ts:8:14`
+Source: `src/index.ts:9:14`
+
+## validateGraphQlDataSource
+
+Kind: `function`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:159:1`
+
+### Signatures
+
+- `(definition: GraphQlDataSourceDefinition) => readonly DataSourceDiagnostic[]`
+  - definition: `GraphQlDataSourceDefinition`
+  - returns: `readonly DataSourceDiagnostic[]`
 
 ## validateManualRestDataSource
 

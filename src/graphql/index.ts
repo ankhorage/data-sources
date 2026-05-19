@@ -185,7 +185,8 @@ export function validateGraphQlDataSource(
     diagnostics.push({
       code: 'missing-schema',
       dataSourceId: definition.id,
-      message: 'GraphQL introspection result was not provided. Manual operations can still be used.',
+      message:
+        'GraphQL introspection result was not provided. Manual operations can still be used.',
       path: 'introspection',
       severity: 'info',
     });
@@ -194,7 +195,9 @@ export function validateGraphQlDataSource(
   return diagnostics;
 }
 
-export function normalizeGraphQlDataSource(definition: GraphQlDataSourceDefinition): GraphQlDataSourceConfig {
+export function normalizeGraphQlDataSource(
+  definition: GraphQlDataSourceDefinition,
+): GraphQlDataSourceConfig {
   const schemas = normalizeGraphQlIntrospectionSchemas(definition.introspection);
   const introspectionOperations = normalizeGraphQlIntrospectionOperations(definition.introspection);
   const manualOperations = definition.operations ?? [];
@@ -320,7 +323,9 @@ function mapGraphQlOperationKindToIntent(kind: GraphQlOperationKind): DataOperat
   return 'action';
 }
 
-function normalizeGraphQlVariablesSchema(args: readonly GraphQlIntrospectionInputValue[]): DataSchema {
+function normalizeGraphQlVariablesSchema(
+  args: readonly GraphQlIntrospectionInputValue[],
+): DataSchema {
   const properties: Record<string, DataSchema> = {};
   const required: string[] = [];
 
@@ -475,5 +480,7 @@ function toMetadataRecord(value: DataContractValue | undefined): DataContractRec
 }
 
 function isDataContractRecord(value: DataContractValue | undefined): value is DataContractRecord {
-  return value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value);
+  return (
+    value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value)
+  );
 }

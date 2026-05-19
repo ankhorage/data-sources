@@ -63,16 +63,56 @@
   "entrypoints": ["src/index.ts"],
   "modules": [
     {
+      "path": "src/graphql/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "createGraphQlDataSource",
+        "createGraphQlIntrospectionRequest",
+        "GRAPHQL_INTROSPECTION_QUERY",
+        "GraphQlDataSourceDefinition",
+        "GraphQlIntrospectionEnumValue",
+        "GraphQlIntrospectionField",
+        "GraphQlIntrospectionInputValue",
+        "GraphQlIntrospectionRequest",
+        "GraphQlIntrospectionResult",
+        "GraphQlIntrospectionSchema",
+        "GraphQlIntrospectionType",
+        "GraphQlIntrospectionTypeRef",
+        "GraphQlOperationDefinition",
+        "GraphQlOperationKind",
+        "normalizeGraphQlDataSource",
+        "normalizeGraphQlIntrospectionOperations",
+        "normalizeGraphQlIntrospectionSchemas",
+        "normalizeGraphQlOperationId",
+        "validateGraphQlDataSource"
+      ]
+    },
+    {
       "path": "src/index.ts",
       "isEntrypoint": true,
       "dependencies": [],
       "exports": [
+        "createGraphQlDataSource",
+        "createGraphQlIntrospectionRequest",
         "createManualRestDataSource",
         "DATA_SOURCES_PACKAGE_NAME",
         "DataSourcesPackageInfo",
         "extractRestPathParams",
         "getDataSourceKind",
         "getDataSourcesPackageInfo",
+        "GRAPHQL_INTROSPECTION_QUERY",
+        "GraphQlDataSourceDefinition",
+        "GraphQlIntrospectionEnumValue",
+        "GraphQlIntrospectionField",
+        "GraphQlIntrospectionInputValue",
+        "GraphQlIntrospectionRequest",
+        "GraphQlIntrospectionResult",
+        "GraphQlIntrospectionSchema",
+        "GraphQlIntrospectionType",
+        "GraphQlIntrospectionTypeRef",
+        "GraphQlOperationDefinition",
+        "GraphQlOperationKind",
         "importOpenApiDocument",
         "isManualRestMethod",
         "isSupportedDataSourceKind",
@@ -80,6 +120,10 @@
         "ManualRestEndpointDefinition",
         "ManualRestMethod",
         "ManualRestOperationDefinition",
+        "normalizeGraphQlDataSource",
+        "normalizeGraphQlIntrospectionOperations",
+        "normalizeGraphQlIntrospectionSchemas",
+        "normalizeGraphQlOperationId",
         "normalizeManualRestDataSource",
         "normalizeManualRestMethod",
         "normalizeOpenApiEndpointId",
@@ -99,6 +143,7 @@
         "OpenApiSchemaObject",
         "OpenApiServerObject",
         "SUPPORTED_DATA_SOURCE_KINDS",
+        "validateGraphQlDataSource",
         "validateManualRestDataSource"
       ]
     },
@@ -146,6 +191,63 @@
   ],
   "exports": [
     {
+      "name": "createGraphQlDataSource",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 144,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["GraphQlDataSourceDefinition"],
+      "signatures": [
+        {
+          "label": "(definition: GraphQlDataSourceDefinition) => DataSourceDiagnosticResult<GraphQlDataSourceConfig>",
+          "parameters": [
+            {
+              "name": "definition",
+              "type": "GraphQlDataSourceDefinition",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "DataSourceDiagnosticResult<GraphQlDataSourceConfig>",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "createGraphQlIntrospectionRequest",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 128,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["GraphQlIntrospectionRequest"],
+      "signatures": [
+        {
+          "label": "() => GraphQlIntrospectionRequest",
+          "parameters": [],
+          "returnType": "GraphQlIntrospectionRequest",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "createManualRestDataSource",
       "description": null,
       "isReadme": false,
@@ -186,7 +288,7 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 6,
+        "line": 7,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -204,7 +306,7 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 16,
+        "line": 17,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -269,7 +371,7 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 32,
+        "line": 33,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -301,7 +403,7 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 21,
+        "line": 22,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -314,6 +416,559 @@
           "returnDescription": null
         }
       ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "GRAPHQL_INTROSPECTION_QUERY",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 16,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "GraphQlDataSourceDefinition",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 110,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["GraphQlIntrospectionResult", "GraphQlOperationDefinition"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "credential",
+          "kind": "property",
+          "type": "CredentialRef | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "endpointUrl",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "introspection",
+          "kind": "property",
+          "type": "GraphQlIntrospectionResult | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "introspectionEnabled",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "metadata",
+          "kind": "property",
+          "type": "DataContractValue | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "operations",
+          "kind": "property",
+          "type": "readonly GraphQlOperationDefinition[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "schemaVersion",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "GraphQlIntrospectionEnumValue",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 72,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "GraphQlIntrospectionField",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 65,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["GraphQlIntrospectionInputValue", "GraphQlIntrospectionTypeRef"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "args",
+          "kind": "property",
+          "type": "readonly GraphQlIntrospectionInputValue[] | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "type",
+          "kind": "property",
+          "type": "GraphQlIntrospectionTypeRef",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "GraphQlIntrospectionInputValue",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 58,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["GraphQlIntrospectionTypeRef"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "defaultValue",
+          "kind": "property",
+          "type": "string | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "type",
+          "kind": "property",
+          "type": "GraphQlIntrospectionTypeRef",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "GraphQlIntrospectionRequest",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 123,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "operationName",
+          "kind": "property",
+          "type": "\"AnkhorageGraphQlIntrospection\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "query",
+          "kind": "property",
+          "type": "\"query AnkhorageGraphQlIntrospection {\\n  __schema {\\n    queryType { name }\\n    mutationType { name }\\n    subscriptionType { name }\\n    types {\\n      kind\\n      name\\n      description\\n      fields {\\n        name\\n        description\\n        args {\\n          name\\n          description\\n          type { kind name ofType { kind name ofType { kind name ofType { kind name } } } }\\n          defaultValue\\n        }\\n        type { kind name ofType { kind name ofType { kind name ofType { kind name } } } }\\n      }\\n      inputFields {\\n        name\\n        description\\n        type { kind name ofType { kind name ofType { kind name ofType { kind name } } } }\\n        defaultValue\\n      }\\n      enumValues { name description }\\n      possibleTypes { kind name }\\n    }\\n  }\\n}\"",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "GraphQlIntrospectionResult",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 94,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["GraphQlIntrospectionSchema"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "__schema",
+          "kind": "property",
+          "type": "GraphQlIntrospectionSchema | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "GraphQlIntrospectionSchema",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 87,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["GraphQlIntrospectionType"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "mutationType",
+          "kind": "property",
+          "type": "{ readonly name?: string | null; } | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "queryType",
+          "kind": "property",
+          "type": "{ readonly name?: string | null; } | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "subscriptionType",
+          "kind": "property",
+          "type": "{ readonly name?: string | null; } | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "types",
+          "kind": "property",
+          "type": "readonly GraphQlIntrospectionType[] | null | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "GraphQlIntrospectionType",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 77,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [
+        "GraphQlIntrospectionEnumValue",
+        "GraphQlIntrospectionField",
+        "GraphQlIntrospectionInputValue",
+        "GraphQlIntrospectionTypeRef"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "enumValues",
+          "kind": "property",
+          "type": "readonly GraphQlIntrospectionEnumValue[] | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "fields",
+          "kind": "property",
+          "type": "readonly GraphQlIntrospectionField[] | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "inputFields",
+          "kind": "property",
+          "type": "readonly GraphQlIntrospectionInputValue[] | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "kind",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "possibleTypes",
+          "kind": "property",
+          "type": "readonly GraphQlIntrospectionTypeRef[] | null | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "GraphQlIntrospectionTypeRef",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 52,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "kind",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "ofType",
+          "kind": "property",
+          "type": "GraphQlIntrospectionTypeRef | null | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "GraphQlOperationDefinition",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 98,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["GraphQlOperationKind"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "document",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "kind",
+          "kind": "property",
+          "type": "GraphQlOperationKind",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "metadata",
+          "kind": "property",
+          "type": "DataContractValue | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "response",
+          "kind": "property",
+          "type": "DataSchema | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "selectionPath",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "variables",
+          "kind": "property",
+          "type": "DataSchema | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "GraphQlOperationKind",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 48,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
       "members": [],
       "structuredRows": []
     },
@@ -390,7 +1045,7 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 28,
+        "line": 29,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -675,6 +1330,140 @@
           "description": null
         }
       ],
+      "structuredRows": []
+    },
+    {
+      "name": "normalizeGraphQlDataSource",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 198,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["GraphQlDataSourceDefinition"],
+      "signatures": [
+        {
+          "label": "(definition: GraphQlDataSourceDefinition) => GraphQlDataSourceConfig",
+          "parameters": [
+            {
+              "name": "definition",
+              "type": "GraphQlDataSourceDefinition",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "GraphQlDataSourceConfig",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "normalizeGraphQlIntrospectionOperations",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 256,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["GraphQlIntrospectionResult", "GraphQlOperationDefinition"],
+      "signatures": [
+        {
+          "label": "(introspection: GraphQlIntrospectionResult | undefined) => readonly GraphQlOperationDefinition[]",
+          "parameters": [
+            {
+              "name": "introspection",
+              "type": "GraphQlIntrospectionResult | undefined",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "readonly GraphQlOperationDefinition[]",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "normalizeGraphQlIntrospectionSchemas",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 240,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["GraphQlIntrospectionResult"],
+      "signatures": [
+        {
+          "label": "(introspection: GraphQlIntrospectionResult | undefined) => Readonly<Record<string, DataSchema>> | undefined",
+          "parameters": [
+            {
+              "name": "introspection",
+              "type": "GraphQlIntrospectionResult | undefined",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "Readonly<Record<string, DataSchema>> | undefined",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "normalizeGraphQlOperationId",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 135,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["GraphQlOperationKind"],
+      "signatures": [
+        {
+          "label": "(kind: GraphQlOperationKind, name: string) => string",
+          "parameters": [
+            {
+              "name": "kind",
+              "type": "GraphQlOperationKind",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "string",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -1470,12 +2259,44 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 8,
+        "line": 9,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "validateGraphQlDataSource",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/graphql/index.ts",
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 159,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["GraphQlDataSourceDefinition"],
+      "signatures": [
+        {
+          "label": "(definition: GraphQlDataSourceDefinition) => readonly DataSourceDiagnostic[]",
+          "parameters": [
+            {
+              "name": "definition",
+              "type": "GraphQlDataSourceDefinition",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "readonly DataSourceDiagnostic[]",
+          "returnDescription": null
+        }
+      ],
       "members": [],
       "structuredRows": []
     },
@@ -1515,11 +2336,191 @@
   "components": [],
   "sourceFunctions": [
     {
+      "name": "createGraphQlIntrospectionRequest",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 128,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeGraphQlOperationId",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 135,
+        "column": 1
+      }
+    },
+    {
+      "name": "createGraphQlDataSource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 144,
+        "column": 1
+      }
+    },
+    {
+      "name": "validateGraphQlDataSource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 159,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeGraphQlDataSource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 198,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeGraphQlIntrospectionSchemas",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 240,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeGraphQlIntrospectionOperations",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 256,
+        "column": 1
+      }
+    },
+    {
+      "name": "appendRootOperations",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 272,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeGraphQlOperation",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 298,
+        "column": 1
+      }
+    },
+    {
+      "name": "mapGraphQlOperationKindToIntent",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 321,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeGraphQlVariablesSchema",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 326,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeGraphQlType",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 348,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeGraphQlObjectType",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 384,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeGraphQlTypeRef",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 410,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeGraphQlNamedScalar",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 436,
+        "column": 1
+      }
+    },
+    {
+      "name": "isGraphQlNonNull",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 448,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNamedGraphQlType",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 452,
+        "column": 1
+      }
+    },
+    {
+      "name": "createGraphQlOperationMetadata",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 456,
+        "column": 1
+      }
+    },
+    {
+      "name": "toMetadataRecord",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 471,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataContractRecord",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/index.ts",
+        "line": 482,
+        "column": 1
+      }
+    },
+    {
       "name": "getDataSourcesPackageInfo",
       "description": null,
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 21,
+        "line": 22,
         "column": 1
       }
     },
@@ -1528,7 +2529,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 28,
+        "line": 29,
         "column": 1
       }
     },
@@ -1537,7 +2538,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 32,
+        "line": 33,
         "column": 1
       }
     },
@@ -1797,6 +2798,22 @@
   "sequenceScenarios": [
     {
       "kind": "export",
+      "name": "createGraphQlDataSource",
+      "sourcePath": "src/graphql/index.ts",
+      "symbolName": "createGraphQlDataSource",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "createGraphQlIntrospectionRequest",
+      "sourcePath": "src/graphql/index.ts",
+      "symbolName": "createGraphQlIntrospectionRequest",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "createManualRestDataSource",
       "sourcePath": "src/rest/index.ts",
       "symbolName": "createManualRestDataSource",
@@ -1853,6 +2870,38 @@
     },
     {
       "kind": "export",
+      "name": "normalizeGraphQlDataSource",
+      "sourcePath": "src/graphql/index.ts",
+      "symbolName": "normalizeGraphQlDataSource",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "normalizeGraphQlIntrospectionOperations",
+      "sourcePath": "src/graphql/index.ts",
+      "symbolName": "normalizeGraphQlIntrospectionOperations",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "normalizeGraphQlIntrospectionSchemas",
+      "sourcePath": "src/graphql/index.ts",
+      "symbolName": "normalizeGraphQlIntrospectionSchemas",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "normalizeGraphQlOperationId",
+      "sourcePath": "src/graphql/index.ts",
+      "symbolName": "normalizeGraphQlOperationId",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "normalizeManualRestDataSource",
       "sourcePath": "src/rest/index.ts",
       "symbolName": "normalizeManualRestDataSource",
@@ -1893,6 +2942,14 @@
     },
     {
       "kind": "export",
+      "name": "validateGraphQlDataSource",
+      "sourcePath": "src/graphql/index.ts",
+      "symbolName": "validateGraphQlDataSource",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "validateManualRestDataSource",
       "sourcePath": "src/rest/index.ts",
       "symbolName": "validateManualRestDataSource",
@@ -1902,6 +2959,11 @@
   ],
   "graphs": {
     "imports": [
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/graphql/index.ts",
+        "sourcePath": "src/index.ts"
+      },
       {
         "fromPath": "src/index.ts",
         "toPath": "src/openapi/index.ts",
@@ -1914,6 +2976,144 @@
       }
     ],
     "calls": [
+      {
+        "fromSymbol": "createGraphQlDataSource",
+        "toSymbol": "validateGraphQlDataSource",
+        "callExpression": "validateGraphQlDataSource",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "createGraphQlDataSource",
+        "toSymbol": "normalizeGraphQlDataSource",
+        "callExpression": "normalizeGraphQlDataSource",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlDataSource",
+        "toSymbol": "normalizeGraphQlIntrospectionSchemas",
+        "callExpression": "normalizeGraphQlIntrospectionSchemas",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlDataSource",
+        "toSymbol": "normalizeGraphQlIntrospectionOperations",
+        "callExpression": "normalizeGraphQlIntrospectionOperations",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlDataSource",
+        "toSymbol": "normalizeGraphQlOperation",
+        "callExpression": "normalizeGraphQlOperation",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlIntrospectionSchemas",
+        "toSymbol": "normalizeGraphQlType",
+        "callExpression": "normalizeGraphQlType",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlIntrospectionOperations",
+        "toSymbol": "appendRootOperations",
+        "callExpression": "appendRootOperations",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "appendRootOperations",
+        "toSymbol": "normalizeGraphQlOperationId",
+        "callExpression": "normalizeGraphQlOperationId",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "appendRootOperations",
+        "toSymbol": "normalizeGraphQlVariablesSchema",
+        "callExpression": "normalizeGraphQlVariablesSchema",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "appendRootOperations",
+        "toSymbol": "normalizeGraphQlTypeRef",
+        "callExpression": "normalizeGraphQlTypeRef",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlOperation",
+        "toSymbol": "mapGraphQlOperationKindToIntent",
+        "callExpression": "mapGraphQlOperationKindToIntent",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlOperation",
+        "toSymbol": "createGraphQlOperationMetadata",
+        "callExpression": "createGraphQlOperationMetadata",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlVariablesSchema",
+        "toSymbol": "normalizeGraphQlTypeRef",
+        "callExpression": "normalizeGraphQlTypeRef",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlVariablesSchema",
+        "toSymbol": "isGraphQlNonNull",
+        "callExpression": "isGraphQlNonNull",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlType",
+        "toSymbol": "normalizeGraphQlObjectType",
+        "callExpression": "normalizeGraphQlObjectType",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlType",
+        "toSymbol": "normalizeGraphQlNamedScalar",
+        "callExpression": "normalizeGraphQlNamedScalar",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "src/graphql/index.ts",
+        "toSymbol": "normalizeGraphQlTypeRef",
+        "callExpression": "normalizeGraphQlTypeRef",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlObjectType",
+        "toSymbol": "normalizeGraphQlTypeRef",
+        "callExpression": "normalizeGraphQlTypeRef",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlObjectType",
+        "toSymbol": "isGraphQlNonNull",
+        "callExpression": "isGraphQlNonNull",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlTypeRef",
+        "toSymbol": "normalizeGraphQlTypeRef",
+        "callExpression": "normalizeGraphQlTypeRef",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlTypeRef",
+        "toSymbol": "normalizeGraphQlNamedScalar",
+        "callExpression": "normalizeGraphQlNamedScalar",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "createGraphQlOperationMetadata",
+        "toSymbol": "toMetadataRecord",
+        "callExpression": "toMetadataRecord",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "toMetadataRecord",
+        "toSymbol": "isDataContractRecord",
+        "callExpression": "isDataContractRecord",
+        "sourcePath": "src/graphql/index.ts"
+      },
       {
         "fromSymbol": "importOpenApiDocument",
         "toSymbol": "resolveOpenApiBaseUrl",
@@ -2152,6 +3352,161 @@
         "fromSymbol": "getDataSourceKind",
         "toType": "DataSourceKind",
         "sourcePath": "src/index.ts"
+      },
+      {
+        "fromSymbol": "createGraphQlIntrospectionRequest",
+        "toType": "GraphQlIntrospectionRequest",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlOperationId",
+        "toType": "GraphQlOperationKind",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "createGraphQlDataSource",
+        "toType": "DataSourceDiagnosticResult",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "createGraphQlDataSource",
+        "toType": "GraphQlDataSourceConfig",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "createGraphQlDataSource",
+        "toType": "GraphQlDataSourceDefinition",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "validateGraphQlDataSource",
+        "toType": "DataSourceDiagnostic",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "validateGraphQlDataSource",
+        "toType": "GraphQlDataSourceDefinition",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlDataSource",
+        "toType": "GraphQlDataSourceConfig",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlDataSource",
+        "toType": "GraphQlDataSourceDefinition",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlIntrospectionSchemas",
+        "toType": "DataSchema",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlIntrospectionSchemas",
+        "toType": "GraphQlIntrospectionResult",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlIntrospectionSchemas",
+        "toType": "Readonly",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlIntrospectionOperations",
+        "toType": "GraphQlIntrospectionResult",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlIntrospectionOperations",
+        "toType": "GraphQlOperationDefinition",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionInputValue",
+        "toType": "GraphQlIntrospectionTypeRef",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionField",
+        "toType": "GraphQlIntrospectionInputValue",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionField",
+        "toType": "GraphQlIntrospectionTypeRef",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionType",
+        "toType": "GraphQlIntrospectionEnumValue",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionType",
+        "toType": "GraphQlIntrospectionField",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionType",
+        "toType": "GraphQlIntrospectionInputValue",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionType",
+        "toType": "GraphQlIntrospectionTypeRef",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionSchema",
+        "toType": "GraphQlIntrospectionType",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionResult",
+        "toType": "GraphQlIntrospectionSchema",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlOperationDefinition",
+        "toType": "DataContractValue",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlOperationDefinition",
+        "toType": "DataSchema",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlOperationDefinition",
+        "toType": "GraphQlOperationKind",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlDataSourceDefinition",
+        "toType": "CredentialRef",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlDataSourceDefinition",
+        "toType": "DataContractValue",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlDataSourceDefinition",
+        "toType": "GraphQlIntrospectionResult",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlDataSourceDefinition",
+        "toType": "GraphQlOperationDefinition",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionRequest",
+        "toType": "AnkhorageGraphQlIntrospection",
+        "sourcePath": "src/graphql/index.ts"
       },
       {
         "fromSymbol": "importOpenApiDocument",

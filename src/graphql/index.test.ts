@@ -3,10 +3,10 @@ import { describe, expect, it } from 'bun:test';
 import {
   createGraphQlDataSource,
   createGraphQlIntrospectionRequest,
+  type GraphQlIntrospectionResult,
   normalizeGraphQlIntrospectionOperations,
   normalizeGraphQlIntrospectionSchemas,
   normalizeGraphQlOperationId,
-  type GraphQlIntrospectionResult,
 } from './index';
 
 function assertSerializable<TValue>(value: TValue): void {
@@ -127,7 +127,9 @@ describe('GraphQL introspection normalization', () => {
       expect(result.data.endpointUrl).toBe('https://content.example.com/graphql');
       expect(result.data.introspection?.enabled).toBe(true);
       expect(result.data.endpoints.graphql?.operations['query.posts']?.intent).toBe('read');
-      expect(result.data.endpoints.graphql?.operations['mutation.createpost']?.intent).toBe('action');
+      expect(result.data.endpoints.graphql?.operations['mutation.createpost']?.intent).toBe(
+        'action',
+      );
       expect(
         result.data.endpoints.graphql?.operations['mutation.createpost']?.request?.schema?.required,
       ).toContain('title');

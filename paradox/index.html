@@ -199,6 +199,12 @@
               </button>
             </li>
             <li>
+              <button class="nav-button" type="button" data-target="src/graphql/index.ts">
+                src/graphql/index.ts
+                <small>20 functions</small>
+              </button>
+            </li>
+            <li>
               <button class="nav-button" type="button" data-target="src/index.ts">
                 src/index.ts
                 <small>3 functions</small>
@@ -224,9 +230,9 @@
           <section class="panel">
             <h2>Package overview</h2>
             <div class="summary">
-              <div><strong>33</strong><span class="muted">public exports</span></div>
+              <div><strong>52</strong><span class="muted">public exports</span></div>
               <div><strong>0</strong><span class="muted">components</span></div>
-              <div><strong>3</strong><span class="muted">modules</span></div>
+              <div><strong>4</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -239,20 +245,53 @@
             <h2>Modules</h2>
             <article
               class="item"
-              data-search="src/index.ts createManualRestDataSource DATA_SOURCES_PACKAGE_NAME DataSourcesPackageInfo extractRestPathParams getDataSourceKind getDataSourcesPackageInfo importOpenApiDocument isManualRestMethod isSupportedDataSourceKind ManualRestDataSourceDefinition ManualRestEndpointDefinition ManualRestMethod ManualRestOperationDefinition normalizeManualRestDataSource normalizeManualRestMethod normalizeOpenApiEndpointId normalizeOpenApiOperationId normalizeOpenApiSchema OpenApiComponentsObject OpenApiDocumentObject OpenApiHttpMethod OpenApiImportInput OpenApiImportResult OpenApiMediaTypeObject OpenApiOperationObject OpenApiParameterObject OpenApiPathItemObject OpenApiRequestBodyObject OpenApiResponseObject OpenApiSchemaObject OpenApiServerObject SUPPORTED_DATA_SOURCE_KINDS validateManualRestDataSource"
+              data-search="src/graphql/index.ts createGraphQlDataSource createGraphQlIntrospectionRequest GRAPHQL_INTROSPECTION_QUERY GraphQlDataSourceDefinition GraphQlIntrospectionEnumValue GraphQlIntrospectionField GraphQlIntrospectionInputValue GraphQlIntrospectionRequest GraphQlIntrospectionResult GraphQlIntrospectionSchema GraphQlIntrospectionType GraphQlIntrospectionTypeRef GraphQlOperationDefinition GraphQlOperationKind normalizeGraphQlDataSource normalizeGraphQlIntrospectionOperations normalizeGraphQlIntrospectionSchemas normalizeGraphQlOperationId validateGraphQlDataSource"
+            >
+              <h3>src/graphql/index.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>createGraphQlDataSource</code>,
+                <code>createGraphQlIntrospectionRequest</code>,
+                <code>GRAPHQL_INTROSPECTION_QUERY</code>, <code>GraphQlDataSourceDefinition</code>,
+                <code>GraphQlIntrospectionEnumValue</code>, <code>GraphQlIntrospectionField</code>,
+                <code>GraphQlIntrospectionInputValue</code>,
+                <code>GraphQlIntrospectionRequest</code>, <code>GraphQlIntrospectionResult</code>,
+                <code>GraphQlIntrospectionSchema</code>, <code>GraphQlIntrospectionType</code>,
+                <code>GraphQlIntrospectionTypeRef</code>, <code>GraphQlOperationDefinition</code>,
+                <code>GraphQlOperationKind</code>, <code>normalizeGraphQlDataSource</code>,
+                <code>normalizeGraphQlIntrospectionOperations</code>,
+                <code>normalizeGraphQlIntrospectionSchemas</code>,
+                <code>normalizeGraphQlOperationId</code>, <code>validateGraphQlDataSource</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/index.ts createGraphQlDataSource createGraphQlIntrospectionRequest createManualRestDataSource DATA_SOURCES_PACKAGE_NAME DataSourcesPackageInfo extractRestPathParams getDataSourceKind getDataSourcesPackageInfo GRAPHQL_INTROSPECTION_QUERY GraphQlDataSourceDefinition GraphQlIntrospectionEnumValue GraphQlIntrospectionField GraphQlIntrospectionInputValue GraphQlIntrospectionRequest GraphQlIntrospectionResult GraphQlIntrospectionSchema GraphQlIntrospectionType GraphQlIntrospectionTypeRef GraphQlOperationDefinition GraphQlOperationKind importOpenApiDocument isManualRestMethod isSupportedDataSourceKind ManualRestDataSourceDefinition ManualRestEndpointDefinition ManualRestMethod ManualRestOperationDefinition normalizeGraphQlDataSource normalizeGraphQlIntrospectionOperations normalizeGraphQlIntrospectionSchemas normalizeGraphQlOperationId normalizeManualRestDataSource normalizeManualRestMethod normalizeOpenApiEndpointId normalizeOpenApiOperationId normalizeOpenApiSchema OpenApiComponentsObject OpenApiDocumentObject OpenApiHttpMethod OpenApiImportInput OpenApiImportResult OpenApiMediaTypeObject OpenApiOperationObject OpenApiParameterObject OpenApiPathItemObject OpenApiRequestBodyObject OpenApiResponseObject OpenApiSchemaObject OpenApiServerObject SUPPORTED_DATA_SOURCE_KINDS validateGraphQlDataSource validateManualRestDataSource"
             >
               <h3>src/index.ts</h3>
               <p class="muted">Configured entrypoint</p>
               <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
               <p>
-                <strong>Exports:</strong> <code>createManualRestDataSource</code>,
-                <code>DATA_SOURCES_PACKAGE_NAME</code>, <code>DataSourcesPackageInfo</code>,
-                <code>extractRestPathParams</code>, <code>getDataSourceKind</code>,
-                <code>getDataSourcesPackageInfo</code>, <code>importOpenApiDocument</code>,
+                <strong>Exports:</strong> <code>createGraphQlDataSource</code>,
+                <code>createGraphQlIntrospectionRequest</code>,
+                <code>createManualRestDataSource</code>, <code>DATA_SOURCES_PACKAGE_NAME</code>,
+                <code>DataSourcesPackageInfo</code>, <code>extractRestPathParams</code>,
+                <code>getDataSourceKind</code>, <code>getDataSourcesPackageInfo</code>,
+                <code>GRAPHQL_INTROSPECTION_QUERY</code>, <code>GraphQlDataSourceDefinition</code>,
+                <code>GraphQlIntrospectionEnumValue</code>, <code>GraphQlIntrospectionField</code>,
+                <code>GraphQlIntrospectionInputValue</code>,
+                <code>GraphQlIntrospectionRequest</code>, <code>GraphQlIntrospectionResult</code>,
+                <code>GraphQlIntrospectionSchema</code>, <code>GraphQlIntrospectionType</code>,
+                <code>GraphQlIntrospectionTypeRef</code>, <code>GraphQlOperationDefinition</code>,
+                <code>GraphQlOperationKind</code>, <code>importOpenApiDocument</code>,
                 <code>isManualRestMethod</code>, <code>isSupportedDataSourceKind</code>,
                 <code>ManualRestDataSourceDefinition</code>,
                 <code>ManualRestEndpointDefinition</code>, <code>ManualRestMethod</code>,
-                <code>ManualRestOperationDefinition</code>,
+                <code>ManualRestOperationDefinition</code>, <code>normalizeGraphQlDataSource</code>,
+                <code>normalizeGraphQlIntrospectionOperations</code>,
+                <code>normalizeGraphQlIntrospectionSchemas</code>,
+                <code>normalizeGraphQlOperationId</code>,
                 <code>normalizeManualRestDataSource</code>, <code>normalizeManualRestMethod</code>,
                 <code>normalizeOpenApiEndpointId</code>, <code>normalizeOpenApiOperationId</code>,
                 <code>normalizeOpenApiSchema</code>, <code>OpenApiComponentsObject</code>,
@@ -262,7 +301,8 @@
                 <code>OpenApiParameterObject</code>, <code>OpenApiPathItemObject</code>,
                 <code>OpenApiRequestBodyObject</code>, <code>OpenApiResponseObject</code>,
                 <code>OpenApiSchemaObject</code>, <code>OpenApiServerObject</code>,
-                <code>SUPPORTED_DATA_SOURCE_KINDS</code>, <code>validateManualRestDataSource</code>
+                <code>SUPPORTED_DATA_SOURCE_KINDS</code>, <code>validateGraphQlDataSource</code>,
+                <code>validateManualRestDataSource</code>
               </p>
             </article>
             <article
@@ -306,6 +346,943 @@
             <h2>Public API</h2>
 
             <section>
+              <h3>src/graphql/index.ts</h3>
+              <article
+                class="item"
+                id="symbol-creategraphqldatasource"
+                data-search="createGraphQlDataSource function src/graphql/index.ts  GraphQlDataSourceDefinition (definition: GraphQlDataSourceDefinition) =&gt; DataSourceDiagnosticResult&lt;GraphQlDataSourceConfig&gt;"
+              >
+                <h4>createGraphQlDataSource</h4>
+                <p class="muted">function • <code>src/graphql/index.ts:144:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">GraphQlDataSourceDefinition</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(definition: GraphQlDataSourceDefinition) =&gt; DataSourceDiagnosticResult&lt;GraphQlDataSourceConfig&gt;</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>definition</code></td>
+                        <td><code>GraphQlDataSourceDefinition</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    <strong>Returns:</strong>
+                    <code>DataSourceDiagnosticResult&lt;GraphQlDataSourceConfig&gt;</code>
+                  </p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-creategraphqlintrospectionrequest"
+                data-search="createGraphQlIntrospectionRequest function src/graphql/index.ts  GraphQlIntrospectionRequest () =&gt; GraphQlIntrospectionRequest"
+              >
+                <h4>createGraphQlIntrospectionRequest</h4>
+                <p class="muted">function • <code>src/graphql/index.ts:128:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">GraphQlIntrospectionRequest</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>() =&gt; GraphQlIntrospectionRequest</pre>
+
+                  <p><strong>Returns:</strong> <code>GraphQlIntrospectionRequest</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-graphql-introspection-query"
+                data-search="GRAPHQL_INTROSPECTION_QUERY value src/graphql/index.ts "
+              >
+                <h4>GRAPHQL_INTROSPECTION_QUERY</h4>
+                <p class="muted">value • <code>src/graphql/index.ts:16:14</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-graphqldatasourcedefinition"
+                data-search="GraphQlDataSourceDefinition type src/graphql/index.ts  GraphQlIntrospectionResult GraphQlOperationDefinition"
+              >
+                <h4>GraphQlDataSourceDefinition</h4>
+                <p class="muted">type • <code>src/graphql/index.ts:110:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">GraphQlIntrospectionResult</li>
+                    <li class="chip">GraphQlOperationDefinition</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>credential</code></td>
+                      <td>property</td>
+                      <td><code>CredentialRef | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>endpointUrl</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>id</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>introspection</code></td>
+                      <td>property</td>
+                      <td><code>GraphQlIntrospectionResult | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>introspectionEnabled</code></td>
+                      <td>property</td>
+                      <td><code>boolean | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>metadata</code></td>
+                      <td>property</td>
+                      <td><code>DataContractValue | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>operations</code></td>
+                      <td>property</td>
+                      <td><code>readonly GraphQlOperationDefinition[] | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>schemaVersion</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-graphqlintrospectionenumvalue"
+                data-search="GraphQlIntrospectionEnumValue type src/graphql/index.ts "
+              >
+                <h4>GraphQlIntrospectionEnumValue</h4>
+                <p class="muted">type • <code>src/graphql/index.ts:72:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | null | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-graphqlintrospectionfield"
+                data-search="GraphQlIntrospectionField type src/graphql/index.ts  GraphQlIntrospectionInputValue GraphQlIntrospectionTypeRef"
+              >
+                <h4>GraphQlIntrospectionField</h4>
+                <p class="muted">type • <code>src/graphql/index.ts:65:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">GraphQlIntrospectionInputValue</li>
+                    <li class="chip">GraphQlIntrospectionTypeRef</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>args</code></td>
+                      <td>property</td>
+                      <td>
+                        <code>readonly GraphQlIntrospectionInputValue[] | null | undefined</code>
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | null | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>type</code></td>
+                      <td>property</td>
+                      <td><code>GraphQlIntrospectionTypeRef</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-graphqlintrospectioninputvalue"
+                data-search="GraphQlIntrospectionInputValue type src/graphql/index.ts  GraphQlIntrospectionTypeRef"
+              >
+                <h4>GraphQlIntrospectionInputValue</h4>
+                <p class="muted">type • <code>src/graphql/index.ts:58:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">GraphQlIntrospectionTypeRef</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>defaultValue</code></td>
+                      <td>property</td>
+                      <td><code>string | null | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | null | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>type</code></td>
+                      <td>property</td>
+                      <td><code>GraphQlIntrospectionTypeRef</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-graphqlintrospectionrequest"
+                data-search="GraphQlIntrospectionRequest type src/graphql/index.ts "
+              >
+                <h4>GraphQlIntrospectionRequest</h4>
+                <p class="muted">type • <code>src/graphql/index.ts:123:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>operationName</code></td>
+                      <td>property</td>
+                      <td><code>&quot;AnkhorageGraphQlIntrospection&quot;</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>query</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >&quot;query AnkhorageGraphQlIntrospection {\n __schema {\n queryType {
+                          name }\n mutationType { name }\n subscriptionType { name }\n types {\n
+                          kind\n name\n description\n fields {\n name\n description\n args {\n
+                          name\n description\n type { kind name ofType { kind name ofType { kind
+                          name ofType { kind name } } } }\n defaultValue\n }\n type { kind name
+                          ofType { kind name ofType { kind name ofType { kind name } } } }\n }\n
+                          inputFields {\n name\n description\n type { kind name ofType { kind name
+                          ofType { kind name ofType { kind name } } } }\n defaultValue\n }\n
+                          enumValues { name description }\n possibleTypes { kind name }\n }\n
+                          }\n}&quot;</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-graphqlintrospectionresult"
+                data-search="GraphQlIntrospectionResult type src/graphql/index.ts  GraphQlIntrospectionSchema"
+              >
+                <h4>GraphQlIntrospectionResult</h4>
+                <p class="muted">type • <code>src/graphql/index.ts:94:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">GraphQlIntrospectionSchema</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>__schema</code></td>
+                      <td>property</td>
+                      <td><code>GraphQlIntrospectionSchema | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-graphqlintrospectionschema"
+                data-search="GraphQlIntrospectionSchema type src/graphql/index.ts  GraphQlIntrospectionType"
+              >
+                <h4>GraphQlIntrospectionSchema</h4>
+                <p class="muted">type • <code>src/graphql/index.ts:87:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">GraphQlIntrospectionType</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>mutationType</code></td>
+                      <td>property</td>
+                      <td><code>{ readonly name?: string | null; } | null | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>queryType</code></td>
+                      <td>property</td>
+                      <td><code>{ readonly name?: string | null; } | null | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>subscriptionType</code></td>
+                      <td>property</td>
+                      <td><code>{ readonly name?: string | null; } | null | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>types</code></td>
+                      <td>property</td>
+                      <td><code>readonly GraphQlIntrospectionType[] | null | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-graphqlintrospectiontype"
+                data-search="GraphQlIntrospectionType type src/graphql/index.ts  GraphQlIntrospectionEnumValue GraphQlIntrospectionField GraphQlIntrospectionInputValue GraphQlIntrospectionTypeRef"
+              >
+                <h4>GraphQlIntrospectionType</h4>
+                <p class="muted">type • <code>src/graphql/index.ts:77:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">GraphQlIntrospectionEnumValue</li>
+                    <li class="chip">GraphQlIntrospectionField</li>
+                    <li class="chip">GraphQlIntrospectionInputValue</li>
+                    <li class="chip">GraphQlIntrospectionTypeRef</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | null | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>enumValues</code></td>
+                      <td>property</td>
+                      <td>
+                        <code>readonly GraphQlIntrospectionEnumValue[] | null | undefined</code>
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>fields</code></td>
+                      <td>property</td>
+                      <td><code>readonly GraphQlIntrospectionField[] | null | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>inputFields</code></td>
+                      <td>property</td>
+                      <td>
+                        <code>readonly GraphQlIntrospectionInputValue[] | null | undefined</code>
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>kind</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string | null | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>possibleTypes</code></td>
+                      <td>property</td>
+                      <td>
+                        <code>readonly GraphQlIntrospectionTypeRef[] | null | undefined</code>
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-graphqlintrospectiontyperef"
+                data-search="GraphQlIntrospectionTypeRef type src/graphql/index.ts "
+              >
+                <h4>GraphQlIntrospectionTypeRef</h4>
+                <p class="muted">type • <code>src/graphql/index.ts:52:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>kind</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string | null | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>ofType</code></td>
+                      <td>property</td>
+                      <td><code>GraphQlIntrospectionTypeRef | null | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-graphqloperationdefinition"
+                data-search="GraphQlOperationDefinition type src/graphql/index.ts  GraphQlOperationKind"
+              >
+                <h4>GraphQlOperationDefinition</h4>
+                <p class="muted">type • <code>src/graphql/index.ts:98:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">GraphQlOperationKind</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>document</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>id</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>kind</code></td>
+                      <td>property</td>
+                      <td><code>GraphQlOperationKind</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>metadata</code></td>
+                      <td>property</td>
+                      <td><code>DataContractValue | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>response</code></td>
+                      <td>property</td>
+                      <td><code>DataSchema | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>selectionPath</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>variables</code></td>
+                      <td>property</td>
+                      <td><code>DataSchema | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-graphqloperationkind"
+                data-search="GraphQlOperationKind unknown src/graphql/index.ts "
+              >
+                <h4>GraphQlOperationKind</h4>
+                <p class="muted">unknown • <code>src/graphql/index.ts:48:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-normalizegraphqldatasource"
+                data-search="normalizeGraphQlDataSource function src/graphql/index.ts  GraphQlDataSourceDefinition (definition: GraphQlDataSourceDefinition) =&gt; GraphQlDataSourceConfig"
+              >
+                <h4>normalizeGraphQlDataSource</h4>
+                <p class="muted">function • <code>src/graphql/index.ts:198:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">GraphQlDataSourceDefinition</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(definition: GraphQlDataSourceDefinition) =&gt; GraphQlDataSourceConfig</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>definition</code></td>
+                        <td><code>GraphQlDataSourceDefinition</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>GraphQlDataSourceConfig</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-normalizegraphqlintrospectionoperations"
+                data-search="normalizeGraphQlIntrospectionOperations function src/graphql/index.ts  GraphQlIntrospectionResult GraphQlOperationDefinition (introspection: GraphQlIntrospectionResult | undefined) =&gt; readonly GraphQlOperationDefinition[]"
+              >
+                <h4>normalizeGraphQlIntrospectionOperations</h4>
+                <p class="muted">function • <code>src/graphql/index.ts:256:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">GraphQlIntrospectionResult</li>
+                    <li class="chip">GraphQlOperationDefinition</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(introspection: GraphQlIntrospectionResult | undefined) =&gt; readonly GraphQlOperationDefinition[]</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>introspection</code></td>
+                        <td><code>GraphQlIntrospectionResult | undefined</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    <strong>Returns:</strong> <code>readonly GraphQlOperationDefinition[]</code>
+                  </p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-normalizegraphqlintrospectionschemas"
+                data-search="normalizeGraphQlIntrospectionSchemas function src/graphql/index.ts  GraphQlIntrospectionResult (introspection: GraphQlIntrospectionResult | undefined) =&gt; Readonly&lt;Record&lt;string, DataSchema&gt;&gt; | undefined"
+              >
+                <h4>normalizeGraphQlIntrospectionSchemas</h4>
+                <p class="muted">function • <code>src/graphql/index.ts:240:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">GraphQlIntrospectionResult</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(introspection: GraphQlIntrospectionResult | undefined) =&gt; Readonly&lt;Record&lt;string, DataSchema&gt;&gt; | undefined</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>introspection</code></td>
+                        <td><code>GraphQlIntrospectionResult | undefined</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    <strong>Returns:</strong>
+                    <code>Readonly&lt;Record&lt;string, DataSchema&gt;&gt; | undefined</code>
+                  </p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-normalizegraphqloperationid"
+                data-search="normalizeGraphQlOperationId function src/graphql/index.ts  GraphQlOperationKind (kind: GraphQlOperationKind, name: string) =&gt; string"
+              >
+                <h4>normalizeGraphQlOperationId</h4>
+                <p class="muted">function • <code>src/graphql/index.ts:135:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">GraphQlOperationKind</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(kind: GraphQlOperationKind, name: string) =&gt; string</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>kind</code></td>
+                        <td><code>GraphQlOperationKind</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><code>name</code></td>
+                        <td><code>string</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>string</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-validategraphqldatasource"
+                data-search="validateGraphQlDataSource function src/graphql/index.ts  GraphQlDataSourceDefinition (definition: GraphQlDataSourceDefinition) =&gt; readonly DataSourceDiagnostic[]"
+              >
+                <h4>validateGraphQlDataSource</h4>
+                <p class="muted">function • <code>src/graphql/index.ts:159:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">GraphQlDataSourceDefinition</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(definition: GraphQlDataSourceDefinition) =&gt; readonly DataSourceDiagnostic[]</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>definition</code></td>
+                        <td><code>GraphQlDataSourceDefinition</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>readonly DataSourceDiagnostic[]</code></p>
+                </div>
+              </article>
+            </section>
+            <section>
               <h3>src/index.ts</h3>
               <article
                 class="item"
@@ -313,7 +1290,7 @@
                 data-search="DATA_SOURCES_PACKAGE_NAME value src/index.ts "
               >
                 <h4>DATA_SOURCES_PACKAGE_NAME</h4>
-                <p class="muted">value • <code>src/index.ts:6:14</code></p>
+                <p class="muted">value • <code>src/index.ts:7:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -324,7 +1301,7 @@
                 data-search="DataSourcesPackageInfo type src/index.ts "
               >
                 <h4>DataSourcesPackageInfo</h4>
-                <p class="muted">type • <code>src/index.ts:16:1</code></p>
+                <p class="muted">type • <code>src/index.ts:17:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -368,7 +1345,7 @@
                 data-search="getDataSourceKind function src/index.ts  (source: DataSourceConfig) =&gt; DataSourceKind"
               >
                 <h4>getDataSourceKind</h4>
-                <p class="muted">function • <code>src/index.ts:32:1</code></p>
+                <p class="muted">function • <code>src/index.ts:33:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -402,7 +1379,7 @@
                 data-search="getDataSourcesPackageInfo function src/index.ts  DataSourcesPackageInfo () =&gt; DataSourcesPackageInfo"
               >
                 <h4>getDataSourcesPackageInfo</h4>
-                <p class="muted">function • <code>src/index.ts:21:1</code></p>
+                <p class="muted">function • <code>src/index.ts:22:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -424,7 +1401,7 @@
                 data-search="isSupportedDataSourceKind function src/index.ts  (kind: string) =&gt; boolean"
               >
                 <h4>isSupportedDataSourceKind</h4>
-                <p class="muted">function • <code>src/index.ts:28:1</code></p>
+                <p class="muted">function • <code>src/index.ts:29:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -458,7 +1435,7 @@
                 data-search="SUPPORTED_DATA_SOURCE_KINDS value src/index.ts "
               >
                 <h4>SUPPORTED_DATA_SOURCE_KINDS</h4>
-                <p class="muted">value • <code>src/index.ts:8:14</code></p>
+                <p class="muted">value • <code>src/index.ts:9:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1900,7 +2877,10 @@
               <div class="mermaid">
                 graph TD package__ankhorage_data_sources[&quot;@ankhorage/data-sources&quot;]
                 entrypoint_src_index_ts[&quot;src/index.ts&quot;] package__ankhorage_data_sources
-                --&gt; entrypoint_src_index_ts module_src_index_ts[&quot;src/index.ts&quot;]
+                --&gt; entrypoint_src_index_ts
+                module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
+                package__ankhorage_data_sources -.-&gt; module_src_graphql_index_ts
+                module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
                 package__ankhorage_data_sources -.-&gt; module_src_openapi_index_ts
                 module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
@@ -1913,6 +2893,8 @@ graph TD
   package__ankhorage_data_sources[&quot;@ankhorage/data-sources&quot;]
   entrypoint_src_index_ts[&quot;src/index.ts&quot;]
   package__ankhorage_data_sources --&gt; entrypoint_src_index_ts
+  module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_graphql_index_ts
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_openapi_index_ts
@@ -1929,19 +2911,22 @@ graph TD
               <h3>Module relationships</h3>
               <p class="muted"><code>diagrams/module-relationships.mmd</code></p>
               <div class="mermaid">
-                graph LR module_src_index_ts[&quot;src/index.ts&quot;]
+                graph LR module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
+                module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
-                module_src_rest_index_ts[&quot;src/rest/index.ts&quot;] module_src_index_ts -.-&gt;
-                module_src_openapi_index_ts module_src_openapi_index_ts -.-&gt;
-                module_src_rest_index_ts
+                module_src_rest_index_ts[&quot;src/rest/index.ts&quot;] module_src_graphql_index_ts
+                -.-&gt; module_src_index_ts module_src_index_ts -.-&gt; module_src_openapi_index_ts
+                module_src_openapi_index_ts -.-&gt; module_src_rest_index_ts
               </div>
               <details>
                 <summary>View Mermaid source</summary>
                 <pre>
 graph LR
+  module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
   module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
+  module_src_graphql_index_ts -.-&gt; module_src_index_ts
   module_src_index_ts -.-&gt; module_src_openapi_index_ts
   module_src_openapi_index_ts -.-&gt; module_src_rest_index_ts
 </pre
@@ -1952,9 +2937,16 @@ graph LR
               <h3>Export graph</h3>
               <p class="muted"><code>diagrams/export-graph.mmd</code></p>
               <div class="mermaid">
-                graph LR module_src_index_ts[&quot;src/index.ts&quot;]
+                graph LR module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
+                module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
                 module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
+                export_createGraphQlDataSource[&quot;createGraphQlDataSource&quot;]
+                module_src_graphql_index_ts --&gt; export_createGraphQlDataSource
+                export_createGraphQlDataSource -.-&gt; export_GraphQlDataSourceDefinition
+                export_createGraphQlIntrospectionRequest[&quot;createGraphQlIntrospectionRequest&quot;]
+                module_src_graphql_index_ts --&gt; export_createGraphQlIntrospectionRequest
+                export_createGraphQlIntrospectionRequest -.-&gt; export_GraphQlIntrospectionRequest
                 export_createManualRestDataSource[&quot;createManualRestDataSource&quot;]
                 module_src_rest_index_ts --&gt; export_createManualRestDataSource
                 export_createManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
@@ -1969,6 +2961,42 @@ graph LR
                 export_getDataSourcesPackageInfo[&quot;getDataSourcesPackageInfo&quot;]
                 module_src_index_ts --&gt; export_getDataSourcesPackageInfo
                 export_getDataSourcesPackageInfo -.-&gt; export_DataSourcesPackageInfo
+                export_GRAPHQL_INTROSPECTION_QUERY[&quot;GRAPHQL_INTROSPECTION_QUERY&quot;]
+                module_src_graphql_index_ts --&gt; export_GRAPHQL_INTROSPECTION_QUERY
+                export_GraphQlDataSourceDefinition[&quot;GraphQlDataSourceDefinition&quot;]
+                module_src_graphql_index_ts --&gt; export_GraphQlDataSourceDefinition
+                export_GraphQlDataSourceDefinition -.-&gt; export_GraphQlIntrospectionResult
+                export_GraphQlDataSourceDefinition -.-&gt; export_GraphQlOperationDefinition
+                export_GraphQlIntrospectionEnumValue[&quot;GraphQlIntrospectionEnumValue&quot;]
+                module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionEnumValue
+                export_GraphQlIntrospectionField[&quot;GraphQlIntrospectionField&quot;]
+                module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionField
+                export_GraphQlIntrospectionField -.-&gt; export_GraphQlIntrospectionInputValue
+                export_GraphQlIntrospectionField -.-&gt; export_GraphQlIntrospectionTypeRef
+                export_GraphQlIntrospectionInputValue[&quot;GraphQlIntrospectionInputValue&quot;]
+                module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionInputValue
+                export_GraphQlIntrospectionInputValue -.-&gt; export_GraphQlIntrospectionTypeRef
+                export_GraphQlIntrospectionRequest[&quot;GraphQlIntrospectionRequest&quot;]
+                module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionRequest
+                export_GraphQlIntrospectionResult[&quot;GraphQlIntrospectionResult&quot;]
+                module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionResult
+                export_GraphQlIntrospectionResult -.-&gt; export_GraphQlIntrospectionSchema
+                export_GraphQlIntrospectionSchema[&quot;GraphQlIntrospectionSchema&quot;]
+                module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionSchema
+                export_GraphQlIntrospectionSchema -.-&gt; export_GraphQlIntrospectionType
+                export_GraphQlIntrospectionType[&quot;GraphQlIntrospectionType&quot;]
+                module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionType
+                export_GraphQlIntrospectionType -.-&gt; export_GraphQlIntrospectionEnumValue
+                export_GraphQlIntrospectionType -.-&gt; export_GraphQlIntrospectionField
+                export_GraphQlIntrospectionType -.-&gt; export_GraphQlIntrospectionInputValue
+                export_GraphQlIntrospectionType -.-&gt; export_GraphQlIntrospectionTypeRef
+                export_GraphQlIntrospectionTypeRef[&quot;GraphQlIntrospectionTypeRef&quot;]
+                module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionTypeRef
+                export_GraphQlOperationDefinition[&quot;GraphQlOperationDefinition&quot;]
+                module_src_graphql_index_ts --&gt; export_GraphQlOperationDefinition
+                export_GraphQlOperationDefinition -.-&gt; export_GraphQlOperationKind
+                export_GraphQlOperationKind[&quot;GraphQlOperationKind&quot;]
+                module_src_graphql_index_ts --&gt; export_GraphQlOperationKind
                 export_importOpenApiDocument[&quot;importOpenApiDocument&quot;]
                 module_src_openapi_index_ts --&gt; export_importOpenApiDocument
                 export_importOpenApiDocument -.-&gt; export_OpenApiImportInput
@@ -1987,6 +3015,21 @@ graph LR
                 --&gt; export_ManualRestMethod
                 export_ManualRestOperationDefinition[&quot;ManualRestOperationDefinition&quot;]
                 module_src_rest_index_ts --&gt; export_ManualRestOperationDefinition
+                export_normalizeGraphQlDataSource[&quot;normalizeGraphQlDataSource&quot;]
+                module_src_graphql_index_ts --&gt; export_normalizeGraphQlDataSource
+                export_normalizeGraphQlDataSource -.-&gt; export_GraphQlDataSourceDefinition
+                export_normalizeGraphQlIntrospectionOperations[&quot;normalizeGraphQlIntrospectionOperations&quot;]
+                module_src_graphql_index_ts --&gt; export_normalizeGraphQlIntrospectionOperations
+                export_normalizeGraphQlIntrospectionOperations -.-&gt;
+                export_GraphQlIntrospectionResult export_normalizeGraphQlIntrospectionOperations
+                -.-&gt; export_GraphQlOperationDefinition
+                export_normalizeGraphQlIntrospectionSchemas[&quot;normalizeGraphQlIntrospectionSchemas&quot;]
+                module_src_graphql_index_ts --&gt; export_normalizeGraphQlIntrospectionSchemas
+                export_normalizeGraphQlIntrospectionSchemas -.-&gt;
+                export_GraphQlIntrospectionResult
+                export_normalizeGraphQlOperationId[&quot;normalizeGraphQlOperationId&quot;]
+                module_src_graphql_index_ts --&gt; export_normalizeGraphQlOperationId
+                export_normalizeGraphQlOperationId -.-&gt; export_GraphQlOperationKind
                 export_normalizeManualRestDataSource[&quot;normalizeManualRestDataSource&quot;]
                 module_src_rest_index_ts --&gt; export_normalizeManualRestDataSource
                 export_normalizeManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
@@ -2039,6 +3082,9 @@ graph LR
                 module_src_openapi_index_ts --&gt; export_OpenApiServerObject
                 export_SUPPORTED_DATA_SOURCE_KINDS[&quot;SUPPORTED_DATA_SOURCE_KINDS&quot;]
                 module_src_index_ts --&gt; export_SUPPORTED_DATA_SOURCE_KINDS
+                export_validateGraphQlDataSource[&quot;validateGraphQlDataSource&quot;]
+                module_src_graphql_index_ts --&gt; export_validateGraphQlDataSource
+                export_validateGraphQlDataSource -.-&gt; export_GraphQlDataSourceDefinition
                 export_validateManualRestDataSource[&quot;validateManualRestDataSource&quot;]
                 module_src_rest_index_ts --&gt; export_validateManualRestDataSource
                 export_validateManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
@@ -2047,9 +3093,16 @@ graph LR
                 <summary>View Mermaid source</summary>
                 <pre>
 graph LR
+  module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
   module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
+  export_createGraphQlDataSource[&quot;createGraphQlDataSource&quot;]
+  module_src_graphql_index_ts --&gt; export_createGraphQlDataSource
+  export_createGraphQlDataSource -.-&gt; export_GraphQlDataSourceDefinition
+  export_createGraphQlIntrospectionRequest[&quot;createGraphQlIntrospectionRequest&quot;]
+  module_src_graphql_index_ts --&gt; export_createGraphQlIntrospectionRequest
+  export_createGraphQlIntrospectionRequest -.-&gt; export_GraphQlIntrospectionRequest
   export_createManualRestDataSource[&quot;createManualRestDataSource&quot;]
   module_src_rest_index_ts --&gt; export_createManualRestDataSource
   export_createManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
@@ -2064,6 +3117,42 @@ graph LR
   export_getDataSourcesPackageInfo[&quot;getDataSourcesPackageInfo&quot;]
   module_src_index_ts --&gt; export_getDataSourcesPackageInfo
   export_getDataSourcesPackageInfo -.-&gt; export_DataSourcesPackageInfo
+  export_GRAPHQL_INTROSPECTION_QUERY[&quot;GRAPHQL_INTROSPECTION_QUERY&quot;]
+  module_src_graphql_index_ts --&gt; export_GRAPHQL_INTROSPECTION_QUERY
+  export_GraphQlDataSourceDefinition[&quot;GraphQlDataSourceDefinition&quot;]
+  module_src_graphql_index_ts --&gt; export_GraphQlDataSourceDefinition
+  export_GraphQlDataSourceDefinition -.-&gt; export_GraphQlIntrospectionResult
+  export_GraphQlDataSourceDefinition -.-&gt; export_GraphQlOperationDefinition
+  export_GraphQlIntrospectionEnumValue[&quot;GraphQlIntrospectionEnumValue&quot;]
+  module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionEnumValue
+  export_GraphQlIntrospectionField[&quot;GraphQlIntrospectionField&quot;]
+  module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionField
+  export_GraphQlIntrospectionField -.-&gt; export_GraphQlIntrospectionInputValue
+  export_GraphQlIntrospectionField -.-&gt; export_GraphQlIntrospectionTypeRef
+  export_GraphQlIntrospectionInputValue[&quot;GraphQlIntrospectionInputValue&quot;]
+  module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionInputValue
+  export_GraphQlIntrospectionInputValue -.-&gt; export_GraphQlIntrospectionTypeRef
+  export_GraphQlIntrospectionRequest[&quot;GraphQlIntrospectionRequest&quot;]
+  module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionRequest
+  export_GraphQlIntrospectionResult[&quot;GraphQlIntrospectionResult&quot;]
+  module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionResult
+  export_GraphQlIntrospectionResult -.-&gt; export_GraphQlIntrospectionSchema
+  export_GraphQlIntrospectionSchema[&quot;GraphQlIntrospectionSchema&quot;]
+  module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionSchema
+  export_GraphQlIntrospectionSchema -.-&gt; export_GraphQlIntrospectionType
+  export_GraphQlIntrospectionType[&quot;GraphQlIntrospectionType&quot;]
+  module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionType
+  export_GraphQlIntrospectionType -.-&gt; export_GraphQlIntrospectionEnumValue
+  export_GraphQlIntrospectionType -.-&gt; export_GraphQlIntrospectionField
+  export_GraphQlIntrospectionType -.-&gt; export_GraphQlIntrospectionInputValue
+  export_GraphQlIntrospectionType -.-&gt; export_GraphQlIntrospectionTypeRef
+  export_GraphQlIntrospectionTypeRef[&quot;GraphQlIntrospectionTypeRef&quot;]
+  module_src_graphql_index_ts --&gt; export_GraphQlIntrospectionTypeRef
+  export_GraphQlOperationDefinition[&quot;GraphQlOperationDefinition&quot;]
+  module_src_graphql_index_ts --&gt; export_GraphQlOperationDefinition
+  export_GraphQlOperationDefinition -.-&gt; export_GraphQlOperationKind
+  export_GraphQlOperationKind[&quot;GraphQlOperationKind&quot;]
+  module_src_graphql_index_ts --&gt; export_GraphQlOperationKind
   export_importOpenApiDocument[&quot;importOpenApiDocument&quot;]
   module_src_openapi_index_ts --&gt; export_importOpenApiDocument
   export_importOpenApiDocument -.-&gt; export_OpenApiImportInput
@@ -2082,6 +3171,19 @@ graph LR
   module_src_rest_index_ts --&gt; export_ManualRestMethod
   export_ManualRestOperationDefinition[&quot;ManualRestOperationDefinition&quot;]
   module_src_rest_index_ts --&gt; export_ManualRestOperationDefinition
+  export_normalizeGraphQlDataSource[&quot;normalizeGraphQlDataSource&quot;]
+  module_src_graphql_index_ts --&gt; export_normalizeGraphQlDataSource
+  export_normalizeGraphQlDataSource -.-&gt; export_GraphQlDataSourceDefinition
+  export_normalizeGraphQlIntrospectionOperations[&quot;normalizeGraphQlIntrospectionOperations&quot;]
+  module_src_graphql_index_ts --&gt; export_normalizeGraphQlIntrospectionOperations
+  export_normalizeGraphQlIntrospectionOperations -.-&gt; export_GraphQlIntrospectionResult
+  export_normalizeGraphQlIntrospectionOperations -.-&gt; export_GraphQlOperationDefinition
+  export_normalizeGraphQlIntrospectionSchemas[&quot;normalizeGraphQlIntrospectionSchemas&quot;]
+  module_src_graphql_index_ts --&gt; export_normalizeGraphQlIntrospectionSchemas
+  export_normalizeGraphQlIntrospectionSchemas -.-&gt; export_GraphQlIntrospectionResult
+  export_normalizeGraphQlOperationId[&quot;normalizeGraphQlOperationId&quot;]
+  module_src_graphql_index_ts --&gt; export_normalizeGraphQlOperationId
+  export_normalizeGraphQlOperationId -.-&gt; export_GraphQlOperationKind
   export_normalizeManualRestDataSource[&quot;normalizeManualRestDataSource&quot;]
   module_src_rest_index_ts --&gt; export_normalizeManualRestDataSource
   export_normalizeManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
@@ -2134,6 +3236,9 @@ graph LR
   module_src_openapi_index_ts --&gt; export_OpenApiServerObject
   export_SUPPORTED_DATA_SOURCE_KINDS[&quot;SUPPORTED_DATA_SOURCE_KINDS&quot;]
   module_src_index_ts --&gt; export_SUPPORTED_DATA_SOURCE_KINDS
+  export_validateGraphQlDataSource[&quot;validateGraphQlDataSource&quot;]
+  module_src_graphql_index_ts --&gt; export_validateGraphQlDataSource
+  export_validateGraphQlDataSource -.-&gt; export_GraphQlDataSourceDefinition
   export_validateManualRestDataSource[&quot;validateManualRestDataSource&quot;]
   module_src_rest_index_ts --&gt; export_validateManualRestDataSource
   export_validateManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
@@ -2204,6 +3309,157 @@ sequenceDiagram
   participant_normalizeManualRestDataSource-&gt;&gt;participant_normalizeManualRestMethod: normalizeManualRestMethod()
   participant_normalizeManualRestMethod--&gt;&gt;participant_normalizeManualRestDataSource: return
   participant_normalizeManualRestDataSource--&gt;&gt;participant_createManualRestDataSource: return
+</pre
+                >
+              </details>
+            </article>
+            <article
+              class="item"
+              data-search="normalizeGraphQlIntrospectionOperations sequence diagrams/sequences/normalize-graph-ql-introspection-operations.mmd"
+            >
+              <h3>normalizeGraphQlIntrospectionOperations sequence</h3>
+              <p class="muted">
+                <code>diagrams/sequences/normalize-graph-ql-introspection-operations.mmd</code>
+              </p>
+              <div class="mermaid">
+                sequenceDiagram participant participant_appendRootOperations as appendRootOperations
+                participant participant_isGraphQlNonNull as isGraphQlNonNull participant
+                participant_normalizeGraphQlIntrospectionOperations as
+                normalizeGraphQlIntrospectionOperations participant
+                participant_normalizeGraphQlNamedScalar as normalizeGraphQlNamedScalar participant
+                participant_normalizeGraphQlOperationId as normalizeGraphQlOperationId participant
+                participant_normalizeGraphQlTypeRef as normalizeGraphQlTypeRef participant
+                participant_normalizeGraphQlVariablesSchema as normalizeGraphQlVariablesSchema
+                participant_normalizeGraphQlIntrospectionOperations-&gt;&gt;participant_appendRootOperations:
+                appendRootOperations()
+                participant_appendRootOperations-&gt;&gt;participant_normalizeGraphQlOperationId:
+                normalizeGraphQlOperationId()
+                participant_normalizeGraphQlOperationId--&gt;&gt;participant_appendRootOperations:
+                return
+                participant_appendRootOperations-&gt;&gt;participant_normalizeGraphQlVariablesSchema:
+                normalizeGraphQlVariablesSchema()
+                participant_normalizeGraphQlVariablesSchema-&gt;&gt;participant_normalizeGraphQlTypeRef:
+                normalizeGraphQlTypeRef()
+                participant_normalizeGraphQlTypeRef-&gt;&gt;participant_normalizeGraphQlTypeRef:
+                normalizeGraphQlTypeRef()
+                participant_normalizeGraphQlTypeRef-&gt;&gt;participant_normalizeGraphQlNamedScalar:
+                normalizeGraphQlNamedScalar()
+                participant_normalizeGraphQlNamedScalar--&gt;&gt;participant_normalizeGraphQlTypeRef:
+                return
+                participant_normalizeGraphQlTypeRef--&gt;&gt;participant_normalizeGraphQlTypeRef:
+                return
+                participant_normalizeGraphQlTypeRef--&gt;&gt;participant_normalizeGraphQlVariablesSchema:
+                return
+                participant_normalizeGraphQlVariablesSchema-&gt;&gt;participant_isGraphQlNonNull:
+                isGraphQlNonNull()
+                participant_isGraphQlNonNull--&gt;&gt;participant_normalizeGraphQlVariablesSchema:
+                return
+                participant_normalizeGraphQlVariablesSchema--&gt;&gt;participant_appendRootOperations:
+                return participant_appendRootOperations-&gt;&gt;participant_normalizeGraphQlTypeRef:
+                normalizeGraphQlTypeRef()
+                participant_normalizeGraphQlTypeRef--&gt;&gt;participant_appendRootOperations:
+                return
+                participant_appendRootOperations--&gt;&gt;participant_normalizeGraphQlIntrospectionOperations:
+                return
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+sequenceDiagram
+  participant participant_appendRootOperations as appendRootOperations
+  participant participant_isGraphQlNonNull as isGraphQlNonNull
+  participant participant_normalizeGraphQlIntrospectionOperations as normalizeGraphQlIntrospectionOperations
+  participant participant_normalizeGraphQlNamedScalar as normalizeGraphQlNamedScalar
+  participant participant_normalizeGraphQlOperationId as normalizeGraphQlOperationId
+  participant participant_normalizeGraphQlTypeRef as normalizeGraphQlTypeRef
+  participant participant_normalizeGraphQlVariablesSchema as normalizeGraphQlVariablesSchema
+  participant_normalizeGraphQlIntrospectionOperations-&gt;&gt;participant_appendRootOperations: appendRootOperations()
+  participant_appendRootOperations-&gt;&gt;participant_normalizeGraphQlOperationId: normalizeGraphQlOperationId()
+  participant_normalizeGraphQlOperationId--&gt;&gt;participant_appendRootOperations: return
+  participant_appendRootOperations-&gt;&gt;participant_normalizeGraphQlVariablesSchema: normalizeGraphQlVariablesSchema()
+  participant_normalizeGraphQlVariablesSchema-&gt;&gt;participant_normalizeGraphQlTypeRef: normalizeGraphQlTypeRef()
+  participant_normalizeGraphQlTypeRef-&gt;&gt;participant_normalizeGraphQlTypeRef: normalizeGraphQlTypeRef()
+  participant_normalizeGraphQlTypeRef-&gt;&gt;participant_normalizeGraphQlNamedScalar: normalizeGraphQlNamedScalar()
+  participant_normalizeGraphQlNamedScalar--&gt;&gt;participant_normalizeGraphQlTypeRef: return
+  participant_normalizeGraphQlTypeRef--&gt;&gt;participant_normalizeGraphQlTypeRef: return
+  participant_normalizeGraphQlTypeRef--&gt;&gt;participant_normalizeGraphQlVariablesSchema: return
+  participant_normalizeGraphQlVariablesSchema-&gt;&gt;participant_isGraphQlNonNull: isGraphQlNonNull()
+  participant_isGraphQlNonNull--&gt;&gt;participant_normalizeGraphQlVariablesSchema: return
+  participant_normalizeGraphQlVariablesSchema--&gt;&gt;participant_appendRootOperations: return
+  participant_appendRootOperations-&gt;&gt;participant_normalizeGraphQlTypeRef: normalizeGraphQlTypeRef()
+  participant_normalizeGraphQlTypeRef--&gt;&gt;participant_appendRootOperations: return
+  participant_appendRootOperations--&gt;&gt;participant_normalizeGraphQlIntrospectionOperations: return
+</pre
+                >
+              </details>
+            </article>
+            <article
+              class="item"
+              data-search="normalizeGraphQlIntrospectionSchemas sequence diagrams/sequences/normalize-graph-ql-introspection-schemas.mmd"
+            >
+              <h3>normalizeGraphQlIntrospectionSchemas sequence</h3>
+              <p class="muted">
+                <code>diagrams/sequences/normalize-graph-ql-introspection-schemas.mmd</code>
+              </p>
+              <div class="mermaid">
+                sequenceDiagram participant participant_isGraphQlNonNull as isGraphQlNonNull
+                participant participant_normalizeGraphQlIntrospectionSchemas as
+                normalizeGraphQlIntrospectionSchemas participant
+                participant_normalizeGraphQlNamedScalar as normalizeGraphQlNamedScalar participant
+                participant_normalizeGraphQlObjectType as normalizeGraphQlObjectType participant
+                participant_normalizeGraphQlType as normalizeGraphQlType participant
+                participant_normalizeGraphQlTypeRef as normalizeGraphQlTypeRef
+                participant_normalizeGraphQlIntrospectionSchemas-&gt;&gt;participant_normalizeGraphQlType:
+                normalizeGraphQlType()
+                participant_normalizeGraphQlType-&gt;&gt;participant_normalizeGraphQlObjectType:
+                normalizeGraphQlObjectType()
+                participant_normalizeGraphQlObjectType-&gt;&gt;participant_normalizeGraphQlTypeRef:
+                normalizeGraphQlTypeRef()
+                participant_normalizeGraphQlTypeRef-&gt;&gt;participant_normalizeGraphQlTypeRef:
+                normalizeGraphQlTypeRef()
+                participant_normalizeGraphQlTypeRef-&gt;&gt;participant_normalizeGraphQlNamedScalar:
+                normalizeGraphQlNamedScalar()
+                participant_normalizeGraphQlNamedScalar--&gt;&gt;participant_normalizeGraphQlTypeRef:
+                return
+                participant_normalizeGraphQlTypeRef--&gt;&gt;participant_normalizeGraphQlTypeRef:
+                return
+                participant_normalizeGraphQlTypeRef--&gt;&gt;participant_normalizeGraphQlObjectType:
+                return participant_normalizeGraphQlObjectType-&gt;&gt;participant_isGraphQlNonNull:
+                isGraphQlNonNull()
+                participant_isGraphQlNonNull--&gt;&gt;participant_normalizeGraphQlObjectType: return
+                participant_normalizeGraphQlObjectType--&gt;&gt;participant_normalizeGraphQlType:
+                return
+                participant_normalizeGraphQlType-&gt;&gt;participant_normalizeGraphQlNamedScalar:
+                normalizeGraphQlNamedScalar()
+                participant_normalizeGraphQlNamedScalar--&gt;&gt;participant_normalizeGraphQlType:
+                return
+                participant_normalizeGraphQlType--&gt;&gt;participant_normalizeGraphQlIntrospectionSchemas:
+                return
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+sequenceDiagram
+  participant participant_isGraphQlNonNull as isGraphQlNonNull
+  participant participant_normalizeGraphQlIntrospectionSchemas as normalizeGraphQlIntrospectionSchemas
+  participant participant_normalizeGraphQlNamedScalar as normalizeGraphQlNamedScalar
+  participant participant_normalizeGraphQlObjectType as normalizeGraphQlObjectType
+  participant participant_normalizeGraphQlType as normalizeGraphQlType
+  participant participant_normalizeGraphQlTypeRef as normalizeGraphQlTypeRef
+  participant_normalizeGraphQlIntrospectionSchemas-&gt;&gt;participant_normalizeGraphQlType: normalizeGraphQlType()
+  participant_normalizeGraphQlType-&gt;&gt;participant_normalizeGraphQlObjectType: normalizeGraphQlObjectType()
+  participant_normalizeGraphQlObjectType-&gt;&gt;participant_normalizeGraphQlTypeRef: normalizeGraphQlTypeRef()
+  participant_normalizeGraphQlTypeRef-&gt;&gt;participant_normalizeGraphQlTypeRef: normalizeGraphQlTypeRef()
+  participant_normalizeGraphQlTypeRef-&gt;&gt;participant_normalizeGraphQlNamedScalar: normalizeGraphQlNamedScalar()
+  participant_normalizeGraphQlNamedScalar--&gt;&gt;participant_normalizeGraphQlTypeRef: return
+  participant_normalizeGraphQlTypeRef--&gt;&gt;participant_normalizeGraphQlTypeRef: return
+  participant_normalizeGraphQlTypeRef--&gt;&gt;participant_normalizeGraphQlObjectType: return
+  participant_normalizeGraphQlObjectType-&gt;&gt;participant_isGraphQlNonNull: isGraphQlNonNull()
+  participant_isGraphQlNonNull--&gt;&gt;participant_normalizeGraphQlObjectType: return
+  participant_normalizeGraphQlObjectType--&gt;&gt;participant_normalizeGraphQlType: return
+  participant_normalizeGraphQlType-&gt;&gt;participant_normalizeGraphQlNamedScalar: normalizeGraphQlNamedScalar()
+  participant_normalizeGraphQlNamedScalar--&gt;&gt;participant_normalizeGraphQlType: return
+  participant_normalizeGraphQlType--&gt;&gt;participant_normalizeGraphQlIntrospectionSchemas: return
 </pre
                 >
               </details>
@@ -2365,22 +3621,150 @@ sequenceDiagram
             </article>
           </section>
         </section>
+        <section
+          id="view-src-graphql-index-ts"
+          class="view"
+          data-view="src/graphql/index.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/graphql/index.ts</h2>
+            <article
+              class="item"
+              data-search="createGraphQlIntrospectionRequest src/graphql/index.ts "
+            >
+              <h3>createGraphQlIntrospectionRequest</h3>
+              <p class="muted"><code>src/graphql/index.ts:128:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeGraphQlOperationId src/graphql/index.ts ">
+              <h3>normalizeGraphQlOperationId</h3>
+              <p class="muted"><code>src/graphql/index.ts:135:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="createGraphQlDataSource src/graphql/index.ts ">
+              <h3>createGraphQlDataSource</h3>
+              <p class="muted"><code>src/graphql/index.ts:144:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="validateGraphQlDataSource src/graphql/index.ts ">
+              <h3>validateGraphQlDataSource</h3>
+              <p class="muted"><code>src/graphql/index.ts:159:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeGraphQlDataSource src/graphql/index.ts ">
+              <h3>normalizeGraphQlDataSource</h3>
+              <p class="muted"><code>src/graphql/index.ts:198:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="normalizeGraphQlIntrospectionSchemas src/graphql/index.ts "
+            >
+              <h3>normalizeGraphQlIntrospectionSchemas</h3>
+              <p class="muted"><code>src/graphql/index.ts:240:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="normalizeGraphQlIntrospectionOperations src/graphql/index.ts "
+            >
+              <h3>normalizeGraphQlIntrospectionOperations</h3>
+              <p class="muted"><code>src/graphql/index.ts:256:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="appendRootOperations src/graphql/index.ts ">
+              <h3>appendRootOperations</h3>
+              <p class="muted"><code>src/graphql/index.ts:272:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeGraphQlOperation src/graphql/index.ts ">
+              <h3>normalizeGraphQlOperation</h3>
+              <p class="muted"><code>src/graphql/index.ts:298:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="mapGraphQlOperationKindToIntent src/graphql/index.ts "
+            >
+              <h3>mapGraphQlOperationKindToIntent</h3>
+              <p class="muted"><code>src/graphql/index.ts:321:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="normalizeGraphQlVariablesSchema src/graphql/index.ts "
+            >
+              <h3>normalizeGraphQlVariablesSchema</h3>
+              <p class="muted"><code>src/graphql/index.ts:326:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeGraphQlType src/graphql/index.ts ">
+              <h3>normalizeGraphQlType</h3>
+              <p class="muted"><code>src/graphql/index.ts:348:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeGraphQlObjectType src/graphql/index.ts ">
+              <h3>normalizeGraphQlObjectType</h3>
+              <p class="muted"><code>src/graphql/index.ts:384:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeGraphQlTypeRef src/graphql/index.ts ">
+              <h3>normalizeGraphQlTypeRef</h3>
+              <p class="muted"><code>src/graphql/index.ts:410:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeGraphQlNamedScalar src/graphql/index.ts ">
+              <h3>normalizeGraphQlNamedScalar</h3>
+              <p class="muted"><code>src/graphql/index.ts:436:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isGraphQlNonNull src/graphql/index.ts ">
+              <h3>isGraphQlNonNull</h3>
+              <p class="muted"><code>src/graphql/index.ts:448:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isNamedGraphQlType src/graphql/index.ts ">
+              <h3>isNamedGraphQlType</h3>
+              <p class="muted"><code>src/graphql/index.ts:452:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="createGraphQlOperationMetadata src/graphql/index.ts "
+            >
+              <h3>createGraphQlOperationMetadata</h3>
+              <p class="muted"><code>src/graphql/index.ts:456:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="toMetadataRecord src/graphql/index.ts ">
+              <h3>toMetadataRecord</h3>
+              <p class="muted"><code>src/graphql/index.ts:471:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isDataContractRecord src/graphql/index.ts ">
+              <h3>isDataContractRecord</h3>
+              <p class="muted"><code>src/graphql/index.ts:482:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
         <section id="view-src-index-ts" class="view" data-view="src/index.ts" hidden>
           <section class="panel">
             <h2>src/index.ts</h2>
             <article class="item" data-search="getDataSourcesPackageInfo src/index.ts ">
               <h3>getDataSourcesPackageInfo</h3>
-              <p class="muted"><code>src/index.ts:21:1</code></p>
+              <p class="muted"><code>src/index.ts:22:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="isSupportedDataSourceKind src/index.ts ">
               <h3>isSupportedDataSourceKind</h3>
-              <p class="muted"><code>src/index.ts:28:1</code></p>
+              <p class="muted"><code>src/index.ts:29:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="getDataSourceKind src/index.ts ">
               <h3>getDataSourceKind</h3>
-              <p class="muted"><code>src/index.ts:32:1</code></p>
+              <p class="muted"><code>src/index.ts:33:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>
