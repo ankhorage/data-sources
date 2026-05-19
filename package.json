@@ -1,0 +1,65 @@
+{
+  "name": "@ankhorage/data-sources",
+  "type": "module",
+  "version": "2.4.8",
+  "description": "Provider-neutral data source and endpoint system for APIs, databases, and runtime bindings.",
+  "homepage": "https://github.com/ankhorage/data-sources#readme",
+  "bugs": {
+    "url": "https://github.com/ankhorage/data-sources/issues"
+  },
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "sideEffects": false,
+  "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankhorage/data-sources.git"
+  },
+  "keywords": [
+    "data-sources"
+  ],
+  "dependencies": {},
+  "files": [
+    "dist",
+    "src",
+    "package.json",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "browser": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.json",
+    "changeset": "changeset",
+    "changeset:status": "changeset status --since=origin/main",
+    "docs": "paradox",
+    "knip": "ankhorage-knip",
+    "lint": "ankhorage-eslint . --max-warnings=0",
+    "lint:fix": "ankhorage-eslint . --fix --max-warnings=0",
+    "format": "ankhorage-prettier --write .",
+    "format:check": "ankhorage-prettier --check .",
+    "prepack": "bun run build",
+    "test": "bun test src",
+    "typecheck": "bun x tsc --noEmit -p tsconfig.json",
+    "version-packages": "changeset version"
+  },
+  "devDependencies": {
+    "@ankhorage/devtools": "^1.0.6",
+    "@ankhorage/paradox": "^0.1.7",
+    "@types/bun": "^1.3.13",
+    "@types/node": "^25.6.0",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "bun@1.3.13"
+}
