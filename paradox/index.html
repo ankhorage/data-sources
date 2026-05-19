@@ -7,37 +7,16 @@
     <style>
       :root {
         color-scheme: light;
-        font-family:
-          Inter,
-          ui-sans-serif,
-          system-ui,
-          -apple-system,
-          BlinkMacSystemFont,
-          'Segoe UI',
-          sans-serif;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         background: #f5f7fb;
         color: #11203b;
       }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-      }
-      a {
-        color: #2459d3;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      button {
-        font: inherit;
-      }
-      code,
-      pre {
-        font-family: 'SFMono-Regular', ui-monospace, SFMono-Regular, Menlo, monospace;
-      }
+      * { box-sizing: border-box; }
+      body { margin: 0; }
+      a { color: #2459d3; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      button { font: inherit; }
+      code, pre { font-family: "SFMono-Regular", ui-monospace, SFMono-Regular, Menlo, monospace; }
       .layout {
         display: grid;
         grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
@@ -52,11 +31,8 @@
         max-height: 100vh;
         overflow: auto;
       }
-      .content {
-        padding: 2rem;
-      }
-      .panel,
-      .item {
+      .content { padding: 2rem; }
+      .panel, .item {
         background: #ffffff;
         border: 1px solid #d8dfec;
         border-radius: 0.9rem;
@@ -80,15 +56,12 @@
         border: 1px solid #c7d2e5;
         margin: 1rem 0 1.5rem;
       }
-      .nav-list,
-      .meta-list {
+      .nav-list, .meta-list {
         list-style: none;
         padding: 0;
         margin: 0;
       }
-      .nav-list li + li {
-        margin-top: 0.5rem;
-      }
+      .nav-list li + li { margin-top: 0.5rem; }
       .nav-button {
         width: 100%;
         display: block;
@@ -100,8 +73,7 @@
         padding: 0.55rem 0.7rem;
         text-align: left;
       }
-      .nav-button:hover,
-      .nav-button[aria-current='page'] {
+      .nav-button:hover, .nav-button[aria-current="page"] {
         background: #e8eefb;
         text-decoration: none;
       }
@@ -110,19 +82,9 @@
         color: #5e6d8c;
         margin-top: 0.15rem;
       }
-      .view[hidden] {
-        display: none;
-      }
-      .muted {
-        color: #5e6d8c;
-      }
-      .chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        padding: 0;
-        list-style: none;
-      }
+      .view[hidden] { display: none; }
+      .muted { color: #5e6d8c; }
+      .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0; list-style: none; }
       .chip {
         border-radius: 999px;
         background: #e8eefb;
@@ -130,18 +92,8 @@
         padding: 0.25rem 0.65rem;
         font-size: 0.85rem;
       }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 0.8rem;
-      }
-      th,
-      td {
-        padding: 0.6rem;
-        border-bottom: 1px solid #e2e7f2;
-        text-align: left;
-        vertical-align: top;
-      }
+      table { width: 100%; border-collapse: collapse; margin-top: 0.8rem; }
+      th, td { padding: 0.6rem; border-bottom: 1px solid #e2e7f2; text-align: left; vertical-align: top; }
       pre {
         overflow: auto;
         border-radius: 0.75rem;
@@ -149,34 +101,13 @@
         color: #e7edf7;
         padding: 1rem;
       }
-      .empty {
-        font-style: italic;
-        color: #6f7f9c;
-      }
-      .mermaid {
-        margin: 1rem 0;
-        overflow: auto;
-      }
-      details > summary {
-        cursor: pointer;
-        color: #5e6d8c;
-        font-size: 0.9rem;
-        margin-top: 0.5rem;
-        user-select: none;
-      }
+      .empty { font-style: italic; color: #6f7f9c; }
+      .mermaid { margin: 1rem 0; overflow: auto; }
+      details > summary { cursor: pointer; color: #5e6d8c; font-size: 0.9rem; margin-top: 0.5rem; user-select: none; }
       @media (max-width: 900px) {
-        .layout {
-          grid-template-columns: 1fr;
-        }
-        .sidebar {
-          position: static;
-          max-height: none;
-          border-right: 0;
-          border-bottom: 1px solid #d8dfec;
-        }
-        .content {
-          padding: 1rem;
-        }
+        .layout { grid-template-columns: 1fr; }
+        .sidebar { position: static; max-height: none; border-right: 0; border-bottom: 1px solid #d8dfec; }
+        .content { padding: 1rem; }
       }
     </style>
   </head>
@@ -185,10 +116,7 @@
       <aside class="sidebar">
         <p class="muted">Generated with Paradox</p>
         <h1>@ankhorage/data-sources</h1>
-        <p>
-          Provider-neutral data source and endpoint system for APIs, databases, and runtime
-          bindings.
-        </p>
+        <p>Provider-neutral data source and endpoint system for APIs, databases, and runtime bindings.</p>
         <input id="search" class="search" type="search" placeholder="Search current view" />
         <nav aria-label="Documentation sections">
           <ul class="nav-list">
@@ -198,97 +126,244 @@
                 <small>Overview, CLI, public API, diagrams</small>
               </button>
             </li>
+            <li>
+    <button class="nav-button" type="button" data-target="src/index.ts">
+      src/index.ts
+      <small>3 functions</small>
+    </button>
+  </li>
           </ul>
         </nav>
       </aside>
       <main class="content">
         <section id="view-home" class="view" data-view="home">
-          <section class="panel">
-            <h2>Package overview</h2>
-            <div class="summary">
-              <div><strong>0</strong><span class="muted">public exports</span></div>
-              <div><strong>0</strong><span class="muted">components</span></div>
-              <div><strong>1</strong><span class="muted">modules</span></div>
-              <div><strong>1</strong><span class="muted">entrypoints</span></div>
-            </div>
-            <h3>Entrypoints</h3>
-            <ul class="meta-list">
-              <li><code>src/index.ts</code></li>
-            </ul>
-          </section>
-
-          <section class="panel">
-            <h2>Modules</h2>
-            <article class="item" data-search="src/index.ts">
+          
+    <section class="panel">
+      <h2>Package overview</h2>
+      <div class="summary">
+        <div><strong>6</strong><span class="muted">public exports</span></div>
+        <div><strong>0</strong><span class="muted">components</span></div>
+        <div><strong>1</strong><span class="muted">modules</span></div>
+        <div><strong>1</strong><span class="muted">entrypoints</span></div>
+      </div>
+      <h3>Entrypoints</h3>
+      <ul class="meta-list">
+        <li><code>src/index.ts</code></li>
+      </ul>
+    </section>
+    
+    <section class="panel">
+      <h2>Modules</h2>
+      <article class="item" data-search="src/index.ts DATA_SOURCES_PACKAGE_NAME DataSourcesPackageInfo getDataSourceKind getDataSourcesPackageInfo isSupportedDataSourceKind SUPPORTED_DATA_SOURCE_KINDS">
+    <h3>src/index.ts</h3>
+    <p class="muted">Configured entrypoint</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <code>DATA_SOURCES_PACKAGE_NAME</code>, <code>DataSourcesPackageInfo</code>, <code>getDataSourceKind</code>, <code>getDataSourcesPackageInfo</code>, <code>isSupportedDataSourceKind</code>, <code>SUPPORTED_DATA_SOURCE_KINDS</code></p>
+  </article>
+    </section>
+    <section class="panel">
+      <h2>Public API</h2>
+      
+            <section>
               <h3>src/index.ts</h3>
-              <p class="muted">Configured entrypoint</p>
-              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-              <p><strong>Exports:</strong> <span class="empty">None</span></p>
-            </article>
-          </section>
-          <section class="panel">
-            <h2>Public API</h2>
-          </section>
-          <section class="panel">
-            <h2>Component registry</h2>
-            <p class="empty">No components were detected.</p>
-          </section>
-          <section class="panel">
-            <h2>Diagrams</h2>
-            <article
-              class="item"
-              data-search="Architecture overview diagrams/architecture-overview.mmd"
-            >
-              <h3>Architecture overview</h3>
-              <p class="muted"><code>diagrams/architecture-overview.mmd</code></p>
-              <div class="mermaid">
-                graph TD package__ankhorage_data_sources[&quot;@ankhorage/data-sources&quot;]
-                entrypoint_src_index_ts[&quot;src/index.ts&quot;] package__ankhorage_data_sources
-                --&gt; entrypoint_src_index_ts module_src_index_ts[&quot;src/index.ts&quot;]
-              </div>
-              <details>
-                <summary>View Mermaid source</summary>
-                <pre>
-graph TD
+              <article class="item" id="symbol-data-sources-package-name" data-search="DATA_SOURCES_PACKAGE_NAME value src/index.ts ">
+    <h4>DATA_SOURCES_PACKAGE_NAME</h4>
+    <p class="muted">value • <code>src/index.ts:3:14</code></p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    
+  </article><article class="item" id="symbol-datasourcespackageinfo" data-search="DataSourcesPackageInfo type src/index.ts ">
+    <h4>DataSourcesPackageInfo</h4>
+    <p class="muted">type • <code>src/index.ts:13:1</code></p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>packageName</code></td>
+            <td>property</td>
+            <td><code>&quot;@ankhorage/data-sources&quot;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>supportedKinds</code></td>
+            <td>property</td>
+            <td><code>readonly [&quot;database&quot;, &quot;graphql&quot;, &quot;managed-api&quot;, &quot;openapi&quot;, &quot;rest&quot;]</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-getdatasourcekind" data-search="getDataSourceKind function src/index.ts  (source: DataSourceConfig) =&gt; DataSourceKind">
+    <h4>getDataSourceKind</h4>
+    <p class="muted">function • <code>src/index.ts:29:1</code></p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>(source: DataSourceConfig) =&gt; DataSourceKind</pre>
+        <table>
+                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                        <td><code>source</code></td>
+                        <td><code>DataSourceConfig</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+              </table>
+        <p><strong>Returns:</strong> <code>DataSourceKind</code></p>
+      </div>
+    
+  </article><article class="item" id="symbol-getdatasourcespackageinfo" data-search="getDataSourcesPackageInfo function src/index.ts  DataSourcesPackageInfo () =&gt; DataSourcesPackageInfo">
+    <h4>getDataSourcesPackageInfo</h4>
+    <p class="muted">function • <code>src/index.ts:18:1</code></p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">DataSourcesPackageInfo</li></ul></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>() =&gt; DataSourcesPackageInfo</pre>
+        
+        <p><strong>Returns:</strong> <code>DataSourcesPackageInfo</code></p>
+      </div>
+    
+  </article><article class="item" id="symbol-issupporteddatasourcekind" data-search="isSupportedDataSourceKind function src/index.ts  (kind: string) =&gt; boolean">
+    <h4>isSupportedDataSourceKind</h4>
+    <p class="muted">function • <code>src/index.ts:25:1</code></p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>(kind: string) =&gt; boolean</pre>
+        <table>
+                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                        <td><code>kind</code></td>
+                        <td><code>string</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+              </table>
+        <p><strong>Returns:</strong> <code>boolean</code></p>
+      </div>
+    
+  </article><article class="item" id="symbol-supported-data-source-kinds" data-search="SUPPORTED_DATA_SOURCE_KINDS value src/index.ts ">
+    <h4>SUPPORTED_DATA_SOURCE_KINDS</h4>
+    <p class="muted">value • <code>src/index.ts:5:14</code></p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    
+  </article>
+            </section>
+    </section>
+    <section class="panel">
+      <h2>Component registry</h2>
+      <p class="empty">No components were detected.</p>
+    </section>
+    <section class="panel">
+      <h2>Diagrams</h2>
+      <article class="item" data-search="Architecture overview diagrams/architecture-overview.mmd">
+    <h3>Architecture overview</h3>
+    <p class="muted"><code>diagrams/architecture-overview.mmd</code></p>
+    <div class="mermaid">graph TD
   package__ankhorage_data_sources[&quot;@ankhorage/data-sources&quot;]
   entrypoint_src_index_ts[&quot;src/index.ts&quot;]
   package__ankhorage_data_sources --&gt; entrypoint_src_index_ts
   module_src_index_ts[&quot;src/index.ts&quot;]
-</pre
-                >
-              </details>
-            </article>
-            <article
-              class="item"
-              data-search="Module relationships diagrams/module-relationships.mmd"
-            >
-              <h3>Module relationships</h3>
-              <p class="muted"><code>diagrams/module-relationships.mmd</code></p>
-              <div class="mermaid">graph LR module_src_index_ts[&quot;src/index.ts&quot;]</div>
-              <details>
-                <summary>View Mermaid source</summary>
-                <pre>
-graph LR
+</div>
+    <details>
+      <summary>View Mermaid source</summary>
+      <pre>graph TD
+  package__ankhorage_data_sources[&quot;@ankhorage/data-sources&quot;]
+  entrypoint_src_index_ts[&quot;src/index.ts&quot;]
+  package__ankhorage_data_sources --&gt; entrypoint_src_index_ts
   module_src_index_ts[&quot;src/index.ts&quot;]
-</pre
-                >
-              </details>
-            </article>
-            <article class="item" data-search="Export graph diagrams/export-graph.mmd">
-              <h3>Export graph</h3>
-              <p class="muted"><code>diagrams/export-graph.mmd</code></p>
-              <div class="mermaid">graph LR module_src_index_ts[&quot;src/index.ts&quot;]</div>
-              <details>
-                <summary>View Mermaid source</summary>
-                <pre>
-graph LR
+</pre>
+    </details>
+  </article><article class="item" data-search="Module relationships diagrams/module-relationships.mmd">
+    <h3>Module relationships</h3>
+    <p class="muted"><code>diagrams/module-relationships.mmd</code></p>
+    <div class="mermaid">graph LR
   module_src_index_ts[&quot;src/index.ts&quot;]
-</pre
-                >
-              </details>
-            </article>
-          </section>
+</div>
+    <details>
+      <summary>View Mermaid source</summary>
+      <pre>graph LR
+  module_src_index_ts[&quot;src/index.ts&quot;]
+</pre>
+    </details>
+  </article><article class="item" data-search="Export graph diagrams/export-graph.mmd">
+    <h3>Export graph</h3>
+    <p class="muted"><code>diagrams/export-graph.mmd</code></p>
+    <div class="mermaid">graph LR
+  module_src_index_ts[&quot;src/index.ts&quot;]
+  export_DATA_SOURCES_PACKAGE_NAME[&quot;DATA_SOURCES_PACKAGE_NAME&quot;]
+  module_src_index_ts --&gt; export_DATA_SOURCES_PACKAGE_NAME
+  export_DataSourcesPackageInfo[&quot;DataSourcesPackageInfo&quot;]
+  module_src_index_ts --&gt; export_DataSourcesPackageInfo
+  export_getDataSourceKind[&quot;getDataSourceKind&quot;]
+  module_src_index_ts --&gt; export_getDataSourceKind
+  export_getDataSourcesPackageInfo[&quot;getDataSourcesPackageInfo&quot;]
+  module_src_index_ts --&gt; export_getDataSourcesPackageInfo
+  export_getDataSourcesPackageInfo -.-&gt; export_DataSourcesPackageInfo
+  export_isSupportedDataSourceKind[&quot;isSupportedDataSourceKind&quot;]
+  module_src_index_ts --&gt; export_isSupportedDataSourceKind
+  export_SUPPORTED_DATA_SOURCE_KINDS[&quot;SUPPORTED_DATA_SOURCE_KINDS&quot;]
+  module_src_index_ts --&gt; export_SUPPORTED_DATA_SOURCE_KINDS
+</div>
+    <details>
+      <summary>View Mermaid source</summary>
+      <pre>graph LR
+  module_src_index_ts[&quot;src/index.ts&quot;]
+  export_DATA_SOURCES_PACKAGE_NAME[&quot;DATA_SOURCES_PACKAGE_NAME&quot;]
+  module_src_index_ts --&gt; export_DATA_SOURCES_PACKAGE_NAME
+  export_DataSourcesPackageInfo[&quot;DataSourcesPackageInfo&quot;]
+  module_src_index_ts --&gt; export_DataSourcesPackageInfo
+  export_getDataSourceKind[&quot;getDataSourceKind&quot;]
+  module_src_index_ts --&gt; export_getDataSourceKind
+  export_getDataSourcesPackageInfo[&quot;getDataSourcesPackageInfo&quot;]
+  module_src_index_ts --&gt; export_getDataSourcesPackageInfo
+  export_getDataSourcesPackageInfo -.-&gt; export_DataSourcesPackageInfo
+  export_isSupportedDataSourceKind[&quot;isSupportedDataSourceKind&quot;]
+  module_src_index_ts --&gt; export_isSupportedDataSourceKind
+  export_SUPPORTED_DATA_SOURCE_KINDS[&quot;SUPPORTED_DATA_SOURCE_KINDS&quot;]
+  module_src_index_ts --&gt; export_SUPPORTED_DATA_SOURCE_KINDS
+</pre>
+    </details>
+  </article>
+    </section>
         </section>
+        <section id="view-src-index-ts" class="view" data-view="src/index.ts" hidden>
+    <section class="panel">
+      <h2>src/index.ts</h2>
+      <article class="item" data-search="getDataSourcesPackageInfo src/index.ts ">
+    <h3>getDataSourcesPackageInfo</h3>
+    <p class="muted"><code>src/index.ts:18:1</code></p>
+    <p class="empty">No description available.</p>
+  </article><article class="item" data-search="isSupportedDataSourceKind src/index.ts ">
+    <h3>isSupportedDataSourceKind</h3>
+    <p class="muted"><code>src/index.ts:25:1</code></p>
+    <p class="empty">No description available.</p>
+  </article><article class="item" data-search="getDataSourceKind src/index.ts ">
+    <h3>getDataSourceKind</h3>
+    <p class="muted"><code>src/index.ts:29:1</code></p>
+    <p class="empty">No description available.</p>
+  </article>
+    </section>
+  </section>
       </main>
     </div>
     <script>

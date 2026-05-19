@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v2.4.8",
+      "value": "v0.0.0",
       "color": "cb3837"
     },
     {
@@ -60,23 +60,274 @@
   ],
   "usage": null,
   "config": null,
-  "entrypoints": ["src/index.ts"],
+  "entrypoints": [
+    "src/index.ts"
+  ],
   "modules": [
     {
       "path": "src/index.ts",
       "isEntrypoint": true,
       "dependencies": [],
-      "exports": []
+      "exports": [
+        "DATA_SOURCES_PACKAGE_NAME",
+        "DataSourcesPackageInfo",
+        "getDataSourceKind",
+        "getDataSourcesPackageInfo",
+        "isSupportedDataSourceKind",
+        "SUPPORTED_DATA_SOURCE_KINDS"
+      ]
     }
   ],
-  "exports": [],
+  "exports": [
+    {
+      "name": "DATA_SOURCES_PACKAGE_NAME",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/index.ts",
+      "sourceLocation": {
+        "filePath": "src/index.ts",
+        "line": 3,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "DataSourcesPackageInfo",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/index.ts",
+      "sourceLocation": {
+        "filePath": "src/index.ts",
+        "line": 13,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "packageName",
+          "kind": "property",
+          "type": "\"@ankhorage/data-sources\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "supportedKinds",
+          "kind": "property",
+          "type": "readonly [\"database\", \"graphql\", \"managed-api\", \"openapi\", \"rest\"]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "getDataSourceKind",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/index.ts",
+      "sourceLocation": {
+        "filePath": "src/index.ts",
+        "line": 29,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(source: DataSourceConfig) => DataSourceKind",
+          "parameters": [
+            {
+              "name": "source",
+              "type": "DataSourceConfig",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "DataSourceKind",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "getDataSourcesPackageInfo",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/index.ts",
+      "sourceLocation": {
+        "filePath": "src/index.ts",
+        "line": 18,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "DataSourcesPackageInfo"
+      ],
+      "signatures": [
+        {
+          "label": "() => DataSourcesPackageInfo",
+          "parameters": [],
+          "returnType": "DataSourcesPackageInfo",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "isSupportedDataSourceKind",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/index.ts",
+      "sourceLocation": {
+        "filePath": "src/index.ts",
+        "line": 25,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(kind: string) => boolean",
+          "parameters": [
+            {
+              "name": "kind",
+              "type": "string",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "boolean",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SUPPORTED_DATA_SOURCE_KINDS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/index.ts",
+      "sourceLocation": {
+        "filePath": "src/index.ts",
+        "line": 5,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    }
+  ],
   "components": [],
-  "sourceFunctions": [],
-  "sequenceScenarios": [],
+  "sourceFunctions": [
+    {
+      "name": "getDataSourcesPackageInfo",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/index.ts",
+        "line": 18,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSupportedDataSourceKind",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/index.ts",
+        "line": 25,
+        "column": 1
+      }
+    },
+    {
+      "name": "getDataSourceKind",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/index.ts",
+        "line": 29,
+        "column": 1
+      }
+    }
+  ],
+  "sequenceScenarios": [
+    {
+      "kind": "export",
+      "name": "getDataSourceKind",
+      "sourcePath": "src/index.ts",
+      "symbolName": "getDataSourceKind",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "getDataSourcesPackageInfo",
+      "sourcePath": "src/index.ts",
+      "symbolName": "getDataSourcesPackageInfo",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "isSupportedDataSourceKind",
+      "sourcePath": "src/index.ts",
+      "symbolName": "isSupportedDataSourceKind",
+      "description": null,
+      "isReadme": false
+    }
+  ],
   "graphs": {
     "imports": [],
     "calls": [],
-    "typeReferences": [],
+    "typeReferences": [
+      {
+        "fromSymbol": "getDataSourcesPackageInfo",
+        "toType": "DataSourcesPackageInfo",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromSymbol": "getDataSourceKind",
+        "toType": "DataSourceConfig",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromSymbol": "getDataSourceKind",
+        "toType": "DataSourceKind",
+        "sourcePath": "src/index.ts"
+      }
+    ],
     "componentComposition": []
   }
 }
