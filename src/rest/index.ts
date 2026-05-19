@@ -68,15 +68,15 @@ export function normalizeManualRestMethod(method: string): DataOperationMethod {
 export function extractRestPathParams(path: string): readonly string[] {
   const params = new Set<string>();
   const bracedParamPattern = /\{([A-Za-z_][A-Za-z0-9_]*)\}/g;
-  const colonParamPattern = /(^|\/)\:([A-Za-z_][A-Za-z0-9_]*)/g;
+  const colonParamPattern = /(^|\/):([A-Za-z_][A-Za-z0-9_]*)/g;
 
   for (const match of path.matchAll(bracedParamPattern)) {
-    const param = match[1];
+    const [, param] = match;
     if (param !== undefined) params.add(param);
   }
 
   for (const match of path.matchAll(colonParamPattern)) {
-    const param = match[2];
+    const [, , param] = match;
     if (param !== undefined) params.add(param);
   }
 
