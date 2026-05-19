@@ -4066,7 +4066,7 @@
       }
     },
     {
-      "name": "joinUrl",
+      "name": "serializeEndpointUrlValue",
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
@@ -4075,16 +4075,16 @@
       }
     },
     {
-      "name": "getStringValue",
+      "name": "joinUrl",
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 454,
+        "line": 455,
         "column": 1
       }
     },
     {
-      "name": "getRecordValue",
+      "name": "getStringValue",
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
@@ -4093,7 +4093,7 @@
       }
     },
     {
-      "name": "getStringMetadataValue",
+      "name": "getRecordValue",
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
@@ -4102,11 +4102,20 @@
       }
     },
     {
+      "name": "getStringMetadataValue",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/index.ts",
+        "line": 478,
+        "column": 1
+      }
+    },
+    {
       "name": "createDiagnostic",
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 480,
+        "line": 488,
         "column": 1
       }
     },
@@ -4115,7 +4124,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 495,
+        "line": 503,
         "column": 1
       }
     },
@@ -4124,7 +4133,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 500,
+        "line": 508,
         "column": 1
       }
     },
@@ -4133,7 +4142,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 516,
+        "line": 524,
         "column": 1
       }
     }
@@ -5052,6 +5061,12 @@
         "sourcePath": "src/test-runner/index.ts"
       },
       {
+        "fromSymbol": "interpolatePath",
+        "toSymbol": "serializeEndpointUrlValue",
+        "callExpression": "serializeEndpointUrlValue",
+        "sourcePath": "src/test-runner/index.ts"
+      },
+      {
         "fromSymbol": "createResponseDiagnostic",
         "toSymbol": "text",
         "callExpression": "response.text",
@@ -5067,6 +5082,12 @@
         "fromSymbol": "parseResponseBody",
         "toSymbol": "isDataContractValue",
         "callExpression": "isDataContractValue",
+        "sourcePath": "src/test-runner/index.ts"
+      },
+      {
+        "fromSymbol": "src/test-runner/index.ts",
+        "toSymbol": "serializeEndpointUrlValue",
+        "callExpression": "serializeEndpointUrlValue",
         "sourcePath": "src/test-runner/index.ts"
       },
       {

@@ -437,7 +437,10 @@ function appendQuery(url: string, query: EndpointTestInputValues): string {
   if (entries.length === 0) return url;
 
   const search = entries
-    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(serializeEndpointUrlValue(value))}`)
+    .map(
+      ([key, value]) =>
+        `${encodeURIComponent(key)}=${encodeURIComponent(serializeEndpointUrlValue(value))}`,
+    )
     .join('&');
   const separator = url.includes('?') ? '&' : '?';
 
