@@ -1,5 +1,6 @@
 import type {
   AdapterRef,
+  DataContractValue,
   DataEndpointConfig,
   DataOperationConfig,
   DataOperationIntent,
@@ -23,7 +24,7 @@ export type ManagedApiCrudOperation = (typeof MANAGED_API_CRUD_OPERATIONS)[numbe
 
 export interface ManagedApiOperationPolicyRef {
   readonly id: string;
-  readonly operation?: ManagedApiCrudOperation | string;
+  readonly operation?: string;
 }
 
 export interface ManagedApiGenerationResourceDefinition {
@@ -127,7 +128,7 @@ export function normalizeManagedApiDataSource(
       name: resource.name,
       collection: resource.collection,
       operations,
-      metadata: resource.policies === undefined ? undefined : { policies: resource.policies },
+      metadata: createManagedApiResourceMetadata(resource),
     };
 
     resources.push(resourceConfig);
@@ -230,6 +231,26 @@ export function createManagedApiResourceSchema(collection: DbCollectionDefinitio
   };
 }
 
+function createManagedApiResourceMetadata(
+  resource: ManagedApiGenerationResourceDefinition,
+): DataContractValue | undefined {
+  if (resource.policies === undefined) return undefined;
+
+  return {
+    policies: resource.policies.map((policy) => {
+      const metadata: Record<string, DataContractValue> = {
+        id: policy.id,
+      };
+
+      if (policy.operation !== undefined) {
+        metadata.operation = policy.operation;
+      }
+
+      return metadata;
+    }),
+  };
+}
+
 function createManagedApiOperationName(
   resourceName: string,
   operation: ManagedApiCrudOperation,
@@ -314,7 +335,7 @@ function createPrimaryKeyParameter(primaryKey: string): DataOperationParameter {
     location: 'path',
     required: true,
     schema: {
-      type: primaryKey.toLowerCase().endsWith('id') ? 'string' : 'string',
+      type: 'string',
     },
   };
 }
