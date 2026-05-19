@@ -128,9 +128,9 @@ describe('GraphQL introspection normalization', () => {
       expect(result.data.introspection?.enabled).toBe(true);
       expect(result.data.endpoints.graphql?.operations['query.posts']?.intent).toBe('read');
       expect(result.data.endpoints.graphql?.operations['mutation.createpost']?.intent).toBe('action');
-      expect(result.data.endpoints.graphql?.operations['mutation.createpost']?.request?.schema?.required).toContain(
-        'title',
-      );
+      expect(
+        result.data.endpoints.graphql?.operations['mutation.createpost']?.request?.schema?.required,
+      ).toContain('title');
     }
   });
 
@@ -159,9 +159,12 @@ describe('GraphQL introspection normalization', () => {
 
     expect(result.ok).toBe(true);
     if (result.ok) {
-      expect(result.data.endpoints.graphql?.operations['query.viewer']?.metadata).toEqual(
-        expect.objectContaining({ selectionPath: '$.data.viewer' }),
-      );
+      const metadata = result.data.endpoints.graphql?.operations['query.viewer']?.metadata;
+
+      expect(metadata).toBeDefined();
+      if (metadata !== undefined && typeof metadata === 'object' && !Array.isArray(metadata)) {
+        expect(metadata.selectionPath).toBe('$.data.viewer');
+      }
       expect(result.diagnostics).toEqual([]);
     }
   });
@@ -176,9 +179,10 @@ describe('GraphQL introspection normalization', () => {
 
     expect(result.ok).toBe(false);
     if (!result.ok) {
-      expect(result.diagnostics.map((diagnostic) => diagnostic.path)).toEqual(
-        expect.arrayContaining(['endpointUrl', 'introspection']),
-      );
+      const paths = result.diagnostics.map((diagnostic) => diagnostic.path);
+
+      expect(paths).toContain('endpointUrl');
+      expect(paths).toContain('introspection');
     }
   });
 
