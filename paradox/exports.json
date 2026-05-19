@@ -11,9 +11,7 @@
       "line": 3,
       "column": 14
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
+    "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -31,9 +29,7 @@
       "line": 13,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
+    "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -66,9 +62,7 @@
       "line": 29,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
+    "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -100,12 +94,8 @@
       "line": 18,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [
-      "DataSourcesPackageInfo"
-    ],
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DataSourcesPackageInfo"],
     "signatures": [
       {
         "label": "() => DataSourcesPackageInfo",
@@ -129,9 +119,7 @@
       "line": 25,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
+    "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -163,9 +151,7 @@
       "line": 5,
       "column": 14
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
+    "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],

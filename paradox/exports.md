@@ -14,10 +14,10 @@ Source: `src/index.ts:13:1`
 
 ### Members
 
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| packageName | property | `"@ankhorage/data-sources"` | yes |  |
-| supportedKinds | property | `readonly ["database", "graphql", "managed-api", "openapi", "rest"]` | yes |  |
+| Name           | Kind     | Type                                                                 | Required | Description |
+| -------------- | -------- | -------------------------------------------------------------------- | -------- | ----------- |
+| packageName    | property | `"@ankhorage/data-sources"`                                          | yes      |             |
+| supportedKinds | property | `readonly ["database", "graphql", "managed-api", "openapi", "rest"]` | yes      |             |
 
 ## getDataSourceKind
 
