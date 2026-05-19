@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 0.3.0
+
+### Minor Changes
+
+- f4266e8: Add managed API generation helpers that derive normalized database endpoint and CRUD operation configs from provider-neutral adapter references and collection definitions.
+
 ## 0.2.0
 
 ### Minor Changes
