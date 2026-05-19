@@ -4,7 +4,9 @@ graph LR
   module_src_managed_api_index_ts["src/managed-api/index.ts"]
   module_src_openapi_index_ts["src/openapi/index.ts"]
   module_src_rest_index_ts["src/rest/index.ts"]
+  module_src_test_runner_index_ts["src/test-runner/index.ts"]
   module_src_graphql_index_ts -.-> module_src_index_ts
   module_src_index_ts -.-> module_src_managed_api_index_ts
   module_src_managed_api_index_ts -.-> module_src_openapi_index_ts
   module_src_openapi_index_ts -.-> module_src_rest_index_ts
+  module_src_rest_index_ts -.-> module_src_test_runner_index_ts

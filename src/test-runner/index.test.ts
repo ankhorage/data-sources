@@ -1,8 +1,7 @@
+import type { DataSourceConfig } from '@ankhorage/contracts/data';
 import { describe, expect, it } from 'bun:test';
 
-import type { DataSourceConfig } from '@ankhorage/contracts/data';
-
-import { buildEndpointTestRequest, testEndpoint, type EndpointTestFetch } from './index';
+import { buildEndpointTestRequest, type EndpointTestFetch, testEndpoint } from './index';
 
 function createRestDataSource(): DataSourceConfig {
   return {
@@ -185,7 +184,9 @@ describe('endpoint test runner', () => {
     expect(result.ok).toBe(false);
     if (!result.ok) {
       expect(result.diagnostics.map((diagnostic) => diagnostic.code)).toContain('network-error');
-      expect(result.diagnostics.map((diagnostic) => diagnostic.message)).toContain('Connection failed');
+      expect(result.diagnostics.map((diagnostic) => diagnostic.message)).toContain(
+        'Connection failed',
+      );
     }
   });
 
@@ -199,7 +200,9 @@ describe('endpoint test runner', () => {
 
     expect(result.ok).toBe(false);
     if (!result.ok) {
-      expect(result.diagnostics.map((diagnostic) => diagnostic.code)).toContain('missing-credential');
+      expect(result.diagnostics.map((diagnostic) => diagnostic.code)).toContain(
+        'missing-credential',
+      );
     }
   });
 

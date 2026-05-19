@@ -100,7 +100,11 @@ export async function testEndpoint(input: EndpointTestInput): Promise<EndpointTe
       request: built.request,
       diagnostics: [
         ...built.diagnostics,
-        createDiagnostic(input, 'invalid-config', 'Endpoint test runner requires an injected fetch function.'),
+        createDiagnostic(
+          input,
+          'invalid-config',
+          'Endpoint test runner requires an injected fetch function.',
+        ),
       ],
     };
   }
@@ -150,7 +154,9 @@ export async function testEndpoint(input: EndpointTestInput): Promise<EndpointTe
   }
 }
 
-export async function buildEndpointTestRequest(input: EndpointTestInput): Promise<EndpointTestResult> {
+export async function buildEndpointTestRequest(
+  input: EndpointTestInput,
+): Promise<EndpointTestResult> {
   const selection = selectEndpointOperation(input);
   if (selection === undefined) {
     return {
@@ -204,7 +210,11 @@ async function resolveEndpointCredential(
 
   if (input.credentialResolver === undefined) {
     diagnostics.push(
-      createDiagnostic(input, 'missing-credential', `Credential '${credentialRef.id}' requires a resolver.`),
+      createDiagnostic(
+        input,
+        'missing-credential',
+        `Credential '${credentialRef.id}' requires a resolver.`,
+      ),
     );
     return undefined;
   }
@@ -213,7 +223,11 @@ async function resolveEndpointCredential(
 
   if (credential === undefined) {
     diagnostics.push(
-      createDiagnostic(input, 'missing-credential', `Credential '${credentialRef.id}' could not be resolved.`),
+      createDiagnostic(
+        input,
+        'missing-credential',
+        `Credential '${credentialRef.id}' could not be resolved.`,
+      ),
     );
   }
 
@@ -230,7 +244,9 @@ function buildHttpRequest(
   const path = selection.operation.path ?? selection.endpoint.path;
 
   if (baseUrl === undefined || baseUrl.trim().length === 0) {
-    diagnostics.push(createDiagnostic(input, 'invalid-config', 'HTTP endpoint requires a base URL.'));
+    diagnostics.push(
+      createDiagnostic(input, 'invalid-config', 'HTTP endpoint requires a base URL.'),
+    );
     return undefined;
   }
 
@@ -274,11 +290,15 @@ function buildGraphQlRequest(
   const endpointUrl = getGraphQlEndpointUrl(input.dataSource, selection.endpoint);
 
   if (endpointUrl === undefined || endpointUrl.trim().length === 0) {
-    diagnostics.push(createDiagnostic(input, 'invalid-config', 'GraphQL endpoint requires an endpoint URL.'));
+    diagnostics.push(
+      createDiagnostic(input, 'invalid-config', 'GraphQL endpoint requires an endpoint URL.'),
+    );
     return undefined;
   }
 
-  const query = getStringMetadataValue(selection.operation.metadata, 'document') ?? getStringValue(input.values, 'query');
+  const query =
+    getStringMetadataValue(selection.operation.metadata, 'document') ??
+    getStringValue(input.values, 'query');
 
   if (query === undefined) {
     diagnostics.push(
@@ -340,7 +360,11 @@ function interpolatePath(
 
     if (value === undefined) {
       diagnostics.push(
-        createDiagnostic(input, 'invalid-config', `Missing required path parameter '${parameter.name}'.`),
+        createDiagnostic(
+          input,
+          'invalid-config',
+          `Missing required path parameter '${parameter.name}'.`,
+        ),
       );
       continue;
     }
@@ -372,10 +396,11 @@ function collectQuery(
 
 function createHttpBody(
   operation: DataOperationConfig,
-  values: EndpointTestInputValues): string | undefined {
+  values: EndpointTestInputValues,
+): string | undefined {
   if (operation.method === 'GET' || operation.method === 'HEAD') return undefined;
 
-  const body = values.body;
+  const { body } = values;
   if (body === undefined) return undefined;
 
   return JSON.stringify(body);
@@ -426,7 +451,10 @@ function joinUrl(baseUrl: string, path: string): string {
   return `${normalizedBase}${normalizedPath}`;
 }
 
-function getStringValue(values: EndpointTestInputValues | undefined, key: string): string | undefined {
+function getStringValue(
+  values: EndpointTestInputValues | undefined,
+  key: string,
+): string | undefined {
   const value = values?.[key];
   return typeof value === 'string' ? value : undefined;
 }
@@ -439,7 +467,10 @@ function getRecordValue(
   return isDataContractValue(value) ? value : undefined;
 }
 
-function getStringMetadataValue(metadata: DataContractValue | undefined, key: string): string | undefined {
+function getStringMetadataValue(
+  metadata: DataContractValue | undefined,
+  key: string,
+): string | undefined {
   if (!isDataContractRecord(metadata)) return undefined;
 
   const value = metadata[key];
@@ -482,6 +513,10 @@ function isDataContractValue(value: unknown): value is DataContractValue {
   return Object.values(value).every(isDataContractValue);
 }
 
-function isDataContractRecord(value: DataContractValue | undefined): value is Record<string, DataContractValue> {
-  return value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value);
+function isDataContractRecord(
+  value: DataContractValue | undefined,
+): value is Record<string, DataContractValue> {
+  return (
+    value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value)
+  );
 }

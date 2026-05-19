@@ -1,5 +1,37 @@
 [
   {
+    "name": "buildEndpointTestRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/test-runner/index.ts",
+    "sourceLocation": {
+      "filePath": "src/test-runner/index.ts",
+      "line": 157,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["EndpointTestInput", "EndpointTestResult"],
+    "signatures": [
+      {
+        "label": "(input: EndpointTestInput) => Promise<EndpointTestResult>",
+        "parameters": [
+          {
+            "name": "input",
+            "type": "EndpointTestInput",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "Promise<EndpointTestResult>",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "createGraphQlDataSource",
     "description": null,
     "isReadme": false,
@@ -287,7 +319,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 8,
+      "line": 9,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -305,7 +337,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 18,
+      "line": 19,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -327,6 +359,406 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "EndpointTestCredential",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/test-runner/index.ts",
+    "sourceLocation": {
+      "filePath": "src/test-runner/index.ts",
+      "line": 16,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "headers",
+        "kind": "property",
+        "type": "Readonly<Record<string, string>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "query",
+        "kind": "property",
+        "type": "Readonly<Record<string, DataContractValue>> | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "EndpointTestCredentialResolver",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/test-runner/index.ts",
+    "sourceLocation": {
+      "filePath": "src/test-runner/index.ts",
+      "line": 21,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "EndpointTestFetch",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/test-runner/index.ts",
+    "sourceLocation": {
+      "filePath": "src/test-runner/index.ts",
+      "line": 37,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "EndpointTestFetchInit",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/test-runner/index.ts",
+    "sourceLocation": {
+      "filePath": "src/test-runner/index.ts",
+      "line": 25,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "body",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "headers",
+        "kind": "property",
+        "type": "Readonly<Record<string, string>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "method",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "EndpointTestFetchResponse",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/test-runner/index.ts",
+    "sourceLocation": {
+      "filePath": "src/test-runner/index.ts",
+      "line": 31,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "headers",
+        "kind": "property",
+        "type": "Readonly<Record<string, string>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "text",
+        "kind": "method",
+        "type": "() => Promise<string>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "EndpointTestHeaders",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/test-runner/index.ts",
+    "sourceLocation": {
+      "filePath": "src/test-runner/index.ts",
+      "line": 14,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "EndpointTestInput",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/test-runner/index.ts",
+    "sourceLocation": {
+      "filePath": "src/test-runner/index.ts",
+      "line": 42,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["EndpointTestCredentialResolver", "EndpointTestFetch"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "credentialResolver",
+        "kind": "property",
+        "type": "EndpointTestCredentialResolver | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "dataSource",
+        "kind": "property",
+        "type": "DataSourceConfig",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "dryRun",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "endpointId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "fetch",
+        "kind": "property",
+        "type": "EndpointTestFetch | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "operationId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "values",
+        "kind": "property",
+        "type": "Readonly<Record<string, DataContractValue>> | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "EndpointTestInputValues",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/test-runner/index.ts",
+    "sourceLocation": {
+      "filePath": "src/test-runner/index.ts",
+      "line": 13,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "EndpointTestRequestDiagnostic",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/test-runner/index.ts",
+    "sourceLocation": {
+      "filePath": "src/test-runner/index.ts",
+      "line": 52,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "body",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "dataSourceId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "dryRun",
+        "kind": "property",
+        "type": "boolean",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "endpointId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "headers",
+        "kind": "property",
+        "type": "Readonly<Record<string, string>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "method",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "operationId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "EndpointTestResponseDiagnostic",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/test-runner/index.ts",
+    "sourceLocation": {
+      "filePath": "src/test-runner/index.ts",
+      "line": 63,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "bodyText",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "headers",
+        "kind": "property",
+        "type": "Readonly<Record<string, string>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "ok",
+        "kind": "property",
+        "type": "boolean",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "parsedBody",
+        "kind": "property",
+        "type": "DataContractValue | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "EndpointTestResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/test-runner/index.ts",
+    "sourceLocation": {
+      "filePath": "src/test-runner/index.ts",
+      "line": 71,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
     "structuredRows": []
   },
   {
@@ -370,7 +802,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 34,
+      "line": 35,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -402,7 +834,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 23,
+      "line": 24,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1076,7 +1508,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 30,
+      "line": 31,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2492,12 +2924,44 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 10,
+      "line": 11,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "testEndpoint",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/test-runner/index.ts",
+    "sourceLocation": {
+      "filePath": "src/test-runner/index.ts",
+      "line": 91,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["EndpointTestInput", "EndpointTestResult"],
+    "signatures": [
+      {
+        "label": "(input: EndpointTestInput) => Promise<EndpointTestResult>",
+        "parameters": [
+          {
+            "name": "input",
+            "type": "EndpointTestInput",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "Promise<EndpointTestResult>",
+        "returnDescription": null
+      }
+    ],
     "members": [],
     "structuredRows": []
   },

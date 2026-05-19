@@ -4,6 +4,11 @@ graph LR
   module_src_managed_api_index_ts["src/managed-api/index.ts"]
   module_src_openapi_index_ts["src/openapi/index.ts"]
   module_src_rest_index_ts["src/rest/index.ts"]
+  module_src_test_runner_index_ts["src/test-runner/index.ts"]
+  export_buildEndpointTestRequest["buildEndpointTestRequest"]
+  module_src_test_runner_index_ts --> export_buildEndpointTestRequest
+  export_buildEndpointTestRequest -.-> export_EndpointTestInput
+  export_buildEndpointTestRequest -.-> export_EndpointTestResult
   export_createGraphQlDataSource["createGraphQlDataSource"]
   module_src_graphql_index_ts --> export_createGraphQlDataSource
   export_createGraphQlDataSource -.-> export_GraphQlDataSourceDefinition
@@ -32,6 +37,30 @@ graph LR
   module_src_index_ts --> export_DATA_SOURCES_PACKAGE_NAME
   export_DataSourcesPackageInfo["DataSourcesPackageInfo"]
   module_src_index_ts --> export_DataSourcesPackageInfo
+  export_EndpointTestCredential["EndpointTestCredential"]
+  module_src_test_runner_index_ts --> export_EndpointTestCredential
+  export_EndpointTestCredentialResolver["EndpointTestCredentialResolver"]
+  module_src_test_runner_index_ts --> export_EndpointTestCredentialResolver
+  export_EndpointTestFetch["EndpointTestFetch"]
+  module_src_test_runner_index_ts --> export_EndpointTestFetch
+  export_EndpointTestFetchInit["EndpointTestFetchInit"]
+  module_src_test_runner_index_ts --> export_EndpointTestFetchInit
+  export_EndpointTestFetchResponse["EndpointTestFetchResponse"]
+  module_src_test_runner_index_ts --> export_EndpointTestFetchResponse
+  export_EndpointTestHeaders["EndpointTestHeaders"]
+  module_src_test_runner_index_ts --> export_EndpointTestHeaders
+  export_EndpointTestInput["EndpointTestInput"]
+  module_src_test_runner_index_ts --> export_EndpointTestInput
+  export_EndpointTestInput -.-> export_EndpointTestCredentialResolver
+  export_EndpointTestInput -.-> export_EndpointTestFetch
+  export_EndpointTestInputValues["EndpointTestInputValues"]
+  module_src_test_runner_index_ts --> export_EndpointTestInputValues
+  export_EndpointTestRequestDiagnostic["EndpointTestRequestDiagnostic"]
+  module_src_test_runner_index_ts --> export_EndpointTestRequestDiagnostic
+  export_EndpointTestResponseDiagnostic["EndpointTestResponseDiagnostic"]
+  module_src_test_runner_index_ts --> export_EndpointTestResponseDiagnostic
+  export_EndpointTestResult["EndpointTestResult"]
+  module_src_test_runner_index_ts --> export_EndpointTestResult
   export_extractRestPathParams["extractRestPathParams"]
   module_src_rest_index_ts --> export_extractRestPathParams
   export_getDataSourceKind["getDataSourceKind"]
@@ -176,6 +205,10 @@ graph LR
   module_src_openapi_index_ts --> export_OpenApiServerObject
   export_SUPPORTED_DATA_SOURCE_KINDS["SUPPORTED_DATA_SOURCE_KINDS"]
   module_src_index_ts --> export_SUPPORTED_DATA_SOURCE_KINDS
+  export_testEndpoint["testEndpoint"]
+  module_src_test_runner_index_ts --> export_testEndpoint
+  export_testEndpoint -.-> export_EndpointTestInput
+  export_testEndpoint -.-> export_EndpointTestResult
   export_validateGraphQlDataSource["validateGraphQlDataSource"]
   module_src_graphql_index_ts --> export_validateGraphQlDataSource
   export_validateGraphQlDataSource -.-> export_GraphQlDataSourceDefinition
