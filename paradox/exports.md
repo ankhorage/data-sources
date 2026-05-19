@@ -1,5 +1,17 @@
 # Public API
 
+## buildEndpointTestRequest
+
+Kind: `function`
+Module: `src/test-runner/index.ts`
+Source: `src/test-runner/index.ts:157:1`
+
+### Signatures
+
+- `(input: EndpointTestInput) => Promise<EndpointTestResult>`
+  - input: `EndpointTestInput`
+  - returns: `Promise<EndpointTestResult>`
+
 ## createGraphQlDataSource
 
 Kind: `function`
@@ -104,13 +116,13 @@ Source: `src/rest/index.ts:166:1`
 
 Kind: `value`
 Module: `src/index.ts`
-Source: `src/index.ts:8:14`
+Source: `src/index.ts:9:14`
 
 ## DataSourcesPackageInfo
 
 Kind: `type`
 Module: `src/index.ts`
-Source: `src/index.ts:18:1`
+Source: `src/index.ts:19:1`
 
 ### Members
 
@@ -118,6 +130,130 @@ Source: `src/index.ts:18:1`
 | -------------- | -------- | -------------------------------------------------------------------- | -------- | ----------- |
 | packageName    | property | `"@ankhorage/data-sources"`                                          | yes      |             |
 | supportedKinds | property | `readonly ["database", "graphql", "managed-api", "openapi", "rest"]` | yes      |             |
+
+## EndpointTestCredential
+
+Kind: `type`
+Module: `src/test-runner/index.ts`
+Source: `src/test-runner/index.ts:16:1`
+
+### Members
+
+| Name    | Kind     | Type                                                       | Required | Description |
+| ------- | -------- | ---------------------------------------------------------- | -------- | ----------- |
+| headers | property | `Readonly<Record<string, string>> \| undefined`            | no       |             |
+| query   | property | `Readonly<Record<string, DataContractValue>> \| undefined` | no       |             |
+
+## EndpointTestCredentialResolver
+
+Kind: `unknown`
+Module: `src/test-runner/index.ts`
+Source: `src/test-runner/index.ts:21:1`
+
+## EndpointTestFetch
+
+Kind: `unknown`
+Module: `src/test-runner/index.ts`
+Source: `src/test-runner/index.ts:37:1`
+
+## EndpointTestFetchInit
+
+Kind: `type`
+Module: `src/test-runner/index.ts`
+Source: `src/test-runner/index.ts:25:1`
+
+### Members
+
+| Name    | Kind     | Type                               | Required | Description |
+| ------- | -------- | ---------------------------------- | -------- | ----------- |
+| body    | property | `string \| undefined`              | no       |             |
+| headers | property | `Readonly<Record<string, string>>` | yes      |             |
+| method  | property | `string`                           | yes      |             |
+
+## EndpointTestFetchResponse
+
+Kind: `type`
+Module: `src/test-runner/index.ts`
+Source: `src/test-runner/index.ts:31:1`
+
+### Members
+
+| Name    | Kind     | Type                                            | Required | Description |
+| ------- | -------- | ----------------------------------------------- | -------- | ----------- |
+| headers | property | `Readonly<Record<string, string>> \| undefined` | no       |             |
+| status  | property | `number`                                        | yes      |             |
+| text    | method   | `() => Promise<string>`                         | yes      |             |
+
+## EndpointTestHeaders
+
+Kind: `unknown`
+Module: `src/test-runner/index.ts`
+Source: `src/test-runner/index.ts:14:1`
+
+## EndpointTestInput
+
+Kind: `type`
+Module: `src/test-runner/index.ts`
+Source: `src/test-runner/index.ts:42:1`
+
+### Members
+
+| Name               | Kind     | Type                                                       | Required | Description |
+| ------------------ | -------- | ---------------------------------------------------------- | -------- | ----------- |
+| credentialResolver | property | `EndpointTestCredentialResolver \| undefined`              | no       |             |
+| dataSource         | property | `DataSourceConfig`                                         | yes      |             |
+| dryRun             | property | `boolean \| undefined`                                     | no       |             |
+| endpointId         | property | `string`                                                   | yes      |             |
+| fetch              | property | `EndpointTestFetch \| undefined`                           | no       |             |
+| operationId        | property | `string`                                                   | yes      |             |
+| values             | property | `Readonly<Record<string, DataContractValue>> \| undefined` | no       |             |
+
+## EndpointTestInputValues
+
+Kind: `unknown`
+Module: `src/test-runner/index.ts`
+Source: `src/test-runner/index.ts:13:1`
+
+## EndpointTestRequestDiagnostic
+
+Kind: `type`
+Module: `src/test-runner/index.ts`
+Source: `src/test-runner/index.ts:52:1`
+
+### Members
+
+| Name         | Kind     | Type                               | Required | Description |
+| ------------ | -------- | ---------------------------------- | -------- | ----------- |
+| body         | property | `string \| undefined`              | no       |             |
+| dataSourceId | property | `string`                           | yes      |             |
+| dryRun       | property | `boolean`                          | yes      |             |
+| endpointId   | property | `string`                           | yes      |             |
+| headers      | property | `Readonly<Record<string, string>>` | yes      |             |
+| method       | property | `string`                           | yes      |             |
+| operationId  | property | `string`                           | yes      |             |
+| url          | property | `string`                           | yes      |             |
+
+## EndpointTestResponseDiagnostic
+
+Kind: `type`
+Module: `src/test-runner/index.ts`
+Source: `src/test-runner/index.ts:63:1`
+
+### Members
+
+| Name       | Kind     | Type                                            | Required | Description |
+| ---------- | -------- | ----------------------------------------------- | -------- | ----------- |
+| bodyText   | property | `string \| undefined`                           | no       |             |
+| headers    | property | `Readonly<Record<string, string>> \| undefined` | no       |             |
+| ok         | property | `boolean`                                       | yes      |             |
+| parsedBody | property | `DataContractValue \| undefined`                | no       |             |
+| status     | property | `number`                                        | yes      |             |
+
+## EndpointTestResult
+
+Kind: `unknown`
+Module: `src/test-runner/index.ts`
+Source: `src/test-runner/index.ts:71:1`
 
 ## extractRestPathParams
 
@@ -135,7 +271,7 @@ Source: `src/rest/index.ts:68:1`
 
 Kind: `function`
 Module: `src/index.ts`
-Source: `src/index.ts:34:1`
+Source: `src/index.ts:35:1`
 
 ### Signatures
 
@@ -147,7 +283,7 @@ Source: `src/index.ts:34:1`
 
 Kind: `function`
 Module: `src/index.ts`
-Source: `src/index.ts:23:1`
+Source: `src/index.ts:24:1`
 
 ### Signatures
 
@@ -362,7 +498,7 @@ Source: `src/rest/index.ts:60:1`
 
 Kind: `function`
 Module: `src/index.ts`
-Source: `src/index.ts:30:1`
+Source: `src/index.ts:31:1`
 
 ### Signatures
 
@@ -799,7 +935,19 @@ Source: `src/openapi/index.ts:34:1`
 
 Kind: `value`
 Module: `src/index.ts`
-Source: `src/index.ts:10:14`
+Source: `src/index.ts:11:14`
+
+## testEndpoint
+
+Kind: `function`
+Module: `src/test-runner/index.ts`
+Source: `src/test-runner/index.ts:91:1`
+
+### Signatures
+
+- `(input: EndpointTestInput) => Promise<EndpointTestResult>`
+  - input: `EndpointTestInput`
+  - returns: `Promise<EndpointTestResult>`
 
 ## validateGraphQlDataSource
 

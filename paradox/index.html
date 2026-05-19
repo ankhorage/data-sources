@@ -228,6 +228,12 @@
                 <small>6 functions</small>
               </button>
             </li>
+            <li>
+              <button class="nav-button" type="button" data-target="src/test-runner/index.ts">
+                src/test-runner/index.ts
+                <small>23 functions</small>
+              </button>
+            </li>
           </ul>
         </nav>
       </aside>
@@ -236,9 +242,9 @@
           <section class="panel">
             <h2>Package overview</h2>
             <div class="summary">
-              <div><strong>65</strong><span class="muted">public exports</span></div>
+              <div><strong>78</strong><span class="muted">public exports</span></div>
               <div><strong>0</strong><span class="muted">components</span></div>
-              <div><strong>5</strong><span class="muted">modules</span></div>
+              <div><strong>6</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -273,22 +279,28 @@
             </article>
             <article
               class="item"
-              data-search="src/index.ts createGraphQlDataSource createGraphQlIntrospectionRequest createManagedApiDataSource createManagedApiEndpoint createManagedApiOperation createManagedApiOperationId createManagedApiResourceSchema createManualRestDataSource DATA_SOURCES_PACKAGE_NAME DataSourcesPackageInfo extractRestPathParams getDataSourceKind getDataSourcesPackageInfo getManagedApiOperations GRAPHQL_INTROSPECTION_QUERY GraphQlDataSourceDefinition GraphQlIntrospectionEnumValue GraphQlIntrospectionField GraphQlIntrospectionInputValue GraphQlIntrospectionRequest GraphQlIntrospectionResult GraphQlIntrospectionSchema GraphQlIntrospectionType GraphQlIntrospectionTypeRef GraphQlOperationDefinition GraphQlOperationKind importOpenApiDocument isManualRestMethod isSupportedDataSourceKind MANAGED_API_CRUD_OPERATIONS ManagedApiCrudOperation ManagedApiGenerationDefinition ManagedApiGenerationResourceDefinition ManagedApiOperationPolicyRef ManualRestDataSourceDefinition ManualRestEndpointDefinition ManualRestMethod ManualRestOperationDefinition normalizeGraphQlDataSource normalizeGraphQlIntrospectionOperations normalizeGraphQlIntrospectionSchemas normalizeGraphQlOperationId normalizeManagedApiDataSource normalizeManualRestDataSource normalizeManualRestMethod normalizeOpenApiEndpointId normalizeOpenApiOperationId normalizeOpenApiSchema OpenApiComponentsObject OpenApiDocumentObject OpenApiHttpMethod OpenApiImportInput OpenApiImportResult OpenApiMediaTypeObject OpenApiOperationObject OpenApiParameterObject OpenApiPathItemObject OpenApiRequestBodyObject OpenApiResponseObject OpenApiSchemaObject OpenApiServerObject SUPPORTED_DATA_SOURCE_KINDS validateGraphQlDataSource validateManagedApiDefinition validateManualRestDataSource"
+              data-search="src/index.ts buildEndpointTestRequest createGraphQlDataSource createGraphQlIntrospectionRequest createManagedApiDataSource createManagedApiEndpoint createManagedApiOperation createManagedApiOperationId createManagedApiResourceSchema createManualRestDataSource DATA_SOURCES_PACKAGE_NAME DataSourcesPackageInfo EndpointTestCredential EndpointTestCredentialResolver EndpointTestFetch EndpointTestFetchInit EndpointTestFetchResponse EndpointTestHeaders EndpointTestInput EndpointTestInputValues EndpointTestRequestDiagnostic EndpointTestResponseDiagnostic EndpointTestResult extractRestPathParams getDataSourceKind getDataSourcesPackageInfo getManagedApiOperations GRAPHQL_INTROSPECTION_QUERY GraphQlDataSourceDefinition GraphQlIntrospectionEnumValue GraphQlIntrospectionField GraphQlIntrospectionInputValue GraphQlIntrospectionRequest GraphQlIntrospectionResult GraphQlIntrospectionSchema GraphQlIntrospectionType GraphQlIntrospectionTypeRef GraphQlOperationDefinition GraphQlOperationKind importOpenApiDocument isManualRestMethod isSupportedDataSourceKind MANAGED_API_CRUD_OPERATIONS ManagedApiCrudOperation ManagedApiGenerationDefinition ManagedApiGenerationResourceDefinition ManagedApiOperationPolicyRef ManualRestDataSourceDefinition ManualRestEndpointDefinition ManualRestMethod ManualRestOperationDefinition normalizeGraphQlDataSource normalizeGraphQlIntrospectionOperations normalizeGraphQlIntrospectionSchemas normalizeGraphQlOperationId normalizeManagedApiDataSource normalizeManualRestDataSource normalizeManualRestMethod normalizeOpenApiEndpointId normalizeOpenApiOperationId normalizeOpenApiSchema OpenApiComponentsObject OpenApiDocumentObject OpenApiHttpMethod OpenApiImportInput OpenApiImportResult OpenApiMediaTypeObject OpenApiOperationObject OpenApiParameterObject OpenApiPathItemObject OpenApiRequestBodyObject OpenApiResponseObject OpenApiSchemaObject OpenApiServerObject SUPPORTED_DATA_SOURCE_KINDS testEndpoint validateGraphQlDataSource validateManagedApiDefinition validateManualRestDataSource"
             >
               <h3>src/index.ts</h3>
               <p class="muted">Configured entrypoint</p>
               <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
               <p>
-                <strong>Exports:</strong> <code>createGraphQlDataSource</code>,
+                <strong>Exports:</strong> <code>buildEndpointTestRequest</code>,
+                <code>createGraphQlDataSource</code>,
                 <code>createGraphQlIntrospectionRequest</code>,
                 <code>createManagedApiDataSource</code>, <code>createManagedApiEndpoint</code>,
                 <code>createManagedApiOperation</code>, <code>createManagedApiOperationId</code>,
                 <code>createManagedApiResourceSchema</code>,
                 <code>createManualRestDataSource</code>, <code>DATA_SOURCES_PACKAGE_NAME</code>,
-                <code>DataSourcesPackageInfo</code>, <code>extractRestPathParams</code>,
-                <code>getDataSourceKind</code>, <code>getDataSourcesPackageInfo</code>,
-                <code>getManagedApiOperations</code>, <code>GRAPHQL_INTROSPECTION_QUERY</code>,
-                <code>GraphQlDataSourceDefinition</code>,
+                <code>DataSourcesPackageInfo</code>, <code>EndpointTestCredential</code>,
+                <code>EndpointTestCredentialResolver</code>, <code>EndpointTestFetch</code>,
+                <code>EndpointTestFetchInit</code>, <code>EndpointTestFetchResponse</code>,
+                <code>EndpointTestHeaders</code>, <code>EndpointTestInput</code>,
+                <code>EndpointTestInputValues</code>, <code>EndpointTestRequestDiagnostic</code>,
+                <code>EndpointTestResponseDiagnostic</code>, <code>EndpointTestResult</code>,
+                <code>extractRestPathParams</code>, <code>getDataSourceKind</code>,
+                <code>getDataSourcesPackageInfo</code>, <code>getManagedApiOperations</code>,
+                <code>GRAPHQL_INTROSPECTION_QUERY</code>, <code>GraphQlDataSourceDefinition</code>,
                 <code>GraphQlIntrospectionEnumValue</code>, <code>GraphQlIntrospectionField</code>,
                 <code>GraphQlIntrospectionInputValue</code>,
                 <code>GraphQlIntrospectionRequest</code>, <code>GraphQlIntrospectionResult</code>,
@@ -316,8 +328,9 @@
                 <code>OpenApiParameterObject</code>, <code>OpenApiPathItemObject</code>,
                 <code>OpenApiRequestBodyObject</code>, <code>OpenApiResponseObject</code>,
                 <code>OpenApiSchemaObject</code>, <code>OpenApiServerObject</code>,
-                <code>SUPPORTED_DATA_SOURCE_KINDS</code>, <code>validateGraphQlDataSource</code>,
-                <code>validateManagedApiDefinition</code>, <code>validateManualRestDataSource</code>
+                <code>SUPPORTED_DATA_SOURCE_KINDS</code>, <code>testEndpoint</code>,
+                <code>validateGraphQlDataSource</code>, <code>validateManagedApiDefinition</code>,
+                <code>validateManualRestDataSource</code>
               </p>
             </article>
             <article
@@ -374,6 +387,24 @@
                 <code>ManualRestOperationDefinition</code>,
                 <code>normalizeManualRestDataSource</code>, <code>normalizeManualRestMethod</code>,
                 <code>validateManualRestDataSource</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/test-runner/index.ts buildEndpointTestRequest EndpointTestCredential EndpointTestCredentialResolver EndpointTestFetch EndpointTestFetchInit EndpointTestFetchResponse EndpointTestHeaders EndpointTestInput EndpointTestInputValues EndpointTestRequestDiagnostic EndpointTestResponseDiagnostic EndpointTestResult testEndpoint"
+            >
+              <h3>src/test-runner/index.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>buildEndpointTestRequest</code>,
+                <code>EndpointTestCredential</code>, <code>EndpointTestCredentialResolver</code>,
+                <code>EndpointTestFetch</code>, <code>EndpointTestFetchInit</code>,
+                <code>EndpointTestFetchResponse</code>, <code>EndpointTestHeaders</code>,
+                <code>EndpointTestInput</code>, <code>EndpointTestInputValues</code>,
+                <code>EndpointTestRequestDiagnostic</code>,
+                <code>EndpointTestResponseDiagnostic</code>, <code>EndpointTestResult</code>,
+                <code>testEndpoint</code>
               </p>
             </article>
           </section>
@@ -1325,7 +1356,7 @@
                 data-search="DATA_SOURCES_PACKAGE_NAME value src/index.ts "
               >
                 <h4>DATA_SOURCES_PACKAGE_NAME</h4>
-                <p class="muted">value • <code>src/index.ts:8:14</code></p>
+                <p class="muted">value • <code>src/index.ts:9:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1336,7 +1367,7 @@
                 data-search="DataSourcesPackageInfo type src/index.ts "
               >
                 <h4>DataSourcesPackageInfo</h4>
-                <p class="muted">type • <code>src/index.ts:18:1</code></p>
+                <p class="muted">type • <code>src/index.ts:19:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1380,7 +1411,7 @@
                 data-search="getDataSourceKind function src/index.ts  (source: DataSourceConfig) =&gt; DataSourceKind"
               >
                 <h4>getDataSourceKind</h4>
-                <p class="muted">function • <code>src/index.ts:34:1</code></p>
+                <p class="muted">function • <code>src/index.ts:35:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1414,7 +1445,7 @@
                 data-search="getDataSourcesPackageInfo function src/index.ts  DataSourcesPackageInfo () =&gt; DataSourcesPackageInfo"
               >
                 <h4>getDataSourcesPackageInfo</h4>
-                <p class="muted">function • <code>src/index.ts:23:1</code></p>
+                <p class="muted">function • <code>src/index.ts:24:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -1436,7 +1467,7 @@
                 data-search="isSupportedDataSourceKind function src/index.ts  (kind: string) =&gt; boolean"
               >
                 <h4>isSupportedDataSourceKind</h4>
-                <p class="muted">function • <code>src/index.ts:30:1</code></p>
+                <p class="muted">function • <code>src/index.ts:31:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1470,7 +1501,7 @@
                 data-search="SUPPORTED_DATA_SOURCE_KINDS value src/index.ts "
               >
                 <h4>SUPPORTED_DATA_SOURCE_KINDS</h4>
-                <p class="muted">value • <code>src/index.ts:10:14</code></p>
+                <p class="muted">value • <code>src/index.ts:11:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -3460,6 +3491,504 @@
                 </div>
               </article>
             </section>
+            <section>
+              <h3>src/test-runner/index.ts</h3>
+              <article
+                class="item"
+                id="symbol-buildendpointtestrequest"
+                data-search="buildEndpointTestRequest function src/test-runner/index.ts  EndpointTestInput EndpointTestResult (input: EndpointTestInput) =&gt; Promise&lt;EndpointTestResult&gt;"
+              >
+                <h4>buildEndpointTestRequest</h4>
+                <p class="muted">function • <code>src/test-runner/index.ts:157:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">EndpointTestInput</li>
+                    <li class="chip">EndpointTestResult</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(input: EndpointTestInput) =&gt; Promise&lt;EndpointTestResult&gt;</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>input</code></td>
+                        <td><code>EndpointTestInput</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>Promise&lt;EndpointTestResult&gt;</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-endpointtestcredential"
+                data-search="EndpointTestCredential type src/test-runner/index.ts "
+              >
+                <h4>EndpointTestCredential</h4>
+                <p class="muted">type • <code>src/test-runner/index.ts:16:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>headers</code></td>
+                      <td>property</td>
+                      <td><code>Readonly&lt;Record&lt;string, string&gt;&gt; | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>query</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >Readonly&lt;Record&lt;string, DataContractValue&gt;&gt; | undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-endpointtestcredentialresolver"
+                data-search="EndpointTestCredentialResolver unknown src/test-runner/index.ts "
+              >
+                <h4>EndpointTestCredentialResolver</h4>
+                <p class="muted">unknown • <code>src/test-runner/index.ts:21:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-endpointtestfetch"
+                data-search="EndpointTestFetch unknown src/test-runner/index.ts "
+              >
+                <h4>EndpointTestFetch</h4>
+                <p class="muted">unknown • <code>src/test-runner/index.ts:37:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-endpointtestfetchinit"
+                data-search="EndpointTestFetchInit type src/test-runner/index.ts "
+              >
+                <h4>EndpointTestFetchInit</h4>
+                <p class="muted">type • <code>src/test-runner/index.ts:25:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>body</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>headers</code></td>
+                      <td>property</td>
+                      <td><code>Readonly&lt;Record&lt;string, string&gt;&gt;</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>method</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-endpointtestfetchresponse"
+                data-search="EndpointTestFetchResponse type src/test-runner/index.ts "
+              >
+                <h4>EndpointTestFetchResponse</h4>
+                <p class="muted">type • <code>src/test-runner/index.ts:31:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>headers</code></td>
+                      <td>property</td>
+                      <td><code>Readonly&lt;Record&lt;string, string&gt;&gt; | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>status</code></td>
+                      <td>property</td>
+                      <td><code>number</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>text</code></td>
+                      <td>method</td>
+                      <td><code>() =&gt; Promise&lt;string&gt;</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-endpointtestheaders"
+                data-search="EndpointTestHeaders unknown src/test-runner/index.ts "
+              >
+                <h4>EndpointTestHeaders</h4>
+                <p class="muted">unknown • <code>src/test-runner/index.ts:14:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-endpointtestinput"
+                data-search="EndpointTestInput type src/test-runner/index.ts  EndpointTestCredentialResolver EndpointTestFetch"
+              >
+                <h4>EndpointTestInput</h4>
+                <p class="muted">type • <code>src/test-runner/index.ts:42:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">EndpointTestCredentialResolver</li>
+                    <li class="chip">EndpointTestFetch</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>credentialResolver</code></td>
+                      <td>property</td>
+                      <td><code>EndpointTestCredentialResolver | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>dataSource</code></td>
+                      <td>property</td>
+                      <td><code>DataSourceConfig</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>dryRun</code></td>
+                      <td>property</td>
+                      <td><code>boolean | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>endpointId</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>fetch</code></td>
+                      <td>property</td>
+                      <td><code>EndpointTestFetch | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>operationId</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>values</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >Readonly&lt;Record&lt;string, DataContractValue&gt;&gt; | undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-endpointtestinputvalues"
+                data-search="EndpointTestInputValues unknown src/test-runner/index.ts "
+              >
+                <h4>EndpointTestInputValues</h4>
+                <p class="muted">unknown • <code>src/test-runner/index.ts:13:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-endpointtestrequestdiagnostic"
+                data-search="EndpointTestRequestDiagnostic type src/test-runner/index.ts "
+              >
+                <h4>EndpointTestRequestDiagnostic</h4>
+                <p class="muted">type • <code>src/test-runner/index.ts:52:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>body</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>dataSourceId</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>dryRun</code></td>
+                      <td>property</td>
+                      <td><code>boolean</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>endpointId</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>headers</code></td>
+                      <td>property</td>
+                      <td><code>Readonly&lt;Record&lt;string, string&gt;&gt;</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>method</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>operationId</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>url</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-endpointtestresponsediagnostic"
+                data-search="EndpointTestResponseDiagnostic type src/test-runner/index.ts "
+              >
+                <h4>EndpointTestResponseDiagnostic</h4>
+                <p class="muted">type • <code>src/test-runner/index.ts:63:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>bodyText</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>headers</code></td>
+                      <td>property</td>
+                      <td><code>Readonly&lt;Record&lt;string, string&gt;&gt; | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>ok</code></td>
+                      <td>property</td>
+                      <td><code>boolean</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>parsedBody</code></td>
+                      <td>property</td>
+                      <td><code>DataContractValue | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>status</code></td>
+                      <td>property</td>
+                      <td><code>number</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-endpointtestresult"
+                data-search="EndpointTestResult unknown src/test-runner/index.ts "
+              >
+                <h4>EndpointTestResult</h4>
+                <p class="muted">unknown • <code>src/test-runner/index.ts:71:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-testendpoint"
+                data-search="testEndpoint function src/test-runner/index.ts  EndpointTestInput EndpointTestResult (input: EndpointTestInput) =&gt; Promise&lt;EndpointTestResult&gt;"
+              >
+                <h4>testEndpoint</h4>
+                <p class="muted">function • <code>src/test-runner/index.ts:91:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">EndpointTestInput</li>
+                    <li class="chip">EndpointTestResult</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(input: EndpointTestInput) =&gt; Promise&lt;EndpointTestResult&gt;</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>input</code></td>
+                        <td><code>EndpointTestInput</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>Promise&lt;EndpointTestResult&gt;</code></p>
+                </div>
+              </article>
+            </section>
           </section>
           <section class="panel">
             <h2>Component registry</h2>
@@ -3486,6 +4015,8 @@
                 package__ankhorage_data_sources -.-&gt; module_src_openapi_index_ts
                 module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
                 package__ankhorage_data_sources -.-&gt; module_src_rest_index_ts
+                module_src_test_runner_index_ts[&quot;src/test-runner/index.ts&quot;]
+                package__ankhorage_data_sources -.-&gt; module_src_test_runner_index_ts
               </div>
               <details>
                 <summary>View Mermaid source</summary>
@@ -3503,6 +4034,8 @@ graph TD
   package__ankhorage_data_sources -.-&gt; module_src_openapi_index_ts
   module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_rest_index_ts
+  module_src_test_runner_index_ts[&quot;src/test-runner/index.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_test_runner_index_ts
 </pre
                 >
               </details>
@@ -3518,11 +4051,13 @@ graph TD
                 module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
                 module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
-                module_src_rest_index_ts[&quot;src/rest/index.ts&quot;] module_src_graphql_index_ts
-                -.-&gt; module_src_index_ts module_src_index_ts -.-&gt;
+                module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
+                module_src_test_runner_index_ts[&quot;src/test-runner/index.ts&quot;]
+                module_src_graphql_index_ts -.-&gt; module_src_index_ts module_src_index_ts -.-&gt;
                 module_src_managed_api_index_ts module_src_managed_api_index_ts -.-&gt;
                 module_src_openapi_index_ts module_src_openapi_index_ts -.-&gt;
-                module_src_rest_index_ts
+                module_src_rest_index_ts module_src_rest_index_ts -.-&gt;
+                module_src_test_runner_index_ts
               </div>
               <details>
                 <summary>View Mermaid source</summary>
@@ -3533,10 +4068,12 @@ graph LR
   module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
   module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
   module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
+  module_src_test_runner_index_ts[&quot;src/test-runner/index.ts&quot;]
   module_src_graphql_index_ts -.-&gt; module_src_index_ts
   module_src_index_ts -.-&gt; module_src_managed_api_index_ts
   module_src_managed_api_index_ts -.-&gt; module_src_openapi_index_ts
   module_src_openapi_index_ts -.-&gt; module_src_rest_index_ts
+  module_src_rest_index_ts -.-&gt; module_src_test_runner_index_ts
 </pre
                 >
               </details>
@@ -3550,6 +4087,11 @@ graph LR
                 module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
                 module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
                 module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
+                module_src_test_runner_index_ts[&quot;src/test-runner/index.ts&quot;]
+                export_buildEndpointTestRequest[&quot;buildEndpointTestRequest&quot;]
+                module_src_test_runner_index_ts --&gt; export_buildEndpointTestRequest
+                export_buildEndpointTestRequest -.-&gt; export_EndpointTestInput
+                export_buildEndpointTestRequest -.-&gt; export_EndpointTestResult
                 export_createGraphQlDataSource[&quot;createGraphQlDataSource&quot;]
                 module_src_graphql_index_ts --&gt; export_createGraphQlDataSource
                 export_createGraphQlDataSource -.-&gt; export_GraphQlDataSourceDefinition
@@ -3580,6 +4122,30 @@ graph LR
                 module_src_index_ts --&gt; export_DATA_SOURCES_PACKAGE_NAME
                 export_DataSourcesPackageInfo[&quot;DataSourcesPackageInfo&quot;]
                 module_src_index_ts --&gt; export_DataSourcesPackageInfo
+                export_EndpointTestCredential[&quot;EndpointTestCredential&quot;]
+                module_src_test_runner_index_ts --&gt; export_EndpointTestCredential
+                export_EndpointTestCredentialResolver[&quot;EndpointTestCredentialResolver&quot;]
+                module_src_test_runner_index_ts --&gt; export_EndpointTestCredentialResolver
+                export_EndpointTestFetch[&quot;EndpointTestFetch&quot;]
+                module_src_test_runner_index_ts --&gt; export_EndpointTestFetch
+                export_EndpointTestFetchInit[&quot;EndpointTestFetchInit&quot;]
+                module_src_test_runner_index_ts --&gt; export_EndpointTestFetchInit
+                export_EndpointTestFetchResponse[&quot;EndpointTestFetchResponse&quot;]
+                module_src_test_runner_index_ts --&gt; export_EndpointTestFetchResponse
+                export_EndpointTestHeaders[&quot;EndpointTestHeaders&quot;]
+                module_src_test_runner_index_ts --&gt; export_EndpointTestHeaders
+                export_EndpointTestInput[&quot;EndpointTestInput&quot;]
+                module_src_test_runner_index_ts --&gt; export_EndpointTestInput
+                export_EndpointTestInput -.-&gt; export_EndpointTestCredentialResolver
+                export_EndpointTestInput -.-&gt; export_EndpointTestFetch
+                export_EndpointTestInputValues[&quot;EndpointTestInputValues&quot;]
+                module_src_test_runner_index_ts --&gt; export_EndpointTestInputValues
+                export_EndpointTestRequestDiagnostic[&quot;EndpointTestRequestDiagnostic&quot;]
+                module_src_test_runner_index_ts --&gt; export_EndpointTestRequestDiagnostic
+                export_EndpointTestResponseDiagnostic[&quot;EndpointTestResponseDiagnostic&quot;]
+                module_src_test_runner_index_ts --&gt; export_EndpointTestResponseDiagnostic
+                export_EndpointTestResult[&quot;EndpointTestResult&quot;]
+                module_src_test_runner_index_ts --&gt; export_EndpointTestResult
                 export_extractRestPathParams[&quot;extractRestPathParams&quot;]
                 module_src_rest_index_ts --&gt; export_extractRestPathParams
                 export_getDataSourceKind[&quot;getDataSourceKind&quot;] module_src_index_ts --&gt;
@@ -3728,6 +4294,9 @@ graph LR
                 module_src_openapi_index_ts --&gt; export_OpenApiServerObject
                 export_SUPPORTED_DATA_SOURCE_KINDS[&quot;SUPPORTED_DATA_SOURCE_KINDS&quot;]
                 module_src_index_ts --&gt; export_SUPPORTED_DATA_SOURCE_KINDS
+                export_testEndpoint[&quot;testEndpoint&quot;] module_src_test_runner_index_ts --&gt;
+                export_testEndpoint export_testEndpoint -.-&gt; export_EndpointTestInput
+                export_testEndpoint -.-&gt; export_EndpointTestResult
                 export_validateGraphQlDataSource[&quot;validateGraphQlDataSource&quot;]
                 module_src_graphql_index_ts --&gt; export_validateGraphQlDataSource
                 export_validateGraphQlDataSource -.-&gt; export_GraphQlDataSourceDefinition
@@ -3747,6 +4316,11 @@ graph LR
   module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
   module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
   module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
+  module_src_test_runner_index_ts[&quot;src/test-runner/index.ts&quot;]
+  export_buildEndpointTestRequest[&quot;buildEndpointTestRequest&quot;]
+  module_src_test_runner_index_ts --&gt; export_buildEndpointTestRequest
+  export_buildEndpointTestRequest -.-&gt; export_EndpointTestInput
+  export_buildEndpointTestRequest -.-&gt; export_EndpointTestResult
   export_createGraphQlDataSource[&quot;createGraphQlDataSource&quot;]
   module_src_graphql_index_ts --&gt; export_createGraphQlDataSource
   export_createGraphQlDataSource -.-&gt; export_GraphQlDataSourceDefinition
@@ -3775,6 +4349,30 @@ graph LR
   module_src_index_ts --&gt; export_DATA_SOURCES_PACKAGE_NAME
   export_DataSourcesPackageInfo[&quot;DataSourcesPackageInfo&quot;]
   module_src_index_ts --&gt; export_DataSourcesPackageInfo
+  export_EndpointTestCredential[&quot;EndpointTestCredential&quot;]
+  module_src_test_runner_index_ts --&gt; export_EndpointTestCredential
+  export_EndpointTestCredentialResolver[&quot;EndpointTestCredentialResolver&quot;]
+  module_src_test_runner_index_ts --&gt; export_EndpointTestCredentialResolver
+  export_EndpointTestFetch[&quot;EndpointTestFetch&quot;]
+  module_src_test_runner_index_ts --&gt; export_EndpointTestFetch
+  export_EndpointTestFetchInit[&quot;EndpointTestFetchInit&quot;]
+  module_src_test_runner_index_ts --&gt; export_EndpointTestFetchInit
+  export_EndpointTestFetchResponse[&quot;EndpointTestFetchResponse&quot;]
+  module_src_test_runner_index_ts --&gt; export_EndpointTestFetchResponse
+  export_EndpointTestHeaders[&quot;EndpointTestHeaders&quot;]
+  module_src_test_runner_index_ts --&gt; export_EndpointTestHeaders
+  export_EndpointTestInput[&quot;EndpointTestInput&quot;]
+  module_src_test_runner_index_ts --&gt; export_EndpointTestInput
+  export_EndpointTestInput -.-&gt; export_EndpointTestCredentialResolver
+  export_EndpointTestInput -.-&gt; export_EndpointTestFetch
+  export_EndpointTestInputValues[&quot;EndpointTestInputValues&quot;]
+  module_src_test_runner_index_ts --&gt; export_EndpointTestInputValues
+  export_EndpointTestRequestDiagnostic[&quot;EndpointTestRequestDiagnostic&quot;]
+  module_src_test_runner_index_ts --&gt; export_EndpointTestRequestDiagnostic
+  export_EndpointTestResponseDiagnostic[&quot;EndpointTestResponseDiagnostic&quot;]
+  module_src_test_runner_index_ts --&gt; export_EndpointTestResponseDiagnostic
+  export_EndpointTestResult[&quot;EndpointTestResult&quot;]
+  module_src_test_runner_index_ts --&gt; export_EndpointTestResult
   export_extractRestPathParams[&quot;extractRestPathParams&quot;]
   module_src_rest_index_ts --&gt; export_extractRestPathParams
   export_getDataSourceKind[&quot;getDataSourceKind&quot;]
@@ -3919,6 +4517,10 @@ graph LR
   module_src_openapi_index_ts --&gt; export_OpenApiServerObject
   export_SUPPORTED_DATA_SOURCE_KINDS[&quot;SUPPORTED_DATA_SOURCE_KINDS&quot;]
   module_src_index_ts --&gt; export_SUPPORTED_DATA_SOURCE_KINDS
+  export_testEndpoint[&quot;testEndpoint&quot;]
+  module_src_test_runner_index_ts --&gt; export_testEndpoint
+  export_testEndpoint -.-&gt; export_EndpointTestInput
+  export_testEndpoint -.-&gt; export_EndpointTestResult
   export_validateGraphQlDataSource[&quot;validateGraphQlDataSource&quot;]
   module_src_graphql_index_ts --&gt; export_validateGraphQlDataSource
   export_validateGraphQlDataSource -.-&gt; export_GraphQlDataSourceDefinition
@@ -4514,17 +5116,17 @@ sequenceDiagram
             <h2>src/index.ts</h2>
             <article class="item" data-search="getDataSourcesPackageInfo src/index.ts ">
               <h3>getDataSourcesPackageInfo</h3>
-              <p class="muted"><code>src/index.ts:23:1</code></p>
+              <p class="muted"><code>src/index.ts:24:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="isSupportedDataSourceKind src/index.ts ">
               <h3>isSupportedDataSourceKind</h3>
-              <p class="muted"><code>src/index.ts:30:1</code></p>
+              <p class="muted"><code>src/index.ts:31:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="getDataSourceKind src/index.ts ">
               <h3>getDataSourceKind</h3>
-              <p class="muted"><code>src/index.ts:34:1</code></p>
+              <p class="muted"><code>src/index.ts:35:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>
@@ -4817,6 +5419,131 @@ sequenceDiagram
             <article class="item" data-search="normalizeManualRestDataSource src/rest/index.ts ">
               <h3>normalizeManualRestDataSource</h3>
               <p class="muted"><code>src/rest/index.ts:183:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-test-runner-index-ts"
+          class="view"
+          data-view="src/test-runner/index.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/test-runner/index.ts</h2>
+            <article class="item" data-search="testEndpoint src/test-runner/index.ts ">
+              <h3>testEndpoint</h3>
+              <p class="muted"><code>src/test-runner/index.ts:91:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="buildEndpointTestRequest src/test-runner/index.ts ">
+              <h3>buildEndpointTestRequest</h3>
+              <p class="muted"><code>src/test-runner/index.ts:157:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="selectEndpointOperation src/test-runner/index.ts ">
+              <h3>selectEndpointOperation</h3>
+              <p class="muted"><code>src/test-runner/index.ts:192:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="resolveEndpointCredential src/test-runner/index.ts ">
+              <h3>resolveEndpointCredential</h3>
+              <p class="muted"><code>src/test-runner/index.ts:201:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="buildHttpRequest src/test-runner/index.ts ">
+              <h3>buildHttpRequest</h3>
+              <p class="muted"><code>src/test-runner/index.ts:237:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="buildGraphQlRequest src/test-runner/index.ts ">
+              <h3>buildGraphQlRequest</h3>
+              <p class="muted"><code>src/test-runner/index.ts:284:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="getDataSourceBaseUrl src/test-runner/index.ts ">
+              <h3>getDataSourceBaseUrl</h3>
+              <p class="muted"><code>src/test-runner/index.ts:329:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="getGraphQlEndpointUrl src/test-runner/index.ts ">
+              <h3>getGraphQlEndpointUrl</h3>
+              <p class="muted"><code>src/test-runner/index.ts:339:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="interpolatePath src/test-runner/index.ts ">
+              <h3>interpolatePath</h3>
+              <p class="muted"><code>src/test-runner/index.ts:348:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="collectQuery src/test-runner/index.ts ">
+              <h3>collectQuery</h3>
+              <p class="muted"><code>src/test-runner/index.ts:380:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="createHttpBody src/test-runner/index.ts ">
+              <h3>createHttpBody</h3>
+              <p class="muted"><code>src/test-runner/index.ts:397:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="createResponseDiagnostic src/test-runner/index.ts ">
+              <h3>createResponseDiagnostic</h3>
+              <p class="muted"><code>src/test-runner/index.ts:409:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="parseResponseBody src/test-runner/index.ts ">
+              <h3>parseResponseBody</h3>
+              <p class="muted"><code>src/test-runner/index.ts:424:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="appendQuery src/test-runner/index.ts ">
+              <h3>appendQuery</h3>
+              <p class="muted"><code>src/test-runner/index.ts:435:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="serializeEndpointUrlValue src/test-runner/index.ts ">
+              <h3>serializeEndpointUrlValue</h3>
+              <p class="muted"><code>src/test-runner/index.ts:447:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="joinUrl src/test-runner/index.ts ">
+              <h3>joinUrl</h3>
+              <p class="muted"><code>src/test-runner/index.ts:455:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="getStringValue src/test-runner/index.ts ">
+              <h3>getStringValue</h3>
+              <p class="muted"><code>src/test-runner/index.ts:462:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="getRecordValue src/test-runner/index.ts ">
+              <h3>getRecordValue</h3>
+              <p class="muted"><code>src/test-runner/index.ts:470:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="getStringMetadataValue src/test-runner/index.ts ">
+              <h3>getStringMetadataValue</h3>
+              <p class="muted"><code>src/test-runner/index.ts:478:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="createDiagnostic src/test-runner/index.ts ">
+              <h3>createDiagnostic</h3>
+              <p class="muted"><code>src/test-runner/index.ts:488:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="createNetworkErrorMessage src/test-runner/index.ts ">
+              <h3>createNetworkErrorMessage</h3>
+              <p class="muted"><code>src/test-runner/index.ts:503:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isDataContractValue src/test-runner/index.ts ">
+              <h3>isDataContractValue</h3>
+              <p class="muted"><code>src/test-runner/index.ts:508:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isDataContractRecord src/test-runner/index.ts ">
+              <h3>isDataContractRecord</h3>
+              <p class="muted"><code>src/test-runner/index.ts:524:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>
