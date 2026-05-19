@@ -220,13 +220,17 @@ describe('manual REST data-source helpers', () => {
 
     expect(result.ok).toBe(false);
     if (!result.ok) {
-      expect(result.diagnostics.map((diagnostic) => diagnostic.message)).toEqual(
-        expect.arrayContaining([
-          'Manual REST endpoint paths must start with `/`.',
-          'Manual REST operation method must be one of DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT.',
-          "Path template parameter 'id' must have a matching path parameter definition.",
-          "Path parameter 'unusedId' is not referenced by the operation path template.",
-        ]),
+      const messages = result.diagnostics.map((diagnostic) => diagnostic.message);
+
+      expect(messages).toContain('Manual REST endpoint paths must start with `/`.');
+      expect(messages).toContain(
+        'Manual REST operation method must be one of DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT.',
+      );
+      expect(messages).toContain(
+        "Path template parameter 'id' must have a matching path parameter definition.",
+      );
+      expect(messages).toContain(
+        "Path parameter 'unusedId' is not referenced by the operation path template.",
       );
     }
   });
