@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 0.2.0
+
+### Minor Changes
+
+- 504dc55: Add dependency-free GraphQL introspection normalization helpers and serializable GraphQL operation modeling.
+
 ## 0.1.0
 
 ### Minor Changes
