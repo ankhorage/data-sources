@@ -2,7 +2,7 @@
   "name": "@ankhorage/data-sources",
   "type": "module",
   "version": "2.4.8",
-  "description": "Provider-neutral data source and endpoint system for APIs, databases, and runtime bindings.",
+  "description": "Headless toolkit for importing, generating, normalizing, and testing Ankhorage data-source configs.",
   "homepage": "https://github.com/ankhorage/data-sources#readme",
   "bugs": {
     "url": "https://github.com/ankhorage/data-sources/issues"
@@ -16,9 +16,17 @@
     "url": "git+https://github.com/ankhorage/data-sources.git"
   },
   "keywords": [
-    "data-sources"
+    "ankhorage",
+    "data-sources",
+    "api",
+    "openapi",
+    "graphql",
+    "rest",
+    "typescript"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "@ankhorage/contracts": "^1.12.0"
+  },
   "files": [
     "dist",
     "src",
@@ -40,7 +48,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.json",
+    "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.build.json",
     "changeset": "changeset",
     "changeset:status": "changeset status --since=origin/main",
     "docs": "paradox",
@@ -57,6 +65,7 @@
   "devDependencies": {
     "@ankhorage/devtools": "^1.0.6",
     "@ankhorage/paradox": "^0.1.7",
+    "@changesets/cli": "^2.30.0",
     "@types/bun": "^1.3.13",
     "@types/node": "^25.6.0",
     "typescript": "^5.9.3"
