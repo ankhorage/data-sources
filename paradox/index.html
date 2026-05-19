@@ -211,6 +211,12 @@
               </button>
             </li>
             <li>
+              <button class="nav-button" type="button" data-target="src/managed-api/index.ts">
+                src/managed-api/index.ts
+                <small>17 functions</small>
+              </button>
+            </li>
+            <li>
               <button class="nav-button" type="button" data-target="src/openapi/index.ts">
                 src/openapi/index.ts
                 <small>22 functions</small>
@@ -230,9 +236,9 @@
           <section class="panel">
             <h2>Package overview</h2>
             <div class="summary">
-              <div><strong>52</strong><span class="muted">public exports</span></div>
+              <div><strong>65</strong><span class="muted">public exports</span></div>
               <div><strong>0</strong><span class="muted">components</span></div>
-              <div><strong>4</strong><span class="muted">modules</span></div>
+              <div><strong>5</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -267,7 +273,7 @@
             </article>
             <article
               class="item"
-              data-search="src/index.ts createGraphQlDataSource createGraphQlIntrospectionRequest createManualRestDataSource DATA_SOURCES_PACKAGE_NAME DataSourcesPackageInfo extractRestPathParams getDataSourceKind getDataSourcesPackageInfo GRAPHQL_INTROSPECTION_QUERY GraphQlDataSourceDefinition GraphQlIntrospectionEnumValue GraphQlIntrospectionField GraphQlIntrospectionInputValue GraphQlIntrospectionRequest GraphQlIntrospectionResult GraphQlIntrospectionSchema GraphQlIntrospectionType GraphQlIntrospectionTypeRef GraphQlOperationDefinition GraphQlOperationKind importOpenApiDocument isManualRestMethod isSupportedDataSourceKind ManualRestDataSourceDefinition ManualRestEndpointDefinition ManualRestMethod ManualRestOperationDefinition normalizeGraphQlDataSource normalizeGraphQlIntrospectionOperations normalizeGraphQlIntrospectionSchemas normalizeGraphQlOperationId normalizeManualRestDataSource normalizeManualRestMethod normalizeOpenApiEndpointId normalizeOpenApiOperationId normalizeOpenApiSchema OpenApiComponentsObject OpenApiDocumentObject OpenApiHttpMethod OpenApiImportInput OpenApiImportResult OpenApiMediaTypeObject OpenApiOperationObject OpenApiParameterObject OpenApiPathItemObject OpenApiRequestBodyObject OpenApiResponseObject OpenApiSchemaObject OpenApiServerObject SUPPORTED_DATA_SOURCE_KINDS validateGraphQlDataSource validateManualRestDataSource"
+              data-search="src/index.ts createGraphQlDataSource createGraphQlIntrospectionRequest createManagedApiDataSource createManagedApiEndpoint createManagedApiOperation createManagedApiOperationId createManagedApiResourceSchema createManualRestDataSource DATA_SOURCES_PACKAGE_NAME DataSourcesPackageInfo extractRestPathParams getDataSourceKind getDataSourcesPackageInfo getManagedApiOperations GRAPHQL_INTROSPECTION_QUERY GraphQlDataSourceDefinition GraphQlIntrospectionEnumValue GraphQlIntrospectionField GraphQlIntrospectionInputValue GraphQlIntrospectionRequest GraphQlIntrospectionResult GraphQlIntrospectionSchema GraphQlIntrospectionType GraphQlIntrospectionTypeRef GraphQlOperationDefinition GraphQlOperationKind importOpenApiDocument isManualRestMethod isSupportedDataSourceKind MANAGED_API_CRUD_OPERATIONS ManagedApiCrudOperation ManagedApiGenerationDefinition ManagedApiGenerationResourceDefinition ManagedApiOperationPolicyRef ManualRestDataSourceDefinition ManualRestEndpointDefinition ManualRestMethod ManualRestOperationDefinition normalizeGraphQlDataSource normalizeGraphQlIntrospectionOperations normalizeGraphQlIntrospectionSchemas normalizeGraphQlOperationId normalizeManagedApiDataSource normalizeManualRestDataSource normalizeManualRestMethod normalizeOpenApiEndpointId normalizeOpenApiOperationId normalizeOpenApiSchema OpenApiComponentsObject OpenApiDocumentObject OpenApiHttpMethod OpenApiImportInput OpenApiImportResult OpenApiMediaTypeObject OpenApiOperationObject OpenApiParameterObject OpenApiPathItemObject OpenApiRequestBodyObject OpenApiResponseObject OpenApiSchemaObject OpenApiServerObject SUPPORTED_DATA_SOURCE_KINDS validateGraphQlDataSource validateManagedApiDefinition validateManualRestDataSource"
             >
               <h3>src/index.ts</h3>
               <p class="muted">Configured entrypoint</p>
@@ -275,10 +281,14 @@
               <p>
                 <strong>Exports:</strong> <code>createGraphQlDataSource</code>,
                 <code>createGraphQlIntrospectionRequest</code>,
+                <code>createManagedApiDataSource</code>, <code>createManagedApiEndpoint</code>,
+                <code>createManagedApiOperation</code>, <code>createManagedApiOperationId</code>,
+                <code>createManagedApiResourceSchema</code>,
                 <code>createManualRestDataSource</code>, <code>DATA_SOURCES_PACKAGE_NAME</code>,
                 <code>DataSourcesPackageInfo</code>, <code>extractRestPathParams</code>,
                 <code>getDataSourceKind</code>, <code>getDataSourcesPackageInfo</code>,
-                <code>GRAPHQL_INTROSPECTION_QUERY</code>, <code>GraphQlDataSourceDefinition</code>,
+                <code>getManagedApiOperations</code>, <code>GRAPHQL_INTROSPECTION_QUERY</code>,
+                <code>GraphQlDataSourceDefinition</code>,
                 <code>GraphQlIntrospectionEnumValue</code>, <code>GraphQlIntrospectionField</code>,
                 <code>GraphQlIntrospectionInputValue</code>,
                 <code>GraphQlIntrospectionRequest</code>, <code>GraphQlIntrospectionResult</code>,
@@ -286,12 +296,17 @@
                 <code>GraphQlIntrospectionTypeRef</code>, <code>GraphQlOperationDefinition</code>,
                 <code>GraphQlOperationKind</code>, <code>importOpenApiDocument</code>,
                 <code>isManualRestMethod</code>, <code>isSupportedDataSourceKind</code>,
+                <code>MANAGED_API_CRUD_OPERATIONS</code>, <code>ManagedApiCrudOperation</code>,
+                <code>ManagedApiGenerationDefinition</code>,
+                <code>ManagedApiGenerationResourceDefinition</code>,
+                <code>ManagedApiOperationPolicyRef</code>,
                 <code>ManualRestDataSourceDefinition</code>,
                 <code>ManualRestEndpointDefinition</code>, <code>ManualRestMethod</code>,
                 <code>ManualRestOperationDefinition</code>, <code>normalizeGraphQlDataSource</code>,
                 <code>normalizeGraphQlIntrospectionOperations</code>,
                 <code>normalizeGraphQlIntrospectionSchemas</code>,
                 <code>normalizeGraphQlOperationId</code>,
+                <code>normalizeManagedApiDataSource</code>,
                 <code>normalizeManualRestDataSource</code>, <code>normalizeManualRestMethod</code>,
                 <code>normalizeOpenApiEndpointId</code>, <code>normalizeOpenApiOperationId</code>,
                 <code>normalizeOpenApiSchema</code>, <code>OpenApiComponentsObject</code>,
@@ -302,7 +317,27 @@
                 <code>OpenApiRequestBodyObject</code>, <code>OpenApiResponseObject</code>,
                 <code>OpenApiSchemaObject</code>, <code>OpenApiServerObject</code>,
                 <code>SUPPORTED_DATA_SOURCE_KINDS</code>, <code>validateGraphQlDataSource</code>,
-                <code>validateManualRestDataSource</code>
+                <code>validateManagedApiDefinition</code>, <code>validateManualRestDataSource</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/managed-api/index.ts createManagedApiDataSource createManagedApiEndpoint createManagedApiOperation createManagedApiOperationId createManagedApiResourceSchema getManagedApiOperations MANAGED_API_CRUD_OPERATIONS ManagedApiCrudOperation ManagedApiGenerationDefinition ManagedApiGenerationResourceDefinition ManagedApiOperationPolicyRef normalizeManagedApiDataSource validateManagedApiDefinition"
+            >
+              <h3>src/managed-api/index.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>createManagedApiDataSource</code>,
+                <code>createManagedApiEndpoint</code>, <code>createManagedApiOperation</code>,
+                <code>createManagedApiOperationId</code>,
+                <code>createManagedApiResourceSchema</code>, <code>getManagedApiOperations</code>,
+                <code>MANAGED_API_CRUD_OPERATIONS</code>, <code>ManagedApiCrudOperation</code>,
+                <code>ManagedApiGenerationDefinition</code>,
+                <code>ManagedApiGenerationResourceDefinition</code>,
+                <code>ManagedApiOperationPolicyRef</code>,
+                <code>normalizeManagedApiDataSource</code>,
+                <code>validateManagedApiDefinition</code>
               </p>
             </article>
             <article
@@ -1290,7 +1325,7 @@
                 data-search="DATA_SOURCES_PACKAGE_NAME value src/index.ts "
               >
                 <h4>DATA_SOURCES_PACKAGE_NAME</h4>
-                <p class="muted">value • <code>src/index.ts:7:14</code></p>
+                <p class="muted">value • <code>src/index.ts:8:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1301,7 +1336,7 @@
                 data-search="DataSourcesPackageInfo type src/index.ts "
               >
                 <h4>DataSourcesPackageInfo</h4>
-                <p class="muted">type • <code>src/index.ts:17:1</code></p>
+                <p class="muted">type • <code>src/index.ts:18:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1345,7 +1380,7 @@
                 data-search="getDataSourceKind function src/index.ts  (source: DataSourceConfig) =&gt; DataSourceKind"
               >
                 <h4>getDataSourceKind</h4>
-                <p class="muted">function • <code>src/index.ts:33:1</code></p>
+                <p class="muted">function • <code>src/index.ts:34:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1379,7 +1414,7 @@
                 data-search="getDataSourcesPackageInfo function src/index.ts  DataSourcesPackageInfo () =&gt; DataSourcesPackageInfo"
               >
                 <h4>getDataSourcesPackageInfo</h4>
-                <p class="muted">function • <code>src/index.ts:22:1</code></p>
+                <p class="muted">function • <code>src/index.ts:23:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -1401,7 +1436,7 @@
                 data-search="isSupportedDataSourceKind function src/index.ts  (kind: string) =&gt; boolean"
               >
                 <h4>isSupportedDataSourceKind</h4>
-                <p class="muted">function • <code>src/index.ts:29:1</code></p>
+                <p class="muted">function • <code>src/index.ts:30:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1435,10 +1470,574 @@
                 data-search="SUPPORTED_DATA_SOURCE_KINDS value src/index.ts "
               >
                 <h4>SUPPORTED_DATA_SOURCE_KINDS</h4>
-                <p class="muted">value • <code>src/index.ts:9:14</code></p>
+                <p class="muted">value • <code>src/index.ts:10:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+            </section>
+            <section>
+              <h3>src/managed-api/index.ts</h3>
+              <article
+                class="item"
+                id="symbol-createmanagedapidatasource"
+                data-search="createManagedApiDataSource function src/managed-api/index.ts  ManagedApiGenerationDefinition (definition: ManagedApiGenerationDefinition) =&gt; DataSourceDiagnosticResult&lt;ManagedApiDataSourceConfig&gt;"
+              >
+                <h4>createManagedApiDataSource</h4>
+                <p class="muted">function • <code>src/managed-api/index.ts:45:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ManagedApiGenerationDefinition</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(definition: ManagedApiGenerationDefinition) =&gt; DataSourceDiagnosticResult&lt;ManagedApiDataSourceConfig&gt;</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>definition</code></td>
+                        <td><code>ManagedApiGenerationDefinition</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    <strong>Returns:</strong>
+                    <code>DataSourceDiagnosticResult&lt;ManagedApiDataSourceConfig&gt;</code>
+                  </p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-createmanagedapiendpoint"
+                data-search='createManagedApiEndpoint function src/managed-api/index.ts  ManagedApiGenerationDefinition ManagedApiGenerationResourceDefinition (definition: ManagedApiGenerationDefinition, resource: ManagedApiGenerationResourceDefinition, operations?: readonly ("list" | "read" | "create" | "update" | "delete")[]) =&gt; DataEndpointConfig'
+              >
+                <h4>createManagedApiEndpoint</h4>
+                <p class="muted">function • <code>src/managed-api/index.ts:151:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ManagedApiGenerationDefinition</li>
+                    <li class="chip">ManagedApiGenerationResourceDefinition</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(definition: ManagedApiGenerationDefinition, resource: ManagedApiGenerationResourceDefinition, operations?: readonly (&quot;list&quot; | &quot;read&quot; | &quot;create&quot; | &quot;update&quot; | &quot;delete&quot;)[]) =&gt; DataEndpointConfig</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>definition</code></td>
+                        <td><code>ManagedApiGenerationDefinition</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><code>operations</code></td>
+                        <td>
+                          <code
+                            >readonly (&quot;list&quot; | &quot;read&quot; | &quot;create&quot; |
+                            &quot;update&quot; | &quot;delete&quot;)[]</code
+                          >
+                        </td>
+                        <td>no</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><code>resource</code></td>
+                        <td><code>ManagedApiGenerationResourceDefinition</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>DataEndpointConfig</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-createmanagedapioperation"
+                data-search='createManagedApiOperation function src/managed-api/index.ts  ManagedApiGenerationDefinition ManagedApiGenerationResourceDefinition (definition: ManagedApiGenerationDefinition, resource: ManagedApiGenerationResourceDefinition, operation: "list" | "read" | "create" | "update" | "delete") =&gt; DataOperationConfig'
+              >
+                <h4>createManagedApiOperation</h4>
+                <p class="muted">function • <code>src/managed-api/index.ts:176:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ManagedApiGenerationDefinition</li>
+                    <li class="chip">ManagedApiGenerationResourceDefinition</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(definition: ManagedApiGenerationDefinition, resource: ManagedApiGenerationResourceDefinition, operation: &quot;list&quot; | &quot;read&quot; | &quot;create&quot; | &quot;update&quot; | &quot;delete&quot;) =&gt; DataOperationConfig</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>definition</code></td>
+                        <td><code>ManagedApiGenerationDefinition</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><code>operation</code></td>
+                        <td>
+                          <code
+                            >&quot;list&quot; | &quot;read&quot; | &quot;create&quot; |
+                            &quot;update&quot; | &quot;delete&quot;</code
+                          >
+                        </td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><code>resource</code></td>
+                        <td><code>ManagedApiGenerationResourceDefinition</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>DataOperationConfig</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-createmanagedapioperationid"
+                data-search='createManagedApiOperationId function src/managed-api/index.ts  (resourceName: string, operation: "list" | "read" | "create" | "update" | "delete") =&gt; string'
+              >
+                <h4>createManagedApiOperationId</h4>
+                <p class="muted">function • <code>src/managed-api/index.ts:210:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(resourceName: string, operation: &quot;list&quot; | &quot;read&quot; | &quot;create&quot; | &quot;update&quot; | &quot;delete&quot;) =&gt; string</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>operation</code></td>
+                        <td>
+                          <code
+                            >&quot;list&quot; | &quot;read&quot; | &quot;create&quot; |
+                            &quot;update&quot; | &quot;delete&quot;</code
+                          >
+                        </td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><code>resourceName</code></td>
+                        <td><code>string</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>string</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-createmanagedapiresourceschema"
+                data-search="createManagedApiResourceSchema function src/managed-api/index.ts  (collection: DbCollectionDefinition) =&gt; DataSchema"
+              >
+                <h4>createManagedApiResourceSchema</h4>
+                <p class="muted">function • <code>src/managed-api/index.ts:217:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(collection: DbCollectionDefinition) =&gt; DataSchema</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>collection</code></td>
+                        <td><code>DbCollectionDefinition</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>DataSchema</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-getmanagedapioperations"
+                data-search='getManagedApiOperations function src/managed-api/index.ts  ManagedApiGenerationResourceDefinition (resource: ManagedApiGenerationResourceDefinition) =&gt; readonly ("list" | "read" | "create" | "update" | "delete")[]'
+              >
+                <h4>getManagedApiOperations</h4>
+                <p class="muted">function • <code>src/managed-api/index.ts:204:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ManagedApiGenerationResourceDefinition</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(resource: ManagedApiGenerationResourceDefinition) =&gt; readonly (&quot;list&quot; | &quot;read&quot; | &quot;create&quot; | &quot;update&quot; | &quot;delete&quot;)[]</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>resource</code></td>
+                        <td><code>ManagedApiGenerationResourceDefinition</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    <strong>Returns:</strong>
+                    <code
+                      >readonly (&quot;list&quot; | &quot;read&quot; | &quot;create&quot; |
+                      &quot;update&quot; | &quot;delete&quot;)[]</code
+                    >
+                  </p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-managed-api-crud-operations"
+                data-search="MANAGED_API_CRUD_OPERATIONS value src/managed-api/index.ts "
+              >
+                <h4>MANAGED_API_CRUD_OPERATIONS</h4>
+                <p class="muted">value • <code>src/managed-api/index.ts:21:14</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-managedapicrudoperation"
+                data-search="ManagedApiCrudOperation unknown src/managed-api/index.ts "
+              >
+                <h4>ManagedApiCrudOperation</h4>
+                <p class="muted">unknown • <code>src/managed-api/index.ts:23:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-managedapigenerationdefinition"
+                data-search="ManagedApiGenerationDefinition type src/managed-api/index.ts  ManagedApiGenerationResourceDefinition"
+              >
+                <h4>ManagedApiGenerationDefinition</h4>
+                <p class="muted">type • <code>src/managed-api/index.ts:37:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ManagedApiGenerationResourceDefinition</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>adapter</code></td>
+                      <td>property</td>
+                      <td><code>AdapterRef</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>id</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>resources</code></td>
+                      <td>property</td>
+                      <td><code>readonly ManagedApiGenerationResourceDefinition[]</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-managedapigenerationresourcedefinition"
+                data-search="ManagedApiGenerationResourceDefinition type src/managed-api/index.ts  ManagedApiOperationPolicyRef"
+              >
+                <h4>ManagedApiGenerationResourceDefinition</h4>
+                <p class="muted">type • <code>src/managed-api/index.ts:30:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ManagedApiOperationPolicyRef</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>collection</code></td>
+                      <td>property</td>
+                      <td><code>DbCollectionDefinition</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>operations</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >readonly (&quot;list&quot; | &quot;read&quot; | &quot;create&quot; |
+                          &quot;update&quot; | &quot;delete&quot;)[] | undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>policies</code></td>
+                      <td>property</td>
+                      <td><code>readonly ManagedApiOperationPolicyRef[] | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-managedapioperationpolicyref"
+                data-search="ManagedApiOperationPolicyRef type src/managed-api/index.ts "
+              >
+                <h4>ManagedApiOperationPolicyRef</h4>
+                <p class="muted">type • <code>src/managed-api/index.ts:25:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>id</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>operation</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-normalizemanagedapidatasource"
+                data-search="normalizeManagedApiDataSource function src/managed-api/index.ts  ManagedApiGenerationDefinition (definition: ManagedApiGenerationDefinition) =&gt; ManagedApiDataSourceConfig"
+              >
+                <h4>normalizeManagedApiDataSource</h4>
+                <p class="muted">function • <code>src/managed-api/index.ts:118:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ManagedApiGenerationDefinition</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(definition: ManagedApiGenerationDefinition) =&gt; ManagedApiDataSourceConfig</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>definition</code></td>
+                        <td><code>ManagedApiGenerationDefinition</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>ManagedApiDataSourceConfig</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-validatemanagedapidefinition"
+                data-search="validateManagedApiDefinition function src/managed-api/index.ts  ManagedApiGenerationDefinition (definition: ManagedApiGenerationDefinition) =&gt; readonly DataSourceDiagnostic[]"
+              >
+                <h4>validateManagedApiDefinition</h4>
+                <p class="muted">function • <code>src/managed-api/index.ts:60:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ManagedApiGenerationDefinition</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(definition: ManagedApiGenerationDefinition) =&gt; readonly DataSourceDiagnostic[]</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>definition</code></td>
+                        <td><code>ManagedApiGenerationDefinition</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>readonly DataSourceDiagnostic[]</code></p>
+                </div>
               </article>
             </section>
             <section>
@@ -2881,6 +3480,8 @@
                 module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
                 package__ankhorage_data_sources -.-&gt; module_src_graphql_index_ts
                 module_src_index_ts[&quot;src/index.ts&quot;]
+                module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
+                package__ankhorage_data_sources -.-&gt; module_src_managed_api_index_ts
                 module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
                 package__ankhorage_data_sources -.-&gt; module_src_openapi_index_ts
                 module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
@@ -2896,6 +3497,8 @@ graph TD
   module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_graphql_index_ts
   module_src_index_ts[&quot;src/index.ts&quot;]
+  module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_managed_api_index_ts
   module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_openapi_index_ts
   module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
@@ -2913,10 +3516,13 @@ graph TD
               <div class="mermaid">
                 graph LR module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
                 module_src_index_ts[&quot;src/index.ts&quot;]
+                module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
                 module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
                 module_src_rest_index_ts[&quot;src/rest/index.ts&quot;] module_src_graphql_index_ts
-                -.-&gt; module_src_index_ts module_src_index_ts -.-&gt; module_src_openapi_index_ts
-                module_src_openapi_index_ts -.-&gt; module_src_rest_index_ts
+                -.-&gt; module_src_index_ts module_src_index_ts -.-&gt;
+                module_src_managed_api_index_ts module_src_managed_api_index_ts -.-&gt;
+                module_src_openapi_index_ts module_src_openapi_index_ts -.-&gt;
+                module_src_rest_index_ts
               </div>
               <details>
                 <summary>View Mermaid source</summary>
@@ -2924,10 +3530,12 @@ graph TD
 graph LR
   module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
+  module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
   module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
   module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
   module_src_graphql_index_ts -.-&gt; module_src_index_ts
-  module_src_index_ts -.-&gt; module_src_openapi_index_ts
+  module_src_index_ts -.-&gt; module_src_managed_api_index_ts
+  module_src_managed_api_index_ts -.-&gt; module_src_openapi_index_ts
   module_src_openapi_index_ts -.-&gt; module_src_rest_index_ts
 </pre
                 >
@@ -2939,6 +3547,7 @@ graph LR
               <div class="mermaid">
                 graph LR module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
                 module_src_index_ts[&quot;src/index.ts&quot;]
+                module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
                 module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
                 module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
                 export_createGraphQlDataSource[&quot;createGraphQlDataSource&quot;]
@@ -2947,6 +3556,23 @@ graph LR
                 export_createGraphQlIntrospectionRequest[&quot;createGraphQlIntrospectionRequest&quot;]
                 module_src_graphql_index_ts --&gt; export_createGraphQlIntrospectionRequest
                 export_createGraphQlIntrospectionRequest -.-&gt; export_GraphQlIntrospectionRequest
+                export_createManagedApiDataSource[&quot;createManagedApiDataSource&quot;]
+                module_src_managed_api_index_ts --&gt; export_createManagedApiDataSource
+                export_createManagedApiDataSource -.-&gt; export_ManagedApiGenerationDefinition
+                export_createManagedApiEndpoint[&quot;createManagedApiEndpoint&quot;]
+                module_src_managed_api_index_ts --&gt; export_createManagedApiEndpoint
+                export_createManagedApiEndpoint -.-&gt; export_ManagedApiGenerationDefinition
+                export_createManagedApiEndpoint -.-&gt;
+                export_ManagedApiGenerationResourceDefinition
+                export_createManagedApiOperation[&quot;createManagedApiOperation&quot;]
+                module_src_managed_api_index_ts --&gt; export_createManagedApiOperation
+                export_createManagedApiOperation -.-&gt; export_ManagedApiGenerationDefinition
+                export_createManagedApiOperation -.-&gt;
+                export_ManagedApiGenerationResourceDefinition
+                export_createManagedApiOperationId[&quot;createManagedApiOperationId&quot;]
+                module_src_managed_api_index_ts --&gt; export_createManagedApiOperationId
+                export_createManagedApiResourceSchema[&quot;createManagedApiResourceSchema&quot;]
+                module_src_managed_api_index_ts --&gt; export_createManagedApiResourceSchema
                 export_createManualRestDataSource[&quot;createManualRestDataSource&quot;]
                 module_src_rest_index_ts --&gt; export_createManualRestDataSource
                 export_createManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
@@ -2961,6 +3587,9 @@ graph LR
                 export_getDataSourcesPackageInfo[&quot;getDataSourcesPackageInfo&quot;]
                 module_src_index_ts --&gt; export_getDataSourcesPackageInfo
                 export_getDataSourcesPackageInfo -.-&gt; export_DataSourcesPackageInfo
+                export_getManagedApiOperations[&quot;getManagedApiOperations&quot;]
+                module_src_managed_api_index_ts --&gt; export_getManagedApiOperations
+                export_getManagedApiOperations -.-&gt; export_ManagedApiGenerationResourceDefinition
                 export_GRAPHQL_INTROSPECTION_QUERY[&quot;GRAPHQL_INTROSPECTION_QUERY&quot;]
                 module_src_graphql_index_ts --&gt; export_GRAPHQL_INTROSPECTION_QUERY
                 export_GraphQlDataSourceDefinition[&quot;GraphQlDataSourceDefinition&quot;]
@@ -3005,6 +3634,20 @@ graph LR
                 --&gt; export_isManualRestMethod
                 export_isSupportedDataSourceKind[&quot;isSupportedDataSourceKind&quot;]
                 module_src_index_ts --&gt; export_isSupportedDataSourceKind
+                export_MANAGED_API_CRUD_OPERATIONS[&quot;MANAGED_API_CRUD_OPERATIONS&quot;]
+                module_src_managed_api_index_ts --&gt; export_MANAGED_API_CRUD_OPERATIONS
+                export_ManagedApiCrudOperation[&quot;ManagedApiCrudOperation&quot;]
+                module_src_managed_api_index_ts --&gt; export_ManagedApiCrudOperation
+                export_ManagedApiGenerationDefinition[&quot;ManagedApiGenerationDefinition&quot;]
+                module_src_managed_api_index_ts --&gt; export_ManagedApiGenerationDefinition
+                export_ManagedApiGenerationDefinition -.-&gt;
+                export_ManagedApiGenerationResourceDefinition
+                export_ManagedApiGenerationResourceDefinition[&quot;ManagedApiGenerationResourceDefinition&quot;]
+                module_src_managed_api_index_ts --&gt; export_ManagedApiGenerationResourceDefinition
+                export_ManagedApiGenerationResourceDefinition -.-&gt;
+                export_ManagedApiOperationPolicyRef
+                export_ManagedApiOperationPolicyRef[&quot;ManagedApiOperationPolicyRef&quot;]
+                module_src_managed_api_index_ts --&gt; export_ManagedApiOperationPolicyRef
                 export_ManualRestDataSourceDefinition[&quot;ManualRestDataSourceDefinition&quot;]
                 module_src_rest_index_ts --&gt; export_ManualRestDataSourceDefinition
                 export_ManualRestDataSourceDefinition -.-&gt; export_ManualRestEndpointDefinition
@@ -3030,6 +3673,9 @@ graph LR
                 export_normalizeGraphQlOperationId[&quot;normalizeGraphQlOperationId&quot;]
                 module_src_graphql_index_ts --&gt; export_normalizeGraphQlOperationId
                 export_normalizeGraphQlOperationId -.-&gt; export_GraphQlOperationKind
+                export_normalizeManagedApiDataSource[&quot;normalizeManagedApiDataSource&quot;]
+                module_src_managed_api_index_ts --&gt; export_normalizeManagedApiDataSource
+                export_normalizeManagedApiDataSource -.-&gt; export_ManagedApiGenerationDefinition
                 export_normalizeManualRestDataSource[&quot;normalizeManualRestDataSource&quot;]
                 module_src_rest_index_ts --&gt; export_normalizeManualRestDataSource
                 export_normalizeManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
@@ -3085,6 +3731,9 @@ graph LR
                 export_validateGraphQlDataSource[&quot;validateGraphQlDataSource&quot;]
                 module_src_graphql_index_ts --&gt; export_validateGraphQlDataSource
                 export_validateGraphQlDataSource -.-&gt; export_GraphQlDataSourceDefinition
+                export_validateManagedApiDefinition[&quot;validateManagedApiDefinition&quot;]
+                module_src_managed_api_index_ts --&gt; export_validateManagedApiDefinition
+                export_validateManagedApiDefinition -.-&gt; export_ManagedApiGenerationDefinition
                 export_validateManualRestDataSource[&quot;validateManualRestDataSource&quot;]
                 module_src_rest_index_ts --&gt; export_validateManualRestDataSource
                 export_validateManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
@@ -3095,6 +3744,7 @@ graph LR
 graph LR
   module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
+  module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
   module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
   module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
   export_createGraphQlDataSource[&quot;createGraphQlDataSource&quot;]
@@ -3103,6 +3753,21 @@ graph LR
   export_createGraphQlIntrospectionRequest[&quot;createGraphQlIntrospectionRequest&quot;]
   module_src_graphql_index_ts --&gt; export_createGraphQlIntrospectionRequest
   export_createGraphQlIntrospectionRequest -.-&gt; export_GraphQlIntrospectionRequest
+  export_createManagedApiDataSource[&quot;createManagedApiDataSource&quot;]
+  module_src_managed_api_index_ts --&gt; export_createManagedApiDataSource
+  export_createManagedApiDataSource -.-&gt; export_ManagedApiGenerationDefinition
+  export_createManagedApiEndpoint[&quot;createManagedApiEndpoint&quot;]
+  module_src_managed_api_index_ts --&gt; export_createManagedApiEndpoint
+  export_createManagedApiEndpoint -.-&gt; export_ManagedApiGenerationDefinition
+  export_createManagedApiEndpoint -.-&gt; export_ManagedApiGenerationResourceDefinition
+  export_createManagedApiOperation[&quot;createManagedApiOperation&quot;]
+  module_src_managed_api_index_ts --&gt; export_createManagedApiOperation
+  export_createManagedApiOperation -.-&gt; export_ManagedApiGenerationDefinition
+  export_createManagedApiOperation -.-&gt; export_ManagedApiGenerationResourceDefinition
+  export_createManagedApiOperationId[&quot;createManagedApiOperationId&quot;]
+  module_src_managed_api_index_ts --&gt; export_createManagedApiOperationId
+  export_createManagedApiResourceSchema[&quot;createManagedApiResourceSchema&quot;]
+  module_src_managed_api_index_ts --&gt; export_createManagedApiResourceSchema
   export_createManualRestDataSource[&quot;createManualRestDataSource&quot;]
   module_src_rest_index_ts --&gt; export_createManualRestDataSource
   export_createManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
@@ -3117,6 +3782,9 @@ graph LR
   export_getDataSourcesPackageInfo[&quot;getDataSourcesPackageInfo&quot;]
   module_src_index_ts --&gt; export_getDataSourcesPackageInfo
   export_getDataSourcesPackageInfo -.-&gt; export_DataSourcesPackageInfo
+  export_getManagedApiOperations[&quot;getManagedApiOperations&quot;]
+  module_src_managed_api_index_ts --&gt; export_getManagedApiOperations
+  export_getManagedApiOperations -.-&gt; export_ManagedApiGenerationResourceDefinition
   export_GRAPHQL_INTROSPECTION_QUERY[&quot;GRAPHQL_INTROSPECTION_QUERY&quot;]
   module_src_graphql_index_ts --&gt; export_GRAPHQL_INTROSPECTION_QUERY
   export_GraphQlDataSourceDefinition[&quot;GraphQlDataSourceDefinition&quot;]
@@ -3161,6 +3829,18 @@ graph LR
   module_src_rest_index_ts --&gt; export_isManualRestMethod
   export_isSupportedDataSourceKind[&quot;isSupportedDataSourceKind&quot;]
   module_src_index_ts --&gt; export_isSupportedDataSourceKind
+  export_MANAGED_API_CRUD_OPERATIONS[&quot;MANAGED_API_CRUD_OPERATIONS&quot;]
+  module_src_managed_api_index_ts --&gt; export_MANAGED_API_CRUD_OPERATIONS
+  export_ManagedApiCrudOperation[&quot;ManagedApiCrudOperation&quot;]
+  module_src_managed_api_index_ts --&gt; export_ManagedApiCrudOperation
+  export_ManagedApiGenerationDefinition[&quot;ManagedApiGenerationDefinition&quot;]
+  module_src_managed_api_index_ts --&gt; export_ManagedApiGenerationDefinition
+  export_ManagedApiGenerationDefinition -.-&gt; export_ManagedApiGenerationResourceDefinition
+  export_ManagedApiGenerationResourceDefinition[&quot;ManagedApiGenerationResourceDefinition&quot;]
+  module_src_managed_api_index_ts --&gt; export_ManagedApiGenerationResourceDefinition
+  export_ManagedApiGenerationResourceDefinition -.-&gt; export_ManagedApiOperationPolicyRef
+  export_ManagedApiOperationPolicyRef[&quot;ManagedApiOperationPolicyRef&quot;]
+  module_src_managed_api_index_ts --&gt; export_ManagedApiOperationPolicyRef
   export_ManualRestDataSourceDefinition[&quot;ManualRestDataSourceDefinition&quot;]
   module_src_rest_index_ts --&gt; export_ManualRestDataSourceDefinition
   export_ManualRestDataSourceDefinition -.-&gt; export_ManualRestEndpointDefinition
@@ -3184,6 +3864,9 @@ graph LR
   export_normalizeGraphQlOperationId[&quot;normalizeGraphQlOperationId&quot;]
   module_src_graphql_index_ts --&gt; export_normalizeGraphQlOperationId
   export_normalizeGraphQlOperationId -.-&gt; export_GraphQlOperationKind
+  export_normalizeManagedApiDataSource[&quot;normalizeManagedApiDataSource&quot;]
+  module_src_managed_api_index_ts --&gt; export_normalizeManagedApiDataSource
+  export_normalizeManagedApiDataSource -.-&gt; export_ManagedApiGenerationDefinition
   export_normalizeManualRestDataSource[&quot;normalizeManualRestDataSource&quot;]
   module_src_rest_index_ts --&gt; export_normalizeManualRestDataSource
   export_normalizeManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
@@ -3239,9 +3922,49 @@ graph LR
   export_validateGraphQlDataSource[&quot;validateGraphQlDataSource&quot;]
   module_src_graphql_index_ts --&gt; export_validateGraphQlDataSource
   export_validateGraphQlDataSource -.-&gt; export_GraphQlDataSourceDefinition
+  export_validateManagedApiDefinition[&quot;validateManagedApiDefinition&quot;]
+  module_src_managed_api_index_ts --&gt; export_validateManagedApiDefinition
+  export_validateManagedApiDefinition -.-&gt; export_ManagedApiGenerationDefinition
   export_validateManualRestDataSource[&quot;validateManualRestDataSource&quot;]
   module_src_rest_index_ts --&gt; export_validateManualRestDataSource
   export_validateManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
+</pre
+                >
+              </details>
+            </article>
+            <article
+              class="item"
+              data-search="createManagedApiResourceSchema sequence diagrams/sequences/create-managed-api-resource-schema.mmd"
+            >
+              <h3>createManagedApiResourceSchema sequence</h3>
+              <p class="muted">
+                <code>diagrams/sequences/create-managed-api-resource-schema.mmd</code>
+              </p>
+              <div class="mermaid">
+                sequenceDiagram participant participant_createManagedApiFieldSchema as
+                createManagedApiFieldSchema participant participant_createManagedApiResourceSchema
+                as createManagedApiResourceSchema participant participant_mapDbFieldTypeToDataSchema
+                as mapDbFieldTypeToDataSchema
+                participant_createManagedApiResourceSchema-&gt;&gt;participant_createManagedApiFieldSchema:
+                createManagedApiFieldSchema()
+                participant_createManagedApiFieldSchema-&gt;&gt;participant_mapDbFieldTypeToDataSchema:
+                mapDbFieldTypeToDataSchema()
+                participant_mapDbFieldTypeToDataSchema--&gt;&gt;participant_createManagedApiFieldSchema:
+                return
+                participant_createManagedApiFieldSchema--&gt;&gt;participant_createManagedApiResourceSchema:
+                return
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+sequenceDiagram
+  participant participant_createManagedApiFieldSchema as createManagedApiFieldSchema
+  participant participant_createManagedApiResourceSchema as createManagedApiResourceSchema
+  participant participant_mapDbFieldTypeToDataSchema as mapDbFieldTypeToDataSchema
+  participant_createManagedApiResourceSchema-&gt;&gt;participant_createManagedApiFieldSchema: createManagedApiFieldSchema()
+  participant_createManagedApiFieldSchema-&gt;&gt;participant_mapDbFieldTypeToDataSchema: mapDbFieldTypeToDataSchema()
+  participant_mapDbFieldTypeToDataSchema--&gt;&gt;participant_createManagedApiFieldSchema: return
+  participant_createManagedApiFieldSchema--&gt;&gt;participant_createManagedApiResourceSchema: return
 </pre
                 >
               </details>
@@ -3576,6 +4299,43 @@ sequenceDiagram
             </article>
             <article
               class="item"
+              data-search="validateManagedApiDefinition sequence diagrams/sequences/validate-managed-api-definition.mmd"
+            >
+              <h3>validateManagedApiDefinition sequence</h3>
+              <p class="muted">
+                <code>diagrams/sequences/validate-managed-api-definition.mmd</code>
+              </p>
+              <div class="mermaid">
+                sequenceDiagram participant participant_getManagedApiOperations as
+                getManagedApiOperations participant participant_resolveManagedApiPrimaryKey as
+                resolveManagedApiPrimaryKey participant participant_validateManagedApiDefinition as
+                validateManagedApiDefinition
+                participant_validateManagedApiDefinition-&gt;&gt;participant_resolveManagedApiPrimaryKey:
+                resolveManagedApiPrimaryKey()
+                participant_resolveManagedApiPrimaryKey--&gt;&gt;participant_validateManagedApiDefinition:
+                return
+                participant_validateManagedApiDefinition-&gt;&gt;participant_getManagedApiOperations:
+                getManagedApiOperations()
+                participant_getManagedApiOperations--&gt;&gt;participant_validateManagedApiDefinition:
+                return
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+sequenceDiagram
+  participant participant_getManagedApiOperations as getManagedApiOperations
+  participant participant_resolveManagedApiPrimaryKey as resolveManagedApiPrimaryKey
+  participant participant_validateManagedApiDefinition as validateManagedApiDefinition
+  participant_validateManagedApiDefinition-&gt;&gt;participant_resolveManagedApiPrimaryKey: resolveManagedApiPrimaryKey()
+  participant_resolveManagedApiPrimaryKey--&gt;&gt;participant_validateManagedApiDefinition: return
+  participant_validateManagedApiDefinition-&gt;&gt;participant_getManagedApiOperations: getManagedApiOperations()
+  participant_getManagedApiOperations--&gt;&gt;participant_validateManagedApiDefinition: return
+</pre
+                >
+              </details>
+            </article>
+            <article
+              class="item"
               data-search="validateManualRestDataSource sequence diagrams/sequences/validate-manual-rest-data-source.mmd"
             >
               <h3>validateManualRestDataSource sequence</h3>
@@ -3754,17 +4514,151 @@ sequenceDiagram
             <h2>src/index.ts</h2>
             <article class="item" data-search="getDataSourcesPackageInfo src/index.ts ">
               <h3>getDataSourcesPackageInfo</h3>
-              <p class="muted"><code>src/index.ts:22:1</code></p>
+              <p class="muted"><code>src/index.ts:23:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="isSupportedDataSourceKind src/index.ts ">
               <h3>isSupportedDataSourceKind</h3>
-              <p class="muted"><code>src/index.ts:29:1</code></p>
+              <p class="muted"><code>src/index.ts:30:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="getDataSourceKind src/index.ts ">
               <h3>getDataSourceKind</h3>
-              <p class="muted"><code>src/index.ts:33:1</code></p>
+              <p class="muted"><code>src/index.ts:34:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-managed-api-index-ts"
+          class="view"
+          data-view="src/managed-api/index.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/managed-api/index.ts</h2>
+            <article
+              class="item"
+              data-search="createManagedApiDataSource src/managed-api/index.ts "
+            >
+              <h3>createManagedApiDataSource</h3>
+              <p class="muted"><code>src/managed-api/index.ts:45:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="validateManagedApiDefinition src/managed-api/index.ts "
+            >
+              <h3>validateManagedApiDefinition</h3>
+              <p class="muted"><code>src/managed-api/index.ts:60:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="normalizeManagedApiDataSource src/managed-api/index.ts "
+            >
+              <h3>normalizeManagedApiDataSource</h3>
+              <p class="muted"><code>src/managed-api/index.ts:118:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="createManagedApiEndpoint src/managed-api/index.ts ">
+              <h3>createManagedApiEndpoint</h3>
+              <p class="muted"><code>src/managed-api/index.ts:151:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="createManagedApiOperation src/managed-api/index.ts ">
+              <h3>createManagedApiOperation</h3>
+              <p class="muted"><code>src/managed-api/index.ts:176:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="getManagedApiOperations src/managed-api/index.ts ">
+              <h3>getManagedApiOperations</h3>
+              <p class="muted"><code>src/managed-api/index.ts:204:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="createManagedApiOperationId src/managed-api/index.ts "
+            >
+              <h3>createManagedApiOperationId</h3>
+              <p class="muted"><code>src/managed-api/index.ts:210:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="createManagedApiResourceSchema src/managed-api/index.ts "
+            >
+              <h3>createManagedApiResourceSchema</h3>
+              <p class="muted"><code>src/managed-api/index.ts:217:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="createManagedApiResourceMetadata src/managed-api/index.ts "
+            >
+              <h3>createManagedApiResourceMetadata</h3>
+              <p class="muted"><code>src/managed-api/index.ts:234:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="createManagedApiOperationName src/managed-api/index.ts "
+            >
+              <h3>createManagedApiOperationName</h3>
+              <p class="muted"><code>src/managed-api/index.ts:254:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="mapManagedApiOperationIntent src/managed-api/index.ts "
+            >
+              <h3>mapManagedApiOperationIntent</h3>
+              <p class="muted"><code>src/managed-api/index.ts:261:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="createManagedApiOperationRequest src/managed-api/index.ts "
+            >
+              <h3>createManagedApiOperationRequest</h3>
+              <p class="muted"><code>src/managed-api/index.ts:268:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="createManagedApiOperationResponse src/managed-api/index.ts "
+            >
+              <h3>createManagedApiOperationResponse</h3>
+              <p class="muted"><code>src/managed-api/index.ts:303:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="createPrimaryKeyParameter src/managed-api/index.ts ">
+              <h3>createPrimaryKeyParameter</h3>
+              <p class="muted"><code>src/managed-api/index.ts:332:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="resolveManagedApiPrimaryKey src/managed-api/index.ts "
+            >
+              <h3>resolveManagedApiPrimaryKey</h3>
+              <p class="muted"><code>src/managed-api/index.ts:343:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="createManagedApiFieldSchema src/managed-api/index.ts "
+            >
+              <h3>createManagedApiFieldSchema</h3>
+              <p class="muted"><code>src/managed-api/index.ts:348:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="mapDbFieldTypeToDataSchema src/managed-api/index.ts "
+            >
+              <h3>mapDbFieldTypeToDataSchema</h3>
+              <p class="muted"><code>src/managed-api/index.ts:357:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>

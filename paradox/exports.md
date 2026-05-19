@@ -23,6 +23,71 @@ Source: `src/graphql/index.ts:128:1`
 - `() => GraphQlIntrospectionRequest`
   - returns: `GraphQlIntrospectionRequest`
 
+## createManagedApiDataSource
+
+Kind: `function`
+Module: `src/managed-api/index.ts`
+Source: `src/managed-api/index.ts:45:1`
+
+### Signatures
+
+- `(definition: ManagedApiGenerationDefinition) => DataSourceDiagnosticResult<ManagedApiDataSourceConfig>`
+  - definition: `ManagedApiGenerationDefinition`
+  - returns: `DataSourceDiagnosticResult<ManagedApiDataSourceConfig>`
+
+## createManagedApiEndpoint
+
+Kind: `function`
+Module: `src/managed-api/index.ts`
+Source: `src/managed-api/index.ts:151:1`
+
+### Signatures
+
+- `(definition: ManagedApiGenerationDefinition, resource: ManagedApiGenerationResourceDefinition, operations?: readonly ("list" | "read" | "create" | "update" | "delete")[]) => DataEndpointConfig`
+  - definition: `ManagedApiGenerationDefinition`
+  - operations: `readonly ("list" | "read" | "create" | "update" | "delete")[]` (optional)
+  - resource: `ManagedApiGenerationResourceDefinition`
+  - returns: `DataEndpointConfig`
+
+## createManagedApiOperation
+
+Kind: `function`
+Module: `src/managed-api/index.ts`
+Source: `src/managed-api/index.ts:176:1`
+
+### Signatures
+
+- `(definition: ManagedApiGenerationDefinition, resource: ManagedApiGenerationResourceDefinition, operation: "list" | "read" | "create" | "update" | "delete") => DataOperationConfig`
+  - definition: `ManagedApiGenerationDefinition`
+  - operation: `"list" | "read" | "create" | "update" | "delete"`
+  - resource: `ManagedApiGenerationResourceDefinition`
+  - returns: `DataOperationConfig`
+
+## createManagedApiOperationId
+
+Kind: `function`
+Module: `src/managed-api/index.ts`
+Source: `src/managed-api/index.ts:210:1`
+
+### Signatures
+
+- `(resourceName: string, operation: "list" | "read" | "create" | "update" | "delete") => string`
+  - operation: `"list" | "read" | "create" | "update" | "delete"`
+  - resourceName: `string`
+  - returns: `string`
+
+## createManagedApiResourceSchema
+
+Kind: `function`
+Module: `src/managed-api/index.ts`
+Source: `src/managed-api/index.ts:217:1`
+
+### Signatures
+
+- `(collection: DbCollectionDefinition) => DataSchema`
+  - collection: `DbCollectionDefinition`
+  - returns: `DataSchema`
+
 ## createManualRestDataSource
 
 Kind: `function`
@@ -39,13 +104,13 @@ Source: `src/rest/index.ts:166:1`
 
 Kind: `value`
 Module: `src/index.ts`
-Source: `src/index.ts:7:14`
+Source: `src/index.ts:8:14`
 
 ## DataSourcesPackageInfo
 
 Kind: `type`
 Module: `src/index.ts`
-Source: `src/index.ts:17:1`
+Source: `src/index.ts:18:1`
 
 ### Members
 
@@ -70,7 +135,7 @@ Source: `src/rest/index.ts:68:1`
 
 Kind: `function`
 Module: `src/index.ts`
-Source: `src/index.ts:33:1`
+Source: `src/index.ts:34:1`
 
 ### Signatures
 
@@ -82,12 +147,24 @@ Source: `src/index.ts:33:1`
 
 Kind: `function`
 Module: `src/index.ts`
-Source: `src/index.ts:22:1`
+Source: `src/index.ts:23:1`
 
 ### Signatures
 
 - `() => DataSourcesPackageInfo`
   - returns: `DataSourcesPackageInfo`
+
+## getManagedApiOperations
+
+Kind: `function`
+Module: `src/managed-api/index.ts`
+Source: `src/managed-api/index.ts:204:1`
+
+### Signatures
+
+- `(resource: ManagedApiGenerationResourceDefinition) => readonly ("list" | "read" | "create" | "update" | "delete")[]`
+  - resource: `ManagedApiGenerationResourceDefinition`
+  - returns: `readonly ("list" | "read" | "create" | "update" | "delete")[]`
 
 ## GRAPHQL_INTROSPECTION_QUERY
 
@@ -285,13 +362,69 @@ Source: `src/rest/index.ts:60:1`
 
 Kind: `function`
 Module: `src/index.ts`
-Source: `src/index.ts:29:1`
+Source: `src/index.ts:30:1`
 
 ### Signatures
 
 - `(kind: string) => boolean`
   - kind: `string`
   - returns: `boolean`
+
+## MANAGED_API_CRUD_OPERATIONS
+
+Kind: `value`
+Module: `src/managed-api/index.ts`
+Source: `src/managed-api/index.ts:21:14`
+
+## ManagedApiCrudOperation
+
+Kind: `unknown`
+Module: `src/managed-api/index.ts`
+Source: `src/managed-api/index.ts:23:1`
+
+## ManagedApiGenerationDefinition
+
+Kind: `type`
+Module: `src/managed-api/index.ts`
+Source: `src/managed-api/index.ts:37:1`
+
+### Members
+
+| Name        | Kind     | Type                                                | Required | Description |
+| ----------- | -------- | --------------------------------------------------- | -------- | ----------- |
+| adapter     | property | `AdapterRef`                                        | yes      |             |
+| description | property | `string \| undefined`                               | no       |             |
+| id          | property | `string`                                            | yes      |             |
+| name        | property | `string \| undefined`                               | no       |             |
+| resources   | property | `readonly ManagedApiGenerationResourceDefinition[]` | yes      |             |
+
+## ManagedApiGenerationResourceDefinition
+
+Kind: `type`
+Module: `src/managed-api/index.ts`
+Source: `src/managed-api/index.ts:30:1`
+
+### Members
+
+| Name       | Kind     | Type                                                                             | Required | Description |
+| ---------- | -------- | -------------------------------------------------------------------------------- | -------- | ----------- |
+| collection | property | `DbCollectionDefinition`                                                         | yes      |             |
+| name       | property | `string`                                                                         | yes      |             |
+| operations | property | `readonly ("list" \| "read" \| "create" \| "update" \| "delete")[] \| undefined` | no       |             |
+| policies   | property | `readonly ManagedApiOperationPolicyRef[] \| undefined`                           | no       |             |
+
+## ManagedApiOperationPolicyRef
+
+Kind: `type`
+Module: `src/managed-api/index.ts`
+Source: `src/managed-api/index.ts:25:1`
+
+### Members
+
+| Name      | Kind     | Type                  | Required | Description |
+| --------- | -------- | --------------------- | -------- | ----------- |
+| id        | property | `string`              | yes      |             |
+| operation | property | `string \| undefined` | no       |             |
 
 ## ManualRestDataSourceDefinition
 
@@ -407,6 +540,18 @@ Source: `src/graphql/index.ts:135:1`
   - kind: `GraphQlOperationKind`
   - name: `string`
   - returns: `string`
+
+## normalizeManagedApiDataSource
+
+Kind: `function`
+Module: `src/managed-api/index.ts`
+Source: `src/managed-api/index.ts:118:1`
+
+### Signatures
+
+- `(definition: ManagedApiGenerationDefinition) => ManagedApiDataSourceConfig`
+  - definition: `ManagedApiGenerationDefinition`
+  - returns: `ManagedApiDataSourceConfig`
 
 ## normalizeManualRestDataSource
 
@@ -654,7 +799,7 @@ Source: `src/openapi/index.ts:34:1`
 
 Kind: `value`
 Module: `src/index.ts`
-Source: `src/index.ts:9:14`
+Source: `src/index.ts:10:14`
 
 ## validateGraphQlDataSource
 
@@ -666,6 +811,18 @@ Source: `src/graphql/index.ts:159:1`
 
 - `(definition: GraphQlDataSourceDefinition) => readonly DataSourceDiagnostic[]`
   - definition: `GraphQlDataSourceDefinition`
+  - returns: `readonly DataSourceDiagnostic[]`
+
+## validateManagedApiDefinition
+
+Kind: `function`
+Module: `src/managed-api/index.ts`
+Source: `src/managed-api/index.ts:60:1`
+
+### Signatures
+
+- `(definition: ManagedApiGenerationDefinition) => readonly DataSourceDiagnostic[]`
+  - definition: `ManagedApiGenerationDefinition`
   - returns: `readonly DataSourceDiagnostic[]`
 
 ## validateManualRestDataSource
