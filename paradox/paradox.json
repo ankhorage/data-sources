@@ -60,9 +60,7 @@
   ],
   "usage": null,
   "config": null,
-  "entrypoints": [
-    "src/index.ts"
-  ],
+  "entrypoints": ["src/index.ts"],
   "modules": [
     {
       "path": "src/index.ts",
@@ -159,12 +157,8 @@
         "line": 166,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ManualRestDataSourceDefinition"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ManualRestDataSourceDefinition"],
       "signatures": [
         {
           "label": "(definition: ManualRestDataSourceDefinition) => DataSourceDiagnosticResult<RestDataSourceConfig>",
@@ -195,9 +189,7 @@
         "line": 6,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -215,9 +207,7 @@
         "line": 16,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -250,9 +240,7 @@
         "line": 68,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -284,9 +272,7 @@
         "line": 32,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -318,12 +304,8 @@
         "line": 21,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "DataSourcesPackageInfo"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DataSourcesPackageInfo"],
       "signatures": [
         {
           "label": "() => DataSourcesPackageInfo",
@@ -347,13 +329,8 @@
         "line": 126,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "OpenApiImportInput",
-        "OpenApiImportResult"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["OpenApiImportInput", "OpenApiImportResult"],
       "signatures": [
         {
           "label": "(input: OpenApiImportInput) => OpenApiImportResult",
@@ -384,9 +361,7 @@
         "line": 60,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -418,9 +393,7 @@
         "line": 28,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -452,12 +425,8 @@
         "line": 49,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ManualRestEndpointDefinition"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ManualRestEndpointDefinition"],
       "signatures": [],
       "members": [
         {
@@ -531,12 +500,8 @@
         "line": 39,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ManualRestOperationDefinition"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ManualRestOperationDefinition"],
       "signatures": [],
       "members": [
         {
@@ -603,9 +568,7 @@
         "line": 22,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -623,9 +586,7 @@
         "line": 24,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -728,12 +689,8 @@
         "line": 183,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ManualRestDataSourceDefinition"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ManualRestDataSourceDefinition"],
       "signatures": [
         {
           "label": "(definition: ManualRestDataSourceDefinition) => RestDataSourceConfig",
@@ -764,9 +721,7 @@
         "line": 64,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -798,9 +753,7 @@
         "line": 178,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -832,9 +785,7 @@
         "line": 163,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -878,12 +829,8 @@
         "line": 188,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "OpenApiSchemaObject"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["OpenApiSchemaObject"],
       "signatures": [
         {
           "label": "(schema: OpenApiSchemaObject) => DataSchema",
@@ -914,12 +861,8 @@
         "line": 95,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "OpenApiSchemaObject"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["OpenApiSchemaObject"],
       "signatures": [],
       "members": [
         {
@@ -951,14 +894,8 @@
         "line": 100,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "OpenApiComponentsObject",
-        "OpenApiPathItemObject",
-        "OpenApiServerObject"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["OpenApiComponentsObject", "OpenApiPathItemObject", "OpenApiServerObject"],
       "signatures": [],
       "members": [
         {
@@ -1011,9 +948,7 @@
         "line": 32,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -1031,12 +966,8 @@
         "line": 112,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "OpenApiDocumentObject"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["OpenApiDocumentObject"],
       "signatures": [],
       "members": [
         {
@@ -1117,9 +1048,7 @@
         "line": 124,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -1137,12 +1066,8 @@
         "line": 58,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "OpenApiSchemaObject"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["OpenApiSchemaObject"],
       "signatures": [],
       "members": [
         {
@@ -1167,9 +1092,7 @@
         "line": 81,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [
         "OpenApiParameterObject",
         "OpenApiRequestBodyObject",
@@ -1241,12 +1164,8 @@
         "line": 73,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "OpenApiSchemaObject"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["OpenApiSchemaObject"],
       "signatures": [],
       "members": [
         {
@@ -1299,9 +1218,7 @@
         "line": 91,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -1319,12 +1236,8 @@
         "line": 62,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "OpenApiMediaTypeObject"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["OpenApiMediaTypeObject"],
       "signatures": [],
       "members": [
         {
@@ -1363,12 +1276,8 @@
         "line": 68,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "OpenApiMediaTypeObject"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["OpenApiMediaTypeObject"],
       "signatures": [],
       "members": [
         {
@@ -1400,9 +1309,7 @@
         "line": 39,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -1533,9 +1440,7 @@
         "line": 34,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -1568,9 +1473,7 @@
         "line": 8,
         "column": 14
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
+      "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -1588,12 +1491,8 @@
         "line": 86,
         "column": 1
       },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ManualRestDataSourceDefinition"
-      ],
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ManualRestDataSourceDefinition"],
       "signatures": [
         {
           "label": "(definition: ManualRestDataSourceDefinition) => readonly DataSourceDiagnostic[]",
