@@ -4,9 +4,9 @@ import {
   createManualRestDataSource,
   extractRestPathParams,
   isManualRestMethod,
+  type ManualRestDataSourceDefinition,
   normalizeManualRestDataSource,
   normalizeManualRestMethod,
-  type ManualRestDataSourceDefinition,
 } from './index';
 
 function assertSerializable<TValue>(value: TValue): void {
@@ -173,9 +173,9 @@ describe('manual REST data-source helpers', () => {
 
     expect(result.ok).toBe(true);
     if (result.ok) {
-      expect(result.data.endpoints.post?.operations['posts.get']?.request?.parameters?.[0]?.name).toBe(
-        'postId',
-      );
+      expect(
+        result.data.endpoints.post?.operations['posts.get']?.request?.parameters?.[0]?.name,
+      ).toBe('postId');
       expect(result.diagnostics).toEqual([]);
     }
   });

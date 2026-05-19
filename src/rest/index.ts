@@ -114,7 +114,8 @@ export function validateManualRestDataSource(
       const normalizedMethod = normalizeManualRestMethod(operation.method);
       const operationPath = operation.path ?? endpoint.path;
       const templateParams = extractRestPathParams(operationPath);
-      const pathParameters = operation.parameters?.filter((parameter) => parameter.location === 'path') ?? [];
+      const pathParameters =
+        operation.parameters?.filter((parameter) => parameter.location === 'path') ?? [];
       const pathParameterNames = new Set(pathParameters.map((parameter) => parameter.name));
 
       if (!isManualRestMethod(normalizedMethod)) {
@@ -189,7 +190,7 @@ export function normalizeManualRestDataSource(
 
     for (const operation of endpoint.operations) {
       const operationPath = operation.path ?? endpoint.path;
-      const parameters = operation.parameters;
+      const { parameters } = operation;
       const request: DataOperationRequest | undefined =
         operation.request === undefined && parameters === undefined
           ? undefined

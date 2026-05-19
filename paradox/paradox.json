@@ -60,23 +60,88 @@
   ],
   "usage": null,
   "config": null,
-  "entrypoints": ["src/index.ts"],
+  "entrypoints": [
+    "src/index.ts"
+  ],
   "modules": [
     {
       "path": "src/index.ts",
       "isEntrypoint": true,
       "dependencies": [],
       "exports": [
+        "createManualRestDataSource",
         "DATA_SOURCES_PACKAGE_NAME",
         "DataSourcesPackageInfo",
+        "extractRestPathParams",
         "getDataSourceKind",
         "getDataSourcesPackageInfo",
+        "isManualRestMethod",
         "isSupportedDataSourceKind",
-        "SUPPORTED_DATA_SOURCE_KINDS"
+        "ManualRestDataSourceDefinition",
+        "ManualRestEndpointDefinition",
+        "ManualRestMethod",
+        "ManualRestOperationDefinition",
+        "normalizeManualRestDataSource",
+        "normalizeManualRestMethod",
+        "SUPPORTED_DATA_SOURCE_KINDS",
+        "validateManualRestDataSource"
+      ]
+    },
+    {
+      "path": "src/rest/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "createManualRestDataSource",
+        "extractRestPathParams",
+        "isManualRestMethod",
+        "ManualRestDataSourceDefinition",
+        "ManualRestEndpointDefinition",
+        "ManualRestMethod",
+        "ManualRestOperationDefinition",
+        "normalizeManualRestDataSource",
+        "normalizeManualRestMethod",
+        "validateManualRestDataSource"
       ]
     }
   ],
   "exports": [
+    {
+      "name": "createManualRestDataSource",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/rest/index.ts",
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 166,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ManualRestDataSourceDefinition"
+      ],
+      "signatures": [
+        {
+          "label": "(definition: ManualRestDataSourceDefinition) => DataSourceDiagnosticResult<RestDataSourceConfig>",
+          "parameters": [
+            {
+              "name": "definition",
+              "type": "ManualRestDataSourceDefinition",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "DataSourceDiagnosticResult<RestDataSourceConfig>",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
     {
       "name": "DATA_SOURCES_PACKAGE_NAME",
       "description": null,
@@ -86,10 +151,12 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 3,
+        "line": 5,
         "column": 14
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -104,10 +171,12 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 13,
+        "line": 15,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -129,6 +198,40 @@
       "structuredRows": []
     },
     {
+      "name": "extractRestPathParams",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/rest/index.ts",
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 68,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(path: string) => readonly string[]",
+          "parameters": [
+            {
+              "name": "path",
+              "type": "string",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "readonly string[]",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "getDataSourceKind",
       "description": null,
       "isReadme": false,
@@ -137,10 +240,12 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 29,
+        "line": 31,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -169,16 +274,54 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 18,
+        "line": 20,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["DataSourcesPackageInfo"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "DataSourcesPackageInfo"
+      ],
       "signatures": [
         {
           "label": "() => DataSourcesPackageInfo",
           "parameters": [],
           "returnType": "DataSourcesPackageInfo",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "isManualRestMethod",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/rest/index.ts",
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 60,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(method: string) => boolean",
+          "parameters": [
+            {
+              "name": "method",
+              "type": "string",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "boolean",
           "returnDescription": null
         }
       ],
@@ -194,10 +337,12 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 25,
+        "line": 27,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -218,6 +363,352 @@
       "structuredRows": []
     },
     {
+      "name": "ManualRestDataSourceDefinition",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/rest/index.ts",
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 49,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ManualRestEndpointDefinition"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "baseUrl",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "credential",
+          "kind": "property",
+          "type": "CredentialRef | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "endpoints",
+          "kind": "property",
+          "type": "readonly ManualRestEndpointDefinition[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "metadata",
+          "kind": "property",
+          "type": "DataContractValue | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "schemas",
+          "kind": "property",
+          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/data-sources/node_modules/@ankhorage/contracts/dist/data/schemas\").DataSchema>> | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ManualRestEndpointDefinition",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/rest/index.ts",
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 39,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ManualRestOperationDefinition"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "credential",
+          "kind": "property",
+          "type": "CredentialRef | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "metadata",
+          "kind": "property",
+          "type": "DataContractValue | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "operations",
+          "kind": "property",
+          "type": "readonly ManualRestOperationDefinition[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "path",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ManualRestMethod",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/rest/index.ts",
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 22,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ManualRestOperationDefinition",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/rest/index.ts",
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 24,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "credential",
+          "kind": "property",
+          "type": "CredentialRef | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "intent",
+          "kind": "property",
+          "type": "DataOperationIntent",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "metadata",
+          "kind": "property",
+          "type": "DataContractValue | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "method",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "pagination",
+          "kind": "property",
+          "type": "DataOperationPagination | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "parameters",
+          "kind": "property",
+          "type": "readonly DataOperationParameter[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "path",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "request",
+          "kind": "property",
+          "type": "DataOperationRequest | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "response",
+          "kind": "property",
+          "type": "DataOperationResponse | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "normalizeManualRestDataSource",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/rest/index.ts",
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 183,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ManualRestDataSourceDefinition"
+      ],
+      "signatures": [
+        {
+          "label": "(definition: ManualRestDataSourceDefinition) => RestDataSourceConfig",
+          "parameters": [
+            {
+              "name": "definition",
+              "type": "ManualRestDataSourceDefinition",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "RestDataSourceConfig",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "normalizeManualRestMethod",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/rest/index.ts",
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 64,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(method: string) => DataOperationMethod",
+          "parameters": [
+            {
+              "name": "method",
+              "type": "string",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "DataOperationMethod",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "SUPPORTED_DATA_SOURCE_KINDS",
       "description": null,
       "isReadme": false,
@@ -226,12 +717,50 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 5,
+        "line": 7,
         "column": 14
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "validateManualRestDataSource",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/rest/index.ts",
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 86,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ManualRestDataSourceDefinition"
+      ],
+      "signatures": [
+        {
+          "label": "(definition: ManualRestDataSourceDefinition) => readonly DataSourceDiagnostic[]",
+          "parameters": [
+            {
+              "name": "definition",
+              "type": "ManualRestDataSourceDefinition",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "readonly DataSourceDiagnostic[]",
+          "returnDescription": null
+        }
+      ],
       "members": [],
       "structuredRows": []
     }
@@ -243,7 +772,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 18,
+        "line": 20,
         "column": 1
       }
     },
@@ -252,7 +781,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 25,
+        "line": 27,
         "column": 1
       }
     },
@@ -261,12 +790,82 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 29,
+        "line": 31,
+        "column": 1
+      }
+    },
+    {
+      "name": "isManualRestMethod",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 60,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeManualRestMethod",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 64,
+        "column": 1
+      }
+    },
+    {
+      "name": "extractRestPathParams",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 68,
+        "column": 1
+      }
+    },
+    {
+      "name": "validateManualRestDataSource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 86,
+        "column": 1
+      }
+    },
+    {
+      "name": "createManualRestDataSource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 166,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeManualRestDataSource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 183,
         "column": 1
       }
     }
   ],
   "sequenceScenarios": [
+    {
+      "kind": "export",
+      "name": "createManualRestDataSource",
+      "sourcePath": "src/rest/index.ts",
+      "symbolName": "createManualRestDataSource",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "extractRestPathParams",
+      "sourcePath": "src/rest/index.ts",
+      "symbolName": "extractRestPathParams",
+      "description": null,
+      "isReadme": false
+    },
     {
       "kind": "export",
       "name": "getDataSourceKind",
@@ -285,16 +884,91 @@
     },
     {
       "kind": "export",
+      "name": "isManualRestMethod",
+      "sourcePath": "src/rest/index.ts",
+      "symbolName": "isManualRestMethod",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "isSupportedDataSourceKind",
       "sourcePath": "src/index.ts",
       "symbolName": "isSupportedDataSourceKind",
       "description": null,
       "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "normalizeManualRestDataSource",
+      "sourcePath": "src/rest/index.ts",
+      "symbolName": "normalizeManualRestDataSource",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "normalizeManualRestMethod",
+      "sourcePath": "src/rest/index.ts",
+      "symbolName": "normalizeManualRestMethod",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "validateManualRestDataSource",
+      "sourcePath": "src/rest/index.ts",
+      "symbolName": "validateManualRestDataSource",
+      "description": null,
+      "isReadme": false
     }
   ],
   "graphs": {
-    "imports": [],
-    "calls": [],
+    "imports": [
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/rest/index.ts",
+        "sourcePath": "src/index.ts"
+      }
+    ],
+    "calls": [
+      {
+        "fromSymbol": "validateManualRestDataSource",
+        "toSymbol": "normalizeManualRestMethod",
+        "callExpression": "normalizeManualRestMethod",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "validateManualRestDataSource",
+        "toSymbol": "extractRestPathParams",
+        "callExpression": "extractRestPathParams",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "validateManualRestDataSource",
+        "toSymbol": "isManualRestMethod",
+        "callExpression": "isManualRestMethod",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "createManualRestDataSource",
+        "toSymbol": "validateManualRestDataSource",
+        "callExpression": "validateManualRestDataSource",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "createManualRestDataSource",
+        "toSymbol": "normalizeManualRestDataSource",
+        "callExpression": "normalizeManualRestDataSource",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeManualRestDataSource",
+        "toSymbol": "normalizeManualRestMethod",
+        "callExpression": "normalizeManualRestMethod",
+        "sourcePath": "src/rest/index.ts"
+      }
+    ],
     "typeReferences": [
       {
         "fromSymbol": "getDataSourcesPackageInfo",
@@ -310,6 +984,126 @@
         "fromSymbol": "getDataSourceKind",
         "toType": "DataSourceKind",
         "sourcePath": "src/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeManualRestMethod",
+        "toType": "DataOperationMethod",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "validateManualRestDataSource",
+        "toType": "DataSourceDiagnostic",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "validateManualRestDataSource",
+        "toType": "ManualRestDataSourceDefinition",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "createManualRestDataSource",
+        "toType": "DataSourceDiagnosticResult",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "createManualRestDataSource",
+        "toType": "ManualRestDataSourceDefinition",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "createManualRestDataSource",
+        "toType": "RestDataSourceConfig",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeManualRestDataSource",
+        "toType": "ManualRestDataSourceDefinition",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeManualRestDataSource",
+        "toType": "RestDataSourceConfig",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestOperationDefinition",
+        "toType": "CredentialRef",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestOperationDefinition",
+        "toType": "DataContractValue",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestOperationDefinition",
+        "toType": "DataOperationIntent",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestOperationDefinition",
+        "toType": "DataOperationPagination",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestOperationDefinition",
+        "toType": "DataOperationParameter",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestOperationDefinition",
+        "toType": "DataOperationRequest",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestOperationDefinition",
+        "toType": "DataOperationResponse",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestEndpointDefinition",
+        "toType": "CredentialRef",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestEndpointDefinition",
+        "toType": "DataContractValue",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestEndpointDefinition",
+        "toType": "ManualRestOperationDefinition",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestDataSourceDefinition",
+        "toType": "CredentialRef",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestDataSourceDefinition",
+        "toType": "DataContractValue",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestDataSourceDefinition",
+        "toType": "DataSchema",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestDataSourceDefinition",
+        "toType": "ManualRestEndpointDefinition",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestDataSourceDefinition",
+        "toType": "Readonly",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "ManualRestDataSourceDefinition",
+        "toType": "Users",
+        "sourcePath": "src/rest/index.ts"
       }
     ],
     "componentComposition": []
