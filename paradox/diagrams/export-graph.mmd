@@ -1,7 +1,14 @@
 graph LR
+  module_src_graphql_index_ts["src/graphql/index.ts"]
   module_src_index_ts["src/index.ts"]
   module_src_openapi_index_ts["src/openapi/index.ts"]
   module_src_rest_index_ts["src/rest/index.ts"]
+  export_createGraphQlDataSource["createGraphQlDataSource"]
+  module_src_graphql_index_ts --> export_createGraphQlDataSource
+  export_createGraphQlDataSource -.-> export_GraphQlDataSourceDefinition
+  export_createGraphQlIntrospectionRequest["createGraphQlIntrospectionRequest"]
+  module_src_graphql_index_ts --> export_createGraphQlIntrospectionRequest
+  export_createGraphQlIntrospectionRequest -.-> export_GraphQlIntrospectionRequest
   export_createManualRestDataSource["createManualRestDataSource"]
   module_src_rest_index_ts --> export_createManualRestDataSource
   export_createManualRestDataSource -.-> export_ManualRestDataSourceDefinition
@@ -16,6 +23,42 @@ graph LR
   export_getDataSourcesPackageInfo["getDataSourcesPackageInfo"]
   module_src_index_ts --> export_getDataSourcesPackageInfo
   export_getDataSourcesPackageInfo -.-> export_DataSourcesPackageInfo
+  export_GRAPHQL_INTROSPECTION_QUERY["GRAPHQL_INTROSPECTION_QUERY"]
+  module_src_graphql_index_ts --> export_GRAPHQL_INTROSPECTION_QUERY
+  export_GraphQlDataSourceDefinition["GraphQlDataSourceDefinition"]
+  module_src_graphql_index_ts --> export_GraphQlDataSourceDefinition
+  export_GraphQlDataSourceDefinition -.-> export_GraphQlIntrospectionResult
+  export_GraphQlDataSourceDefinition -.-> export_GraphQlOperationDefinition
+  export_GraphQlIntrospectionEnumValue["GraphQlIntrospectionEnumValue"]
+  module_src_graphql_index_ts --> export_GraphQlIntrospectionEnumValue
+  export_GraphQlIntrospectionField["GraphQlIntrospectionField"]
+  module_src_graphql_index_ts --> export_GraphQlIntrospectionField
+  export_GraphQlIntrospectionField -.-> export_GraphQlIntrospectionInputValue
+  export_GraphQlIntrospectionField -.-> export_GraphQlIntrospectionTypeRef
+  export_GraphQlIntrospectionInputValue["GraphQlIntrospectionInputValue"]
+  module_src_graphql_index_ts --> export_GraphQlIntrospectionInputValue
+  export_GraphQlIntrospectionInputValue -.-> export_GraphQlIntrospectionTypeRef
+  export_GraphQlIntrospectionRequest["GraphQlIntrospectionRequest"]
+  module_src_graphql_index_ts --> export_GraphQlIntrospectionRequest
+  export_GraphQlIntrospectionResult["GraphQlIntrospectionResult"]
+  module_src_graphql_index_ts --> export_GraphQlIntrospectionResult
+  export_GraphQlIntrospectionResult -.-> export_GraphQlIntrospectionSchema
+  export_GraphQlIntrospectionSchema["GraphQlIntrospectionSchema"]
+  module_src_graphql_index_ts --> export_GraphQlIntrospectionSchema
+  export_GraphQlIntrospectionSchema -.-> export_GraphQlIntrospectionType
+  export_GraphQlIntrospectionType["GraphQlIntrospectionType"]
+  module_src_graphql_index_ts --> export_GraphQlIntrospectionType
+  export_GraphQlIntrospectionType -.-> export_GraphQlIntrospectionEnumValue
+  export_GraphQlIntrospectionType -.-> export_GraphQlIntrospectionField
+  export_GraphQlIntrospectionType -.-> export_GraphQlIntrospectionInputValue
+  export_GraphQlIntrospectionType -.-> export_GraphQlIntrospectionTypeRef
+  export_GraphQlIntrospectionTypeRef["GraphQlIntrospectionTypeRef"]
+  module_src_graphql_index_ts --> export_GraphQlIntrospectionTypeRef
+  export_GraphQlOperationDefinition["GraphQlOperationDefinition"]
+  module_src_graphql_index_ts --> export_GraphQlOperationDefinition
+  export_GraphQlOperationDefinition -.-> export_GraphQlOperationKind
+  export_GraphQlOperationKind["GraphQlOperationKind"]
+  module_src_graphql_index_ts --> export_GraphQlOperationKind
   export_importOpenApiDocument["importOpenApiDocument"]
   module_src_openapi_index_ts --> export_importOpenApiDocument
   export_importOpenApiDocument -.-> export_OpenApiImportInput
@@ -34,6 +77,19 @@ graph LR
   module_src_rest_index_ts --> export_ManualRestMethod
   export_ManualRestOperationDefinition["ManualRestOperationDefinition"]
   module_src_rest_index_ts --> export_ManualRestOperationDefinition
+  export_normalizeGraphQlDataSource["normalizeGraphQlDataSource"]
+  module_src_graphql_index_ts --> export_normalizeGraphQlDataSource
+  export_normalizeGraphQlDataSource -.-> export_GraphQlDataSourceDefinition
+  export_normalizeGraphQlIntrospectionOperations["normalizeGraphQlIntrospectionOperations"]
+  module_src_graphql_index_ts --> export_normalizeGraphQlIntrospectionOperations
+  export_normalizeGraphQlIntrospectionOperations -.-> export_GraphQlIntrospectionResult
+  export_normalizeGraphQlIntrospectionOperations -.-> export_GraphQlOperationDefinition
+  export_normalizeGraphQlIntrospectionSchemas["normalizeGraphQlIntrospectionSchemas"]
+  module_src_graphql_index_ts --> export_normalizeGraphQlIntrospectionSchemas
+  export_normalizeGraphQlIntrospectionSchemas -.-> export_GraphQlIntrospectionResult
+  export_normalizeGraphQlOperationId["normalizeGraphQlOperationId"]
+  module_src_graphql_index_ts --> export_normalizeGraphQlOperationId
+  export_normalizeGraphQlOperationId -.-> export_GraphQlOperationKind
   export_normalizeManualRestDataSource["normalizeManualRestDataSource"]
   module_src_rest_index_ts --> export_normalizeManualRestDataSource
   export_normalizeManualRestDataSource -.-> export_ManualRestDataSourceDefinition
@@ -86,6 +142,9 @@ graph LR
   module_src_openapi_index_ts --> export_OpenApiServerObject
   export_SUPPORTED_DATA_SOURCE_KINDS["SUPPORTED_DATA_SOURCE_KINDS"]
   module_src_index_ts --> export_SUPPORTED_DATA_SOURCE_KINDS
+  export_validateGraphQlDataSource["validateGraphQlDataSource"]
+  module_src_graphql_index_ts --> export_validateGraphQlDataSource
+  export_validateGraphQlDataSource -.-> export_GraphQlDataSourceDefinition
   export_validateManualRestDataSource["validateManualRestDataSource"]
   module_src_rest_index_ts --> export_validateManualRestDataSource
   export_validateManualRestDataSource -.-> export_ManualRestDataSourceDefinition

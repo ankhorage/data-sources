@@ -16,6 +16,8 @@ Provider-neutral data source and endpoint system for APIs, databases, and runtim
 - [Module relationships](././paradox/diagrams/module-relationships.mmd)
 - [Export graph](././paradox/diagrams/export-graph.mmd)
 - [createManualRestDataSource sequence](././paradox/diagrams/sequences/create-manual-rest-data-source.mmd)
+- [normalizeGraphQlIntrospectionOperations sequence](././paradox/diagrams/sequences/normalize-graph-ql-introspection-operations.mmd)
+- [normalizeGraphQlIntrospectionSchemas sequence](././paradox/diagrams/sequences/normalize-graph-ql-introspection-schemas.mmd)
 - [normalizeManualRestDataSource sequence](././paradox/diagrams/sequences/normalize-manual-rest-data-source.mmd)
 - [normalizeOpenApiSchema sequence](././paradox/diagrams/sequences/normalize-open-api-schema.mmd)
 - [validateManualRestDataSource sequence](././paradox/diagrams/sequences/validate-manual-rest-data-source.mmd)
@@ -30,6 +32,8 @@ graph TD
   package__ankhorage_data_sources["@ankhorage/data-sources"]
   entrypoint_src_index_ts["src/index.ts"]
   package__ankhorage_data_sources --> entrypoint_src_index_ts
+  module_src_graphql_index_ts["src/graphql/index.ts"]
+  package__ankhorage_data_sources -.-> module_src_graphql_index_ts
   module_src_index_ts["src/index.ts"]
   module_src_openapi_index_ts["src/openapi/index.ts"]
   package__ankhorage_data_sources -.-> module_src_openapi_index_ts

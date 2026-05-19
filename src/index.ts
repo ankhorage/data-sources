@@ -1,5 +1,6 @@
 import type { DataSourceConfig, DataSourceKind } from '@ankhorage/contracts/data';
 
+export * from './graphql';
 export * from './openapi';
 export * from './rest';
 
