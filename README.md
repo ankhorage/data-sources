@@ -32,10 +32,7 @@ Other packages own adjacent concerns:
 The baseline package currently exports package metadata and contract-kind helpers only. Feature helpers are intentionally implemented in later issues.
 
 ```ts
-import {
-  getDataSourcesPackageInfo,
-  isSupportedDataSourceKind,
-} from '@ankhorage/data-sources';
+import { getDataSourcesPackageInfo, isSupportedDataSourceKind } from '@ankhorage/data-sources';
 
 const info = getDataSourcesPackageInfo();
 const isRest = isSupportedDataSourceKind('rest');

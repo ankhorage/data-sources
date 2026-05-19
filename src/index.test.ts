@@ -1,6 +1,5 @@
-import { describe, expect, it } from 'bun:test';
-
 import type { RestDataSourceConfig } from '@ankhorage/contracts/data';
+import { describe, expect, it } from 'bun:test';
 
 import {
   DATA_SOURCES_PACKAGE_NAME,
