@@ -11,12 +11,8 @@
       "line": 166,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [
-      "ManualRestDataSourceDefinition"
-    ],
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ManualRestDataSourceDefinition"],
     "signatures": [
       {
         "label": "(definition: ManualRestDataSourceDefinition) => DataSourceDiagnosticResult<RestDataSourceConfig>",
@@ -47,9 +43,7 @@
       "line": 5,
       "column": 14
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
+    "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -67,9 +61,7 @@
       "line": 15,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
+    "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -102,9 +94,7 @@
       "line": 68,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
+    "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -136,9 +126,7 @@
       "line": 31,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
+    "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -170,12 +158,8 @@
       "line": 20,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [
-      "DataSourcesPackageInfo"
-    ],
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DataSourcesPackageInfo"],
     "signatures": [
       {
         "label": "() => DataSourcesPackageInfo",
@@ -199,9 +183,7 @@
       "line": 60,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
+    "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -233,9 +215,7 @@
       "line": 27,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
+    "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -267,12 +247,8 @@
       "line": 49,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [
-      "ManualRestEndpointDefinition"
-    ],
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ManualRestEndpointDefinition"],
     "signatures": [],
     "members": [
       {
@@ -346,12 +322,8 @@
       "line": 39,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [
-      "ManualRestOperationDefinition"
-    ],
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ManualRestOperationDefinition"],
     "signatures": [],
     "members": [
       {
@@ -418,9 +390,7 @@
       "line": 22,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
+    "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -438,9 +408,7 @@
       "line": 24,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
+    "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -543,12 +511,8 @@
       "line": 183,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [
-      "ManualRestDataSourceDefinition"
-    ],
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ManualRestDataSourceDefinition"],
     "signatures": [
       {
         "label": "(definition: ManualRestDataSourceDefinition) => RestDataSourceConfig",
@@ -579,9 +543,7 @@
       "line": 64,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
+    "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -613,9 +575,7 @@
       "line": 7,
       "column": 14
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
+    "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -633,12 +593,8 @@
       "line": 86,
       "column": 1
     },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [
-      "ManualRestDataSourceDefinition"
-    ],
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ManualRestDataSourceDefinition"],
     "signatures": [
       {
         "label": "(definition: ManualRestDataSourceDefinition) => readonly DataSourceDiagnostic[]",

@@ -26,10 +26,10 @@ Source: `src/index.ts:15:1`
 
 ### Members
 
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| packageName | property | `"@ankhorage/data-sources"` | yes |  |
-| supportedKinds | property | `readonly ["database", "graphql", "managed-api", "openapi", "rest"]` | yes |  |
+| Name           | Kind     | Type                                                                 | Required | Description |
+| -------------- | -------- | -------------------------------------------------------------------- | -------- | ----------- |
+| packageName    | property | `"@ankhorage/data-sources"`                                          | yes      |             |
+| supportedKinds | property | `readonly ["database", "graphql", "managed-api", "openapi", "rest"]` | yes      |             |
 
 ## extractRestPathParams
 
@@ -98,16 +98,16 @@ Source: `src/rest/index.ts:49:1`
 
 ### Members
 
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| baseUrl | property | `string` | yes |  |
-| credential | property | `CredentialRef \| undefined` | no |  |
-| description | property | `string \| undefined` | no |  |
-| endpoints | property | `readonly ManualRestEndpointDefinition[]` | yes |  |
-| id | property | `string` | yes |  |
-| metadata | property | `DataContractValue \| undefined` | no |  |
-| name | property | `string \| undefined` | no |  |
-| schemas | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/data-sources/node_modules/@ankhorage/contracts/dist/data/schemas").DataSchema>> \| undefined` | no |  |
+| Name        | Kind     | Type                                                                                                                                                    | Required | Description |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| baseUrl     | property | `string`                                                                                                                                                | yes      |             |
+| credential  | property | `CredentialRef \| undefined`                                                                                                                            | no       |             |
+| description | property | `string \| undefined`                                                                                                                                   | no       |             |
+| endpoints   | property | `readonly ManualRestEndpointDefinition[]`                                                                                                               | yes      |             |
+| id          | property | `string`                                                                                                                                                | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                                                                                                        | no       |             |
+| name        | property | `string \| undefined`                                                                                                                                   | no       |             |
+| schemas     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/data-sources/node_modules/@ankhorage/contracts/dist/data/schemas").DataSchema>> \| undefined` | no       |             |
 
 ## ManualRestEndpointDefinition
 
@@ -117,15 +117,15 @@ Source: `src/rest/index.ts:39:1`
 
 ### Members
 
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| credential | property | `CredentialRef \| undefined` | no |  |
-| description | property | `string \| undefined` | no |  |
-| id | property | `string` | yes |  |
-| metadata | property | `DataContractValue \| undefined` | no |  |
-| name | property | `string \| undefined` | no |  |
-| operations | property | `readonly ManualRestOperationDefinition[]` | yes |  |
-| path | property | `string` | yes |  |
+| Name        | Kind     | Type                                       | Required | Description |
+| ----------- | -------- | ------------------------------------------ | -------- | ----------- |
+| credential  | property | `CredentialRef \| undefined`               | no       |             |
+| description | property | `string \| undefined`                      | no       |             |
+| id          | property | `string`                                   | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`           | no       |             |
+| name        | property | `string \| undefined`                      | no       |             |
+| operations  | property | `readonly ManualRestOperationDefinition[]` | yes      |             |
+| path        | property | `string`                                   | yes      |             |
 
 ## ManualRestMethod
 
@@ -141,20 +141,20 @@ Source: `src/rest/index.ts:24:1`
 
 ### Members
 
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| credential | property | `CredentialRef \| undefined` | no |  |
-| description | property | `string \| undefined` | no |  |
-| id | property | `string` | yes |  |
-| intent | property | `DataOperationIntent` | yes |  |
-| metadata | property | `DataContractValue \| undefined` | no |  |
-| method | property | `string` | yes |  |
-| name | property | `string \| undefined` | no |  |
-| pagination | property | `DataOperationPagination \| undefined` | no |  |
-| parameters | property | `readonly DataOperationParameter[] \| undefined` | no |  |
-| path | property | `string \| undefined` | no |  |
-| request | property | `DataOperationRequest \| undefined` | no |  |
-| response | property | `DataOperationResponse \| undefined` | no |  |
+| Name        | Kind     | Type                                             | Required | Description |
+| ----------- | -------- | ------------------------------------------------ | -------- | ----------- |
+| credential  | property | `CredentialRef \| undefined`                     | no       |             |
+| description | property | `string \| undefined`                            | no       |             |
+| id          | property | `string`                                         | yes      |             |
+| intent      | property | `DataOperationIntent`                            | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                 | no       |             |
+| method      | property | `string`                                         | yes      |             |
+| name        | property | `string \| undefined`                            | no       |             |
+| pagination  | property | `DataOperationPagination \| undefined`           | no       |             |
+| parameters  | property | `readonly DataOperationParameter[] \| undefined` | no       |             |
+| path        | property | `string \| undefined`                            | no       |             |
+| request     | property | `DataOperationRequest \| undefined`              | no       |             |
+| response    | property | `DataOperationResponse \| undefined`             | no       |             |
 
 ## normalizeManualRestDataSource
 
