@@ -1,6 +1,7 @@
 graph LR
   module_src_graphql_index_ts["src/graphql/index.ts"]
   module_src_index_ts["src/index.ts"]
+  module_src_managed_api_index_ts["src/managed-api/index.ts"]
   module_src_openapi_index_ts["src/openapi/index.ts"]
   module_src_rest_index_ts["src/rest/index.ts"]
   export_createGraphQlDataSource["createGraphQlDataSource"]
@@ -9,6 +10,21 @@ graph LR
   export_createGraphQlIntrospectionRequest["createGraphQlIntrospectionRequest"]
   module_src_graphql_index_ts --> export_createGraphQlIntrospectionRequest
   export_createGraphQlIntrospectionRequest -.-> export_GraphQlIntrospectionRequest
+  export_createManagedApiDataSource["createManagedApiDataSource"]
+  module_src_managed_api_index_ts --> export_createManagedApiDataSource
+  export_createManagedApiDataSource -.-> export_ManagedApiGenerationDefinition
+  export_createManagedApiEndpoint["createManagedApiEndpoint"]
+  module_src_managed_api_index_ts --> export_createManagedApiEndpoint
+  export_createManagedApiEndpoint -.-> export_ManagedApiGenerationDefinition
+  export_createManagedApiEndpoint -.-> export_ManagedApiGenerationResourceDefinition
+  export_createManagedApiOperation["createManagedApiOperation"]
+  module_src_managed_api_index_ts --> export_createManagedApiOperation
+  export_createManagedApiOperation -.-> export_ManagedApiGenerationDefinition
+  export_createManagedApiOperation -.-> export_ManagedApiGenerationResourceDefinition
+  export_createManagedApiOperationId["createManagedApiOperationId"]
+  module_src_managed_api_index_ts --> export_createManagedApiOperationId
+  export_createManagedApiResourceSchema["createManagedApiResourceSchema"]
+  module_src_managed_api_index_ts --> export_createManagedApiResourceSchema
   export_createManualRestDataSource["createManualRestDataSource"]
   module_src_rest_index_ts --> export_createManualRestDataSource
   export_createManualRestDataSource -.-> export_ManualRestDataSourceDefinition
@@ -23,6 +39,9 @@ graph LR
   export_getDataSourcesPackageInfo["getDataSourcesPackageInfo"]
   module_src_index_ts --> export_getDataSourcesPackageInfo
   export_getDataSourcesPackageInfo -.-> export_DataSourcesPackageInfo
+  export_getManagedApiOperations["getManagedApiOperations"]
+  module_src_managed_api_index_ts --> export_getManagedApiOperations
+  export_getManagedApiOperations -.-> export_ManagedApiGenerationResourceDefinition
   export_GRAPHQL_INTROSPECTION_QUERY["GRAPHQL_INTROSPECTION_QUERY"]
   module_src_graphql_index_ts --> export_GRAPHQL_INTROSPECTION_QUERY
   export_GraphQlDataSourceDefinition["GraphQlDataSourceDefinition"]
@@ -67,6 +86,18 @@ graph LR
   module_src_rest_index_ts --> export_isManualRestMethod
   export_isSupportedDataSourceKind["isSupportedDataSourceKind"]
   module_src_index_ts --> export_isSupportedDataSourceKind
+  export_MANAGED_API_CRUD_OPERATIONS["MANAGED_API_CRUD_OPERATIONS"]
+  module_src_managed_api_index_ts --> export_MANAGED_API_CRUD_OPERATIONS
+  export_ManagedApiCrudOperation["ManagedApiCrudOperation"]
+  module_src_managed_api_index_ts --> export_ManagedApiCrudOperation
+  export_ManagedApiGenerationDefinition["ManagedApiGenerationDefinition"]
+  module_src_managed_api_index_ts --> export_ManagedApiGenerationDefinition
+  export_ManagedApiGenerationDefinition -.-> export_ManagedApiGenerationResourceDefinition
+  export_ManagedApiGenerationResourceDefinition["ManagedApiGenerationResourceDefinition"]
+  module_src_managed_api_index_ts --> export_ManagedApiGenerationResourceDefinition
+  export_ManagedApiGenerationResourceDefinition -.-> export_ManagedApiOperationPolicyRef
+  export_ManagedApiOperationPolicyRef["ManagedApiOperationPolicyRef"]
+  module_src_managed_api_index_ts --> export_ManagedApiOperationPolicyRef
   export_ManualRestDataSourceDefinition["ManualRestDataSourceDefinition"]
   module_src_rest_index_ts --> export_ManualRestDataSourceDefinition
   export_ManualRestDataSourceDefinition -.-> export_ManualRestEndpointDefinition
@@ -90,6 +121,9 @@ graph LR
   export_normalizeGraphQlOperationId["normalizeGraphQlOperationId"]
   module_src_graphql_index_ts --> export_normalizeGraphQlOperationId
   export_normalizeGraphQlOperationId -.-> export_GraphQlOperationKind
+  export_normalizeManagedApiDataSource["normalizeManagedApiDataSource"]
+  module_src_managed_api_index_ts --> export_normalizeManagedApiDataSource
+  export_normalizeManagedApiDataSource -.-> export_ManagedApiGenerationDefinition
   export_normalizeManualRestDataSource["normalizeManualRestDataSource"]
   module_src_rest_index_ts --> export_normalizeManualRestDataSource
   export_normalizeManualRestDataSource -.-> export_ManualRestDataSourceDefinition
@@ -145,6 +179,9 @@ graph LR
   export_validateGraphQlDataSource["validateGraphQlDataSource"]
   module_src_graphql_index_ts --> export_validateGraphQlDataSource
   export_validateGraphQlDataSource -.-> export_GraphQlDataSourceDefinition
+  export_validateManagedApiDefinition["validateManagedApiDefinition"]
+  module_src_managed_api_index_ts --> export_validateManagedApiDefinition
+  export_validateManagedApiDefinition -.-> export_ManagedApiGenerationDefinition
   export_validateManualRestDataSource["validateManualRestDataSource"]
   module_src_rest_index_ts --> export_validateManualRestDataSource
   export_validateManualRestDataSource -.-> export_ManualRestDataSourceDefinition

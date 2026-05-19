@@ -5,8 +5,8 @@ import {
   createManagedApiOperationId,
   createManagedApiResourceSchema,
   getManagedApiOperations,
-  normalizeManagedApiDataSource,
   type ManagedApiGenerationDefinition,
+  normalizeManagedApiDataSource,
 } from './index';
 
 function assertSerializable<TValue>(value: TValue): void {
@@ -54,7 +54,13 @@ describe('managed API generation helpers', () => {
 
     expect(resource).toBeDefined();
     if (resource !== undefined) {
-      expect(getManagedApiOperations(resource)).toEqual(['list', 'read', 'create', 'update', 'delete']);
+      expect(getManagedApiOperations(resource)).toEqual([
+        'list',
+        'read',
+        'create',
+        'update',
+        'delete',
+      ]);
     }
   });
 
@@ -86,11 +92,14 @@ describe('managed API generation helpers', () => {
     expect(source.endpoints.posts?.operations['posts.create']?.intent).toBe('create');
     expect(source.endpoints.posts?.operations['posts.update']?.intent).toBe('update');
     expect(source.endpoints.posts?.operations['posts.delete']?.intent).toBe('delete');
-    expect(source.endpoints.posts?.operations['posts.read']?.request?.parameters?.[0]?.name).toBe('id');
-    expect(source.endpoints.posts?.operations['posts.list']?.request?.parameters?.map((parameter) => parameter.name)).toEqual([
-      'limit',
-      'offset',
-    ]);
+    expect(source.endpoints.posts?.operations['posts.read']?.request?.parameters?.[0]?.name).toBe(
+      'id',
+    );
+    expect(
+      source.endpoints.posts?.operations['posts.list']?.request?.parameters?.map(
+        (parameter) => parameter.name,
+      ),
+    ).toEqual(['limit', 'offset']);
   });
 
   it('creates diagnostic result for valid managed APIs', () => {

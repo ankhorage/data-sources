@@ -1,0 +1,8 @@
+sequenceDiagram
+  participant participant_createManagedApiFieldSchema as createManagedApiFieldSchema
+  participant participant_createManagedApiResourceSchema as createManagedApiResourceSchema
+  participant participant_mapDbFieldTypeToDataSchema as mapDbFieldTypeToDataSchema
+  participant_createManagedApiResourceSchema->>participant_createManagedApiFieldSchema: createManagedApiFieldSchema()
+  participant_createManagedApiFieldSchema->>participant_mapDbFieldTypeToDataSchema: mapDbFieldTypeToDataSchema()
+  participant_mapDbFieldTypeToDataSchema-->>participant_createManagedApiFieldSchema: return
+  participant_createManagedApiFieldSchema-->>participant_createManagedApiResourceSchema: return

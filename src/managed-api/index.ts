@@ -5,14 +5,17 @@ import type {
   DataOperationIntent,
   DataOperationParameter,
   DataSchema,
-  DataSchemaRegistry,
   DataSourceDiagnostic,
   DataSourceDiagnosticResult,
   ManagedApiDataSourceConfig,
   ManagedApiResourceConfig,
   OperationId,
 } from '@ankhorage/contracts/data';
-import type { DbCollectionDefinition, DbFieldDefinition, DbFieldType } from '@ankhorage/contracts/db';
+import type {
+  DbCollectionDefinition,
+  DbFieldDefinition,
+  DbFieldType,
+} from '@ankhorage/contracts/db';
 
 export const MANAGED_API_CRUD_OPERATIONS = ['list', 'read', 'create', 'update', 'delete'] as const;
 
@@ -92,7 +95,10 @@ export function validateManagedApiDefinition(
     }
 
     const primaryKey = resolveManagedApiPrimaryKey(resource.collection);
-    if (primaryKey === undefined && getManagedApiOperations(resource).some((operation) => operation !== 'list')) {
+    if (
+      primaryKey === undefined &&
+      getManagedApiOperations(resource).some((operation) => operation !== 'list')
+    ) {
       diagnostics.push({
         code: 'invalid-config',
         dataSourceId: definition.id,
@@ -173,7 +179,8 @@ export function createManagedApiOperation(
 ): DataOperationConfig {
   const operationId = createManagedApiOperationId(resource.name, operation);
   const primaryKey = resolveManagedApiPrimaryKey(resource.collection);
-  const primaryKeyParameter = primaryKey === undefined ? undefined : createPrimaryKeyParameter(primaryKey);
+  const primaryKeyParameter =
+    primaryKey === undefined ? undefined : createPrimaryKeyParameter(primaryKey);
 
   return {
     id: operationId,
@@ -263,7 +270,8 @@ function createManagedApiOperationRequest(
     return primaryKeyParameter === undefined ? undefined : { parameters: [primaryKeyParameter] };
   }
 
-  const parameters = operation === 'update' && primaryKeyParameter !== undefined ? [primaryKeyParameter] : undefined;
+  const parameters =
+    operation === 'update' && primaryKeyParameter !== undefined ? [primaryKeyParameter] : undefined;
 
   return {
     parameters,
