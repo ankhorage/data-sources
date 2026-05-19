@@ -1,5 +1,8 @@
 import type { DataSourceConfig, DataSourceKind } from '@ankhorage/contracts/data';
 
+export * from './graphql';
+export * from './managed-api';
+export * from './openapi';
 export * from './rest';
 
 export const DATA_SOURCES_PACKAGE_NAME = '@ankhorage/data-sources' as const;

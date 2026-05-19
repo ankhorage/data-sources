@@ -1,0 +1,24 @@
+sequenceDiagram
+  participant participant_appendRootOperations as appendRootOperations
+  participant participant_isGraphQlNonNull as isGraphQlNonNull
+  participant participant_normalizeGraphQlIntrospectionOperations as normalizeGraphQlIntrospectionOperations
+  participant participant_normalizeGraphQlNamedScalar as normalizeGraphQlNamedScalar
+  participant participant_normalizeGraphQlOperationId as normalizeGraphQlOperationId
+  participant participant_normalizeGraphQlTypeRef as normalizeGraphQlTypeRef
+  participant participant_normalizeGraphQlVariablesSchema as normalizeGraphQlVariablesSchema
+  participant_normalizeGraphQlIntrospectionOperations->>participant_appendRootOperations: appendRootOperations()
+  participant_appendRootOperations->>participant_normalizeGraphQlOperationId: normalizeGraphQlOperationId()
+  participant_normalizeGraphQlOperationId-->>participant_appendRootOperations: return
+  participant_appendRootOperations->>participant_normalizeGraphQlVariablesSchema: normalizeGraphQlVariablesSchema()
+  participant_normalizeGraphQlVariablesSchema->>participant_normalizeGraphQlTypeRef: normalizeGraphQlTypeRef()
+  participant_normalizeGraphQlTypeRef->>participant_normalizeGraphQlTypeRef: normalizeGraphQlTypeRef()
+  participant_normalizeGraphQlTypeRef->>participant_normalizeGraphQlNamedScalar: normalizeGraphQlNamedScalar()
+  participant_normalizeGraphQlNamedScalar-->>participant_normalizeGraphQlTypeRef: return
+  participant_normalizeGraphQlTypeRef-->>participant_normalizeGraphQlTypeRef: return
+  participant_normalizeGraphQlTypeRef-->>participant_normalizeGraphQlVariablesSchema: return
+  participant_normalizeGraphQlVariablesSchema->>participant_isGraphQlNonNull: isGraphQlNonNull()
+  participant_isGraphQlNonNull-->>participant_normalizeGraphQlVariablesSchema: return
+  participant_normalizeGraphQlVariablesSchema-->>participant_appendRootOperations: return
+  participant_appendRootOperations->>participant_normalizeGraphQlTypeRef: normalizeGraphQlTypeRef()
+  participant_normalizeGraphQlTypeRef-->>participant_appendRootOperations: return
+  participant_appendRootOperations-->>participant_normalizeGraphQlIntrospectionOperations: return

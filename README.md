@@ -3,7 +3,7 @@
 
 # @ankhorage/data-sources
 
-![license: MIT](././paradox/badges/license.svg) ![npm: v0.0.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![docs: paradox](././paradox/badges/docs.svg)
+![license: MIT](././paradox/badges/license.svg) ![npm: v0.2.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![docs: paradox](././paradox/badges/docs.svg)
 
 Provider-neutral data source and endpoint system for APIs, databases, and runtime bindings.
 
@@ -15,8 +15,13 @@ Provider-neutral data source and endpoint system for APIs, databases, and runtim
 - [Architecture overview](././paradox/diagrams/architecture-overview.mmd)
 - [Module relationships](././paradox/diagrams/module-relationships.mmd)
 - [Export graph](././paradox/diagrams/export-graph.mmd)
+- [createManagedApiResourceSchema sequence](././paradox/diagrams/sequences/create-managed-api-resource-schema.mmd)
 - [createManualRestDataSource sequence](././paradox/diagrams/sequences/create-manual-rest-data-source.mmd)
+- [normalizeGraphQlIntrospectionOperations sequence](././paradox/diagrams/sequences/normalize-graph-ql-introspection-operations.mmd)
+- [normalizeGraphQlIntrospectionSchemas sequence](././paradox/diagrams/sequences/normalize-graph-ql-introspection-schemas.mmd)
 - [normalizeManualRestDataSource sequence](././paradox/diagrams/sequences/normalize-manual-rest-data-source.mmd)
+- [normalizeOpenApiSchema sequence](././paradox/diagrams/sequences/normalize-open-api-schema.mmd)
+- [validateManagedApiDefinition sequence](././paradox/diagrams/sequences/validate-managed-api-definition.mmd)
 - [validateManualRestDataSource sequence](././paradox/diagrams/sequences/validate-manual-rest-data-source.mmd)
 
 ## Architecture preview
@@ -29,7 +34,13 @@ graph TD
   package__ankhorage_data_sources["@ankhorage/data-sources"]
   entrypoint_src_index_ts["src/index.ts"]
   package__ankhorage_data_sources --> entrypoint_src_index_ts
+  module_src_graphql_index_ts["src/graphql/index.ts"]
+  package__ankhorage_data_sources -.-> module_src_graphql_index_ts
   module_src_index_ts["src/index.ts"]
+  module_src_managed_api_index_ts["src/managed-api/index.ts"]
+  package__ankhorage_data_sources -.-> module_src_managed_api_index_ts
+  module_src_openapi_index_ts["src/openapi/index.ts"]
+  package__ankhorage_data_sources -.-> module_src_openapi_index_ts
   module_src_rest_index_ts["src/rest/index.ts"]
   package__ankhorage_data_sources -.-> module_src_rest_index_ts
 ```

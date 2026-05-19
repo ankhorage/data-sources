@@ -1,0 +1,8 @@
+sequenceDiagram
+  participant participant_getManagedApiOperations as getManagedApiOperations
+  participant participant_resolveManagedApiPrimaryKey as resolveManagedApiPrimaryKey
+  participant participant_validateManagedApiDefinition as validateManagedApiDefinition
+  participant_validateManagedApiDefinition->>participant_resolveManagedApiPrimaryKey: resolveManagedApiPrimaryKey()
+  participant_resolveManagedApiPrimaryKey-->>participant_validateManagedApiDefinition: return
+  participant_validateManagedApiDefinition->>participant_getManagedApiOperations: getManagedApiOperations()
+  participant_getManagedApiOperations-->>participant_validateManagedApiDefinition: return

@@ -1,0 +1,21 @@
+sequenceDiagram
+  participant participant_isGraphQlNonNull as isGraphQlNonNull
+  participant participant_normalizeGraphQlIntrospectionSchemas as normalizeGraphQlIntrospectionSchemas
+  participant participant_normalizeGraphQlNamedScalar as normalizeGraphQlNamedScalar
+  participant participant_normalizeGraphQlObjectType as normalizeGraphQlObjectType
+  participant participant_normalizeGraphQlType as normalizeGraphQlType
+  participant participant_normalizeGraphQlTypeRef as normalizeGraphQlTypeRef
+  participant_normalizeGraphQlIntrospectionSchemas->>participant_normalizeGraphQlType: normalizeGraphQlType()
+  participant_normalizeGraphQlType->>participant_normalizeGraphQlObjectType: normalizeGraphQlObjectType()
+  participant_normalizeGraphQlObjectType->>participant_normalizeGraphQlTypeRef: normalizeGraphQlTypeRef()
+  participant_normalizeGraphQlTypeRef->>participant_normalizeGraphQlTypeRef: normalizeGraphQlTypeRef()
+  participant_normalizeGraphQlTypeRef->>participant_normalizeGraphQlNamedScalar: normalizeGraphQlNamedScalar()
+  participant_normalizeGraphQlNamedScalar-->>participant_normalizeGraphQlTypeRef: return
+  participant_normalizeGraphQlTypeRef-->>participant_normalizeGraphQlTypeRef: return
+  participant_normalizeGraphQlTypeRef-->>participant_normalizeGraphQlObjectType: return
+  participant_normalizeGraphQlObjectType->>participant_isGraphQlNonNull: isGraphQlNonNull()
+  participant_isGraphQlNonNull-->>participant_normalizeGraphQlObjectType: return
+  participant_normalizeGraphQlObjectType-->>participant_normalizeGraphQlType: return
+  participant_normalizeGraphQlType->>participant_normalizeGraphQlNamedScalar: normalizeGraphQlNamedScalar()
+  participant_normalizeGraphQlNamedScalar-->>participant_normalizeGraphQlType: return
+  participant_normalizeGraphQlType-->>participant_normalizeGraphQlIntrospectionSchemas: return

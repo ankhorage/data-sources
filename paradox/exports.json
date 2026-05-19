@@ -1,5 +1,252 @@
 [
   {
+    "name": "createGraphQlDataSource",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 144,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["GraphQlDataSourceDefinition"],
+    "signatures": [
+      {
+        "label": "(definition: GraphQlDataSourceDefinition) => DataSourceDiagnosticResult<GraphQlDataSourceConfig>",
+        "parameters": [
+          {
+            "name": "definition",
+            "type": "GraphQlDataSourceDefinition",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "DataSourceDiagnosticResult<GraphQlDataSourceConfig>",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "createGraphQlIntrospectionRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 128,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["GraphQlIntrospectionRequest"],
+    "signatures": [
+      {
+        "label": "() => GraphQlIntrospectionRequest",
+        "parameters": [],
+        "returnType": "GraphQlIntrospectionRequest",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "createManagedApiDataSource",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/managed-api/index.ts",
+    "sourceLocation": {
+      "filePath": "src/managed-api/index.ts",
+      "line": 45,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ManagedApiGenerationDefinition"],
+    "signatures": [
+      {
+        "label": "(definition: ManagedApiGenerationDefinition) => DataSourceDiagnosticResult<ManagedApiDataSourceConfig>",
+        "parameters": [
+          {
+            "name": "definition",
+            "type": "ManagedApiGenerationDefinition",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "DataSourceDiagnosticResult<ManagedApiDataSourceConfig>",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "createManagedApiEndpoint",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/managed-api/index.ts",
+    "sourceLocation": {
+      "filePath": "src/managed-api/index.ts",
+      "line": 151,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ManagedApiGenerationDefinition", "ManagedApiGenerationResourceDefinition"],
+    "signatures": [
+      {
+        "label": "(definition: ManagedApiGenerationDefinition, resource: ManagedApiGenerationResourceDefinition, operations?: readonly (\"list\" | \"read\" | \"create\" | \"update\" | \"delete\")[]) => DataEndpointConfig",
+        "parameters": [
+          {
+            "name": "definition",
+            "type": "ManagedApiGenerationDefinition",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "operations",
+            "type": "readonly (\"list\" | \"read\" | \"create\" | \"update\" | \"delete\")[]",
+            "required": false,
+            "description": null
+          },
+          {
+            "name": "resource",
+            "type": "ManagedApiGenerationResourceDefinition",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "DataEndpointConfig",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "createManagedApiOperation",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/managed-api/index.ts",
+    "sourceLocation": {
+      "filePath": "src/managed-api/index.ts",
+      "line": 176,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ManagedApiGenerationDefinition", "ManagedApiGenerationResourceDefinition"],
+    "signatures": [
+      {
+        "label": "(definition: ManagedApiGenerationDefinition, resource: ManagedApiGenerationResourceDefinition, operation: \"list\" | \"read\" | \"create\" | \"update\" | \"delete\") => DataOperationConfig",
+        "parameters": [
+          {
+            "name": "definition",
+            "type": "ManagedApiGenerationDefinition",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "operation",
+            "type": "\"list\" | \"read\" | \"create\" | \"update\" | \"delete\"",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "resource",
+            "type": "ManagedApiGenerationResourceDefinition",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "DataOperationConfig",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "createManagedApiOperationId",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/managed-api/index.ts",
+    "sourceLocation": {
+      "filePath": "src/managed-api/index.ts",
+      "line": 210,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(resourceName: string, operation: \"list\" | \"read\" | \"create\" | \"update\" | \"delete\") => string",
+        "parameters": [
+          {
+            "name": "operation",
+            "type": "\"list\" | \"read\" | \"create\" | \"update\" | \"delete\"",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "resourceName",
+            "type": "string",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "string",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "createManagedApiResourceSchema",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/managed-api/index.ts",
+    "sourceLocation": {
+      "filePath": "src/managed-api/index.ts",
+      "line": 217,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(collection: DbCollectionDefinition) => DataSchema",
+        "parameters": [
+          {
+            "name": "collection",
+            "type": "DbCollectionDefinition",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "DataSchema",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "createManualRestDataSource",
     "description": null,
     "isReadme": false,
@@ -40,7 +287,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 5,
+      "line": 8,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -58,7 +305,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 15,
+      "line": 18,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -123,7 +370,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 31,
+      "line": 34,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -155,7 +402,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 20,
+      "line": 23,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -165,6 +412,623 @@
         "label": "() => DataSourcesPackageInfo",
         "parameters": [],
         "returnType": "DataSourcesPackageInfo",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "getManagedApiOperations",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/managed-api/index.ts",
+    "sourceLocation": {
+      "filePath": "src/managed-api/index.ts",
+      "line": 204,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ManagedApiGenerationResourceDefinition"],
+    "signatures": [
+      {
+        "label": "(resource: ManagedApiGenerationResourceDefinition) => readonly (\"list\" | \"read\" | \"create\" | \"update\" | \"delete\")[]",
+        "parameters": [
+          {
+            "name": "resource",
+            "type": "ManagedApiGenerationResourceDefinition",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "readonly (\"list\" | \"read\" | \"create\" | \"update\" | \"delete\")[]",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "GRAPHQL_INTROSPECTION_QUERY",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 16,
+      "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "GraphQlDataSourceDefinition",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 110,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["GraphQlIntrospectionResult", "GraphQlOperationDefinition"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "credential",
+        "kind": "property",
+        "type": "CredentialRef | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "endpointUrl",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "introspection",
+        "kind": "property",
+        "type": "GraphQlIntrospectionResult | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "introspectionEnabled",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "metadata",
+        "kind": "property",
+        "type": "DataContractValue | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "operations",
+        "kind": "property",
+        "type": "readonly GraphQlOperationDefinition[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "schemaVersion",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "GraphQlIntrospectionEnumValue",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 72,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "GraphQlIntrospectionField",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 65,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["GraphQlIntrospectionInputValue", "GraphQlIntrospectionTypeRef"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "args",
+        "kind": "property",
+        "type": "readonly GraphQlIntrospectionInputValue[] | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "type",
+        "kind": "property",
+        "type": "GraphQlIntrospectionTypeRef",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "GraphQlIntrospectionInputValue",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 58,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["GraphQlIntrospectionTypeRef"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "defaultValue",
+        "kind": "property",
+        "type": "string | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "type",
+        "kind": "property",
+        "type": "GraphQlIntrospectionTypeRef",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "GraphQlIntrospectionRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 123,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "operationName",
+        "kind": "property",
+        "type": "\"AnkhorageGraphQlIntrospection\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "query",
+        "kind": "property",
+        "type": "\"query AnkhorageGraphQlIntrospection {\\n  __schema {\\n    queryType { name }\\n    mutationType { name }\\n    subscriptionType { name }\\n    types {\\n      kind\\n      name\\n      description\\n      fields {\\n        name\\n        description\\n        args {\\n          name\\n          description\\n          type { kind name ofType { kind name ofType { kind name ofType { kind name } } } }\\n          defaultValue\\n        }\\n        type { kind name ofType { kind name ofType { kind name ofType { kind name } } } }\\n      }\\n      inputFields {\\n        name\\n        description\\n        type { kind name ofType { kind name ofType { kind name ofType { kind name } } } }\\n        defaultValue\\n      }\\n      enumValues { name description }\\n      possibleTypes { kind name }\\n    }\\n  }\\n}\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "GraphQlIntrospectionResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 94,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["GraphQlIntrospectionSchema"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "__schema",
+        "kind": "property",
+        "type": "GraphQlIntrospectionSchema | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "GraphQlIntrospectionSchema",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 87,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["GraphQlIntrospectionType"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "mutationType",
+        "kind": "property",
+        "type": "{ readonly name?: string | null; } | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "queryType",
+        "kind": "property",
+        "type": "{ readonly name?: string | null; } | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "subscriptionType",
+        "kind": "property",
+        "type": "{ readonly name?: string | null; } | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "types",
+        "kind": "property",
+        "type": "readonly GraphQlIntrospectionType[] | null | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "GraphQlIntrospectionType",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 77,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "GraphQlIntrospectionEnumValue",
+      "GraphQlIntrospectionField",
+      "GraphQlIntrospectionInputValue",
+      "GraphQlIntrospectionTypeRef"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "enumValues",
+        "kind": "property",
+        "type": "readonly GraphQlIntrospectionEnumValue[] | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "fields",
+        "kind": "property",
+        "type": "readonly GraphQlIntrospectionField[] | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "inputFields",
+        "kind": "property",
+        "type": "readonly GraphQlIntrospectionInputValue[] | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "possibleTypes",
+        "kind": "property",
+        "type": "readonly GraphQlIntrospectionTypeRef[] | null | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "GraphQlIntrospectionTypeRef",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 52,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "ofType",
+        "kind": "property",
+        "type": "GraphQlIntrospectionTypeRef | null | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "GraphQlOperationDefinition",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 98,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["GraphQlOperationKind"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "document",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "GraphQlOperationKind",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "metadata",
+        "kind": "property",
+        "type": "DataContractValue | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "response",
+        "kind": "property",
+        "type": "DataSchema | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "selectionPath",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "variables",
+        "kind": "property",
+        "type": "DataSchema | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "GraphQlOperationKind",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 48,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "importOpenApiDocument",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 126,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiImportInput", "OpenApiImportResult"],
+    "signatures": [
+      {
+        "label": "(input: OpenApiImportInput) => OpenApiImportResult",
+        "parameters": [
+          {
+            "name": "input",
+            "type": "OpenApiImportInput",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "OpenApiImportResult",
         "returnDescription": null
       }
     ],
@@ -212,7 +1076,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 27,
+      "line": 30,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -233,6 +1097,176 @@
       }
     ],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "MANAGED_API_CRUD_OPERATIONS",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/managed-api/index.ts",
+    "sourceLocation": {
+      "filePath": "src/managed-api/index.ts",
+      "line": 21,
+      "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ManagedApiCrudOperation",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/managed-api/index.ts",
+    "sourceLocation": {
+      "filePath": "src/managed-api/index.ts",
+      "line": 23,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ManagedApiGenerationDefinition",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/managed-api/index.ts",
+    "sourceLocation": {
+      "filePath": "src/managed-api/index.ts",
+      "line": 37,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ManagedApiGenerationResourceDefinition"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "adapter",
+        "kind": "property",
+        "type": "AdapterRef",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "resources",
+        "kind": "property",
+        "type": "readonly ManagedApiGenerationResourceDefinition[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ManagedApiGenerationResourceDefinition",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/managed-api/index.ts",
+    "sourceLocation": {
+      "filePath": "src/managed-api/index.ts",
+      "line": 30,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ManagedApiOperationPolicyRef"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "collection",
+        "kind": "property",
+        "type": "DbCollectionDefinition",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "operations",
+        "kind": "property",
+        "type": "readonly (\"list\" | \"read\" | \"create\" | \"update\" | \"delete\")[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "policies",
+        "kind": "property",
+        "type": "readonly ManagedApiOperationPolicyRef[] | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ManagedApiOperationPolicyRef",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/managed-api/index.ts",
+    "sourceLocation": {
+      "filePath": "src/managed-api/index.ts",
+      "line": 25,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "operation",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {
@@ -500,6 +1534,172 @@
     "structuredRows": []
   },
   {
+    "name": "normalizeGraphQlDataSource",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 198,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["GraphQlDataSourceDefinition"],
+    "signatures": [
+      {
+        "label": "(definition: GraphQlDataSourceDefinition) => GraphQlDataSourceConfig",
+        "parameters": [
+          {
+            "name": "definition",
+            "type": "GraphQlDataSourceDefinition",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "GraphQlDataSourceConfig",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "normalizeGraphQlIntrospectionOperations",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 256,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["GraphQlIntrospectionResult", "GraphQlOperationDefinition"],
+    "signatures": [
+      {
+        "label": "(introspection: GraphQlIntrospectionResult | undefined) => readonly GraphQlOperationDefinition[]",
+        "parameters": [
+          {
+            "name": "introspection",
+            "type": "GraphQlIntrospectionResult | undefined",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "readonly GraphQlOperationDefinition[]",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "normalizeGraphQlIntrospectionSchemas",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 240,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["GraphQlIntrospectionResult"],
+    "signatures": [
+      {
+        "label": "(introspection: GraphQlIntrospectionResult | undefined) => Readonly<Record<string, DataSchema>> | undefined",
+        "parameters": [
+          {
+            "name": "introspection",
+            "type": "GraphQlIntrospectionResult | undefined",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "Readonly<Record<string, DataSchema>> | undefined",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "normalizeGraphQlOperationId",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 135,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["GraphQlOperationKind"],
+    "signatures": [
+      {
+        "label": "(kind: GraphQlOperationKind, name: string) => string",
+        "parameters": [
+          {
+            "name": "kind",
+            "type": "GraphQlOperationKind",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "string",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "normalizeManagedApiDataSource",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/managed-api/index.ts",
+    "sourceLocation": {
+      "filePath": "src/managed-api/index.ts",
+      "line": 118,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ManagedApiGenerationDefinition"],
+    "signatures": [
+      {
+        "label": "(definition: ManagedApiGenerationDefinition) => ManagedApiDataSourceConfig",
+        "parameters": [
+          {
+            "name": "definition",
+            "type": "ManagedApiGenerationDefinition",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "ManagedApiDataSourceConfig",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "normalizeManualRestDataSource",
     "description": null,
     "isReadme": false,
@@ -564,6 +1764,726 @@
     "structuredRows": []
   },
   {
+    "name": "normalizeOpenApiEndpointId",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 178,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(path: string) => string",
+        "parameters": [
+          {
+            "name": "path",
+            "type": "string",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "string",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "normalizeOpenApiOperationId",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 163,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(method: \"delete\" | \"get\" | \"head\" | \"options\" | \"patch\" | \"post\" | \"put\", path: string, operationId?: string | undefined) => string",
+        "parameters": [
+          {
+            "name": "method",
+            "type": "\"delete\" | \"get\" | \"head\" | \"options\" | \"patch\" | \"post\" | \"put\"",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "operationId",
+            "type": "string | undefined",
+            "required": false,
+            "description": null
+          },
+          {
+            "name": "path",
+            "type": "string",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "string",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "normalizeOpenApiSchema",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 188,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiSchemaObject"],
+    "signatures": [
+      {
+        "label": "(schema: OpenApiSchemaObject) => DataSchema",
+        "parameters": [
+          {
+            "name": "schema",
+            "type": "OpenApiSchemaObject",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "DataSchema",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiComponentsObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 95,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiSchemaObject"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "schemas",
+        "kind": "property",
+        "type": "Readonly<Record<string, OpenApiSchemaObject>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "securitySchemes",
+        "kind": "property",
+        "type": "Readonly<Record<string, DataContractValue>> | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiDocumentObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 100,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiComponentsObject", "OpenApiPathItemObject", "OpenApiServerObject"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "components",
+        "kind": "property",
+        "type": "OpenApiComponentsObject | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "info",
+        "kind": "property",
+        "type": "{ readonly title?: string; readonly version?: string; readonly description?: string; } | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "openapi",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "paths",
+        "kind": "property",
+        "type": "Readonly<Record<string, OpenApiPathItemObject>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "servers",
+        "kind": "property",
+        "type": "readonly OpenApiServerObject[] | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiHttpMethod",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 32,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiImportInput",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 112,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiDocumentObject"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "baseUrl",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "credential",
+        "kind": "property",
+        "type": "CredentialRef | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "document",
+        "kind": "property",
+        "type": "OpenApiDocumentObject",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "documentId",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "documentUrl",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "metadata",
+        "kind": "property",
+        "type": "DataContractValue | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiImportResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 124,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiMediaTypeObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 58,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiSchemaObject"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "schema",
+        "kind": "property",
+        "type": "OpenApiSchemaObject | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiOperationObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 81,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "OpenApiParameterObject",
+      "OpenApiRequestBodyObject",
+      "OpenApiResponseObject"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "deprecated",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "operationId",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "parameters",
+        "kind": "property",
+        "type": "readonly OpenApiParameterObject[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "requestBody",
+        "kind": "property",
+        "type": "OpenApiRequestBodyObject | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "responses",
+        "kind": "property",
+        "type": "Readonly<Record<string, OpenApiResponseObject>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "summary",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiParameterObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 73,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiSchemaObject"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "in",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "required",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "schema",
+        "kind": "property",
+        "type": "OpenApiSchemaObject | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiPathItemObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 91,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiRequestBodyObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 62,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiMediaTypeObject"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "content",
+        "kind": "property",
+        "type": "Readonly<Record<string, OpenApiMediaTypeObject>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "required",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiResponseObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 68,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiMediaTypeObject"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "content",
+        "kind": "property",
+        "type": "Readonly<Record<string, OpenApiMediaTypeObject>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiSchemaObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 39,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "$ref",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "additionalProperties",
+        "kind": "property",
+        "type": "boolean | OpenApiSchemaObject | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "allOf",
+        "kind": "property",
+        "type": "readonly OpenApiSchemaObject[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "anyOf",
+        "kind": "property",
+        "type": "readonly OpenApiSchemaObject[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "const",
+        "kind": "property",
+        "type": "DataContractValue | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "default",
+        "kind": "property",
+        "type": "DataContractValue | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "enum",
+        "kind": "property",
+        "type": "readonly DataContractValue[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "format",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "items",
+        "kind": "property",
+        "type": "OpenApiSchemaObject | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "nullable",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "oneOf",
+        "kind": "property",
+        "type": "readonly OpenApiSchemaObject[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "properties",
+        "kind": "property",
+        "type": "Readonly<Record<string, OpenApiSchemaObject>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "required",
+        "kind": "property",
+        "type": "readonly string[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "title",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "type",
+        "kind": "property",
+        "type": "string | readonly string[] | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiServerObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 34,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "SUPPORTED_DATA_SOURCE_KINDS",
     "description": null,
     "isReadme": false,
@@ -572,12 +2492,76 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 7,
+      "line": 10,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "validateGraphQlDataSource",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 159,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["GraphQlDataSourceDefinition"],
+    "signatures": [
+      {
+        "label": "(definition: GraphQlDataSourceDefinition) => readonly DataSourceDiagnostic[]",
+        "parameters": [
+          {
+            "name": "definition",
+            "type": "GraphQlDataSourceDefinition",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "readonly DataSourceDiagnostic[]",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "validateManagedApiDefinition",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/managed-api/index.ts",
+    "sourceLocation": {
+      "filePath": "src/managed-api/index.ts",
+      "line": 60,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ManagedApiGenerationDefinition"],
+    "signatures": [
+      {
+        "label": "(definition: ManagedApiGenerationDefinition) => readonly DataSourceDiagnostic[]",
+        "parameters": [
+          {
+            "name": "definition",
+            "type": "ManagedApiGenerationDefinition",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "readonly DataSourceDiagnostic[]",
+        "returnDescription": null
+      }
+    ],
     "members": [],
     "structuredRows": []
   },
