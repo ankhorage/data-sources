@@ -4,6 +4,7 @@ export * from './graphql';
 export * from './managed-api';
 export * from './openapi';
 export * from './rest';
+export * from './test-runner';
 
 export const DATA_SOURCES_PACKAGE_NAME = '@ankhorage/data-sources' as const;
 
