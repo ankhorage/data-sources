@@ -289,7 +289,7 @@
       "modulePath": "src/managed-api/index.ts",
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 44,
+        "line": 45,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -321,7 +321,7 @@
       "modulePath": "src/managed-api/index.ts",
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 150,
+        "line": 151,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -368,7 +368,7 @@
       "modulePath": "src/managed-api/index.ts",
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 175,
+        "line": 176,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -415,7 +415,7 @@
       "modulePath": "src/managed-api/index.ts",
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 209,
+        "line": 210,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -453,7 +453,7 @@
       "modulePath": "src/managed-api/index.ts",
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 216,
+        "line": 217,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -657,7 +657,7 @@
       "modulePath": "src/managed-api/index.ts",
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 203,
+        "line": 204,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1338,7 +1338,7 @@
       "modulePath": "src/managed-api/index.ts",
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 20,
+        "line": 21,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1356,7 +1356,7 @@
       "modulePath": "src/managed-api/index.ts",
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 22,
+        "line": 23,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1374,7 +1374,7 @@
       "modulePath": "src/managed-api/index.ts",
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 36,
+        "line": 37,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1428,7 +1428,7 @@
       "modulePath": "src/managed-api/index.ts",
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 29,
+        "line": 30,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1475,7 +1475,7 @@
       "modulePath": "src/managed-api/index.ts",
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 24,
+        "line": 25,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1906,7 +1906,7 @@
       "modulePath": "src/managed-api/index.ts",
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 117,
+        "line": 118,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2772,7 +2772,7 @@
       "modulePath": "src/managed-api/index.ts",
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 59,
+        "line": 60,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3042,7 +3042,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 44,
+        "line": 45,
         "column": 1
       }
     },
@@ -3051,7 +3051,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 59,
+        "line": 60,
         "column": 1
       }
     },
@@ -3060,7 +3060,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 117,
+        "line": 118,
         "column": 1
       }
     },
@@ -3069,7 +3069,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 150,
+        "line": 151,
         "column": 1
       }
     },
@@ -3078,7 +3078,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 175,
+        "line": 176,
         "column": 1
       }
     },
@@ -3087,7 +3087,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 203,
+        "line": 204,
         "column": 1
       }
     },
@@ -3096,7 +3096,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 209,
+        "line": 210,
         "column": 1
       }
     },
@@ -3105,7 +3105,16 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 216,
+        "line": 217,
+        "column": 1
+      }
+    },
+    {
+      "name": "createManagedApiResourceMetadata",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/managed-api/index.ts",
+        "line": 234,
         "column": 1
       }
     },
@@ -3114,7 +3123,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 233,
+        "line": 254,
         "column": 1
       }
     },
@@ -3123,7 +3132,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 240,
+        "line": 261,
         "column": 1
       }
     },
@@ -3132,7 +3141,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 247,
+        "line": 268,
         "column": 1
       }
     },
@@ -3141,7 +3150,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 282,
+        "line": 303,
         "column": 1
       }
     },
@@ -3150,7 +3159,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 311,
+        "line": 332,
         "column": 1
       }
     },
@@ -3159,7 +3168,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 322,
+        "line": 343,
         "column": 1
       }
     },
@@ -3168,7 +3177,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 327,
+        "line": 348,
         "column": 1
       }
     },
@@ -3177,7 +3186,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/managed-api/index.ts",
-        "line": 336,
+        "line": 357,
         "column": 1
       }
     },
@@ -3850,6 +3859,12 @@
         "fromSymbol": "normalizeManagedApiDataSource",
         "toSymbol": "getManagedApiOperations",
         "callExpression": "getManagedApiOperations",
+        "sourcePath": "src/managed-api/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeManagedApiDataSource",
+        "toSymbol": "createManagedApiResourceMetadata",
+        "callExpression": "createManagedApiResourceMetadata",
         "sourcePath": "src/managed-api/index.ts"
       },
       {

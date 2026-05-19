@@ -27,7 +27,7 @@ Source: `src/graphql/index.ts:128:1`
 
 Kind: `function`
 Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:44:1`
+Source: `src/managed-api/index.ts:45:1`
 
 ### Signatures
 
@@ -39,7 +39,7 @@ Source: `src/managed-api/index.ts:44:1`
 
 Kind: `function`
 Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:150:1`
+Source: `src/managed-api/index.ts:151:1`
 
 ### Signatures
 
@@ -53,7 +53,7 @@ Source: `src/managed-api/index.ts:150:1`
 
 Kind: `function`
 Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:175:1`
+Source: `src/managed-api/index.ts:176:1`
 
 ### Signatures
 
@@ -67,7 +67,7 @@ Source: `src/managed-api/index.ts:175:1`
 
 Kind: `function`
 Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:209:1`
+Source: `src/managed-api/index.ts:210:1`
 
 ### Signatures
 
@@ -80,7 +80,7 @@ Source: `src/managed-api/index.ts:209:1`
 
 Kind: `function`
 Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:216:1`
+Source: `src/managed-api/index.ts:217:1`
 
 ### Signatures
 
@@ -158,7 +158,7 @@ Source: `src/index.ts:23:1`
 
 Kind: `function`
 Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:203:1`
+Source: `src/managed-api/index.ts:204:1`
 
 ### Signatures
 
@@ -374,19 +374,19 @@ Source: `src/index.ts:30:1`
 
 Kind: `value`
 Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:20:14`
+Source: `src/managed-api/index.ts:21:14`
 
 ## ManagedApiCrudOperation
 
 Kind: `unknown`
 Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:22:1`
+Source: `src/managed-api/index.ts:23:1`
 
 ## ManagedApiGenerationDefinition
 
 Kind: `type`
 Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:36:1`
+Source: `src/managed-api/index.ts:37:1`
 
 ### Members
 
@@ -402,7 +402,7 @@ Source: `src/managed-api/index.ts:36:1`
 
 Kind: `type`
 Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:29:1`
+Source: `src/managed-api/index.ts:30:1`
 
 ### Members
 
@@ -417,7 +417,7 @@ Source: `src/managed-api/index.ts:29:1`
 
 Kind: `type`
 Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:24:1`
+Source: `src/managed-api/index.ts:25:1`
 
 ### Members
 
@@ -545,7 +545,7 @@ Source: `src/graphql/index.ts:135:1`
 
 Kind: `function`
 Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:117:1`
+Source: `src/managed-api/index.ts:118:1`
 
 ### Signatures
 
@@ -817,7 +817,7 @@ Source: `src/graphql/index.ts:159:1`
 
 Kind: `function`
 Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:59:1`
+Source: `src/managed-api/index.ts:60:1`
 
 ### Signatures
 
