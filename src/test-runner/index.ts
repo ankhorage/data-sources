@@ -369,7 +369,7 @@ function interpolatePath(
       continue;
     }
 
-    const encodedValue = encodeURIComponent(String(value));
+    const encodedValue = encodeURIComponent(serializeEndpointUrlValue(value));
     nextPath = nextPath.replaceAll(`{${parameter.name}}`, encodedValue);
     nextPath = nextPath.replaceAll(`:${parameter.name}`, encodedValue);
   }
@@ -437,11 +437,19 @@ function appendQuery(url: string, query: EndpointTestInputValues): string {
   if (entries.length === 0) return url;
 
   const search = entries
-    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`)
+    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(serializeEndpointUrlValue(value))}`)
     .join('&');
   const separator = url.includes('?') ? '&' : '?';
 
   return `${url}${separator}${search}`;
+}
+
+function serializeEndpointUrlValue(value: DataContractValue): string {
+  if (typeof value === 'string') return value;
+  if (typeof value === 'number' || typeof value === 'boolean') return value.toString();
+  if (value === null) return '';
+
+  return JSON.stringify(value);
 }
 
 function joinUrl(baseUrl: string, path: string): string {
