@@ -47,6 +47,8 @@ export const GRAPHQL_INTROSPECTION_QUERY = `query AnkhorageGraphQlIntrospection 
 
 export type GraphQlOperationKind = 'mutation' | 'query' | 'subscription';
 
+type DataContractRecord = Record<string, DataContractValue>;
+
 export interface GraphQlIntrospectionTypeRef {
   readonly kind: string;
   readonly name?: string | null;
@@ -309,12 +311,7 @@ function normalizeGraphQlOperation(operation: GraphQlOperationDefinition): DataO
       schema: operation.variables,
     },
     response,
-    metadata: {
-      ...toMetadataRecord(operation.metadata),
-      document: operation.document,
-      kind: operation.kind,
-      selectionPath: operation.selectionPath,
-    },
+    metadata: createGraphQlOperationMetadata(operation),
   };
 }
 
@@ -451,10 +448,32 @@ function isNamedGraphQlType(type: GraphQlIntrospectionType): boolean {
   return type.name !== undefined && type.name !== null;
 }
 
-function toMetadataRecord(value: DataContractValue | undefined): Record<string, DataContractValue> {
-  if (value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value)) {
-    return { ...value };
+function createGraphQlOperationMetadata(operation: GraphQlOperationDefinition): DataContractRecord {
+  const metadata = toMetadataRecord(operation.metadata);
+  metadata.kind = operation.kind;
+
+  if (operation.document !== undefined) {
+    metadata.document = operation.document;
   }
 
-  return {};
+  if (operation.selectionPath !== undefined) {
+    metadata.selectionPath = operation.selectionPath;
+  }
+
+  return metadata;
+}
+
+function toMetadataRecord(value: DataContractValue | undefined): DataContractRecord {
+  if (!isDataContractRecord(value)) return {};
+
+  const metadata: DataContractRecord = {};
+  for (const [key, item] of Object.entries(value)) {
+    metadata[key] = item;
+  }
+
+  return metadata;
+}
+
+function isDataContractRecord(value: DataContractValue | undefined): value is DataContractRecord {
+  return value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value);
 }
