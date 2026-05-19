@@ -15,6 +15,9 @@ Provider-neutral data source and endpoint system for APIs, databases, and runtim
 - [Architecture overview](././paradox/diagrams/architecture-overview.mmd)
 - [Module relationships](././paradox/diagrams/module-relationships.mmd)
 - [Export graph](././paradox/diagrams/export-graph.mmd)
+- [createManualRestDataSource sequence](././paradox/diagrams/sequences/create-manual-rest-data-source.mmd)
+- [normalizeManualRestDataSource sequence](././paradox/diagrams/sequences/normalize-manual-rest-data-source.mmd)
+- [validateManualRestDataSource sequence](././paradox/diagrams/sequences/validate-manual-rest-data-source.mmd)
 
 ## Architecture preview
 
@@ -27,6 +30,8 @@ graph TD
   entrypoint_src_index_ts["src/index.ts"]
   package__ankhorage_data_sources --> entrypoint_src_index_ts
   module_src_index_ts["src/index.ts"]
+  module_src_rest_index_ts["src/rest/index.ts"]
+  package__ankhorage_data_sources -.-> module_src_rest_index_ts
 ```
 
 </details>

@@ -1,15 +1,41 @@
 graph LR
   module_src_index_ts["src/index.ts"]
+  module_src_rest_index_ts["src/rest/index.ts"]
+  export_createManualRestDataSource["createManualRestDataSource"]
+  module_src_rest_index_ts --> export_createManualRestDataSource
+  export_createManualRestDataSource -.-> export_ManualRestDataSourceDefinition
   export_DATA_SOURCES_PACKAGE_NAME["DATA_SOURCES_PACKAGE_NAME"]
   module_src_index_ts --> export_DATA_SOURCES_PACKAGE_NAME
   export_DataSourcesPackageInfo["DataSourcesPackageInfo"]
   module_src_index_ts --> export_DataSourcesPackageInfo
+  export_extractRestPathParams["extractRestPathParams"]
+  module_src_rest_index_ts --> export_extractRestPathParams
   export_getDataSourceKind["getDataSourceKind"]
   module_src_index_ts --> export_getDataSourceKind
   export_getDataSourcesPackageInfo["getDataSourcesPackageInfo"]
   module_src_index_ts --> export_getDataSourcesPackageInfo
   export_getDataSourcesPackageInfo -.-> export_DataSourcesPackageInfo
+  export_isManualRestMethod["isManualRestMethod"]
+  module_src_rest_index_ts --> export_isManualRestMethod
   export_isSupportedDataSourceKind["isSupportedDataSourceKind"]
   module_src_index_ts --> export_isSupportedDataSourceKind
+  export_ManualRestDataSourceDefinition["ManualRestDataSourceDefinition"]
+  module_src_rest_index_ts --> export_ManualRestDataSourceDefinition
+  export_ManualRestDataSourceDefinition -.-> export_ManualRestEndpointDefinition
+  export_ManualRestEndpointDefinition["ManualRestEndpointDefinition"]
+  module_src_rest_index_ts --> export_ManualRestEndpointDefinition
+  export_ManualRestEndpointDefinition -.-> export_ManualRestOperationDefinition
+  export_ManualRestMethod["ManualRestMethod"]
+  module_src_rest_index_ts --> export_ManualRestMethod
+  export_ManualRestOperationDefinition["ManualRestOperationDefinition"]
+  module_src_rest_index_ts --> export_ManualRestOperationDefinition
+  export_normalizeManualRestDataSource["normalizeManualRestDataSource"]
+  module_src_rest_index_ts --> export_normalizeManualRestDataSource
+  export_normalizeManualRestDataSource -.-> export_ManualRestDataSourceDefinition
+  export_normalizeManualRestMethod["normalizeManualRestMethod"]
+  module_src_rest_index_ts --> export_normalizeManualRestMethod
   export_SUPPORTED_DATA_SOURCE_KINDS["SUPPORTED_DATA_SOURCE_KINDS"]
   module_src_index_ts --> export_SUPPORTED_DATA_SOURCE_KINDS
+  export_validateManualRestDataSource["validateManualRestDataSource"]
+  module_src_rest_index_ts --> export_validateManualRestDataSource
+  export_validateManualRestDataSource -.-> export_ManualRestDataSourceDefinition

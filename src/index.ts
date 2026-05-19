@@ -1,5 +1,7 @@
 import type { DataSourceConfig, DataSourceKind } from '@ankhorage/contracts/data';
 
+export * from './rest';
+
 export const DATA_SOURCES_PACKAGE_NAME = '@ankhorage/data-sources' as const;
 
 export const SUPPORTED_DATA_SOURCE_KINDS = [

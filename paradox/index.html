@@ -204,6 +204,12 @@
                 <small>3 functions</small>
               </button>
             </li>
+            <li>
+              <button class="nav-button" type="button" data-target="src/rest/index.ts">
+                src/rest/index.ts
+                <small>6 functions</small>
+              </button>
+            </li>
           </ul>
         </nav>
       </aside>
@@ -212,9 +218,9 @@
           <section class="panel">
             <h2>Package overview</h2>
             <div class="summary">
-              <div><strong>6</strong><span class="muted">public exports</span></div>
+              <div><strong>16</strong><span class="muted">public exports</span></div>
               <div><strong>0</strong><span class="muted">components</span></div>
-              <div><strong>1</strong><span class="muted">modules</span></div>
+              <div><strong>2</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -227,16 +233,38 @@
             <h2>Modules</h2>
             <article
               class="item"
-              data-search="src/index.ts DATA_SOURCES_PACKAGE_NAME DataSourcesPackageInfo getDataSourceKind getDataSourcesPackageInfo isSupportedDataSourceKind SUPPORTED_DATA_SOURCE_KINDS"
+              data-search="src/index.ts createManualRestDataSource DATA_SOURCES_PACKAGE_NAME DataSourcesPackageInfo extractRestPathParams getDataSourceKind getDataSourcesPackageInfo isManualRestMethod isSupportedDataSourceKind ManualRestDataSourceDefinition ManualRestEndpointDefinition ManualRestMethod ManualRestOperationDefinition normalizeManualRestDataSource normalizeManualRestMethod SUPPORTED_DATA_SOURCE_KINDS validateManualRestDataSource"
             >
               <h3>src/index.ts</h3>
               <p class="muted">Configured entrypoint</p>
               <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
               <p>
-                <strong>Exports:</strong> <code>DATA_SOURCES_PACKAGE_NAME</code>,
-                <code>DataSourcesPackageInfo</code>, <code>getDataSourceKind</code>,
-                <code>getDataSourcesPackageInfo</code>, <code>isSupportedDataSourceKind</code>,
-                <code>SUPPORTED_DATA_SOURCE_KINDS</code>
+                <strong>Exports:</strong> <code>createManualRestDataSource</code>,
+                <code>DATA_SOURCES_PACKAGE_NAME</code>, <code>DataSourcesPackageInfo</code>,
+                <code>extractRestPathParams</code>, <code>getDataSourceKind</code>,
+                <code>getDataSourcesPackageInfo</code>, <code>isManualRestMethod</code>,
+                <code>isSupportedDataSourceKind</code>, <code>ManualRestDataSourceDefinition</code>,
+                <code>ManualRestEndpointDefinition</code>, <code>ManualRestMethod</code>,
+                <code>ManualRestOperationDefinition</code>,
+                <code>normalizeManualRestDataSource</code>, <code>normalizeManualRestMethod</code>,
+                <code>SUPPORTED_DATA_SOURCE_KINDS</code>, <code>validateManualRestDataSource</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/rest/index.ts createManualRestDataSource extractRestPathParams isManualRestMethod ManualRestDataSourceDefinition ManualRestEndpointDefinition ManualRestMethod ManualRestOperationDefinition normalizeManualRestDataSource normalizeManualRestMethod validateManualRestDataSource"
+            >
+              <h3>src/rest/index.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>createManualRestDataSource</code>,
+                <code>extractRestPathParams</code>, <code>isManualRestMethod</code>,
+                <code>ManualRestDataSourceDefinition</code>,
+                <code>ManualRestEndpointDefinition</code>, <code>ManualRestMethod</code>,
+                <code>ManualRestOperationDefinition</code>,
+                <code>normalizeManualRestDataSource</code>, <code>normalizeManualRestMethod</code>,
+                <code>validateManualRestDataSource</code>
               </p>
             </article>
           </section>
@@ -251,7 +279,7 @@
                 data-search="DATA_SOURCES_PACKAGE_NAME value src/index.ts "
               >
                 <h4>DATA_SOURCES_PACKAGE_NAME</h4>
-                <p class="muted">value • <code>src/index.ts:3:14</code></p>
+                <p class="muted">value • <code>src/index.ts:5:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -262,7 +290,7 @@
                 data-search="DataSourcesPackageInfo type src/index.ts "
               >
                 <h4>DataSourcesPackageInfo</h4>
-                <p class="muted">type • <code>src/index.ts:13:1</code></p>
+                <p class="muted">type • <code>src/index.ts:15:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -306,7 +334,7 @@
                 data-search="getDataSourceKind function src/index.ts  (source: DataSourceConfig) =&gt; DataSourceKind"
               >
                 <h4>getDataSourceKind</h4>
-                <p class="muted">function • <code>src/index.ts:29:1</code></p>
+                <p class="muted">function • <code>src/index.ts:31:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -340,7 +368,7 @@
                 data-search="getDataSourcesPackageInfo function src/index.ts  DataSourcesPackageInfo () =&gt; DataSourcesPackageInfo"
               >
                 <h4>getDataSourcesPackageInfo</h4>
-                <p class="muted">function • <code>src/index.ts:18:1</code></p>
+                <p class="muted">function • <code>src/index.ts:20:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -362,7 +390,7 @@
                 data-search="isSupportedDataSourceKind function src/index.ts  (kind: string) =&gt; boolean"
               >
                 <h4>isSupportedDataSourceKind</h4>
-                <p class="muted">function • <code>src/index.ts:25:1</code></p>
+                <p class="muted">function • <code>src/index.ts:27:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -396,10 +424,530 @@
                 data-search="SUPPORTED_DATA_SOURCE_KINDS value src/index.ts "
               >
                 <h4>SUPPORTED_DATA_SOURCE_KINDS</h4>
-                <p class="muted">value • <code>src/index.ts:5:14</code></p>
+                <p class="muted">value • <code>src/index.ts:7:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+            </section>
+            <section>
+              <h3>src/rest/index.ts</h3>
+              <article
+                class="item"
+                id="symbol-createmanualrestdatasource"
+                data-search="createManualRestDataSource function src/rest/index.ts  ManualRestDataSourceDefinition (definition: ManualRestDataSourceDefinition) =&gt; DataSourceDiagnosticResult&lt;RestDataSourceConfig&gt;"
+              >
+                <h4>createManualRestDataSource</h4>
+                <p class="muted">function • <code>src/rest/index.ts:166:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ManualRestDataSourceDefinition</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(definition: ManualRestDataSourceDefinition) =&gt; DataSourceDiagnosticResult&lt;RestDataSourceConfig&gt;</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>definition</code></td>
+                        <td><code>ManualRestDataSourceDefinition</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    <strong>Returns:</strong>
+                    <code>DataSourceDiagnosticResult&lt;RestDataSourceConfig&gt;</code>
+                  </p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-extractrestpathparams"
+                data-search="extractRestPathParams function src/rest/index.ts  (path: string) =&gt; readonly string[]"
+              >
+                <h4>extractRestPathParams</h4>
+                <p class="muted">function • <code>src/rest/index.ts:68:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(path: string) =&gt; readonly string[]</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>path</code></td>
+                        <td><code>string</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>readonly string[]</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-ismanualrestmethod"
+                data-search="isManualRestMethod function src/rest/index.ts  (method: string) =&gt; boolean"
+              >
+                <h4>isManualRestMethod</h4>
+                <p class="muted">function • <code>src/rest/index.ts:60:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(method: string) =&gt; boolean</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>method</code></td>
+                        <td><code>string</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>boolean</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-manualrestdatasourcedefinition"
+                data-search="ManualRestDataSourceDefinition type src/rest/index.ts  ManualRestEndpointDefinition"
+              >
+                <h4>ManualRestDataSourceDefinition</h4>
+                <p class="muted">type • <code>src/rest/index.ts:49:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ManualRestEndpointDefinition</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>baseUrl</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>credential</code></td>
+                      <td>property</td>
+                      <td><code>CredentialRef | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>endpoints</code></td>
+                      <td>property</td>
+                      <td><code>readonly ManualRestEndpointDefinition[]</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>id</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>metadata</code></td>
+                      <td>property</td>
+                      <td><code>DataContractValue | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>schemas</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >Readonly&lt;Record&lt;string,
+                          import(&quot;/Users/a_rtiphishl_e/git/data-sources/node_modules/@ankhorage/contracts/dist/data/schemas&quot;).DataSchema&gt;&gt;
+                          | undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-manualrestendpointdefinition"
+                data-search="ManualRestEndpointDefinition type src/rest/index.ts  ManualRestOperationDefinition"
+              >
+                <h4>ManualRestEndpointDefinition</h4>
+                <p class="muted">type • <code>src/rest/index.ts:39:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ManualRestOperationDefinition</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>credential</code></td>
+                      <td>property</td>
+                      <td><code>CredentialRef | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>id</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>metadata</code></td>
+                      <td>property</td>
+                      <td><code>DataContractValue | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>operations</code></td>
+                      <td>property</td>
+                      <td><code>readonly ManualRestOperationDefinition[]</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>path</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-manualrestmethod"
+                data-search="ManualRestMethod unknown src/rest/index.ts "
+              >
+                <h4>ManualRestMethod</h4>
+                <p class="muted">unknown • <code>src/rest/index.ts:22:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-manualrestoperationdefinition"
+                data-search="ManualRestOperationDefinition type src/rest/index.ts "
+              >
+                <h4>ManualRestOperationDefinition</h4>
+                <p class="muted">type • <code>src/rest/index.ts:24:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>credential</code></td>
+                      <td>property</td>
+                      <td><code>CredentialRef | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>id</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>intent</code></td>
+                      <td>property</td>
+                      <td><code>DataOperationIntent</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>metadata</code></td>
+                      <td>property</td>
+                      <td><code>DataContractValue | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>method</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>pagination</code></td>
+                      <td>property</td>
+                      <td><code>DataOperationPagination | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>parameters</code></td>
+                      <td>property</td>
+                      <td><code>readonly DataOperationParameter[] | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>path</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>request</code></td>
+                      <td>property</td>
+                      <td><code>DataOperationRequest | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>response</code></td>
+                      <td>property</td>
+                      <td><code>DataOperationResponse | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-normalizemanualrestdatasource"
+                data-search="normalizeManualRestDataSource function src/rest/index.ts  ManualRestDataSourceDefinition (definition: ManualRestDataSourceDefinition) =&gt; RestDataSourceConfig"
+              >
+                <h4>normalizeManualRestDataSource</h4>
+                <p class="muted">function • <code>src/rest/index.ts:183:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ManualRestDataSourceDefinition</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(definition: ManualRestDataSourceDefinition) =&gt; RestDataSourceConfig</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>definition</code></td>
+                        <td><code>ManualRestDataSourceDefinition</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>RestDataSourceConfig</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-normalizemanualrestmethod"
+                data-search="normalizeManualRestMethod function src/rest/index.ts  (method: string) =&gt; DataOperationMethod"
+              >
+                <h4>normalizeManualRestMethod</h4>
+                <p class="muted">function • <code>src/rest/index.ts:64:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(method: string) =&gt; DataOperationMethod</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>method</code></td>
+                        <td><code>string</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>DataOperationMethod</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-validatemanualrestdatasource"
+                data-search="validateManualRestDataSource function src/rest/index.ts  ManualRestDataSourceDefinition (definition: ManualRestDataSourceDefinition) =&gt; readonly DataSourceDiagnostic[]"
+              >
+                <h4>validateManualRestDataSource</h4>
+                <p class="muted">function • <code>src/rest/index.ts:86:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ManualRestDataSourceDefinition</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(definition: ManualRestDataSourceDefinition) =&gt; readonly DataSourceDiagnostic[]</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>definition</code></td>
+                        <td><code>ManualRestDataSourceDefinition</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>readonly DataSourceDiagnostic[]</code></p>
+                </div>
               </article>
             </section>
           </section>
@@ -419,6 +967,8 @@
                 graph TD package__ankhorage_data_sources[&quot;@ankhorage/data-sources&quot;]
                 entrypoint_src_index_ts[&quot;src/index.ts&quot;] package__ankhorage_data_sources
                 --&gt; entrypoint_src_index_ts module_src_index_ts[&quot;src/index.ts&quot;]
+                module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
+                package__ankhorage_data_sources -.-&gt; module_src_rest_index_ts
               </div>
               <details>
                 <summary>View Mermaid source</summary>
@@ -428,6 +978,8 @@ graph TD
   entrypoint_src_index_ts[&quot;src/index.ts&quot;]
   package__ankhorage_data_sources --&gt; entrypoint_src_index_ts
   module_src_index_ts[&quot;src/index.ts&quot;]
+  module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_rest_index_ts
 </pre
                 >
               </details>
@@ -438,12 +990,18 @@ graph TD
             >
               <h3>Module relationships</h3>
               <p class="muted"><code>diagrams/module-relationships.mmd</code></p>
-              <div class="mermaid">graph LR module_src_index_ts[&quot;src/index.ts&quot;]</div>
+              <div class="mermaid">
+                graph LR module_src_index_ts[&quot;src/index.ts&quot;]
+                module_src_rest_index_ts[&quot;src/rest/index.ts&quot;] module_src_index_ts -.-&gt;
+                module_src_rest_index_ts
+              </div>
               <details>
                 <summary>View Mermaid source</summary>
                 <pre>
 graph LR
   module_src_index_ts[&quot;src/index.ts&quot;]
+  module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
+  module_src_index_ts -.-&gt; module_src_rest_index_ts
 </pre
                 >
               </details>
@@ -453,38 +1011,231 @@ graph LR
               <p class="muted"><code>diagrams/export-graph.mmd</code></p>
               <div class="mermaid">
                 graph LR module_src_index_ts[&quot;src/index.ts&quot;]
+                module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
+                export_createManualRestDataSource[&quot;createManualRestDataSource&quot;]
+                module_src_rest_index_ts --&gt; export_createManualRestDataSource
+                export_createManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
                 export_DATA_SOURCES_PACKAGE_NAME[&quot;DATA_SOURCES_PACKAGE_NAME&quot;]
                 module_src_index_ts --&gt; export_DATA_SOURCES_PACKAGE_NAME
                 export_DataSourcesPackageInfo[&quot;DataSourcesPackageInfo&quot;]
                 module_src_index_ts --&gt; export_DataSourcesPackageInfo
+                export_extractRestPathParams[&quot;extractRestPathParams&quot;]
+                module_src_rest_index_ts --&gt; export_extractRestPathParams
                 export_getDataSourceKind[&quot;getDataSourceKind&quot;] module_src_index_ts --&gt;
                 export_getDataSourceKind
                 export_getDataSourcesPackageInfo[&quot;getDataSourcesPackageInfo&quot;]
                 module_src_index_ts --&gt; export_getDataSourcesPackageInfo
                 export_getDataSourcesPackageInfo -.-&gt; export_DataSourcesPackageInfo
+                export_isManualRestMethod[&quot;isManualRestMethod&quot;] module_src_rest_index_ts
+                --&gt; export_isManualRestMethod
                 export_isSupportedDataSourceKind[&quot;isSupportedDataSourceKind&quot;]
                 module_src_index_ts --&gt; export_isSupportedDataSourceKind
+                export_ManualRestDataSourceDefinition[&quot;ManualRestDataSourceDefinition&quot;]
+                module_src_rest_index_ts --&gt; export_ManualRestDataSourceDefinition
+                export_ManualRestDataSourceDefinition -.-&gt; export_ManualRestEndpointDefinition
+                export_ManualRestEndpointDefinition[&quot;ManualRestEndpointDefinition&quot;]
+                module_src_rest_index_ts --&gt; export_ManualRestEndpointDefinition
+                export_ManualRestEndpointDefinition -.-&gt; export_ManualRestOperationDefinition
+                export_ManualRestMethod[&quot;ManualRestMethod&quot;] module_src_rest_index_ts
+                --&gt; export_ManualRestMethod
+                export_ManualRestOperationDefinition[&quot;ManualRestOperationDefinition&quot;]
+                module_src_rest_index_ts --&gt; export_ManualRestOperationDefinition
+                export_normalizeManualRestDataSource[&quot;normalizeManualRestDataSource&quot;]
+                module_src_rest_index_ts --&gt; export_normalizeManualRestDataSource
+                export_normalizeManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
+                export_normalizeManualRestMethod[&quot;normalizeManualRestMethod&quot;]
+                module_src_rest_index_ts --&gt; export_normalizeManualRestMethod
                 export_SUPPORTED_DATA_SOURCE_KINDS[&quot;SUPPORTED_DATA_SOURCE_KINDS&quot;]
                 module_src_index_ts --&gt; export_SUPPORTED_DATA_SOURCE_KINDS
+                export_validateManualRestDataSource[&quot;validateManualRestDataSource&quot;]
+                module_src_rest_index_ts --&gt; export_validateManualRestDataSource
+                export_validateManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
               </div>
               <details>
                 <summary>View Mermaid source</summary>
                 <pre>
 graph LR
   module_src_index_ts[&quot;src/index.ts&quot;]
+  module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
+  export_createManualRestDataSource[&quot;createManualRestDataSource&quot;]
+  module_src_rest_index_ts --&gt; export_createManualRestDataSource
+  export_createManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
   export_DATA_SOURCES_PACKAGE_NAME[&quot;DATA_SOURCES_PACKAGE_NAME&quot;]
   module_src_index_ts --&gt; export_DATA_SOURCES_PACKAGE_NAME
   export_DataSourcesPackageInfo[&quot;DataSourcesPackageInfo&quot;]
   module_src_index_ts --&gt; export_DataSourcesPackageInfo
+  export_extractRestPathParams[&quot;extractRestPathParams&quot;]
+  module_src_rest_index_ts --&gt; export_extractRestPathParams
   export_getDataSourceKind[&quot;getDataSourceKind&quot;]
   module_src_index_ts --&gt; export_getDataSourceKind
   export_getDataSourcesPackageInfo[&quot;getDataSourcesPackageInfo&quot;]
   module_src_index_ts --&gt; export_getDataSourcesPackageInfo
   export_getDataSourcesPackageInfo -.-&gt; export_DataSourcesPackageInfo
+  export_isManualRestMethod[&quot;isManualRestMethod&quot;]
+  module_src_rest_index_ts --&gt; export_isManualRestMethod
   export_isSupportedDataSourceKind[&quot;isSupportedDataSourceKind&quot;]
   module_src_index_ts --&gt; export_isSupportedDataSourceKind
+  export_ManualRestDataSourceDefinition[&quot;ManualRestDataSourceDefinition&quot;]
+  module_src_rest_index_ts --&gt; export_ManualRestDataSourceDefinition
+  export_ManualRestDataSourceDefinition -.-&gt; export_ManualRestEndpointDefinition
+  export_ManualRestEndpointDefinition[&quot;ManualRestEndpointDefinition&quot;]
+  module_src_rest_index_ts --&gt; export_ManualRestEndpointDefinition
+  export_ManualRestEndpointDefinition -.-&gt; export_ManualRestOperationDefinition
+  export_ManualRestMethod[&quot;ManualRestMethod&quot;]
+  module_src_rest_index_ts --&gt; export_ManualRestMethod
+  export_ManualRestOperationDefinition[&quot;ManualRestOperationDefinition&quot;]
+  module_src_rest_index_ts --&gt; export_ManualRestOperationDefinition
+  export_normalizeManualRestDataSource[&quot;normalizeManualRestDataSource&quot;]
+  module_src_rest_index_ts --&gt; export_normalizeManualRestDataSource
+  export_normalizeManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
+  export_normalizeManualRestMethod[&quot;normalizeManualRestMethod&quot;]
+  module_src_rest_index_ts --&gt; export_normalizeManualRestMethod
   export_SUPPORTED_DATA_SOURCE_KINDS[&quot;SUPPORTED_DATA_SOURCE_KINDS&quot;]
   module_src_index_ts --&gt; export_SUPPORTED_DATA_SOURCE_KINDS
+  export_validateManualRestDataSource[&quot;validateManualRestDataSource&quot;]
+  module_src_rest_index_ts --&gt; export_validateManualRestDataSource
+  export_validateManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
+</pre
+                >
+              </details>
+            </article>
+            <article
+              class="item"
+              data-search="createManualRestDataSource sequence diagrams/sequences/create-manual-rest-data-source.mmd"
+            >
+              <h3>createManualRestDataSource sequence</h3>
+              <p class="muted">
+                <code>diagrams/sequences/create-manual-rest-data-source.mmd</code>
+              </p>
+              <div class="mermaid">
+                sequenceDiagram participant participant_createManualRestDataSource as
+                createManualRestDataSource participant participant_extractRestPathParams as
+                extractRestPathParams participant participant_isManualRestMethod as
+                isManualRestMethod participant participant_normalizeManualRestDataSource as
+                normalizeManualRestDataSource participant participant_normalizeManualRestMethod as
+                normalizeManualRestMethod participant participant_validateManualRestDataSource as
+                validateManualRestDataSource
+                participant_createManualRestDataSource-&gt;&gt;participant_validateManualRestDataSource:
+                validateManualRestDataSource()
+                participant_validateManualRestDataSource-&gt;&gt;participant_normalizeManualRestMethod:
+                normalizeManualRestMethod()
+                participant_normalizeManualRestMethod--&gt;&gt;participant_validateManualRestDataSource:
+                return
+                participant_validateManualRestDataSource-&gt;&gt;participant_extractRestPathParams:
+                extractRestPathParams()
+                participant_extractRestPathParams--&gt;&gt;participant_validateManualRestDataSource:
+                return
+                participant_validateManualRestDataSource-&gt;&gt;participant_isManualRestMethod:
+                isManualRestMethod()
+                participant_isManualRestMethod--&gt;&gt;participant_validateManualRestDataSource:
+                return
+                participant_validateManualRestDataSource--&gt;&gt;participant_createManualRestDataSource:
+                return
+                participant_createManualRestDataSource-&gt;&gt;participant_normalizeManualRestDataSource:
+                normalizeManualRestDataSource()
+                participant_normalizeManualRestDataSource-&gt;&gt;participant_normalizeManualRestMethod:
+                normalizeManualRestMethod()
+                participant_normalizeManualRestMethod--&gt;&gt;participant_normalizeManualRestDataSource:
+                return
+                participant_normalizeManualRestDataSource--&gt;&gt;participant_createManualRestDataSource:
+                return
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+sequenceDiagram
+  participant participant_createManualRestDataSource as createManualRestDataSource
+  participant participant_extractRestPathParams as extractRestPathParams
+  participant participant_isManualRestMethod as isManualRestMethod
+  participant participant_normalizeManualRestDataSource as normalizeManualRestDataSource
+  participant participant_normalizeManualRestMethod as normalizeManualRestMethod
+  participant participant_validateManualRestDataSource as validateManualRestDataSource
+  participant_createManualRestDataSource-&gt;&gt;participant_validateManualRestDataSource: validateManualRestDataSource()
+  participant_validateManualRestDataSource-&gt;&gt;participant_normalizeManualRestMethod: normalizeManualRestMethod()
+  participant_normalizeManualRestMethod--&gt;&gt;participant_validateManualRestDataSource: return
+  participant_validateManualRestDataSource-&gt;&gt;participant_extractRestPathParams: extractRestPathParams()
+  participant_extractRestPathParams--&gt;&gt;participant_validateManualRestDataSource: return
+  participant_validateManualRestDataSource-&gt;&gt;participant_isManualRestMethod: isManualRestMethod()
+  participant_isManualRestMethod--&gt;&gt;participant_validateManualRestDataSource: return
+  participant_validateManualRestDataSource--&gt;&gt;participant_createManualRestDataSource: return
+  participant_createManualRestDataSource-&gt;&gt;participant_normalizeManualRestDataSource: normalizeManualRestDataSource()
+  participant_normalizeManualRestDataSource-&gt;&gt;participant_normalizeManualRestMethod: normalizeManualRestMethod()
+  participant_normalizeManualRestMethod--&gt;&gt;participant_normalizeManualRestDataSource: return
+  participant_normalizeManualRestDataSource--&gt;&gt;participant_createManualRestDataSource: return
+</pre
+                >
+              </details>
+            </article>
+            <article
+              class="item"
+              data-search="normalizeManualRestDataSource sequence diagrams/sequences/normalize-manual-rest-data-source.mmd"
+            >
+              <h3>normalizeManualRestDataSource sequence</h3>
+              <p class="muted">
+                <code>diagrams/sequences/normalize-manual-rest-data-source.mmd</code>
+              </p>
+              <div class="mermaid">
+                sequenceDiagram participant participant_normalizeManualRestDataSource as
+                normalizeManualRestDataSource participant participant_normalizeManualRestMethod as
+                normalizeManualRestMethod
+                participant_normalizeManualRestDataSource-&gt;&gt;participant_normalizeManualRestMethod:
+                normalizeManualRestMethod()
+                participant_normalizeManualRestMethod--&gt;&gt;participant_normalizeManualRestDataSource:
+                return
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+sequenceDiagram
+  participant participant_normalizeManualRestDataSource as normalizeManualRestDataSource
+  participant participant_normalizeManualRestMethod as normalizeManualRestMethod
+  participant_normalizeManualRestDataSource-&gt;&gt;participant_normalizeManualRestMethod: normalizeManualRestMethod()
+  participant_normalizeManualRestMethod--&gt;&gt;participant_normalizeManualRestDataSource: return
+</pre
+                >
+              </details>
+            </article>
+            <article
+              class="item"
+              data-search="validateManualRestDataSource sequence diagrams/sequences/validate-manual-rest-data-source.mmd"
+            >
+              <h3>validateManualRestDataSource sequence</h3>
+              <p class="muted">
+                <code>diagrams/sequences/validate-manual-rest-data-source.mmd</code>
+              </p>
+              <div class="mermaid">
+                sequenceDiagram participant participant_extractRestPathParams as
+                extractRestPathParams participant participant_isManualRestMethod as
+                isManualRestMethod participant participant_normalizeManualRestMethod as
+                normalizeManualRestMethod participant participant_validateManualRestDataSource as
+                validateManualRestDataSource
+                participant_validateManualRestDataSource-&gt;&gt;participant_normalizeManualRestMethod:
+                normalizeManualRestMethod()
+                participant_normalizeManualRestMethod--&gt;&gt;participant_validateManualRestDataSource:
+                return
+                participant_validateManualRestDataSource-&gt;&gt;participant_extractRestPathParams:
+                extractRestPathParams()
+                participant_extractRestPathParams--&gt;&gt;participant_validateManualRestDataSource:
+                return
+                participant_validateManualRestDataSource-&gt;&gt;participant_isManualRestMethod:
+                isManualRestMethod()
+                participant_isManualRestMethod--&gt;&gt;participant_validateManualRestDataSource:
+                return
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+sequenceDiagram
+  participant participant_extractRestPathParams as extractRestPathParams
+  participant participant_isManualRestMethod as isManualRestMethod
+  participant participant_normalizeManualRestMethod as normalizeManualRestMethod
+  participant participant_validateManualRestDataSource as validateManualRestDataSource
+  participant_validateManualRestDataSource-&gt;&gt;participant_normalizeManualRestMethod: normalizeManualRestMethod()
+  participant_normalizeManualRestMethod--&gt;&gt;participant_validateManualRestDataSource: return
+  participant_validateManualRestDataSource-&gt;&gt;participant_extractRestPathParams: extractRestPathParams()
+  participant_extractRestPathParams--&gt;&gt;participant_validateManualRestDataSource: return
+  participant_validateManualRestDataSource-&gt;&gt;participant_isManualRestMethod: isManualRestMethod()
+  participant_isManualRestMethod--&gt;&gt;participant_validateManualRestDataSource: return
 </pre
                 >
               </details>
@@ -496,17 +1247,52 @@ graph LR
             <h2>src/index.ts</h2>
             <article class="item" data-search="getDataSourcesPackageInfo src/index.ts ">
               <h3>getDataSourcesPackageInfo</h3>
-              <p class="muted"><code>src/index.ts:18:1</code></p>
+              <p class="muted"><code>src/index.ts:20:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="isSupportedDataSourceKind src/index.ts ">
               <h3>isSupportedDataSourceKind</h3>
-              <p class="muted"><code>src/index.ts:25:1</code></p>
+              <p class="muted"><code>src/index.ts:27:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="getDataSourceKind src/index.ts ">
               <h3>getDataSourceKind</h3>
-              <p class="muted"><code>src/index.ts:29:1</code></p>
+              <p class="muted"><code>src/index.ts:31:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section id="view-src-rest-index-ts" class="view" data-view="src/rest/index.ts" hidden>
+          <section class="panel">
+            <h2>src/rest/index.ts</h2>
+            <article class="item" data-search="isManualRestMethod src/rest/index.ts ">
+              <h3>isManualRestMethod</h3>
+              <p class="muted"><code>src/rest/index.ts:60:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeManualRestMethod src/rest/index.ts ">
+              <h3>normalizeManualRestMethod</h3>
+              <p class="muted"><code>src/rest/index.ts:64:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="extractRestPathParams src/rest/index.ts ">
+              <h3>extractRestPathParams</h3>
+              <p class="muted"><code>src/rest/index.ts:68:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="validateManualRestDataSource src/rest/index.ts ">
+              <h3>validateManualRestDataSource</h3>
+              <p class="muted"><code>src/rest/index.ts:86:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="createManualRestDataSource src/rest/index.ts ">
+              <h3>createManualRestDataSource</h3>
+              <p class="muted"><code>src/rest/index.ts:166:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeManualRestDataSource src/rest/index.ts ">
+              <h3>normalizeManualRestDataSource</h3>
+              <p class="muted"><code>src/rest/index.ts:183:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>

@@ -1,0 +1,19 @@
+sequenceDiagram
+  participant participant_createManualRestDataSource as createManualRestDataSource
+  participant participant_extractRestPathParams as extractRestPathParams
+  participant participant_isManualRestMethod as isManualRestMethod
+  participant participant_normalizeManualRestDataSource as normalizeManualRestDataSource
+  participant participant_normalizeManualRestMethod as normalizeManualRestMethod
+  participant participant_validateManualRestDataSource as validateManualRestDataSource
+  participant_createManualRestDataSource->>participant_validateManualRestDataSource: validateManualRestDataSource()
+  participant_validateManualRestDataSource->>participant_normalizeManualRestMethod: normalizeManualRestMethod()
+  participant_normalizeManualRestMethod-->>participant_validateManualRestDataSource: return
+  participant_validateManualRestDataSource->>participant_extractRestPathParams: extractRestPathParams()
+  participant_extractRestPathParams-->>participant_validateManualRestDataSource: return
+  participant_validateManualRestDataSource->>participant_isManualRestMethod: isManualRestMethod()
+  participant_isManualRestMethod-->>participant_validateManualRestDataSource: return
+  participant_validateManualRestDataSource-->>participant_createManualRestDataSource: return
+  participant_createManualRestDataSource->>participant_normalizeManualRestDataSource: normalizeManualRestDataSource()
+  participant_normalizeManualRestDataSource->>participant_normalizeManualRestMethod: normalizeManualRestMethod()
+  participant_normalizeManualRestMethod-->>participant_normalizeManualRestDataSource: return
+  participant_normalizeManualRestDataSource-->>participant_createManualRestDataSource: return
