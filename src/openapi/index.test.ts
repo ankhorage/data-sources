@@ -184,9 +184,9 @@ describe('OpenAPI import normalization', () => {
       expect(result.data.schemas?.Pet?.properties?.name?.type).toBe('string');
       expect(result.data.endpoints.pets?.operations.listpets?.intent).toBe('read');
       expect(result.data.endpoints.pets?.operations.createpet?.intent).toBe('create');
-      expect(result.data.endpoints['pets-petid']?.operations.getpet?.request?.parameters?.[0]?.name).toBe(
-        'petId',
-      );
+      expect(
+        result.data.endpoints['pets-petid']?.operations.getpet?.request?.parameters?.[0]?.name,
+      ).toBe('petId');
       expect(result.data.endpoints['pets-petid']?.operations.updatepet?.intent).toBe('update');
       expect(result.data.endpoints['pets-petid']?.operations.deletepet?.intent).toBe('delete');
     }
@@ -220,7 +220,9 @@ describe('OpenAPI import normalization', () => {
     expect(result.ok).toBe(true);
     if (result.ok) {
       expect(result.data.baseUrl).toBe('https://first.example.com');
-      expect(result.diagnostics?.map((diagnostic) => diagnostic.code)).toContain('ambiguous-server');
+      expect(result.diagnostics?.map((diagnostic) => diagnostic.code)).toContain(
+        'ambiguous-server',
+      );
     }
   });
 
@@ -236,13 +238,19 @@ describe('OpenAPI import normalization', () => {
         },
       },
     };
-    const result = importOpenApiDocument({ id: 'duplicates', document, baseUrl: 'https://api.example.com' });
+    const result = importOpenApiDocument({
+      id: 'duplicates',
+      document,
+      baseUrl: 'https://api.example.com',
+    });
 
     expect(result.ok).toBe(true);
     if (result.ok) {
       expect(result.data.endpoints.one?.operations.duplicate?.id).toBe('duplicate');
       expect(result.data.endpoints.two?.operations['duplicate-2']?.id).toBe('duplicate-2');
-      expect(result.diagnostics?.map((diagnostic) => diagnostic.code)).toContain('duplicate-operation-id');
+      expect(result.diagnostics?.map((diagnostic) => diagnostic.code)).toContain(
+        'duplicate-operation-id',
+      );
     }
   });
 
@@ -280,7 +288,9 @@ describe('OpenAPI import normalization', () => {
 
     expect(result.ok).toBe(true);
     if (result.ok) {
-      expect(result.diagnostics?.map((diagnostic) => diagnostic.code)).toContain('unsupported-schema');
+      expect(result.diagnostics?.map((diagnostic) => diagnostic.code)).toContain(
+        'unsupported-schema',
+      );
     }
   });
 });

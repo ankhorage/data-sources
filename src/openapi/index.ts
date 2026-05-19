@@ -4,7 +4,6 @@ import type {
   DataEndpointConfig,
   DataOperationConfig,
   DataOperationIntent,
-  DataOperationMethod,
   DataOperationParameter,
   DataOperationParameterLocation,
   DataOperationRequest,
@@ -127,7 +126,11 @@ export type OpenApiImportResult = DataSourceDiagnosticResult<OpenApiDataSourceCo
 export function importOpenApiDocument(input: OpenApiImportInput): OpenApiImportResult {
   const diagnostics: DataSourceDiagnostic[] = [];
   const baseUrl = resolveOpenApiBaseUrl(input, diagnostics);
-  const schemas = normalizeOpenApiSchemas(input.document.components?.schemas, input.id, diagnostics);
+  const schemas = normalizeOpenApiSchemas(
+    input.document.components?.schemas,
+    input.id,
+    diagnostics,
+  );
   const endpoints = normalizeOpenApiEndpoints(input, baseUrl, diagnostics);
   const hasErrors = diagnostics.some((diagnostic) => diagnostic.severity === 'error');
 
@@ -217,7 +220,8 @@ function resolveOpenApiBaseUrl(
     diagnostics.push({
       code: 'ambiguous-server',
       dataSourceId: input.id,
-      message: 'OpenAPI document does not define a server URL and no baseUrl override was provided.',
+      message:
+        'OpenAPI document does not define a server URL and no baseUrl override was provided.',
       path: 'servers',
       severity: 'warning',
     });
@@ -248,7 +252,12 @@ function normalizeOpenApiSchemas(
 
   for (const [schemaId, schema] of Object.entries(schemas)) {
     registry[schemaId] = normalizeOpenApiSchema(schema);
-    collectUnsupportedSchemaDiagnostics(schema, dataSourceId, `components.schemas.${schemaId}`, diagnostics);
+    collectUnsupportedSchemaDiagnostics(
+      schema,
+      dataSourceId,
+      `components.schemas.${schemaId}`,
+      diagnostics,
+    );
   }
 
   return registry;
@@ -259,7 +268,7 @@ function normalizeOpenApiEndpoints(
   baseUrl: string | undefined,
   diagnostics: DataSourceDiagnostic[],
 ): Record<EndpointId, DataEndpointConfig> {
-  const paths = input.document.paths;
+  const { paths } = input.document;
 
   if (paths === undefined || Object.keys(paths).length === 0) {
     diagnostics.push({
@@ -309,7 +318,7 @@ function normalizeOpenApiEndpoints(
         description: operation.description,
         protocol: 'http',
         intent: mapOpenApiMethodToIntent(method),
-        method: method.toUpperCase() as DataOperationMethod,
+        method: method.toUpperCase(),
         path,
         request,
         response,
@@ -411,7 +420,12 @@ function normalizeOpenApiParameters(
 }
 
 function normalizeParameterLocation(location: string): DataOperationParameterLocation | undefined {
-  if (location === 'cookie' || location === 'header' || location === 'path' || location === 'query') {
+  if (
+    location === 'cookie' ||
+    location === 'header' ||
+    location === 'path' ||
+    location === 'query'
+  ) {
     return location;
   }
 
@@ -434,7 +448,8 @@ function normalizeOpenApiRequest(
 }
 
 function normalizeOpenApiResponse(
-  responses: Readonly<Record<string, OpenApiResponseObject>> | undefined): DataOperationResponse | undefined {
+  responses: Readonly<Record<string, OpenApiResponseObject>> | undefined,
+): DataOperationResponse | undefined {
   if (responses === undefined) return undefined;
 
   const status = chooseResponseStatus(Object.keys(responses));
@@ -498,7 +513,9 @@ function normalizeSchemaRecord(
   return normalized;
 }
 
-function normalizeSchemaList(list: readonly OpenApiSchemaObject[] | undefined): readonly DataSchema[] | undefined {
+function normalizeSchemaList(
+  list: readonly OpenApiSchemaObject[] | undefined,
+): readonly DataSchema[] | undefined {
   return list?.map((schema) => normalizeOpenApiSchema(schema));
 }
 
