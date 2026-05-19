@@ -1,0 +1,26 @@
+sequenceDiagram
+  participant participant_isDataSchemaPrimitive as isDataSchemaPrimitive
+  participant participant_normalizeAdditionalProperties as normalizeAdditionalProperties
+  participant participant_normalizeOpenApiSchema as normalizeOpenApiSchema
+  participant participant_normalizeOpenApiSchemaRef as normalizeOpenApiSchemaRef
+  participant participant_normalizeSchemaList as normalizeSchemaList
+  participant participant_normalizeSchemaRecord as normalizeSchemaRecord
+  participant participant_normalizeSchemaType as normalizeSchemaType
+  participant_normalizeOpenApiSchema->>participant_normalizeAdditionalProperties: normalizeAdditionalProperties()
+  participant_normalizeAdditionalProperties->>participant_normalizeOpenApiSchema: normalizeOpenApiSchema()
+  participant_normalizeOpenApiSchema->>participant_normalizeOpenApiSchemaRef: normalizeOpenApiSchemaRef()
+  participant_normalizeOpenApiSchemaRef-->>participant_normalizeOpenApiSchema: return
+  participant_normalizeOpenApiSchema->>participant_normalizeSchemaType: normalizeSchemaType()
+  participant_normalizeSchemaType->>participant_isDataSchemaPrimitive: isDataSchemaPrimitive()
+  participant_isDataSchemaPrimitive-->>participant_normalizeSchemaType: return
+  participant_normalizeSchemaType-->>participant_normalizeOpenApiSchema: return
+  participant_normalizeOpenApiSchema->>participant_normalizeSchemaRecord: normalizeSchemaRecord()
+  participant_normalizeSchemaRecord->>participant_normalizeOpenApiSchema: normalizeOpenApiSchema()
+  participant_normalizeOpenApiSchema->>participant_normalizeOpenApiSchema: normalizeOpenApiSchema()
+  participant_normalizeOpenApiSchema->>participant_normalizeSchemaList: normalizeSchemaList()
+  participant_normalizeSchemaList-->>participant_normalizeOpenApiSchema: return
+  participant_normalizeOpenApiSchema-->>participant_normalizeOpenApiSchema: return
+  participant_normalizeOpenApiSchema-->>participant_normalizeSchemaRecord: return
+  participant_normalizeSchemaRecord-->>participant_normalizeOpenApiSchema: return
+  participant_normalizeOpenApiSchema-->>participant_normalizeAdditionalProperties: return
+  participant_normalizeAdditionalProperties-->>participant_normalizeOpenApiSchema: return

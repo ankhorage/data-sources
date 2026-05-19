@@ -40,7 +40,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 5,
+      "line": 6,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -58,7 +58,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 15,
+      "line": 16,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -123,7 +123,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 31,
+      "line": 32,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -155,7 +155,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 20,
+      "line": 21,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -165,6 +165,38 @@
         "label": "() => DataSourcesPackageInfo",
         "parameters": [],
         "returnType": "DataSourcesPackageInfo",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "importOpenApiDocument",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 126,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiImportInput", "OpenApiImportResult"],
+    "signatures": [
+      {
+        "label": "(input: OpenApiImportInput) => OpenApiImportResult",
+        "parameters": [
+          {
+            "name": "input",
+            "type": "OpenApiImportInput",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "OpenApiImportResult",
         "returnDescription": null
       }
     ],
@@ -212,7 +244,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 27,
+      "line": 28,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -564,6 +596,726 @@
     "structuredRows": []
   },
   {
+    "name": "normalizeOpenApiEndpointId",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 178,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(path: string) => string",
+        "parameters": [
+          {
+            "name": "path",
+            "type": "string",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "string",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "normalizeOpenApiOperationId",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 163,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(method: \"delete\" | \"get\" | \"head\" | \"options\" | \"patch\" | \"post\" | \"put\", path: string, operationId?: string | undefined) => string",
+        "parameters": [
+          {
+            "name": "method",
+            "type": "\"delete\" | \"get\" | \"head\" | \"options\" | \"patch\" | \"post\" | \"put\"",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "operationId",
+            "type": "string | undefined",
+            "required": false,
+            "description": null
+          },
+          {
+            "name": "path",
+            "type": "string",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "string",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "normalizeOpenApiSchema",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 188,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiSchemaObject"],
+    "signatures": [
+      {
+        "label": "(schema: OpenApiSchemaObject) => DataSchema",
+        "parameters": [
+          {
+            "name": "schema",
+            "type": "OpenApiSchemaObject",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "DataSchema",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiComponentsObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 95,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiSchemaObject"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "schemas",
+        "kind": "property",
+        "type": "Readonly<Record<string, OpenApiSchemaObject>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "securitySchemes",
+        "kind": "property",
+        "type": "Readonly<Record<string, DataContractValue>> | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiDocumentObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 100,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiComponentsObject", "OpenApiPathItemObject", "OpenApiServerObject"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "components",
+        "kind": "property",
+        "type": "OpenApiComponentsObject | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "info",
+        "kind": "property",
+        "type": "{ readonly title?: string; readonly version?: string; readonly description?: string; } | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "openapi",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "paths",
+        "kind": "property",
+        "type": "Readonly<Record<string, OpenApiPathItemObject>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "servers",
+        "kind": "property",
+        "type": "readonly OpenApiServerObject[] | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiHttpMethod",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 32,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiImportInput",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 112,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiDocumentObject"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "baseUrl",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "credential",
+        "kind": "property",
+        "type": "CredentialRef | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "document",
+        "kind": "property",
+        "type": "OpenApiDocumentObject",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "documentId",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "documentUrl",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "metadata",
+        "kind": "property",
+        "type": "DataContractValue | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiImportResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 124,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiMediaTypeObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 58,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiSchemaObject"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "schema",
+        "kind": "property",
+        "type": "OpenApiSchemaObject | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiOperationObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 81,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "OpenApiParameterObject",
+      "OpenApiRequestBodyObject",
+      "OpenApiResponseObject"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "deprecated",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "operationId",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "parameters",
+        "kind": "property",
+        "type": "readonly OpenApiParameterObject[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "requestBody",
+        "kind": "property",
+        "type": "OpenApiRequestBodyObject | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "responses",
+        "kind": "property",
+        "type": "Readonly<Record<string, OpenApiResponseObject>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "summary",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiParameterObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 73,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiSchemaObject"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "in",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "required",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "schema",
+        "kind": "property",
+        "type": "OpenApiSchemaObject | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiPathItemObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 91,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiRequestBodyObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 62,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiMediaTypeObject"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "content",
+        "kind": "property",
+        "type": "Readonly<Record<string, OpenApiMediaTypeObject>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "required",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiResponseObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 68,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiMediaTypeObject"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "content",
+        "kind": "property",
+        "type": "Readonly<Record<string, OpenApiMediaTypeObject>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiSchemaObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 39,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "$ref",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "additionalProperties",
+        "kind": "property",
+        "type": "boolean | OpenApiSchemaObject | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "allOf",
+        "kind": "property",
+        "type": "readonly OpenApiSchemaObject[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "anyOf",
+        "kind": "property",
+        "type": "readonly OpenApiSchemaObject[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "const",
+        "kind": "property",
+        "type": "DataContractValue | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "default",
+        "kind": "property",
+        "type": "DataContractValue | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "enum",
+        "kind": "property",
+        "type": "readonly DataContractValue[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "format",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "items",
+        "kind": "property",
+        "type": "OpenApiSchemaObject | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "nullable",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "oneOf",
+        "kind": "property",
+        "type": "readonly OpenApiSchemaObject[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "properties",
+        "kind": "property",
+        "type": "Readonly<Record<string, OpenApiSchemaObject>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "required",
+        "kind": "property",
+        "type": "readonly string[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "title",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "type",
+        "kind": "property",
+        "type": "string | readonly string[] | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiServerObject",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/openapi/index.ts",
+    "sourceLocation": {
+      "filePath": "src/openapi/index.ts",
+      "line": 34,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "SUPPORTED_DATA_SOURCE_KINDS",
     "description": null,
     "isReadme": false,
@@ -572,7 +1324,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 7,
+      "line": 8,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],

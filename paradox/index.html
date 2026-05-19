@@ -205,6 +205,12 @@
               </button>
             </li>
             <li>
+              <button class="nav-button" type="button" data-target="src/openapi/index.ts">
+                src/openapi/index.ts
+                <small>22 functions</small>
+              </button>
+            </li>
+            <li>
               <button class="nav-button" type="button" data-target="src/rest/index.ts">
                 src/rest/index.ts
                 <small>6 functions</small>
@@ -218,9 +224,9 @@
           <section class="panel">
             <h2>Package overview</h2>
             <div class="summary">
-              <div><strong>16</strong><span class="muted">public exports</span></div>
+              <div><strong>33</strong><span class="muted">public exports</span></div>
               <div><strong>0</strong><span class="muted">components</span></div>
-              <div><strong>2</strong><span class="muted">modules</span></div>
+              <div><strong>3</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -233,7 +239,7 @@
             <h2>Modules</h2>
             <article
               class="item"
-              data-search="src/index.ts createManualRestDataSource DATA_SOURCES_PACKAGE_NAME DataSourcesPackageInfo extractRestPathParams getDataSourceKind getDataSourcesPackageInfo isManualRestMethod isSupportedDataSourceKind ManualRestDataSourceDefinition ManualRestEndpointDefinition ManualRestMethod ManualRestOperationDefinition normalizeManualRestDataSource normalizeManualRestMethod SUPPORTED_DATA_SOURCE_KINDS validateManualRestDataSource"
+              data-search="src/index.ts createManualRestDataSource DATA_SOURCES_PACKAGE_NAME DataSourcesPackageInfo extractRestPathParams getDataSourceKind getDataSourcesPackageInfo importOpenApiDocument isManualRestMethod isSupportedDataSourceKind ManualRestDataSourceDefinition ManualRestEndpointDefinition ManualRestMethod ManualRestOperationDefinition normalizeManualRestDataSource normalizeManualRestMethod normalizeOpenApiEndpointId normalizeOpenApiOperationId normalizeOpenApiSchema OpenApiComponentsObject OpenApiDocumentObject OpenApiHttpMethod OpenApiImportInput OpenApiImportResult OpenApiMediaTypeObject OpenApiOperationObject OpenApiParameterObject OpenApiPathItemObject OpenApiRequestBodyObject OpenApiResponseObject OpenApiSchemaObject OpenApiServerObject SUPPORTED_DATA_SOURCE_KINDS validateManualRestDataSource"
             >
               <h3>src/index.ts</h3>
               <p class="muted">Configured entrypoint</p>
@@ -242,12 +248,40 @@
                 <strong>Exports:</strong> <code>createManualRestDataSource</code>,
                 <code>DATA_SOURCES_PACKAGE_NAME</code>, <code>DataSourcesPackageInfo</code>,
                 <code>extractRestPathParams</code>, <code>getDataSourceKind</code>,
-                <code>getDataSourcesPackageInfo</code>, <code>isManualRestMethod</code>,
-                <code>isSupportedDataSourceKind</code>, <code>ManualRestDataSourceDefinition</code>,
+                <code>getDataSourcesPackageInfo</code>, <code>importOpenApiDocument</code>,
+                <code>isManualRestMethod</code>, <code>isSupportedDataSourceKind</code>,
+                <code>ManualRestDataSourceDefinition</code>,
                 <code>ManualRestEndpointDefinition</code>, <code>ManualRestMethod</code>,
                 <code>ManualRestOperationDefinition</code>,
                 <code>normalizeManualRestDataSource</code>, <code>normalizeManualRestMethod</code>,
+                <code>normalizeOpenApiEndpointId</code>, <code>normalizeOpenApiOperationId</code>,
+                <code>normalizeOpenApiSchema</code>, <code>OpenApiComponentsObject</code>,
+                <code>OpenApiDocumentObject</code>, <code>OpenApiHttpMethod</code>,
+                <code>OpenApiImportInput</code>, <code>OpenApiImportResult</code>,
+                <code>OpenApiMediaTypeObject</code>, <code>OpenApiOperationObject</code>,
+                <code>OpenApiParameterObject</code>, <code>OpenApiPathItemObject</code>,
+                <code>OpenApiRequestBodyObject</code>, <code>OpenApiResponseObject</code>,
+                <code>OpenApiSchemaObject</code>, <code>OpenApiServerObject</code>,
                 <code>SUPPORTED_DATA_SOURCE_KINDS</code>, <code>validateManualRestDataSource</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/openapi/index.ts importOpenApiDocument normalizeOpenApiEndpointId normalizeOpenApiOperationId normalizeOpenApiSchema OpenApiComponentsObject OpenApiDocumentObject OpenApiHttpMethod OpenApiImportInput OpenApiImportResult OpenApiMediaTypeObject OpenApiOperationObject OpenApiParameterObject OpenApiPathItemObject OpenApiRequestBodyObject OpenApiResponseObject OpenApiSchemaObject OpenApiServerObject"
+            >
+              <h3>src/openapi/index.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>importOpenApiDocument</code>,
+                <code>normalizeOpenApiEndpointId</code>, <code>normalizeOpenApiOperationId</code>,
+                <code>normalizeOpenApiSchema</code>, <code>OpenApiComponentsObject</code>,
+                <code>OpenApiDocumentObject</code>, <code>OpenApiHttpMethod</code>,
+                <code>OpenApiImportInput</code>, <code>OpenApiImportResult</code>,
+                <code>OpenApiMediaTypeObject</code>, <code>OpenApiOperationObject</code>,
+                <code>OpenApiParameterObject</code>, <code>OpenApiPathItemObject</code>,
+                <code>OpenApiRequestBodyObject</code>, <code>OpenApiResponseObject</code>,
+                <code>OpenApiSchemaObject</code>, <code>OpenApiServerObject</code>
               </p>
             </article>
             <article
@@ -279,7 +313,7 @@
                 data-search="DATA_SOURCES_PACKAGE_NAME value src/index.ts "
               >
                 <h4>DATA_SOURCES_PACKAGE_NAME</h4>
-                <p class="muted">value • <code>src/index.ts:5:14</code></p>
+                <p class="muted">value • <code>src/index.ts:6:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -290,7 +324,7 @@
                 data-search="DataSourcesPackageInfo type src/index.ts "
               >
                 <h4>DataSourcesPackageInfo</h4>
-                <p class="muted">type • <code>src/index.ts:15:1</code></p>
+                <p class="muted">type • <code>src/index.ts:16:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -334,7 +368,7 @@
                 data-search="getDataSourceKind function src/index.ts  (source: DataSourceConfig) =&gt; DataSourceKind"
               >
                 <h4>getDataSourceKind</h4>
-                <p class="muted">function • <code>src/index.ts:31:1</code></p>
+                <p class="muted">function • <code>src/index.ts:32:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -368,7 +402,7 @@
                 data-search="getDataSourcesPackageInfo function src/index.ts  DataSourcesPackageInfo () =&gt; DataSourcesPackageInfo"
               >
                 <h4>getDataSourcesPackageInfo</h4>
-                <p class="muted">function • <code>src/index.ts:20:1</code></p>
+                <p class="muted">function • <code>src/index.ts:21:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -390,7 +424,7 @@
                 data-search="isSupportedDataSourceKind function src/index.ts  (kind: string) =&gt; boolean"
               >
                 <h4>isSupportedDataSourceKind</h4>
-                <p class="muted">function • <code>src/index.ts:27:1</code></p>
+                <p class="muted">function • <code>src/index.ts:28:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -424,10 +458,910 @@
                 data-search="SUPPORTED_DATA_SOURCE_KINDS value src/index.ts "
               >
                 <h4>SUPPORTED_DATA_SOURCE_KINDS</h4>
-                <p class="muted">value • <code>src/index.ts:7:14</code></p>
+                <p class="muted">value • <code>src/index.ts:8:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+            </section>
+            <section>
+              <h3>src/openapi/index.ts</h3>
+              <article
+                class="item"
+                id="symbol-importopenapidocument"
+                data-search="importOpenApiDocument function src/openapi/index.ts  OpenApiImportInput OpenApiImportResult (input: OpenApiImportInput) =&gt; OpenApiImportResult"
+              >
+                <h4>importOpenApiDocument</h4>
+                <p class="muted">function • <code>src/openapi/index.ts:126:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">OpenApiImportInput</li>
+                    <li class="chip">OpenApiImportResult</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(input: OpenApiImportInput) =&gt; OpenApiImportResult</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>input</code></td>
+                        <td><code>OpenApiImportInput</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>OpenApiImportResult</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-normalizeopenapiendpointid"
+                data-search="normalizeOpenApiEndpointId function src/openapi/index.ts  (path: string) =&gt; string"
+              >
+                <h4>normalizeOpenApiEndpointId</h4>
+                <p class="muted">function • <code>src/openapi/index.ts:178:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(path: string) =&gt; string</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>path</code></td>
+                        <td><code>string</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>string</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-normalizeopenapioperationid"
+                data-search='normalizeOpenApiOperationId function src/openapi/index.ts  (method: "delete" | "get" | "head" | "options" | "patch" | "post" | "put", path: string, operationId?: string | undefined) =&gt; string'
+              >
+                <h4>normalizeOpenApiOperationId</h4>
+                <p class="muted">function • <code>src/openapi/index.ts:163:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(method: &quot;delete&quot; | &quot;get&quot; | &quot;head&quot; | &quot;options&quot; | &quot;patch&quot; | &quot;post&quot; | &quot;put&quot;, path: string, operationId?: string | undefined) =&gt; string</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>method</code></td>
+                        <td>
+                          <code
+                            >&quot;delete&quot; | &quot;get&quot; | &quot;head&quot; |
+                            &quot;options&quot; | &quot;patch&quot; | &quot;post&quot; |
+                            &quot;put&quot;</code
+                          >
+                        </td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><code>operationId</code></td>
+                        <td><code>string | undefined</code></td>
+                        <td>no</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><code>path</code></td>
+                        <td><code>string</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>string</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-normalizeopenapischema"
+                data-search="normalizeOpenApiSchema function src/openapi/index.ts  OpenApiSchemaObject (schema: OpenApiSchemaObject) =&gt; DataSchema"
+              >
+                <h4>normalizeOpenApiSchema</h4>
+                <p class="muted">function • <code>src/openapi/index.ts:188:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">OpenApiSchemaObject</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(schema: OpenApiSchemaObject) =&gt; DataSchema</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>schema</code></td>
+                        <td><code>OpenApiSchemaObject</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>DataSchema</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-openapicomponentsobject"
+                data-search="OpenApiComponentsObject type src/openapi/index.ts  OpenApiSchemaObject"
+              >
+                <h4>OpenApiComponentsObject</h4>
+                <p class="muted">type • <code>src/openapi/index.ts:95:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">OpenApiSchemaObject</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>schemas</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >Readonly&lt;Record&lt;string, OpenApiSchemaObject&gt;&gt; |
+                          undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>securitySchemes</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >Readonly&lt;Record&lt;string, DataContractValue&gt;&gt; | undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-openapidocumentobject"
+                data-search="OpenApiDocumentObject type src/openapi/index.ts  OpenApiComponentsObject OpenApiPathItemObject OpenApiServerObject"
+              >
+                <h4>OpenApiDocumentObject</h4>
+                <p class="muted">type • <code>src/openapi/index.ts:100:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">OpenApiComponentsObject</li>
+                    <li class="chip">OpenApiPathItemObject</li>
+                    <li class="chip">OpenApiServerObject</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>components</code></td>
+                      <td>property</td>
+                      <td><code>OpenApiComponentsObject | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>info</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >{ readonly title?: string; readonly version?: string; readonly
+                          description?: string; } | undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>openapi</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>paths</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >Readonly&lt;Record&lt;string, OpenApiPathItemObject&gt;&gt; |
+                          undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>servers</code></td>
+                      <td>property</td>
+                      <td><code>readonly OpenApiServerObject[] | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-openapihttpmethod"
+                data-search="OpenApiHttpMethod unknown src/openapi/index.ts "
+              >
+                <h4>OpenApiHttpMethod</h4>
+                <p class="muted">unknown • <code>src/openapi/index.ts:32:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-openapiimportinput"
+                data-search="OpenApiImportInput type src/openapi/index.ts  OpenApiDocumentObject"
+              >
+                <h4>OpenApiImportInput</h4>
+                <p class="muted">type • <code>src/openapi/index.ts:112:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">OpenApiDocumentObject</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>baseUrl</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>credential</code></td>
+                      <td>property</td>
+                      <td><code>CredentialRef | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>document</code></td>
+                      <td>property</td>
+                      <td><code>OpenApiDocumentObject</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>documentId</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>documentUrl</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>id</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>metadata</code></td>
+                      <td>property</td>
+                      <td><code>DataContractValue | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-openapiimportresult"
+                data-search="OpenApiImportResult unknown src/openapi/index.ts "
+              >
+                <h4>OpenApiImportResult</h4>
+                <p class="muted">unknown • <code>src/openapi/index.ts:124:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-openapimediatypeobject"
+                data-search="OpenApiMediaTypeObject type src/openapi/index.ts  OpenApiSchemaObject"
+              >
+                <h4>OpenApiMediaTypeObject</h4>
+                <p class="muted">type • <code>src/openapi/index.ts:58:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">OpenApiSchemaObject</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>schema</code></td>
+                      <td>property</td>
+                      <td><code>OpenApiSchemaObject | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-openapioperationobject"
+                data-search="OpenApiOperationObject type src/openapi/index.ts  OpenApiParameterObject OpenApiRequestBodyObject OpenApiResponseObject"
+              >
+                <h4>OpenApiOperationObject</h4>
+                <p class="muted">type • <code>src/openapi/index.ts:81:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">OpenApiParameterObject</li>
+                    <li class="chip">OpenApiRequestBodyObject</li>
+                    <li class="chip">OpenApiResponseObject</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>deprecated</code></td>
+                      <td>property</td>
+                      <td><code>boolean | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>operationId</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>parameters</code></td>
+                      <td>property</td>
+                      <td><code>readonly OpenApiParameterObject[] | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>requestBody</code></td>
+                      <td>property</td>
+                      <td><code>OpenApiRequestBodyObject | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>responses</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >Readonly&lt;Record&lt;string, OpenApiResponseObject&gt;&gt; |
+                          undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>summary</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-openapiparameterobject"
+                data-search="OpenApiParameterObject type src/openapi/index.ts  OpenApiSchemaObject"
+              >
+                <h4>OpenApiParameterObject</h4>
+                <p class="muted">type • <code>src/openapi/index.ts:73:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">OpenApiSchemaObject</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>in</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>required</code></td>
+                      <td>property</td>
+                      <td><code>boolean | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>schema</code></td>
+                      <td>property</td>
+                      <td><code>OpenApiSchemaObject | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-openapipathitemobject"
+                data-search="OpenApiPathItemObject unknown src/openapi/index.ts "
+              >
+                <h4>OpenApiPathItemObject</h4>
+                <p class="muted">unknown • <code>src/openapi/index.ts:91:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-openapirequestbodyobject"
+                data-search="OpenApiRequestBodyObject type src/openapi/index.ts  OpenApiMediaTypeObject"
+              >
+                <h4>OpenApiRequestBodyObject</h4>
+                <p class="muted">type • <code>src/openapi/index.ts:62:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">OpenApiMediaTypeObject</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>content</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >Readonly&lt;Record&lt;string, OpenApiMediaTypeObject&gt;&gt; |
+                          undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>required</code></td>
+                      <td>property</td>
+                      <td><code>boolean | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-openapiresponseobject"
+                data-search="OpenApiResponseObject type src/openapi/index.ts  OpenApiMediaTypeObject"
+              >
+                <h4>OpenApiResponseObject</h4>
+                <p class="muted">type • <code>src/openapi/index.ts:68:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">OpenApiMediaTypeObject</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>content</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >Readonly&lt;Record&lt;string, OpenApiMediaTypeObject&gt;&gt; |
+                          undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-openapischemaobject"
+                data-search="OpenApiSchemaObject type src/openapi/index.ts "
+              >
+                <h4>OpenApiSchemaObject</h4>
+                <p class="muted">type • <code>src/openapi/index.ts:39:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>$ref</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>additionalProperties</code></td>
+                      <td>property</td>
+                      <td><code>boolean | OpenApiSchemaObject | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>allOf</code></td>
+                      <td>property</td>
+                      <td><code>readonly OpenApiSchemaObject[] | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>anyOf</code></td>
+                      <td>property</td>
+                      <td><code>readonly OpenApiSchemaObject[] | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>const</code></td>
+                      <td>property</td>
+                      <td><code>DataContractValue | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>default</code></td>
+                      <td>property</td>
+                      <td><code>DataContractValue | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>enum</code></td>
+                      <td>property</td>
+                      <td><code>readonly DataContractValue[] | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>format</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>items</code></td>
+                      <td>property</td>
+                      <td><code>OpenApiSchemaObject | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>nullable</code></td>
+                      <td>property</td>
+                      <td><code>boolean | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>oneOf</code></td>
+                      <td>property</td>
+                      <td><code>readonly OpenApiSchemaObject[] | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>properties</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >Readonly&lt;Record&lt;string, OpenApiSchemaObject&gt;&gt; |
+                          undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>required</code></td>
+                      <td>property</td>
+                      <td><code>readonly string[] | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>title</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>type</code></td>
+                      <td>property</td>
+                      <td><code>string | readonly string[] | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-openapiserverobject"
+                data-search="OpenApiServerObject type src/openapi/index.ts "
+              >
+                <h4>OpenApiServerObject</h4>
+                <p class="muted">type • <code>src/openapi/index.ts:34:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>url</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
               </article>
             </section>
             <section>
@@ -967,6 +1901,8 @@
                 graph TD package__ankhorage_data_sources[&quot;@ankhorage/data-sources&quot;]
                 entrypoint_src_index_ts[&quot;src/index.ts&quot;] package__ankhorage_data_sources
                 --&gt; entrypoint_src_index_ts module_src_index_ts[&quot;src/index.ts&quot;]
+                module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
+                package__ankhorage_data_sources -.-&gt; module_src_openapi_index_ts
                 module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
                 package__ankhorage_data_sources -.-&gt; module_src_rest_index_ts
               </div>
@@ -978,6 +1914,8 @@ graph TD
   entrypoint_src_index_ts[&quot;src/index.ts&quot;]
   package__ankhorage_data_sources --&gt; entrypoint_src_index_ts
   module_src_index_ts[&quot;src/index.ts&quot;]
+  module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_openapi_index_ts
   module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_rest_index_ts
 </pre
@@ -992,7 +1930,9 @@ graph TD
               <p class="muted"><code>diagrams/module-relationships.mmd</code></p>
               <div class="mermaid">
                 graph LR module_src_index_ts[&quot;src/index.ts&quot;]
+                module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
                 module_src_rest_index_ts[&quot;src/rest/index.ts&quot;] module_src_index_ts -.-&gt;
+                module_src_openapi_index_ts module_src_openapi_index_ts -.-&gt;
                 module_src_rest_index_ts
               </div>
               <details>
@@ -1000,8 +1940,10 @@ graph TD
                 <pre>
 graph LR
   module_src_index_ts[&quot;src/index.ts&quot;]
+  module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
   module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
-  module_src_index_ts -.-&gt; module_src_rest_index_ts
+  module_src_index_ts -.-&gt; module_src_openapi_index_ts
+  module_src_openapi_index_ts -.-&gt; module_src_rest_index_ts
 </pre
                 >
               </details>
@@ -1011,6 +1953,7 @@ graph LR
               <p class="muted"><code>diagrams/export-graph.mmd</code></p>
               <div class="mermaid">
                 graph LR module_src_index_ts[&quot;src/index.ts&quot;]
+                module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
                 module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
                 export_createManualRestDataSource[&quot;createManualRestDataSource&quot;]
                 module_src_rest_index_ts --&gt; export_createManualRestDataSource
@@ -1026,6 +1969,10 @@ graph LR
                 export_getDataSourcesPackageInfo[&quot;getDataSourcesPackageInfo&quot;]
                 module_src_index_ts --&gt; export_getDataSourcesPackageInfo
                 export_getDataSourcesPackageInfo -.-&gt; export_DataSourcesPackageInfo
+                export_importOpenApiDocument[&quot;importOpenApiDocument&quot;]
+                module_src_openapi_index_ts --&gt; export_importOpenApiDocument
+                export_importOpenApiDocument -.-&gt; export_OpenApiImportInput
+                export_importOpenApiDocument -.-&gt; export_OpenApiImportResult
                 export_isManualRestMethod[&quot;isManualRestMethod&quot;] module_src_rest_index_ts
                 --&gt; export_isManualRestMethod
                 export_isSupportedDataSourceKind[&quot;isSupportedDataSourceKind&quot;]
@@ -1045,6 +1992,51 @@ graph LR
                 export_normalizeManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
                 export_normalizeManualRestMethod[&quot;normalizeManualRestMethod&quot;]
                 module_src_rest_index_ts --&gt; export_normalizeManualRestMethod
+                export_normalizeOpenApiEndpointId[&quot;normalizeOpenApiEndpointId&quot;]
+                module_src_openapi_index_ts --&gt; export_normalizeOpenApiEndpointId
+                export_normalizeOpenApiOperationId[&quot;normalizeOpenApiOperationId&quot;]
+                module_src_openapi_index_ts --&gt; export_normalizeOpenApiOperationId
+                export_normalizeOpenApiSchema[&quot;normalizeOpenApiSchema&quot;]
+                module_src_openapi_index_ts --&gt; export_normalizeOpenApiSchema
+                export_normalizeOpenApiSchema -.-&gt; export_OpenApiSchemaObject
+                export_OpenApiComponentsObject[&quot;OpenApiComponentsObject&quot;]
+                module_src_openapi_index_ts --&gt; export_OpenApiComponentsObject
+                export_OpenApiComponentsObject -.-&gt; export_OpenApiSchemaObject
+                export_OpenApiDocumentObject[&quot;OpenApiDocumentObject&quot;]
+                module_src_openapi_index_ts --&gt; export_OpenApiDocumentObject
+                export_OpenApiDocumentObject -.-&gt; export_OpenApiComponentsObject
+                export_OpenApiDocumentObject -.-&gt; export_OpenApiPathItemObject
+                export_OpenApiDocumentObject -.-&gt; export_OpenApiServerObject
+                export_OpenApiHttpMethod[&quot;OpenApiHttpMethod&quot;] module_src_openapi_index_ts
+                --&gt; export_OpenApiHttpMethod
+                export_OpenApiImportInput[&quot;OpenApiImportInput&quot;]
+                module_src_openapi_index_ts --&gt; export_OpenApiImportInput
+                export_OpenApiImportInput -.-&gt; export_OpenApiDocumentObject
+                export_OpenApiImportResult[&quot;OpenApiImportResult&quot;]
+                module_src_openapi_index_ts --&gt; export_OpenApiImportResult
+                export_OpenApiMediaTypeObject[&quot;OpenApiMediaTypeObject&quot;]
+                module_src_openapi_index_ts --&gt; export_OpenApiMediaTypeObject
+                export_OpenApiMediaTypeObject -.-&gt; export_OpenApiSchemaObject
+                export_OpenApiOperationObject[&quot;OpenApiOperationObject&quot;]
+                module_src_openapi_index_ts --&gt; export_OpenApiOperationObject
+                export_OpenApiOperationObject -.-&gt; export_OpenApiParameterObject
+                export_OpenApiOperationObject -.-&gt; export_OpenApiRequestBodyObject
+                export_OpenApiOperationObject -.-&gt; export_OpenApiResponseObject
+                export_OpenApiParameterObject[&quot;OpenApiParameterObject&quot;]
+                module_src_openapi_index_ts --&gt; export_OpenApiParameterObject
+                export_OpenApiParameterObject -.-&gt; export_OpenApiSchemaObject
+                export_OpenApiPathItemObject[&quot;OpenApiPathItemObject&quot;]
+                module_src_openapi_index_ts --&gt; export_OpenApiPathItemObject
+                export_OpenApiRequestBodyObject[&quot;OpenApiRequestBodyObject&quot;]
+                module_src_openapi_index_ts --&gt; export_OpenApiRequestBodyObject
+                export_OpenApiRequestBodyObject -.-&gt; export_OpenApiMediaTypeObject
+                export_OpenApiResponseObject[&quot;OpenApiResponseObject&quot;]
+                module_src_openapi_index_ts --&gt; export_OpenApiResponseObject
+                export_OpenApiResponseObject -.-&gt; export_OpenApiMediaTypeObject
+                export_OpenApiSchemaObject[&quot;OpenApiSchemaObject&quot;]
+                module_src_openapi_index_ts --&gt; export_OpenApiSchemaObject
+                export_OpenApiServerObject[&quot;OpenApiServerObject&quot;]
+                module_src_openapi_index_ts --&gt; export_OpenApiServerObject
                 export_SUPPORTED_DATA_SOURCE_KINDS[&quot;SUPPORTED_DATA_SOURCE_KINDS&quot;]
                 module_src_index_ts --&gt; export_SUPPORTED_DATA_SOURCE_KINDS
                 export_validateManualRestDataSource[&quot;validateManualRestDataSource&quot;]
@@ -1056,6 +2048,7 @@ graph LR
                 <pre>
 graph LR
   module_src_index_ts[&quot;src/index.ts&quot;]
+  module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
   module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
   export_createManualRestDataSource[&quot;createManualRestDataSource&quot;]
   module_src_rest_index_ts --&gt; export_createManualRestDataSource
@@ -1071,6 +2064,10 @@ graph LR
   export_getDataSourcesPackageInfo[&quot;getDataSourcesPackageInfo&quot;]
   module_src_index_ts --&gt; export_getDataSourcesPackageInfo
   export_getDataSourcesPackageInfo -.-&gt; export_DataSourcesPackageInfo
+  export_importOpenApiDocument[&quot;importOpenApiDocument&quot;]
+  module_src_openapi_index_ts --&gt; export_importOpenApiDocument
+  export_importOpenApiDocument -.-&gt; export_OpenApiImportInput
+  export_importOpenApiDocument -.-&gt; export_OpenApiImportResult
   export_isManualRestMethod[&quot;isManualRestMethod&quot;]
   module_src_rest_index_ts --&gt; export_isManualRestMethod
   export_isSupportedDataSourceKind[&quot;isSupportedDataSourceKind&quot;]
@@ -1090,6 +2087,51 @@ graph LR
   export_normalizeManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
   export_normalizeManualRestMethod[&quot;normalizeManualRestMethod&quot;]
   module_src_rest_index_ts --&gt; export_normalizeManualRestMethod
+  export_normalizeOpenApiEndpointId[&quot;normalizeOpenApiEndpointId&quot;]
+  module_src_openapi_index_ts --&gt; export_normalizeOpenApiEndpointId
+  export_normalizeOpenApiOperationId[&quot;normalizeOpenApiOperationId&quot;]
+  module_src_openapi_index_ts --&gt; export_normalizeOpenApiOperationId
+  export_normalizeOpenApiSchema[&quot;normalizeOpenApiSchema&quot;]
+  module_src_openapi_index_ts --&gt; export_normalizeOpenApiSchema
+  export_normalizeOpenApiSchema -.-&gt; export_OpenApiSchemaObject
+  export_OpenApiComponentsObject[&quot;OpenApiComponentsObject&quot;]
+  module_src_openapi_index_ts --&gt; export_OpenApiComponentsObject
+  export_OpenApiComponentsObject -.-&gt; export_OpenApiSchemaObject
+  export_OpenApiDocumentObject[&quot;OpenApiDocumentObject&quot;]
+  module_src_openapi_index_ts --&gt; export_OpenApiDocumentObject
+  export_OpenApiDocumentObject -.-&gt; export_OpenApiComponentsObject
+  export_OpenApiDocumentObject -.-&gt; export_OpenApiPathItemObject
+  export_OpenApiDocumentObject -.-&gt; export_OpenApiServerObject
+  export_OpenApiHttpMethod[&quot;OpenApiHttpMethod&quot;]
+  module_src_openapi_index_ts --&gt; export_OpenApiHttpMethod
+  export_OpenApiImportInput[&quot;OpenApiImportInput&quot;]
+  module_src_openapi_index_ts --&gt; export_OpenApiImportInput
+  export_OpenApiImportInput -.-&gt; export_OpenApiDocumentObject
+  export_OpenApiImportResult[&quot;OpenApiImportResult&quot;]
+  module_src_openapi_index_ts --&gt; export_OpenApiImportResult
+  export_OpenApiMediaTypeObject[&quot;OpenApiMediaTypeObject&quot;]
+  module_src_openapi_index_ts --&gt; export_OpenApiMediaTypeObject
+  export_OpenApiMediaTypeObject -.-&gt; export_OpenApiSchemaObject
+  export_OpenApiOperationObject[&quot;OpenApiOperationObject&quot;]
+  module_src_openapi_index_ts --&gt; export_OpenApiOperationObject
+  export_OpenApiOperationObject -.-&gt; export_OpenApiParameterObject
+  export_OpenApiOperationObject -.-&gt; export_OpenApiRequestBodyObject
+  export_OpenApiOperationObject -.-&gt; export_OpenApiResponseObject
+  export_OpenApiParameterObject[&quot;OpenApiParameterObject&quot;]
+  module_src_openapi_index_ts --&gt; export_OpenApiParameterObject
+  export_OpenApiParameterObject -.-&gt; export_OpenApiSchemaObject
+  export_OpenApiPathItemObject[&quot;OpenApiPathItemObject&quot;]
+  module_src_openapi_index_ts --&gt; export_OpenApiPathItemObject
+  export_OpenApiRequestBodyObject[&quot;OpenApiRequestBodyObject&quot;]
+  module_src_openapi_index_ts --&gt; export_OpenApiRequestBodyObject
+  export_OpenApiRequestBodyObject -.-&gt; export_OpenApiMediaTypeObject
+  export_OpenApiResponseObject[&quot;OpenApiResponseObject&quot;]
+  module_src_openapi_index_ts --&gt; export_OpenApiResponseObject
+  export_OpenApiResponseObject -.-&gt; export_OpenApiMediaTypeObject
+  export_OpenApiSchemaObject[&quot;OpenApiSchemaObject&quot;]
+  module_src_openapi_index_ts --&gt; export_OpenApiSchemaObject
+  export_OpenApiServerObject[&quot;OpenApiServerObject&quot;]
+  module_src_openapi_index_ts --&gt; export_OpenApiServerObject
   export_SUPPORTED_DATA_SOURCE_KINDS[&quot;SUPPORTED_DATA_SOURCE_KINDS&quot;]
   module_src_index_ts --&gt; export_SUPPORTED_DATA_SOURCE_KINDS
   export_validateManualRestDataSource[&quot;validateManualRestDataSource&quot;]
@@ -1197,6 +2239,87 @@ sequenceDiagram
             </article>
             <article
               class="item"
+              data-search="normalizeOpenApiSchema sequence diagrams/sequences/normalize-open-api-schema.mmd"
+            >
+              <h3>normalizeOpenApiSchema sequence</h3>
+              <p class="muted"><code>diagrams/sequences/normalize-open-api-schema.mmd</code></p>
+              <div class="mermaid">
+                sequenceDiagram participant participant_isDataSchemaPrimitive as
+                isDataSchemaPrimitive participant participant_normalizeAdditionalProperties as
+                normalizeAdditionalProperties participant participant_normalizeOpenApiSchema as
+                normalizeOpenApiSchema participant participant_normalizeOpenApiSchemaRef as
+                normalizeOpenApiSchemaRef participant participant_normalizeSchemaList as
+                normalizeSchemaList participant participant_normalizeSchemaRecord as
+                normalizeSchemaRecord participant participant_normalizeSchemaType as
+                normalizeSchemaType
+                participant_normalizeOpenApiSchema-&gt;&gt;participant_normalizeAdditionalProperties:
+                normalizeAdditionalProperties()
+                participant_normalizeAdditionalProperties-&gt;&gt;participant_normalizeOpenApiSchema:
+                normalizeOpenApiSchema()
+                participant_normalizeOpenApiSchema-&gt;&gt;participant_normalizeOpenApiSchemaRef:
+                normalizeOpenApiSchemaRef()
+                participant_normalizeOpenApiSchemaRef--&gt;&gt;participant_normalizeOpenApiSchema:
+                return participant_normalizeOpenApiSchema-&gt;&gt;participant_normalizeSchemaType:
+                normalizeSchemaType()
+                participant_normalizeSchemaType-&gt;&gt;participant_isDataSchemaPrimitive:
+                isDataSchemaPrimitive()
+                participant_isDataSchemaPrimitive--&gt;&gt;participant_normalizeSchemaType: return
+                participant_normalizeSchemaType--&gt;&gt;participant_normalizeOpenApiSchema: return
+                participant_normalizeOpenApiSchema-&gt;&gt;participant_normalizeSchemaRecord:
+                normalizeSchemaRecord()
+                participant_normalizeSchemaRecord-&gt;&gt;participant_normalizeOpenApiSchema:
+                normalizeOpenApiSchema()
+                participant_normalizeOpenApiSchema-&gt;&gt;participant_normalizeOpenApiSchema:
+                normalizeOpenApiSchema()
+                participant_normalizeOpenApiSchema-&gt;&gt;participant_normalizeSchemaList:
+                normalizeSchemaList()
+                participant_normalizeSchemaList--&gt;&gt;participant_normalizeOpenApiSchema: return
+                participant_normalizeOpenApiSchema--&gt;&gt;participant_normalizeOpenApiSchema:
+                return
+                participant_normalizeOpenApiSchema--&gt;&gt;participant_normalizeSchemaRecord:
+                return
+                participant_normalizeSchemaRecord--&gt;&gt;participant_normalizeOpenApiSchema:
+                return
+                participant_normalizeOpenApiSchema--&gt;&gt;participant_normalizeAdditionalProperties:
+                return
+                participant_normalizeAdditionalProperties--&gt;&gt;participant_normalizeOpenApiSchema:
+                return
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+sequenceDiagram
+  participant participant_isDataSchemaPrimitive as isDataSchemaPrimitive
+  participant participant_normalizeAdditionalProperties as normalizeAdditionalProperties
+  participant participant_normalizeOpenApiSchema as normalizeOpenApiSchema
+  participant participant_normalizeOpenApiSchemaRef as normalizeOpenApiSchemaRef
+  participant participant_normalizeSchemaList as normalizeSchemaList
+  participant participant_normalizeSchemaRecord as normalizeSchemaRecord
+  participant participant_normalizeSchemaType as normalizeSchemaType
+  participant_normalizeOpenApiSchema-&gt;&gt;participant_normalizeAdditionalProperties: normalizeAdditionalProperties()
+  participant_normalizeAdditionalProperties-&gt;&gt;participant_normalizeOpenApiSchema: normalizeOpenApiSchema()
+  participant_normalizeOpenApiSchema-&gt;&gt;participant_normalizeOpenApiSchemaRef: normalizeOpenApiSchemaRef()
+  participant_normalizeOpenApiSchemaRef--&gt;&gt;participant_normalizeOpenApiSchema: return
+  participant_normalizeOpenApiSchema-&gt;&gt;participant_normalizeSchemaType: normalizeSchemaType()
+  participant_normalizeSchemaType-&gt;&gt;participant_isDataSchemaPrimitive: isDataSchemaPrimitive()
+  participant_isDataSchemaPrimitive--&gt;&gt;participant_normalizeSchemaType: return
+  participant_normalizeSchemaType--&gt;&gt;participant_normalizeOpenApiSchema: return
+  participant_normalizeOpenApiSchema-&gt;&gt;participant_normalizeSchemaRecord: normalizeSchemaRecord()
+  participant_normalizeSchemaRecord-&gt;&gt;participant_normalizeOpenApiSchema: normalizeOpenApiSchema()
+  participant_normalizeOpenApiSchema-&gt;&gt;participant_normalizeOpenApiSchema: normalizeOpenApiSchema()
+  participant_normalizeOpenApiSchema-&gt;&gt;participant_normalizeSchemaList: normalizeSchemaList()
+  participant_normalizeSchemaList--&gt;&gt;participant_normalizeOpenApiSchema: return
+  participant_normalizeOpenApiSchema--&gt;&gt;participant_normalizeOpenApiSchema: return
+  participant_normalizeOpenApiSchema--&gt;&gt;participant_normalizeSchemaRecord: return
+  participant_normalizeSchemaRecord--&gt;&gt;participant_normalizeOpenApiSchema: return
+  participant_normalizeOpenApiSchema--&gt;&gt;participant_normalizeAdditionalProperties: return
+  participant_normalizeAdditionalProperties--&gt;&gt;participant_normalizeOpenApiSchema: return
+</pre
+                >
+              </details>
+            </article>
+            <article
+              class="item"
               data-search="validateManualRestDataSource sequence diagrams/sequences/validate-manual-rest-data-source.mmd"
             >
               <h3>validateManualRestDataSource sequence</h3>
@@ -1247,17 +2370,140 @@ sequenceDiagram
             <h2>src/index.ts</h2>
             <article class="item" data-search="getDataSourcesPackageInfo src/index.ts ">
               <h3>getDataSourcesPackageInfo</h3>
-              <p class="muted"><code>src/index.ts:20:1</code></p>
+              <p class="muted"><code>src/index.ts:21:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="isSupportedDataSourceKind src/index.ts ">
               <h3>isSupportedDataSourceKind</h3>
-              <p class="muted"><code>src/index.ts:27:1</code></p>
+              <p class="muted"><code>src/index.ts:28:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="getDataSourceKind src/index.ts ">
               <h3>getDataSourceKind</h3>
-              <p class="muted"><code>src/index.ts:31:1</code></p>
+              <p class="muted"><code>src/index.ts:32:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-openapi-index-ts"
+          class="view"
+          data-view="src/openapi/index.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/openapi/index.ts</h2>
+            <article class="item" data-search="importOpenApiDocument src/openapi/index.ts ">
+              <h3>importOpenApiDocument</h3>
+              <p class="muted"><code>src/openapi/index.ts:126:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeOpenApiOperationId src/openapi/index.ts ">
+              <h3>normalizeOpenApiOperationId</h3>
+              <p class="muted"><code>src/openapi/index.ts:163:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeOpenApiEndpointId src/openapi/index.ts ">
+              <h3>normalizeOpenApiEndpointId</h3>
+              <p class="muted"><code>src/openapi/index.ts:178:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeOpenApiSchema src/openapi/index.ts ">
+              <h3>normalizeOpenApiSchema</h3>
+              <p class="muted"><code>src/openapi/index.ts:188:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="resolveOpenApiBaseUrl src/openapi/index.ts ">
+              <h3>resolveOpenApiBaseUrl</h3>
+              <p class="muted"><code>src/openapi/index.ts:211:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeOpenApiSchemas src/openapi/index.ts ">
+              <h3>normalizeOpenApiSchemas</h3>
+              <p class="muted"><code>src/openapi/index.ts:244:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeOpenApiEndpoints src/openapi/index.ts ">
+              <h3>normalizeOpenApiEndpoints</h3>
+              <p class="muted"><code>src/openapi/index.ts:266:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="resolveUniqueOperationId src/openapi/index.ts ">
+              <h3>resolveUniqueOperationId</h3>
+              <p class="muted"><code>src/openapi/index.ts:345:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeOpenApiParameters src/openapi/index.ts ">
+              <h3>normalizeOpenApiParameters</h3>
+              <p class="muted"><code>src/openapi/index.ts:383:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeParameterLocation src/openapi/index.ts ">
+              <h3>normalizeParameterLocation</h3>
+              <p class="muted"><code>src/openapi/index.ts:422:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeOpenApiRequest src/openapi/index.ts ">
+              <h3>normalizeOpenApiRequest</h3>
+              <p class="muted"><code>src/openapi/index.ts:435:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeOpenApiResponse src/openapi/index.ts ">
+              <h3>normalizeOpenApiResponse</h3>
+              <p class="muted"><code>src/openapi/index.ts:450:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="firstContentEntry src/openapi/index.ts ">
+              <h3>firstContentEntry</h3>
+              <p class="muted"><code>src/openapi/index.ts:469:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="chooseResponseStatus src/openapi/index.ts ">
+              <h3>chooseResponseStatus</h3>
+              <p class="muted"><code>src/openapi/index.ts:481:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="mapOpenApiMethodToIntent src/openapi/index.ts ">
+              <h3>mapOpenApiMethodToIntent</h3>
+              <p class="muted"><code>src/openapi/index.ts:485:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeOpenApiSchemaRef src/openapi/index.ts ">
+              <h3>normalizeOpenApiSchemaRef</h3>
+              <p class="muted"><code>src/openapi/index.ts:493:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeSchemaRecord src/openapi/index.ts ">
+              <h3>normalizeSchemaRecord</h3>
+              <p class="muted"><code>src/openapi/index.ts:502:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeSchemaList src/openapi/index.ts ">
+              <h3>normalizeSchemaList</h3>
+              <p class="muted"><code>src/openapi/index.ts:516:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeAdditionalProperties src/openapi/index.ts ">
+              <h3>normalizeAdditionalProperties</h3>
+              <p class="muted"><code>src/openapi/index.ts:522:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeSchemaType src/openapi/index.ts ">
+              <h3>normalizeSchemaType</h3>
+              <p class="muted"><code>src/openapi/index.ts:532:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isDataSchemaPrimitive src/openapi/index.ts ">
+              <h3>isDataSchemaPrimitive</h3>
+              <p class="muted"><code>src/openapi/index.ts:544:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="collectUnsupportedSchemaDiagnostics src/openapi/index.ts "
+            >
+              <h3>collectUnsupportedSchemaDiagnostics</h3>
+              <p class="muted"><code>src/openapi/index.ts:548:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>
