@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 0.5.0
+
+### Minor Changes
+
+- 5a52064: Add a headless endpoint test runner with dry-run request building, injected fetch execution, credential resolution, response parsing, and structured diagnostics.
+
 ## 0.4.0
 
 ### Minor Changes
