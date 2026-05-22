@@ -1,7 +1,7 @@
 {
   "name": "@ankhorage/data-sources",
   "type": "module",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Headless toolkit for importing, generating, normalizing, and testing Ankhorage data-source configs.",
   "homepage": "https://github.com/ankhorage/data-sources#readme",
   "bugs": {
