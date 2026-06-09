@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 0.5.1
+
+### Patch Changes
+
+- 84abe70: Update CONTRACTS & update docs
+
 ## 0.5.0
 
 ### Minor Changes
