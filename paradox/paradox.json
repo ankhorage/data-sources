@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.3.0",
+      "value": "v0.5.0",
       "color": "cb3837"
     },
     {
@@ -4070,7 +4070,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 447,
+        "line": 450,
         "column": 1
       }
     },
@@ -4079,7 +4079,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 455,
+        "line": 458,
         "column": 1
       }
     },
@@ -4088,7 +4088,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 462,
+        "line": 465,
         "column": 1
       }
     },
@@ -4097,7 +4097,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 470,
+        "line": 473,
         "column": 1
       }
     },
@@ -4106,7 +4106,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 478,
+        "line": 481,
         "column": 1
       }
     },
@@ -4115,7 +4115,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 488,
+        "line": 491,
         "column": 1
       }
     },
@@ -4124,7 +4124,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 503,
+        "line": 506,
         "column": 1
       }
     },
@@ -4133,7 +4133,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 508,
+        "line": 511,
         "column": 1
       }
     },
@@ -4142,7 +4142,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 524,
+        "line": 527,
         "column": 1
       }
     }
