@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 0.5.2
+
+### Patch Changes
+
+- 6436cf9: Expose data-source inspection, validation, test, and normalization commands through an Ankh provider manifest.
+
 ## 0.5.1
 
 ### Patch Changes
