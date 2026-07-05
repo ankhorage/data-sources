@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.5.0",
+      "value": "v0.5.1",
       "color": "cb3837"
     },
     {
@@ -62,6 +62,12 @@
   "config": null,
   "entrypoints": ["src/index.ts"],
   "modules": [
+    {
+      "path": "src/ankh.provider.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/index.ts"],
+      "exports": ["default"]
+    },
     {
       "path": "src/graphql/index.ts",
       "isEntrypoint": false,
@@ -4392,6 +4398,11 @@
   "graphs": {
     "imports": [
       {
+        "fromPath": "src/ankh.provider.ts",
+        "toPath": "src/index.ts",
+        "sourcePath": "src/ankh.provider.ts"
+      },
+      {
         "fromPath": "src/index.ts",
         "toPath": "src/graphql/index.ts",
         "sourcePath": "src/index.ts"
@@ -4418,6 +4429,12 @@
       }
     ],
     "calls": [
+      {
+        "fromSymbol": "handler",
+        "toSymbol": "writeStdout",
+        "callExpression": "request.context.writeStdout",
+        "sourcePath": "src/ankh.provider.ts"
+      },
       {
         "fromSymbol": "createGraphQlDataSource",
         "toSymbol": "validateGraphQlDataSource",

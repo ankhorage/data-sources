@@ -244,7 +244,7 @@
             <div class="summary">
               <div><strong>78</strong><span class="muted">public exports</span></div>
               <div><strong>0</strong><span class="muted">components</span></div>
-              <div><strong>6</strong><span class="muted">modules</span></div>
+              <div><strong>7</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -255,6 +255,12 @@
 
           <section class="panel">
             <h2>Modules</h2>
+            <article class="item" data-search="src/ankh.provider.ts src/index.ts default">
+              <h3>src/ankh.provider.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <code>src/index.ts</code></p>
+              <p><strong>Exports:</strong> <code>default</code></p>
+            </article>
             <article
               class="item"
               data-search="src/graphql/index.ts createGraphQlDataSource createGraphQlIntrospectionRequest GRAPHQL_INTROSPECTION_QUERY GraphQlDataSourceDefinition GraphQlIntrospectionEnumValue GraphQlIntrospectionField GraphQlIntrospectionInputValue GraphQlIntrospectionRequest GraphQlIntrospectionResult GraphQlIntrospectionSchema GraphQlIntrospectionType GraphQlIntrospectionTypeRef GraphQlOperationDefinition GraphQlOperationKind normalizeGraphQlDataSource normalizeGraphQlIntrospectionOperations normalizeGraphQlIntrospectionSchemas normalizeGraphQlOperationId validateGraphQlDataSource"
@@ -4006,6 +4012,9 @@
                 graph TD package__ankhorage_data_sources[&quot;@ankhorage/data-sources&quot;]
                 entrypoint_src_index_ts[&quot;src/index.ts&quot;] package__ankhorage_data_sources
                 --&gt; entrypoint_src_index_ts
+                module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
+                package__ankhorage_data_sources -.-&gt; module_src_ankh_provider_ts
+                module_src_ankh_provider_ts --&gt; module_src_index_ts
                 module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
                 package__ankhorage_data_sources -.-&gt; module_src_graphql_index_ts
                 module_src_index_ts[&quot;src/index.ts&quot;]
@@ -4025,6 +4034,9 @@ graph TD
   package__ankhorage_data_sources[&quot;@ankhorage/data-sources&quot;]
   entrypoint_src_index_ts[&quot;src/index.ts&quot;]
   package__ankhorage_data_sources --&gt; entrypoint_src_index_ts
+  module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_ankh_provider_ts
+  module_src_ankh_provider_ts --&gt; module_src_index_ts
   module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_graphql_index_ts
   module_src_index_ts[&quot;src/index.ts&quot;]
@@ -4047,33 +4059,27 @@ graph TD
               <h3>Module relationships</h3>
               <p class="muted"><code>diagrams/module-relationships.mmd</code></p>
               <div class="mermaid">
-                graph LR module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
+                graph LR module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
+                module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
                 module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
                 module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
                 module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
                 module_src_test_runner_index_ts[&quot;src/test-runner/index.ts&quot;]
-                module_src_graphql_index_ts -.-&gt; module_src_index_ts module_src_index_ts -.-&gt;
-                module_src_managed_api_index_ts module_src_managed_api_index_ts -.-&gt;
-                module_src_openapi_index_ts module_src_openapi_index_ts -.-&gt;
-                module_src_rest_index_ts module_src_rest_index_ts -.-&gt;
-                module_src_test_runner_index_ts
+                module_src_ankh_provider_ts --&gt; module_src_index_ts
               </div>
               <details>
                 <summary>View Mermaid source</summary>
                 <pre>
 graph LR
+  module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
   module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
   module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
   module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
   module_src_test_runner_index_ts[&quot;src/test-runner/index.ts&quot;]
-  module_src_graphql_index_ts -.-&gt; module_src_index_ts
-  module_src_index_ts -.-&gt; module_src_managed_api_index_ts
-  module_src_managed_api_index_ts -.-&gt; module_src_openapi_index_ts
-  module_src_openapi_index_ts -.-&gt; module_src_rest_index_ts
-  module_src_rest_index_ts -.-&gt; module_src_test_runner_index_ts
+  module_src_ankh_provider_ts --&gt; module_src_index_ts
 </pre
                 >
               </details>
@@ -4082,7 +4088,8 @@ graph LR
               <h3>Export graph</h3>
               <p class="muted"><code>diagrams/export-graph.mmd</code></p>
               <div class="mermaid">
-                graph LR module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
+                graph LR module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
+                module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
                 module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
                 module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
@@ -4311,6 +4318,7 @@ graph LR
                 <summary>View Mermaid source</summary>
                 <pre>
 graph LR
+  module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
   module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]

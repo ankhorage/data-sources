@@ -27,6 +27,16 @@
   "dependencies": {
     "@ankhorage/contracts": "^1.18.3"
   },
+  "ankh": {
+    "category": "data-sources",
+    "provider": "./dist/ankh.provider.js",
+    "capabilities": [
+      "data-sources.inspect",
+      "data-sources.validate",
+      "data-sources.test",
+      "data-sources.normalize"
+    ]
+  },
   "files": [
     "dist",
     "src",
@@ -54,7 +64,7 @@
     "docs": "paradox",
     "knip": "ankhorage-knip",
     "lint": "ankhorage-eslint . --max-warnings=0",
-    "lint:fix": "ankhorage-eslint . --fix --max-warnings=0",
+    "lint:fix": "ankhorage-eslint . --fix",
     "format": "ankhorage-prettier --write .",
     "format:check": "ankhorage-prettier --check .",
     "prepack": "bun run build",

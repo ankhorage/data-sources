@@ -3,7 +3,7 @@
 
 # @ankhorage/data-sources
 
-![license: MIT](././paradox/badges/license.svg) ![npm: v0.5.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![docs: paradox](././paradox/badges/docs.svg)
+![license: MIT](././paradox/badges/license.svg) ![npm: v0.5.1](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![docs: paradox](././paradox/badges/docs.svg)
 
 Provider-neutral data source and endpoint system for APIs, databases, and runtime bindings.
 
@@ -34,6 +34,9 @@ graph TD
   package__ankhorage_data_sources["@ankhorage/data-sources"]
   entrypoint_src_index_ts["src/index.ts"]
   package__ankhorage_data_sources --> entrypoint_src_index_ts
+  module_src_ankh_provider_ts["src/ankh.provider.ts"]
+  package__ankhorage_data_sources -.-> module_src_ankh_provider_ts
+  module_src_ankh_provider_ts --> module_src_index_ts
   module_src_graphql_index_ts["src/graphql/index.ts"]
   package__ankhorage_data_sources -.-> module_src_graphql_index_ts
   module_src_index_ts["src/index.ts"]
