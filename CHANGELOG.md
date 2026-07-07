@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 0.5.3
+
+### Patch Changes
+
+- 2188199: Update package metadata.
+
 ## 0.5.2
 
 ### Patch Changes
