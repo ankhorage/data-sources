@@ -29,13 +29,8 @@
   },
   "ankh": {
     "category": "data-sources",
-    "provider": "./dist/ankh.provider.js",
-    "capabilities": [
-      "data-sources.inspect",
-      "data-sources.validate",
-      "data-sources.test",
-      "data-sources.normalize"
-    ]
+    "provider": null,
+    "capabilities": []
   },
   "files": [
     "dist",
