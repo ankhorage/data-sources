@@ -29,7 +29,7 @@
   },
   "ankh": {
     "category": "data-sources",
-    "provider": "./dist/ankh.provider.js",
+    "provider": "./dist/cli/index.js",
     "capabilities": [
       "data-sources.inspect",
       "data-sources.validate",
@@ -51,6 +51,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+    "./cli": {
+      "types": "./dist/cli/index.d.ts",
+      "import": "./dist/cli/index.js",
+      "default": "./dist/cli/index.js"
     },
     "./package.json": "./package.json"
   },
