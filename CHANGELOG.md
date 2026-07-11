@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 0.5.5
+
+### Patch Changes
+
+- d3b1d6a: Expose the Ankh provider through the canonical `./cli` package entrypoint.
+
 ## 0.5.4
 
 ### Patch Changes
