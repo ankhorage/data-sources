@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 0.5.4
+
+### Patch Changes
+
+- a3583c8: Declare the package-relative Ankh provider entry and its implemented capabilities.
+
 ## 0.5.3
 
 ### Patch Changes
