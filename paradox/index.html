@@ -199,6 +199,12 @@
               </button>
             </li>
             <li>
+              <button class="nav-button" type="button" data-target="src/discovery/index.ts">
+                src/discovery/index.ts
+                <small>14 functions</small>
+              </button>
+            </li>
+            <li>
               <button class="nav-button" type="button" data-target="src/graphql/index.ts">
                 src/graphql/index.ts
                 <small>20 functions</small>
@@ -242,9 +248,9 @@
           <section class="panel">
             <h2>Package overview</h2>
             <div class="summary">
-              <div><strong>78</strong><span class="muted">public exports</span></div>
+              <div><strong>91</strong><span class="muted">public exports</span></div>
               <div><strong>0</strong><span class="muted">components</span></div>
-              <div><strong>7</strong><span class="muted">modules</span></div>
+              <div><strong>9</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -260,6 +266,34 @@
               <p class="muted">Referenced module</p>
               <p><strong>Dependencies:</strong> <code>src/index.ts</code></p>
               <p><strong>Exports:</strong> <code>default</code></p>
+            </article>
+            <article class="item" data-search="src/cli/index.ts default">
+              <h3>src/cli/index.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p><strong>Exports:</strong> <code>default</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/discovery/index.ts src/graphql/index.ts src/openapi/index.ts createOpenApiDiscoveryCandidates DEFAULT_OPENAPI_DISCOVERY_PATHS discoverOpenApiDataSource DiscoverOpenApiDataSourceInput DiscoverOpenApiDataSourceResult ExternalApiFetch ExternalApiFetchInit ExternalApiFetchResponse introspectGraphQlDataSource IntrospectGraphQlDataSourceInput IntrospectGraphQlDataSourceResult OpenApiDiscoveryAttempt OpenApiDiscoveryAttemptOutcome"
+            >
+              <h3>src/discovery/index.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong> <code>src/graphql/index.ts</code>,
+                <code>src/openapi/index.ts</code>
+              </p>
+              <p>
+                <strong>Exports:</strong> <code>createOpenApiDiscoveryCandidates</code>,
+                <code>DEFAULT_OPENAPI_DISCOVERY_PATHS</code>,
+                <code>discoverOpenApiDataSource</code>, <code>DiscoverOpenApiDataSourceInput</code>,
+                <code>DiscoverOpenApiDataSourceResult</code>, <code>ExternalApiFetch</code>,
+                <code>ExternalApiFetchInit</code>, <code>ExternalApiFetchResponse</code>,
+                <code>introspectGraphQlDataSource</code>,
+                <code>IntrospectGraphQlDataSourceInput</code>,
+                <code>IntrospectGraphQlDataSourceResult</code>,
+                <code>OpenApiDiscoveryAttempt</code>, <code>OpenApiDiscoveryAttemptOutcome</code>
+              </p>
             </article>
             <article
               class="item"
@@ -285,7 +319,7 @@
             </article>
             <article
               class="item"
-              data-search="src/index.ts buildEndpointTestRequest createGraphQlDataSource createGraphQlIntrospectionRequest createManagedApiDataSource createManagedApiEndpoint createManagedApiOperation createManagedApiOperationId createManagedApiResourceSchema createManualRestDataSource DATA_SOURCES_PACKAGE_NAME DataSourcesPackageInfo EndpointTestCredential EndpointTestCredentialResolver EndpointTestFetch EndpointTestFetchInit EndpointTestFetchResponse EndpointTestHeaders EndpointTestInput EndpointTestInputValues EndpointTestRequestDiagnostic EndpointTestResponseDiagnostic EndpointTestResult extractRestPathParams getDataSourceKind getDataSourcesPackageInfo getManagedApiOperations GRAPHQL_INTROSPECTION_QUERY GraphQlDataSourceDefinition GraphQlIntrospectionEnumValue GraphQlIntrospectionField GraphQlIntrospectionInputValue GraphQlIntrospectionRequest GraphQlIntrospectionResult GraphQlIntrospectionSchema GraphQlIntrospectionType GraphQlIntrospectionTypeRef GraphQlOperationDefinition GraphQlOperationKind importOpenApiDocument isManualRestMethod isSupportedDataSourceKind MANAGED_API_CRUD_OPERATIONS ManagedApiCrudOperation ManagedApiGenerationDefinition ManagedApiGenerationResourceDefinition ManagedApiOperationPolicyRef ManualRestDataSourceDefinition ManualRestEndpointDefinition ManualRestMethod ManualRestOperationDefinition normalizeGraphQlDataSource normalizeGraphQlIntrospectionOperations normalizeGraphQlIntrospectionSchemas normalizeGraphQlOperationId normalizeManagedApiDataSource normalizeManualRestDataSource normalizeManualRestMethod normalizeOpenApiEndpointId normalizeOpenApiOperationId normalizeOpenApiSchema OpenApiComponentsObject OpenApiDocumentObject OpenApiHttpMethod OpenApiImportInput OpenApiImportResult OpenApiMediaTypeObject OpenApiOperationObject OpenApiParameterObject OpenApiPathItemObject OpenApiRequestBodyObject OpenApiResponseObject OpenApiSchemaObject OpenApiServerObject SUPPORTED_DATA_SOURCE_KINDS testEndpoint validateGraphQlDataSource validateManagedApiDefinition validateManualRestDataSource"
+              data-search="src/index.ts buildEndpointTestRequest createGraphQlDataSource createGraphQlIntrospectionRequest createManagedApiDataSource createManagedApiEndpoint createManagedApiOperation createManagedApiOperationId createManagedApiResourceSchema createManualRestDataSource createOpenApiDiscoveryCandidates DATA_SOURCES_PACKAGE_NAME DataSourcesPackageInfo DEFAULT_OPENAPI_DISCOVERY_PATHS discoverOpenApiDataSource DiscoverOpenApiDataSourceInput DiscoverOpenApiDataSourceResult EndpointTestCredential EndpointTestCredentialResolver EndpointTestFetch EndpointTestFetchInit EndpointTestFetchResponse EndpointTestHeaders EndpointTestInput EndpointTestInputValues EndpointTestRequestDiagnostic EndpointTestResponseDiagnostic EndpointTestResult ExternalApiFetch ExternalApiFetchInit ExternalApiFetchResponse extractRestPathParams getDataSourceKind getDataSourcesPackageInfo getManagedApiOperations GRAPHQL_INTROSPECTION_QUERY GraphQlDataSourceDefinition GraphQlIntrospectionEnumValue GraphQlIntrospectionField GraphQlIntrospectionInputValue GraphQlIntrospectionRequest GraphQlIntrospectionResult GraphQlIntrospectionSchema GraphQlIntrospectionType GraphQlIntrospectionTypeRef GraphQlOperationDefinition GraphQlOperationKind importOpenApiDocument introspectGraphQlDataSource IntrospectGraphQlDataSourceInput IntrospectGraphQlDataSourceResult isManualRestMethod isSupportedDataSourceKind MANAGED_API_CRUD_OPERATIONS ManagedApiCrudOperation ManagedApiGenerationDefinition ManagedApiGenerationResourceDefinition ManagedApiOperationPolicyRef ManualRestDataSourceDefinition ManualRestEndpointDefinition ManualRestMethod ManualRestOperationDefinition normalizeGraphQlDataSource normalizeGraphQlIntrospectionOperations normalizeGraphQlIntrospectionSchemas normalizeGraphQlOperationId normalizeManagedApiDataSource normalizeManualRestDataSource normalizeManualRestMethod normalizeOpenApiEndpointId normalizeOpenApiOperationId normalizeOpenApiSchema OpenApiComponentsObject OpenApiDiscoveryAttempt OpenApiDiscoveryAttemptOutcome OpenApiDocumentObject OpenApiHttpMethod OpenApiImportInput OpenApiImportResult OpenApiMediaTypeObject OpenApiOperationObject OpenApiParameterObject OpenApiPathItemObject OpenApiRequestBodyObject OpenApiResponseObject OpenApiSchemaObject OpenApiServerObject SUPPORTED_DATA_SOURCE_KINDS testEndpoint validateGraphQlDataSource validateManagedApiDefinition validateManualRestDataSource"
             >
               <h3>src/index.ts</h3>
               <p class="muted">Configured entrypoint</p>
@@ -297,25 +331,33 @@
                 <code>createManagedApiDataSource</code>, <code>createManagedApiEndpoint</code>,
                 <code>createManagedApiOperation</code>, <code>createManagedApiOperationId</code>,
                 <code>createManagedApiResourceSchema</code>,
-                <code>createManualRestDataSource</code>, <code>DATA_SOURCES_PACKAGE_NAME</code>,
-                <code>DataSourcesPackageInfo</code>, <code>EndpointTestCredential</code>,
+                <code>createManualRestDataSource</code>,
+                <code>createOpenApiDiscoveryCandidates</code>,
+                <code>DATA_SOURCES_PACKAGE_NAME</code>, <code>DataSourcesPackageInfo</code>,
+                <code>DEFAULT_OPENAPI_DISCOVERY_PATHS</code>,
+                <code>discoverOpenApiDataSource</code>, <code>DiscoverOpenApiDataSourceInput</code>,
+                <code>DiscoverOpenApiDataSourceResult</code>, <code>EndpointTestCredential</code>,
                 <code>EndpointTestCredentialResolver</code>, <code>EndpointTestFetch</code>,
                 <code>EndpointTestFetchInit</code>, <code>EndpointTestFetchResponse</code>,
                 <code>EndpointTestHeaders</code>, <code>EndpointTestInput</code>,
                 <code>EndpointTestInputValues</code>, <code>EndpointTestRequestDiagnostic</code>,
                 <code>EndpointTestResponseDiagnostic</code>, <code>EndpointTestResult</code>,
-                <code>extractRestPathParams</code>, <code>getDataSourceKind</code>,
-                <code>getDataSourcesPackageInfo</code>, <code>getManagedApiOperations</code>,
-                <code>GRAPHQL_INTROSPECTION_QUERY</code>, <code>GraphQlDataSourceDefinition</code>,
+                <code>ExternalApiFetch</code>, <code>ExternalApiFetchInit</code>,
+                <code>ExternalApiFetchResponse</code>, <code>extractRestPathParams</code>,
+                <code>getDataSourceKind</code>, <code>getDataSourcesPackageInfo</code>,
+                <code>getManagedApiOperations</code>, <code>GRAPHQL_INTROSPECTION_QUERY</code>,
+                <code>GraphQlDataSourceDefinition</code>,
                 <code>GraphQlIntrospectionEnumValue</code>, <code>GraphQlIntrospectionField</code>,
                 <code>GraphQlIntrospectionInputValue</code>,
                 <code>GraphQlIntrospectionRequest</code>, <code>GraphQlIntrospectionResult</code>,
                 <code>GraphQlIntrospectionSchema</code>, <code>GraphQlIntrospectionType</code>,
                 <code>GraphQlIntrospectionTypeRef</code>, <code>GraphQlOperationDefinition</code>,
                 <code>GraphQlOperationKind</code>, <code>importOpenApiDocument</code>,
-                <code>isManualRestMethod</code>, <code>isSupportedDataSourceKind</code>,
-                <code>MANAGED_API_CRUD_OPERATIONS</code>, <code>ManagedApiCrudOperation</code>,
-                <code>ManagedApiGenerationDefinition</code>,
+                <code>introspectGraphQlDataSource</code>,
+                <code>IntrospectGraphQlDataSourceInput</code>,
+                <code>IntrospectGraphQlDataSourceResult</code>, <code>isManualRestMethod</code>,
+                <code>isSupportedDataSourceKind</code>, <code>MANAGED_API_CRUD_OPERATIONS</code>,
+                <code>ManagedApiCrudOperation</code>, <code>ManagedApiGenerationDefinition</code>,
                 <code>ManagedApiGenerationResourceDefinition</code>,
                 <code>ManagedApiOperationPolicyRef</code>,
                 <code>ManualRestDataSourceDefinition</code>,
@@ -328,6 +370,7 @@
                 <code>normalizeManualRestDataSource</code>, <code>normalizeManualRestMethod</code>,
                 <code>normalizeOpenApiEndpointId</code>, <code>normalizeOpenApiOperationId</code>,
                 <code>normalizeOpenApiSchema</code>, <code>OpenApiComponentsObject</code>,
+                <code>OpenApiDiscoveryAttempt</code>, <code>OpenApiDiscoveryAttemptOutcome</code>,
                 <code>OpenApiDocumentObject</code>, <code>OpenApiHttpMethod</code>,
                 <code>OpenApiImportInput</code>, <code>OpenApiImportResult</code>,
                 <code>OpenApiMediaTypeObject</code>, <code>OpenApiOperationObject</code>,
@@ -417,6 +460,518 @@
           <section class="panel">
             <h2>Public API</h2>
 
+            <section>
+              <h3>src/discovery/index.ts</h3>
+              <article
+                class="item"
+                id="symbol-createopenapidiscoverycandidates"
+                data-search="createOpenApiDiscoveryCandidates function src/discovery/index.ts  (rawUrl: string, conventionalPaths?: readonly string[]) =&gt; readonly string[]"
+              >
+                <h4>createOpenApiDiscoveryCandidates</h4>
+                <p class="muted">function • <code>src/discovery/index.ts:103:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(rawUrl: string, conventionalPaths?: readonly string[]) =&gt; readonly string[]</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>conventionalPaths</code></td>
+                        <td><code>readonly string[]</code></td>
+                        <td>no</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><code>rawUrl</code></td>
+                        <td><code>string</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>readonly string[]</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-default-openapi-discovery-paths"
+                data-search="DEFAULT_OPENAPI_DISCOVERY_PATHS value src/discovery/index.ts "
+              >
+                <h4>DEFAULT_OPENAPI_DISCOVERY_PATHS</h4>
+                <p class="muted">value • <code>src/discovery/index.ts:16:14</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-discoveropenapidatasource"
+                data-search="discoverOpenApiDataSource function src/discovery/index.ts  DiscoverOpenApiDataSourceInput DiscoverOpenApiDataSourceResult (input: DiscoverOpenApiDataSourceInput) =&gt; Promise&lt;DiscoverOpenApiDataSourceResult&gt;"
+              >
+                <h4>discoverOpenApiDataSource</h4>
+                <p class="muted">function • <code>src/discovery/index.ts:124:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">DiscoverOpenApiDataSourceInput</li>
+                    <li class="chip">DiscoverOpenApiDataSourceResult</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(input: DiscoverOpenApiDataSourceInput) =&gt; Promise&lt;DiscoverOpenApiDataSourceResult&gt;</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>input</code></td>
+                        <td><code>DiscoverOpenApiDataSourceInput</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    <strong>Returns:</strong>
+                    <code>Promise&lt;DiscoverOpenApiDataSourceResult&gt;</code>
+                  </p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-discoveropenapidatasourceinput"
+                data-search="DiscoverOpenApiDataSourceInput type src/discovery/index.ts  ExternalApiFetch"
+              >
+                <h4>DiscoverOpenApiDataSourceInput</h4>
+                <p class="muted">type • <code>src/discovery/index.ts:53:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ExternalApiFetch</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>baseUrl</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>conventionalPaths</code></td>
+                      <td>property</td>
+                      <td><code>readonly string[] | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>credential</code></td>
+                      <td>property</td>
+                      <td><code>CredentialRef | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>fetch</code></td>
+                      <td>property</td>
+                      <td><code>ExternalApiFetch</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>id</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>metadata</code></td>
+                      <td>property</td>
+                      <td><code>DataContractValue | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>url</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-discoveropenapidatasourceresult"
+                data-search="DiscoverOpenApiDataSourceResult unknown src/discovery/index.ts "
+              >
+                <h4>DiscoverOpenApiDataSourceResult</h4>
+                <p class="muted">unknown • <code>src/discovery/index.ts:65:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-externalapifetch"
+                data-search="ExternalApiFetch unknown src/discovery/index.ts "
+              >
+                <h4>ExternalApiFetch</h4>
+                <p class="muted">unknown • <code>src/discovery/index.ts:34:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-externalapifetchinit"
+                data-search="ExternalApiFetchInit type src/discovery/index.ts "
+              >
+                <h4>ExternalApiFetchInit</h4>
+                <p class="muted">type • <code>src/discovery/index.ts:23:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>body</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>headers</code></td>
+                      <td>property</td>
+                      <td><code>Readonly&lt;Record&lt;string, string&gt;&gt;</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>method</code></td>
+                      <td>property</td>
+                      <td><code>&quot;GET&quot; | &quot;POST&quot;</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-externalapifetchresponse"
+                data-search="ExternalApiFetchResponse type src/discovery/index.ts "
+              >
+                <h4>ExternalApiFetchResponse</h4>
+                <p class="muted">type • <code>src/discovery/index.ts:29:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>status</code></td>
+                      <td>property</td>
+                      <td><code>number</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>text</code></td>
+                      <td>method</td>
+                      <td><code>() =&gt; Promise&lt;string&gt;</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-introspectgraphqldatasource"
+                data-search="introspectGraphQlDataSource function src/discovery/index.ts  IntrospectGraphQlDataSourceInput IntrospectGraphQlDataSourceResult (input: IntrospectGraphQlDataSourceInput) =&gt; Promise&lt;IntrospectGraphQlDataSourceResult&gt;"
+              >
+                <h4>introspectGraphQlDataSource</h4>
+                <p class="muted">function • <code>src/discovery/index.ts:156:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">IntrospectGraphQlDataSourceInput</li>
+                    <li class="chip">IntrospectGraphQlDataSourceResult</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(input: IntrospectGraphQlDataSourceInput) =&gt; Promise&lt;IntrospectGraphQlDataSourceResult&gt;</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>input</code></td>
+                        <td><code>IntrospectGraphQlDataSourceInput</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    <strong>Returns:</strong>
+                    <code>Promise&lt;IntrospectGraphQlDataSourceResult&gt;</code>
+                  </p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-introspectgraphqldatasourceinput"
+                data-search="IntrospectGraphQlDataSourceInput type src/discovery/index.ts  ExternalApiFetch"
+              >
+                <h4>IntrospectGraphQlDataSourceInput</h4>
+                <p class="muted">type • <code>src/discovery/index.ts:79:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ExternalApiFetch</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>credential</code></td>
+                      <td>property</td>
+                      <td><code>CredentialRef | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>endpointUrl</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>fetch</code></td>
+                      <td>property</td>
+                      <td><code>ExternalApiFetch</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>headers</code></td>
+                      <td>property</td>
+                      <td><code>Readonly&lt;Record&lt;string, string&gt;&gt; | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>id</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>metadata</code></td>
+                      <td>property</td>
+                      <td><code>DataContractValue | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>schemaVersion</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-introspectgraphqldatasourceresult"
+                data-search="IntrospectGraphQlDataSourceResult unknown src/discovery/index.ts "
+              >
+                <h4>IntrospectGraphQlDataSourceResult</h4>
+                <p class="muted">unknown • <code>src/discovery/index.ts:91:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-openapidiscoveryattempt"
+                data-search="OpenApiDiscoveryAttempt type src/discovery/index.ts  OpenApiDiscoveryAttemptOutcome"
+              >
+                <h4>OpenApiDiscoveryAttempt</h4>
+                <p class="muted">type • <code>src/discovery/index.ts:47:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">OpenApiDiscoveryAttemptOutcome</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>outcome</code></td>
+                      <td>property</td>
+                      <td><code>OpenApiDiscoveryAttemptOutcome</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>status</code></td>
+                      <td>property</td>
+                      <td><code>number | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>url</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-openapidiscoveryattemptoutcome"
+                data-search="OpenApiDiscoveryAttemptOutcome unknown src/discovery/index.ts "
+              >
+                <h4>OpenApiDiscoveryAttemptOutcome</h4>
+                <p class="muted">unknown • <code>src/discovery/index.ts:39:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+            </section>
             <section>
               <h3>src/graphql/index.ts</h3>
               <article
@@ -1362,7 +1917,7 @@
                 data-search="DATA_SOURCES_PACKAGE_NAME value src/index.ts "
               >
                 <h4>DATA_SOURCES_PACKAGE_NAME</h4>
-                <p class="muted">value • <code>src/index.ts:9:14</code></p>
+                <p class="muted">value • <code>src/index.ts:10:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1373,7 +1928,7 @@
                 data-search="DataSourcesPackageInfo type src/index.ts "
               >
                 <h4>DataSourcesPackageInfo</h4>
-                <p class="muted">type • <code>src/index.ts:19:1</code></p>
+                <p class="muted">type • <code>src/index.ts:20:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1417,7 +1972,7 @@
                 data-search="getDataSourceKind function src/index.ts  (source: DataSourceConfig) =&gt; DataSourceKind"
               >
                 <h4>getDataSourceKind</h4>
-                <p class="muted">function • <code>src/index.ts:35:1</code></p>
+                <p class="muted">function • <code>src/index.ts:36:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1451,7 +2006,7 @@
                 data-search="getDataSourcesPackageInfo function src/index.ts  DataSourcesPackageInfo () =&gt; DataSourcesPackageInfo"
               >
                 <h4>getDataSourcesPackageInfo</h4>
-                <p class="muted">function • <code>src/index.ts:24:1</code></p>
+                <p class="muted">function • <code>src/index.ts:25:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -1473,7 +2028,7 @@
                 data-search="isSupportedDataSourceKind function src/index.ts  (kind: string) =&gt; boolean"
               >
                 <h4>isSupportedDataSourceKind</h4>
-                <p class="muted">function • <code>src/index.ts:31:1</code></p>
+                <p class="muted">function • <code>src/index.ts:32:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -1507,7 +2062,7 @@
                 data-search="SUPPORTED_DATA_SOURCE_KINDS value src/index.ts "
               >
                 <h4>SUPPORTED_DATA_SOURCE_KINDS</h4>
-                <p class="muted">value • <code>src/index.ts:11:14</code></p>
+                <p class="muted">value • <code>src/index.ts:12:14</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -4015,6 +4570,12 @@
                 module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
                 package__ankhorage_data_sources -.-&gt; module_src_ankh_provider_ts
                 module_src_ankh_provider_ts --&gt; module_src_index_ts
+                module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
+                package__ankhorage_data_sources -.-&gt; module_src_cli_index_ts
+                module_src_discovery_index_ts[&quot;src/discovery/index.ts&quot;]
+                package__ankhorage_data_sources -.-&gt; module_src_discovery_index_ts
+                module_src_discovery_index_ts --&gt; module_src_graphql_index_ts
+                module_src_discovery_index_ts --&gt; module_src_openapi_index_ts
                 module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
                 package__ankhorage_data_sources -.-&gt; module_src_graphql_index_ts
                 module_src_index_ts[&quot;src/index.ts&quot;]
@@ -4037,6 +4598,12 @@ graph TD
   module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_ankh_provider_ts
   module_src_ankh_provider_ts --&gt; module_src_index_ts
+  module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_cli_index_ts
+  module_src_discovery_index_ts[&quot;src/discovery/index.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_discovery_index_ts
+  module_src_discovery_index_ts --&gt; module_src_graphql_index_ts
+  module_src_discovery_index_ts --&gt; module_src_openapi_index_ts
   module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_graphql_index_ts
   module_src_index_ts[&quot;src/index.ts&quot;]
@@ -4060,19 +4627,25 @@ graph TD
               <p class="muted"><code>diagrams/module-relationships.mmd</code></p>
               <div class="mermaid">
                 graph LR module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
+                module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
+                module_src_discovery_index_ts[&quot;src/discovery/index.ts&quot;]
                 module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
                 module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
                 module_src_openapi_index_ts[&quot;src/openapi/index.ts&quot;]
                 module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
                 module_src_test_runner_index_ts[&quot;src/test-runner/index.ts&quot;]
-                module_src_ankh_provider_ts --&gt; module_src_index_ts
+                module_src_ankh_provider_ts --&gt; module_src_index_ts module_src_discovery_index_ts
+                --&gt; module_src_graphql_index_ts module_src_discovery_index_ts --&gt;
+                module_src_openapi_index_ts
               </div>
               <details>
                 <summary>View Mermaid source</summary>
                 <pre>
 graph LR
   module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
+  module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
+  module_src_discovery_index_ts[&quot;src/discovery/index.ts&quot;]
   module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
@@ -4080,6 +4653,8 @@ graph LR
   module_src_rest_index_ts[&quot;src/rest/index.ts&quot;]
   module_src_test_runner_index_ts[&quot;src/test-runner/index.ts&quot;]
   module_src_ankh_provider_ts --&gt; module_src_index_ts
+  module_src_discovery_index_ts --&gt; module_src_graphql_index_ts
+  module_src_discovery_index_ts --&gt; module_src_openapi_index_ts
 </pre
                 >
               </details>
@@ -4089,6 +4664,8 @@ graph LR
               <p class="muted"><code>diagrams/export-graph.mmd</code></p>
               <div class="mermaid">
                 graph LR module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
+                module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
+                module_src_discovery_index_ts[&quot;src/discovery/index.ts&quot;]
                 module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
                 module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
@@ -4125,10 +4702,23 @@ graph LR
                 export_createManualRestDataSource[&quot;createManualRestDataSource&quot;]
                 module_src_rest_index_ts --&gt; export_createManualRestDataSource
                 export_createManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
+                export_createOpenApiDiscoveryCandidates[&quot;createOpenApiDiscoveryCandidates&quot;]
+                module_src_discovery_index_ts --&gt; export_createOpenApiDiscoveryCandidates
                 export_DATA_SOURCES_PACKAGE_NAME[&quot;DATA_SOURCES_PACKAGE_NAME&quot;]
                 module_src_index_ts --&gt; export_DATA_SOURCES_PACKAGE_NAME
                 export_DataSourcesPackageInfo[&quot;DataSourcesPackageInfo&quot;]
                 module_src_index_ts --&gt; export_DataSourcesPackageInfo
+                export_DEFAULT_OPENAPI_DISCOVERY_PATHS[&quot;DEFAULT_OPENAPI_DISCOVERY_PATHS&quot;]
+                module_src_discovery_index_ts --&gt; export_DEFAULT_OPENAPI_DISCOVERY_PATHS
+                export_discoverOpenApiDataSource[&quot;discoverOpenApiDataSource&quot;]
+                module_src_discovery_index_ts --&gt; export_discoverOpenApiDataSource
+                export_discoverOpenApiDataSource -.-&gt; export_DiscoverOpenApiDataSourceInput
+                export_discoverOpenApiDataSource -.-&gt; export_DiscoverOpenApiDataSourceResult
+                export_DiscoverOpenApiDataSourceInput[&quot;DiscoverOpenApiDataSourceInput&quot;]
+                module_src_discovery_index_ts --&gt; export_DiscoverOpenApiDataSourceInput
+                export_DiscoverOpenApiDataSourceInput -.-&gt; export_ExternalApiFetch
+                export_DiscoverOpenApiDataSourceResult[&quot;DiscoverOpenApiDataSourceResult&quot;]
+                module_src_discovery_index_ts --&gt; export_DiscoverOpenApiDataSourceResult
                 export_EndpointTestCredential[&quot;EndpointTestCredential&quot;]
                 module_src_test_runner_index_ts --&gt; export_EndpointTestCredential
                 export_EndpointTestCredentialResolver[&quot;EndpointTestCredentialResolver&quot;]
@@ -4153,6 +4743,12 @@ graph LR
                 module_src_test_runner_index_ts --&gt; export_EndpointTestResponseDiagnostic
                 export_EndpointTestResult[&quot;EndpointTestResult&quot;]
                 module_src_test_runner_index_ts --&gt; export_EndpointTestResult
+                export_ExternalApiFetch[&quot;ExternalApiFetch&quot;] module_src_discovery_index_ts
+                --&gt; export_ExternalApiFetch
+                export_ExternalApiFetchInit[&quot;ExternalApiFetchInit&quot;]
+                module_src_discovery_index_ts --&gt; export_ExternalApiFetchInit
+                export_ExternalApiFetchResponse[&quot;ExternalApiFetchResponse&quot;]
+                module_src_discovery_index_ts --&gt; export_ExternalApiFetchResponse
                 export_extractRestPathParams[&quot;extractRestPathParams&quot;]
                 module_src_rest_index_ts --&gt; export_extractRestPathParams
                 export_getDataSourceKind[&quot;getDataSourceKind&quot;] module_src_index_ts --&gt;
@@ -4203,6 +4799,15 @@ graph LR
                 module_src_openapi_index_ts --&gt; export_importOpenApiDocument
                 export_importOpenApiDocument -.-&gt; export_OpenApiImportInput
                 export_importOpenApiDocument -.-&gt; export_OpenApiImportResult
+                export_introspectGraphQlDataSource[&quot;introspectGraphQlDataSource&quot;]
+                module_src_discovery_index_ts --&gt; export_introspectGraphQlDataSource
+                export_introspectGraphQlDataSource -.-&gt; export_IntrospectGraphQlDataSourceInput
+                export_introspectGraphQlDataSource -.-&gt; export_IntrospectGraphQlDataSourceResult
+                export_IntrospectGraphQlDataSourceInput[&quot;IntrospectGraphQlDataSourceInput&quot;]
+                module_src_discovery_index_ts --&gt; export_IntrospectGraphQlDataSourceInput
+                export_IntrospectGraphQlDataSourceInput -.-&gt; export_ExternalApiFetch
+                export_IntrospectGraphQlDataSourceResult[&quot;IntrospectGraphQlDataSourceResult&quot;]
+                module_src_discovery_index_ts --&gt; export_IntrospectGraphQlDataSourceResult
                 export_isManualRestMethod[&quot;isManualRestMethod&quot;] module_src_rest_index_ts
                 --&gt; export_isManualRestMethod
                 export_isSupportedDataSourceKind[&quot;isSupportedDataSourceKind&quot;]
@@ -4264,6 +4869,11 @@ graph LR
                 export_OpenApiComponentsObject[&quot;OpenApiComponentsObject&quot;]
                 module_src_openapi_index_ts --&gt; export_OpenApiComponentsObject
                 export_OpenApiComponentsObject -.-&gt; export_OpenApiSchemaObject
+                export_OpenApiDiscoveryAttempt[&quot;OpenApiDiscoveryAttempt&quot;]
+                module_src_discovery_index_ts --&gt; export_OpenApiDiscoveryAttempt
+                export_OpenApiDiscoveryAttempt -.-&gt; export_OpenApiDiscoveryAttemptOutcome
+                export_OpenApiDiscoveryAttemptOutcome[&quot;OpenApiDiscoveryAttemptOutcome&quot;]
+                module_src_discovery_index_ts --&gt; export_OpenApiDiscoveryAttemptOutcome
                 export_OpenApiDocumentObject[&quot;OpenApiDocumentObject&quot;]
                 module_src_openapi_index_ts --&gt; export_OpenApiDocumentObject
                 export_OpenApiDocumentObject -.-&gt; export_OpenApiComponentsObject
@@ -4319,6 +4929,8 @@ graph LR
                 <pre>
 graph LR
   module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
+  module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
+  module_src_discovery_index_ts[&quot;src/discovery/index.ts&quot;]
   module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_managed_api_index_ts[&quot;src/managed-api/index.ts&quot;]
@@ -4353,10 +4965,23 @@ graph LR
   export_createManualRestDataSource[&quot;createManualRestDataSource&quot;]
   module_src_rest_index_ts --&gt; export_createManualRestDataSource
   export_createManualRestDataSource -.-&gt; export_ManualRestDataSourceDefinition
+  export_createOpenApiDiscoveryCandidates[&quot;createOpenApiDiscoveryCandidates&quot;]
+  module_src_discovery_index_ts --&gt; export_createOpenApiDiscoveryCandidates
   export_DATA_SOURCES_PACKAGE_NAME[&quot;DATA_SOURCES_PACKAGE_NAME&quot;]
   module_src_index_ts --&gt; export_DATA_SOURCES_PACKAGE_NAME
   export_DataSourcesPackageInfo[&quot;DataSourcesPackageInfo&quot;]
   module_src_index_ts --&gt; export_DataSourcesPackageInfo
+  export_DEFAULT_OPENAPI_DISCOVERY_PATHS[&quot;DEFAULT_OPENAPI_DISCOVERY_PATHS&quot;]
+  module_src_discovery_index_ts --&gt; export_DEFAULT_OPENAPI_DISCOVERY_PATHS
+  export_discoverOpenApiDataSource[&quot;discoverOpenApiDataSource&quot;]
+  module_src_discovery_index_ts --&gt; export_discoverOpenApiDataSource
+  export_discoverOpenApiDataSource -.-&gt; export_DiscoverOpenApiDataSourceInput
+  export_discoverOpenApiDataSource -.-&gt; export_DiscoverOpenApiDataSourceResult
+  export_DiscoverOpenApiDataSourceInput[&quot;DiscoverOpenApiDataSourceInput&quot;]
+  module_src_discovery_index_ts --&gt; export_DiscoverOpenApiDataSourceInput
+  export_DiscoverOpenApiDataSourceInput -.-&gt; export_ExternalApiFetch
+  export_DiscoverOpenApiDataSourceResult[&quot;DiscoverOpenApiDataSourceResult&quot;]
+  module_src_discovery_index_ts --&gt; export_DiscoverOpenApiDataSourceResult
   export_EndpointTestCredential[&quot;EndpointTestCredential&quot;]
   module_src_test_runner_index_ts --&gt; export_EndpointTestCredential
   export_EndpointTestCredentialResolver[&quot;EndpointTestCredentialResolver&quot;]
@@ -4381,6 +5006,12 @@ graph LR
   module_src_test_runner_index_ts --&gt; export_EndpointTestResponseDiagnostic
   export_EndpointTestResult[&quot;EndpointTestResult&quot;]
   module_src_test_runner_index_ts --&gt; export_EndpointTestResult
+  export_ExternalApiFetch[&quot;ExternalApiFetch&quot;]
+  module_src_discovery_index_ts --&gt; export_ExternalApiFetch
+  export_ExternalApiFetchInit[&quot;ExternalApiFetchInit&quot;]
+  module_src_discovery_index_ts --&gt; export_ExternalApiFetchInit
+  export_ExternalApiFetchResponse[&quot;ExternalApiFetchResponse&quot;]
+  module_src_discovery_index_ts --&gt; export_ExternalApiFetchResponse
   export_extractRestPathParams[&quot;extractRestPathParams&quot;]
   module_src_rest_index_ts --&gt; export_extractRestPathParams
   export_getDataSourceKind[&quot;getDataSourceKind&quot;]
@@ -4431,6 +5062,15 @@ graph LR
   module_src_openapi_index_ts --&gt; export_importOpenApiDocument
   export_importOpenApiDocument -.-&gt; export_OpenApiImportInput
   export_importOpenApiDocument -.-&gt; export_OpenApiImportResult
+  export_introspectGraphQlDataSource[&quot;introspectGraphQlDataSource&quot;]
+  module_src_discovery_index_ts --&gt; export_introspectGraphQlDataSource
+  export_introspectGraphQlDataSource -.-&gt; export_IntrospectGraphQlDataSourceInput
+  export_introspectGraphQlDataSource -.-&gt; export_IntrospectGraphQlDataSourceResult
+  export_IntrospectGraphQlDataSourceInput[&quot;IntrospectGraphQlDataSourceInput&quot;]
+  module_src_discovery_index_ts --&gt; export_IntrospectGraphQlDataSourceInput
+  export_IntrospectGraphQlDataSourceInput -.-&gt; export_ExternalApiFetch
+  export_IntrospectGraphQlDataSourceResult[&quot;IntrospectGraphQlDataSourceResult&quot;]
+  module_src_discovery_index_ts --&gt; export_IntrospectGraphQlDataSourceResult
   export_isManualRestMethod[&quot;isManualRestMethod&quot;]
   module_src_rest_index_ts --&gt; export_isManualRestMethod
   export_isSupportedDataSourceKind[&quot;isSupportedDataSourceKind&quot;]
@@ -4488,6 +5128,11 @@ graph LR
   export_OpenApiComponentsObject[&quot;OpenApiComponentsObject&quot;]
   module_src_openapi_index_ts --&gt; export_OpenApiComponentsObject
   export_OpenApiComponentsObject -.-&gt; export_OpenApiSchemaObject
+  export_OpenApiDiscoveryAttempt[&quot;OpenApiDiscoveryAttempt&quot;]
+  module_src_discovery_index_ts --&gt; export_OpenApiDiscoveryAttempt
+  export_OpenApiDiscoveryAttempt -.-&gt; export_OpenApiDiscoveryAttemptOutcome
+  export_OpenApiDiscoveryAttemptOutcome[&quot;OpenApiDiscoveryAttemptOutcome&quot;]
+  module_src_discovery_index_ts --&gt; export_OpenApiDiscoveryAttemptOutcome
   export_OpenApiDocumentObject[&quot;OpenApiDocumentObject&quot;]
   module_src_openapi_index_ts --&gt; export_OpenApiDocumentObject
   export_OpenApiDocumentObject -.-&gt; export_OpenApiComponentsObject
@@ -4642,6 +5287,42 @@ sequenceDiagram
   participant_normalizeManualRestDataSource-&gt;&gt;participant_normalizeManualRestMethod: normalizeManualRestMethod()
   participant_normalizeManualRestMethod--&gt;&gt;participant_normalizeManualRestDataSource: return
   participant_normalizeManualRestDataSource--&gt;&gt;participant_createManualRestDataSource: return
+</pre
+                >
+              </details>
+            </article>
+            <article
+              class="item"
+              data-search="createOpenApiDiscoveryCandidates sequence diagrams/sequences/create-open-api-discovery-candidates.mmd"
+            >
+              <h3>createOpenApiDiscoveryCandidates sequence</h3>
+              <p class="muted">
+                <code>diagrams/sequences/create-open-api-discovery-candidates.mmd</code>
+              </p>
+              <div class="mermaid">
+                sequenceDiagram participant participant_createOpenApiDiscoveryCandidates as
+                createOpenApiDiscoveryCandidates participant participant_normalizeCandidateUrl as
+                normalizeCandidateUrl participant participant_parseHttpUrl as parseHttpUrl
+                participant_createOpenApiDiscoveryCandidates-&gt;&gt;participant_parseHttpUrl:
+                parseHttpUrl()
+                participant_parseHttpUrl--&gt;&gt;participant_createOpenApiDiscoveryCandidates:
+                return
+                participant_createOpenApiDiscoveryCandidates-&gt;&gt;participant_normalizeCandidateUrl:
+                normalizeCandidateUrl()
+                participant_normalizeCandidateUrl--&gt;&gt;participant_createOpenApiDiscoveryCandidates:
+                return
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+sequenceDiagram
+  participant participant_createOpenApiDiscoveryCandidates as createOpenApiDiscoveryCandidates
+  participant participant_normalizeCandidateUrl as normalizeCandidateUrl
+  participant participant_parseHttpUrl as parseHttpUrl
+  participant_createOpenApiDiscoveryCandidates-&gt;&gt;participant_parseHttpUrl: parseHttpUrl()
+  participant_parseHttpUrl--&gt;&gt;participant_createOpenApiDiscoveryCandidates: return
+  participant_createOpenApiDiscoveryCandidates-&gt;&gt;participant_normalizeCandidateUrl: normalizeCandidateUrl()
+  participant_normalizeCandidateUrl--&gt;&gt;participant_createOpenApiDiscoveryCandidates: return
 </pre
                 >
               </details>
@@ -4992,6 +5673,89 @@ sequenceDiagram
           </section>
         </section>
         <section
+          id="view-src-discovery-index-ts"
+          class="view"
+          data-view="src/discovery/index.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/discovery/index.ts</h2>
+            <article
+              class="item"
+              data-search="createOpenApiDiscoveryCandidates src/discovery/index.ts "
+            >
+              <h3>createOpenApiDiscoveryCandidates</h3>
+              <p class="muted"><code>src/discovery/index.ts:103:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="discoverOpenApiDataSource src/discovery/index.ts ">
+              <h3>discoverOpenApiDataSource</h3>
+              <p class="muted"><code>src/discovery/index.ts:124:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="introspectGraphQlDataSource src/discovery/index.ts ">
+              <h3>introspectGraphQlDataSource</h3>
+              <p class="muted"><code>src/discovery/index.ts:156:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="probeOpenApiCandidate src/discovery/index.ts ">
+              <h3>probeOpenApiCandidate</h3>
+              <p class="muted"><code>src/discovery/index.ts:223:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="parseHttpUrl src/discovery/index.ts ">
+              <h3>parseHttpUrl</h3>
+              <p class="muted"><code>src/discovery/index.ts:279:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeCandidateUrl src/discovery/index.ts ">
+              <h3>normalizeCandidateUrl</h3>
+              <p class="muted"><code>src/discovery/index.ts:290:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isSuccessfulStatus src/discovery/index.ts ">
+              <h3>isSuccessfulStatus</h3>
+              <p class="muted"><code>src/discovery/index.ts:296:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="parseJsonResponse src/discovery/index.ts ">
+              <h3>parseJsonResponse</h3>
+              <p class="muted"><code>src/discovery/index.ts:300:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isOpenApiDocument src/discovery/index.ts ">
+              <h3>isOpenApiDocument</h3>
+              <p class="muted"><code>src/discovery/index.ts:308:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="readGraphQlIntrospection src/discovery/index.ts ">
+              <h3>readGraphQlIntrospection</h3>
+              <p class="muted"><code>src/discovery/index.ts:317:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isRecord src/discovery/index.ts ">
+              <h3>isRecord</h3>
+              <p class="muted"><code>src/discovery/index.ts:324:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="readRecord src/discovery/index.ts ">
+              <h3>readRecord</h3>
+              <p class="muted"><code>src/discovery/index.ts:328:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="discoveryFailure src/discovery/index.ts ">
+              <h3>discoveryFailure</h3>
+              <p class="muted"><code>src/discovery/index.ts:332:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="graphqlFailure src/discovery/index.ts ">
+              <h3>graphqlFailure</h3>
+              <p class="muted"><code>src/discovery/index.ts:344:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
           id="view-src-graphql-index-ts"
           class="view"
           data-view="src/graphql/index.ts"
@@ -5124,17 +5888,17 @@ sequenceDiagram
             <h2>src/index.ts</h2>
             <article class="item" data-search="getDataSourcesPackageInfo src/index.ts ">
               <h3>getDataSourcesPackageInfo</h3>
-              <p class="muted"><code>src/index.ts:24:1</code></p>
+              <p class="muted"><code>src/index.ts:25:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="isSupportedDataSourceKind src/index.ts ">
               <h3>isSupportedDataSourceKind</h3>
-              <p class="muted"><code>src/index.ts:31:1</code></p>
+              <p class="muted"><code>src/index.ts:32:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="getDataSourceKind src/index.ts ">
               <h3>getDataSourceKind</h3>
-              <p class="muted"><code>src/index.ts:35:1</code></p>
+              <p class="muted"><code>src/index.ts:36:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>

@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.5.3",
+      "value": "v0.5.5",
       "color": "cb3837"
     },
     {
@@ -69,6 +69,32 @@
       "exports": ["default"]
     },
     {
+      "path": "src/cli/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["default"]
+    },
+    {
+      "path": "src/discovery/index.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/graphql/index.ts", "src/openapi/index.ts"],
+      "exports": [
+        "createOpenApiDiscoveryCandidates",
+        "DEFAULT_OPENAPI_DISCOVERY_PATHS",
+        "discoverOpenApiDataSource",
+        "DiscoverOpenApiDataSourceInput",
+        "DiscoverOpenApiDataSourceResult",
+        "ExternalApiFetch",
+        "ExternalApiFetchInit",
+        "ExternalApiFetchResponse",
+        "introspectGraphQlDataSource",
+        "IntrospectGraphQlDataSourceInput",
+        "IntrospectGraphQlDataSourceResult",
+        "OpenApiDiscoveryAttempt",
+        "OpenApiDiscoveryAttemptOutcome"
+      ]
+    },
+    {
       "path": "src/graphql/index.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -108,8 +134,13 @@
         "createManagedApiOperationId",
         "createManagedApiResourceSchema",
         "createManualRestDataSource",
+        "createOpenApiDiscoveryCandidates",
         "DATA_SOURCES_PACKAGE_NAME",
         "DataSourcesPackageInfo",
+        "DEFAULT_OPENAPI_DISCOVERY_PATHS",
+        "discoverOpenApiDataSource",
+        "DiscoverOpenApiDataSourceInput",
+        "DiscoverOpenApiDataSourceResult",
         "EndpointTestCredential",
         "EndpointTestCredentialResolver",
         "EndpointTestFetch",
@@ -121,6 +152,9 @@
         "EndpointTestRequestDiagnostic",
         "EndpointTestResponseDiagnostic",
         "EndpointTestResult",
+        "ExternalApiFetch",
+        "ExternalApiFetchInit",
+        "ExternalApiFetchResponse",
         "extractRestPathParams",
         "getDataSourceKind",
         "getDataSourcesPackageInfo",
@@ -138,6 +172,9 @@
         "GraphQlOperationDefinition",
         "GraphQlOperationKind",
         "importOpenApiDocument",
+        "introspectGraphQlDataSource",
+        "IntrospectGraphQlDataSourceInput",
+        "IntrospectGraphQlDataSourceResult",
         "isManualRestMethod",
         "isSupportedDataSourceKind",
         "MANAGED_API_CRUD_OPERATIONS",
@@ -160,6 +197,8 @@
         "normalizeOpenApiOperationId",
         "normalizeOpenApiSchema",
         "OpenApiComponentsObject",
+        "OpenApiDiscoveryAttempt",
+        "OpenApiDiscoveryAttemptOutcome",
         "OpenApiDocumentObject",
         "OpenApiHttpMethod",
         "OpenApiImportInput",
@@ -580,6 +619,44 @@
       "structuredRows": []
     },
     {
+      "name": "createOpenApiDiscoveryCandidates",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/discovery/index.ts",
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 103,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(rawUrl: string, conventionalPaths?: readonly string[]) => readonly string[]",
+          "parameters": [
+            {
+              "name": "conventionalPaths",
+              "type": "readonly string[]",
+              "required": false,
+              "description": null
+            },
+            {
+              "name": "rawUrl",
+              "type": "string",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "readonly string[]",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "DATA_SOURCES_PACKAGE_NAME",
       "description": null,
       "isReadme": false,
@@ -588,7 +665,7 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 9,
+        "line": 10,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -606,7 +683,7 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 19,
+        "line": 20,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -628,6 +705,156 @@
           "description": null
         }
       ],
+      "structuredRows": []
+    },
+    {
+      "name": "DEFAULT_OPENAPI_DISCOVERY_PATHS",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/discovery/index.ts",
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 16,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "discoverOpenApiDataSource",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/discovery/index.ts",
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 124,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DiscoverOpenApiDataSourceInput", "DiscoverOpenApiDataSourceResult"],
+      "signatures": [
+        {
+          "label": "(input: DiscoverOpenApiDataSourceInput) => Promise<DiscoverOpenApiDataSourceResult>",
+          "parameters": [
+            {
+              "name": "input",
+              "type": "DiscoverOpenApiDataSourceInput",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "Promise<DiscoverOpenApiDataSourceResult>",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "DiscoverOpenApiDataSourceInput",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/discovery/index.ts",
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 53,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ExternalApiFetch"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "baseUrl",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "conventionalPaths",
+          "kind": "property",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "credential",
+          "kind": "property",
+          "type": "CredentialRef | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "fetch",
+          "kind": "property",
+          "type": "ExternalApiFetch",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "metadata",
+          "kind": "property",
+          "type": "DataContractValue | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "url",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "DiscoverOpenApiDataSourceResult",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/discovery/index.ts",
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 65,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -1031,6 +1258,97 @@
       "structuredRows": []
     },
     {
+      "name": "ExternalApiFetch",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/discovery/index.ts",
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 34,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ExternalApiFetchInit",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/discovery/index.ts",
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 23,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "body",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "headers",
+          "kind": "property",
+          "type": "Readonly<Record<string, string>>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "method",
+          "kind": "property",
+          "type": "\"GET\" | \"POST\"",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ExternalApiFetchResponse",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/discovery/index.ts",
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 29,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "status",
+          "kind": "property",
+          "type": "number",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "text",
+          "kind": "method",
+          "type": "() => Promise<string>",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "extractRestPathParams",
       "description": null,
       "isReadme": false,
@@ -1071,7 +1389,7 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 35,
+        "line": 36,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1103,7 +1421,7 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 24,
+        "line": 25,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1737,6 +2055,138 @@
       "structuredRows": []
     },
     {
+      "name": "introspectGraphQlDataSource",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/discovery/index.ts",
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 156,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["IntrospectGraphQlDataSourceInput", "IntrospectGraphQlDataSourceResult"],
+      "signatures": [
+        {
+          "label": "(input: IntrospectGraphQlDataSourceInput) => Promise<IntrospectGraphQlDataSourceResult>",
+          "parameters": [
+            {
+              "name": "input",
+              "type": "IntrospectGraphQlDataSourceInput",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "Promise<IntrospectGraphQlDataSourceResult>",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "IntrospectGraphQlDataSourceInput",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/discovery/index.ts",
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 79,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ExternalApiFetch"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "credential",
+          "kind": "property",
+          "type": "CredentialRef | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "endpointUrl",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "fetch",
+          "kind": "property",
+          "type": "ExternalApiFetch",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "headers",
+          "kind": "property",
+          "type": "Readonly<Record<string, string>> | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "metadata",
+          "kind": "property",
+          "type": "DataContractValue | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "schemaVersion",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "IntrospectGraphQlDataSourceResult",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/discovery/index.ts",
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 91,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "isManualRestMethod",
       "description": null,
       "isReadme": false,
@@ -1777,7 +2227,7 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 31,
+        "line": 32,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2606,6 +3056,64 @@
       "structuredRows": []
     },
     {
+      "name": "OpenApiDiscoveryAttempt",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/discovery/index.ts",
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 47,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["OpenApiDiscoveryAttemptOutcome"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "outcome",
+          "kind": "property",
+          "type": "OpenApiDiscoveryAttemptOutcome",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "status",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "url",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "OpenApiDiscoveryAttemptOutcome",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/discovery/index.ts",
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 39,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "OpenApiDocumentObject",
       "description": null,
       "isReadme": false,
@@ -3193,7 +3701,7 @@
       "modulePath": "src/index.ts",
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 11,
+        "line": 12,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3333,6 +3841,132 @@
   ],
   "components": [],
   "sourceFunctions": [
+    {
+      "name": "createOpenApiDiscoveryCandidates",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 103,
+        "column": 1
+      }
+    },
+    {
+      "name": "discoverOpenApiDataSource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 124,
+        "column": 1
+      }
+    },
+    {
+      "name": "introspectGraphQlDataSource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 156,
+        "column": 1
+      }
+    },
+    {
+      "name": "probeOpenApiCandidate",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 223,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseHttpUrl",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 279,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeCandidateUrl",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 290,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSuccessfulStatus",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 296,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseJsonResponse",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 300,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOpenApiDocument",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 308,
+        "column": 1
+      }
+    },
+    {
+      "name": "readGraphQlIntrospection",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 317,
+        "column": 1
+      }
+    },
+    {
+      "name": "isRecord",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 324,
+        "column": 1
+      }
+    },
+    {
+      "name": "readRecord",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 328,
+        "column": 1
+      }
+    },
+    {
+      "name": "discoveryFailure",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 332,
+        "column": 1
+      }
+    },
+    {
+      "name": "graphqlFailure",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 344,
+        "column": 1
+      }
+    },
     {
       "name": "createGraphQlIntrospectionRequest",
       "description": null,
@@ -3518,7 +4152,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 24,
+        "line": 25,
         "column": 1
       }
     },
@@ -3527,7 +4161,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 31,
+        "line": 32,
         "column": 1
       }
     },
@@ -3536,7 +4170,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/index.ts",
-        "line": 35,
+        "line": 36,
         "column": 1
       }
     },
@@ -4228,6 +4862,22 @@
     },
     {
       "kind": "export",
+      "name": "createOpenApiDiscoveryCandidates",
+      "sourcePath": "src/discovery/index.ts",
+      "symbolName": "createOpenApiDiscoveryCandidates",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "discoverOpenApiDataSource",
+      "sourcePath": "src/discovery/index.ts",
+      "symbolName": "discoverOpenApiDataSource",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "extractRestPathParams",
       "sourcePath": "src/rest/index.ts",
       "symbolName": "extractRestPathParams",
@@ -4263,6 +4913,14 @@
       "name": "importOpenApiDocument",
       "sourcePath": "src/openapi/index.ts",
       "symbolName": "importOpenApiDocument",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "introspectGraphQlDataSource",
+      "sourcePath": "src/discovery/index.ts",
+      "symbolName": "introspectGraphQlDataSource",
       "description": null,
       "isReadme": false
     },
@@ -4404,6 +5062,11 @@
       },
       {
         "fromPath": "src/index.ts",
+        "toPath": "src/discovery/index.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
         "toPath": "src/graphql/index.ts",
         "sourcePath": "src/index.ts"
       },
@@ -4426,6 +5089,21 @@
         "fromPath": "src/index.ts",
         "toPath": "src/test-runner/index.ts",
         "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/cli/index.ts",
+        "toPath": "src/ankh.provider.ts",
+        "sourcePath": "src/cli/index.ts"
+      },
+      {
+        "fromPath": "src/discovery/index.ts",
+        "toPath": "src/graphql/index.ts",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromPath": "src/discovery/index.ts",
+        "toPath": "src/openapi/index.ts",
+        "sourcePath": "src/discovery/index.ts"
       }
     ],
     "calls": [
@@ -4434,6 +5112,144 @@
         "toSymbol": "writeStdout",
         "callExpression": "request.context.writeStdout",
         "sourcePath": "src/ankh.provider.ts"
+      },
+      {
+        "fromSymbol": "createOpenApiDiscoveryCandidates",
+        "toSymbol": "parseHttpUrl",
+        "callExpression": "parseHttpUrl",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "createOpenApiDiscoveryCandidates",
+        "toSymbol": "normalizeCandidateUrl",
+        "callExpression": "normalizeCandidateUrl",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "discoverOpenApiDataSource",
+        "toSymbol": "createOpenApiDiscoveryCandidates",
+        "callExpression": "createOpenApiDiscoveryCandidates",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "discoverOpenApiDataSource",
+        "toSymbol": "discoveryFailure",
+        "callExpression": "discoveryFailure",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "discoverOpenApiDataSource",
+        "toSymbol": "probeOpenApiCandidate",
+        "callExpression": "probeOpenApiCandidate",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "introspectGraphQlDataSource",
+        "toSymbol": "parseHttpUrl",
+        "callExpression": "parseHttpUrl",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "introspectGraphQlDataSource",
+        "toSymbol": "graphqlFailure",
+        "callExpression": "graphqlFailure",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "introspectGraphQlDataSource",
+        "toSymbol": "createGraphQlIntrospectionRequest",
+        "callExpression": "createGraphQlIntrospectionRequest",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "introspectGraphQlDataSource",
+        "toSymbol": "fetch",
+        "callExpression": "input.fetch",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "introspectGraphQlDataSource",
+        "toSymbol": "normalizeCandidateUrl",
+        "callExpression": "normalizeCandidateUrl",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "introspectGraphQlDataSource",
+        "toSymbol": "isSuccessfulStatus",
+        "callExpression": "isSuccessfulStatus",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "introspectGraphQlDataSource",
+        "toSymbol": "parseJsonResponse",
+        "callExpression": "parseJsonResponse",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "introspectGraphQlDataSource",
+        "toSymbol": "readGraphQlIntrospection",
+        "callExpression": "readGraphQlIntrospection",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "introspectGraphQlDataSource",
+        "toSymbol": "createGraphQlDataSource",
+        "callExpression": "createGraphQlDataSource",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "probeOpenApiCandidate",
+        "toSymbol": "fetch",
+        "callExpression": "input.fetch",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "probeOpenApiCandidate",
+        "toSymbol": "isSuccessfulStatus",
+        "callExpression": "isSuccessfulStatus",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "probeOpenApiCandidate",
+        "toSymbol": "parseJsonResponse",
+        "callExpression": "parseJsonResponse",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "probeOpenApiCandidate",
+        "toSymbol": "isOpenApiDocument",
+        "callExpression": "isOpenApiDocument",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "probeOpenApiCandidate",
+        "toSymbol": "importOpenApiDocument",
+        "callExpression": "importOpenApiDocument",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "parseJsonResponse",
+        "toSymbol": "text",
+        "callExpression": "response.text",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "isOpenApiDocument",
+        "toSymbol": "readRecord",
+        "callExpression": "readRecord",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "readGraphQlIntrospection",
+        "toSymbol": "readRecord",
+        "callExpression": "readRecord",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "readRecord",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/discovery/index.ts"
       },
       {
         "fromSymbol": "createGraphQlDataSource",
@@ -5135,6 +5951,81 @@
         "fromSymbol": "getDataSourceKind",
         "toType": "DataSourceKind",
         "sourcePath": "src/index.ts"
+      },
+      {
+        "fromSymbol": "discoverOpenApiDataSource",
+        "toType": "DiscoverOpenApiDataSourceInput",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "discoverOpenApiDataSource",
+        "toType": "DiscoverOpenApiDataSourceResult",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "introspectGraphQlDataSource",
+        "toType": "IntrospectGraphQlDataSourceInput",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "introspectGraphQlDataSource",
+        "toType": "IntrospectGraphQlDataSourceResult",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "ExternalApiFetchInit",
+        "toType": "GET",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "ExternalApiFetchInit",
+        "toType": "POST",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "ExternalApiFetchInit",
+        "toType": "Readonly",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "OpenApiDiscoveryAttempt",
+        "toType": "OpenApiDiscoveryAttemptOutcome",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "DiscoverOpenApiDataSourceInput",
+        "toType": "CredentialRef",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "DiscoverOpenApiDataSourceInput",
+        "toType": "DataContractValue",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "DiscoverOpenApiDataSourceInput",
+        "toType": "ExternalApiFetch",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "IntrospectGraphQlDataSourceInput",
+        "toType": "CredentialRef",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "IntrospectGraphQlDataSourceInput",
+        "toType": "DataContractValue",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "IntrospectGraphQlDataSourceInput",
+        "toType": "ExternalApiFetch",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "IntrospectGraphQlDataSourceInput",
+        "toType": "Readonly",
+        "sourcePath": "src/discovery/index.ts"
       },
       {
         "fromSymbol": "createGraphQlIntrospectionRequest",

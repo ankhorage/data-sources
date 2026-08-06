@@ -5,6 +5,12 @@ graph TD
   module_src_ankh_provider_ts["src/ankh.provider.ts"]
   package__ankhorage_data_sources -.-> module_src_ankh_provider_ts
   module_src_ankh_provider_ts --> module_src_index_ts
+  module_src_cli_index_ts["src/cli/index.ts"]
+  package__ankhorage_data_sources -.-> module_src_cli_index_ts
+  module_src_discovery_index_ts["src/discovery/index.ts"]
+  package__ankhorage_data_sources -.-> module_src_discovery_index_ts
+  module_src_discovery_index_ts --> module_src_graphql_index_ts
+  module_src_discovery_index_ts --> module_src_openapi_index_ts
   module_src_graphql_index_ts["src/graphql/index.ts"]
   package__ankhorage_data_sources -.-> module_src_graphql_index_ts
   module_src_index_ts["src/index.ts"]

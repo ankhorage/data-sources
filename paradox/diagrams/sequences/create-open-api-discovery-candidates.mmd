@@ -1,0 +1,8 @@
+sequenceDiagram
+  participant participant_createOpenApiDiscoveryCandidates as createOpenApiDiscoveryCandidates
+  participant participant_normalizeCandidateUrl as normalizeCandidateUrl
+  participant participant_parseHttpUrl as parseHttpUrl
+  participant_createOpenApiDiscoveryCandidates->>participant_parseHttpUrl: parseHttpUrl()
+  participant_parseHttpUrl-->>participant_createOpenApiDiscoveryCandidates: return
+  participant_createOpenApiDiscoveryCandidates->>participant_normalizeCandidateUrl: normalizeCandidateUrl()
+  participant_normalizeCandidateUrl-->>participant_createOpenApiDiscoveryCandidates: return

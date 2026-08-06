@@ -112,17 +112,30 @@ Source: `src/rest/index.ts:166:1`
   - definition: `ManualRestDataSourceDefinition`
   - returns: `DataSourceDiagnosticResult<RestDataSourceConfig>`
 
+## createOpenApiDiscoveryCandidates
+
+Kind: `function`
+Module: `src/discovery/index.ts`
+Source: `src/discovery/index.ts:103:1`
+
+### Signatures
+
+- `(rawUrl: string, conventionalPaths?: readonly string[]) => readonly string[]`
+  - conventionalPaths: `readonly string[]` (optional)
+  - rawUrl: `string`
+  - returns: `readonly string[]`
+
 ## DATA_SOURCES_PACKAGE_NAME
 
 Kind: `value`
 Module: `src/index.ts`
-Source: `src/index.ts:9:14`
+Source: `src/index.ts:10:14`
 
 ## DataSourcesPackageInfo
 
 Kind: `type`
 Module: `src/index.ts`
-Source: `src/index.ts:19:1`
+Source: `src/index.ts:20:1`
 
 ### Members
 
@@ -130,6 +143,50 @@ Source: `src/index.ts:19:1`
 | -------------- | -------- | -------------------------------------------------------------------- | -------- | ----------- |
 | packageName    | property | `"@ankhorage/data-sources"`                                          | yes      |             |
 | supportedKinds | property | `readonly ["database", "graphql", "managed-api", "openapi", "rest"]` | yes      |             |
+
+## DEFAULT_OPENAPI_DISCOVERY_PATHS
+
+Kind: `value`
+Module: `src/discovery/index.ts`
+Source: `src/discovery/index.ts:16:14`
+
+## discoverOpenApiDataSource
+
+Kind: `function`
+Module: `src/discovery/index.ts`
+Source: `src/discovery/index.ts:124:1`
+
+### Signatures
+
+- `(input: DiscoverOpenApiDataSourceInput) => Promise<DiscoverOpenApiDataSourceResult>`
+  - input: `DiscoverOpenApiDataSourceInput`
+  - returns: `Promise<DiscoverOpenApiDataSourceResult>`
+
+## DiscoverOpenApiDataSourceInput
+
+Kind: `type`
+Module: `src/discovery/index.ts`
+Source: `src/discovery/index.ts:53:1`
+
+### Members
+
+| Name              | Kind     | Type                             | Required | Description |
+| ----------------- | -------- | -------------------------------- | -------- | ----------- |
+| baseUrl           | property | `string \| undefined`            | no       |             |
+| conventionalPaths | property | `readonly string[] \| undefined` | no       |             |
+| credential        | property | `CredentialRef \| undefined`     | no       |             |
+| description       | property | `string \| undefined`            | no       |             |
+| fetch             | property | `ExternalApiFetch`               | yes      |             |
+| id                | property | `string`                         | yes      |             |
+| metadata          | property | `DataContractValue \| undefined` | no       |             |
+| name              | property | `string \| undefined`            | no       |             |
+| url               | property | `string`                         | yes      |             |
+
+## DiscoverOpenApiDataSourceResult
+
+Kind: `unknown`
+Module: `src/discovery/index.ts`
+Source: `src/discovery/index.ts:65:1`
 
 ## EndpointTestCredential
 
@@ -255,6 +312,39 @@ Kind: `unknown`
 Module: `src/test-runner/index.ts`
 Source: `src/test-runner/index.ts:71:1`
 
+## ExternalApiFetch
+
+Kind: `unknown`
+Module: `src/discovery/index.ts`
+Source: `src/discovery/index.ts:34:1`
+
+## ExternalApiFetchInit
+
+Kind: `type`
+Module: `src/discovery/index.ts`
+Source: `src/discovery/index.ts:23:1`
+
+### Members
+
+| Name    | Kind     | Type                               | Required | Description |
+| ------- | -------- | ---------------------------------- | -------- | ----------- |
+| body    | property | `string \| undefined`              | no       |             |
+| headers | property | `Readonly<Record<string, string>>` | yes      |             |
+| method  | property | `"GET" \| "POST"`                  | yes      |             |
+
+## ExternalApiFetchResponse
+
+Kind: `type`
+Module: `src/discovery/index.ts`
+Source: `src/discovery/index.ts:29:1`
+
+### Members
+
+| Name   | Kind     | Type                    | Required | Description |
+| ------ | -------- | ----------------------- | -------- | ----------- |
+| status | property | `number`                | yes      |             |
+| text   | method   | `() => Promise<string>` | yes      |             |
+
 ## extractRestPathParams
 
 Kind: `function`
@@ -271,7 +361,7 @@ Source: `src/rest/index.ts:68:1`
 
 Kind: `function`
 Module: `src/index.ts`
-Source: `src/index.ts:35:1`
+Source: `src/index.ts:36:1`
 
 ### Signatures
 
@@ -283,7 +373,7 @@ Source: `src/index.ts:35:1`
 
 Kind: `function`
 Module: `src/index.ts`
-Source: `src/index.ts:24:1`
+Source: `src/index.ts:25:1`
 
 ### Signatures
 
@@ -482,6 +572,44 @@ Source: `src/openapi/index.ts:126:1`
   - input: `OpenApiImportInput`
   - returns: `OpenApiImportResult`
 
+## introspectGraphQlDataSource
+
+Kind: `function`
+Module: `src/discovery/index.ts`
+Source: `src/discovery/index.ts:156:1`
+
+### Signatures
+
+- `(input: IntrospectGraphQlDataSourceInput) => Promise<IntrospectGraphQlDataSourceResult>`
+  - input: `IntrospectGraphQlDataSourceInput`
+  - returns: `Promise<IntrospectGraphQlDataSourceResult>`
+
+## IntrospectGraphQlDataSourceInput
+
+Kind: `type`
+Module: `src/discovery/index.ts`
+Source: `src/discovery/index.ts:79:1`
+
+### Members
+
+| Name          | Kind     | Type                                            | Required | Description |
+| ------------- | -------- | ----------------------------------------------- | -------- | ----------- |
+| credential    | property | `CredentialRef \| undefined`                    | no       |             |
+| description   | property | `string \| undefined`                           | no       |             |
+| endpointUrl   | property | `string`                                        | yes      |             |
+| fetch         | property | `ExternalApiFetch`                              | yes      |             |
+| headers       | property | `Readonly<Record<string, string>> \| undefined` | no       |             |
+| id            | property | `string`                                        | yes      |             |
+| metadata      | property | `DataContractValue \| undefined`                | no       |             |
+| name          | property | `string \| undefined`                           | no       |             |
+| schemaVersion | property | `string \| undefined`                           | no       |             |
+
+## IntrospectGraphQlDataSourceResult
+
+Kind: `unknown`
+Module: `src/discovery/index.ts`
+Source: `src/discovery/index.ts:91:1`
+
 ## isManualRestMethod
 
 Kind: `function`
@@ -498,7 +626,7 @@ Source: `src/rest/index.ts:60:1`
 
 Kind: `function`
 Module: `src/index.ts`
-Source: `src/index.ts:31:1`
+Source: `src/index.ts:32:1`
 
 ### Signatures
 
@@ -764,6 +892,26 @@ Source: `src/openapi/index.ts:95:1`
 | schemas         | property | `Readonly<Record<string, OpenApiSchemaObject>> \| undefined` | no       |             |
 | securitySchemes | property | `Readonly<Record<string, DataContractValue>> \| undefined`   | no       |             |
 
+## OpenApiDiscoveryAttempt
+
+Kind: `type`
+Module: `src/discovery/index.ts`
+Source: `src/discovery/index.ts:47:1`
+
+### Members
+
+| Name    | Kind     | Type                             | Required | Description |
+| ------- | -------- | -------------------------------- | -------- | ----------- |
+| outcome | property | `OpenApiDiscoveryAttemptOutcome` | yes      |             |
+| status  | property | `number \| undefined`            | no       |             |
+| url     | property | `string`                         | yes      |             |
+
+## OpenApiDiscoveryAttemptOutcome
+
+Kind: `unknown`
+Module: `src/discovery/index.ts`
+Source: `src/discovery/index.ts:39:1`
+
 ## OpenApiDocumentObject
 
 Kind: `type`
@@ -935,7 +1083,7 @@ Source: `src/openapi/index.ts:34:1`
 
 Kind: `value`
 Module: `src/index.ts`
-Source: `src/index.ts:11:14`
+Source: `src/index.ts:12:14`
 
 ## testEndpoint
 
