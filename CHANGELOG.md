@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 0.6.0
+
+### Minor Changes
+
+- 4922dcd: Add transport-injected OpenAPI URL discovery and GraphQL introspection primitives for canonical external data-source authoring.
+
 ## 0.5.5
 
 ### Patch Changes
