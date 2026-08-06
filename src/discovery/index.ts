@@ -318,7 +318,7 @@ function readGraphQlIntrospection(value: unknown): GraphQlIntrospectionResult | 
   const payload = readRecord(value);
   const data = readRecord(payload?.data);
   if (readRecord(data?.__schema) === undefined) return undefined;
-  return data as GraphQlIntrospectionResult;
+  return data;
 }
 
 function isRecord(value: unknown): value is Readonly<Record<string, unknown>> {
