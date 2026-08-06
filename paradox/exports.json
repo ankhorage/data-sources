@@ -311,6 +311,44 @@
     "structuredRows": []
   },
   {
+    "name": "createOpenApiDiscoveryCandidates",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/discovery/index.ts",
+    "sourceLocation": {
+      "filePath": "src/discovery/index.ts",
+      "line": 103,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(rawUrl: string, conventionalPaths?: readonly string[]) => readonly string[]",
+        "parameters": [
+          {
+            "name": "conventionalPaths",
+            "type": "readonly string[]",
+            "required": false,
+            "description": null
+          },
+          {
+            "name": "rawUrl",
+            "type": "string",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "readonly string[]",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "DATA_SOURCES_PACKAGE_NAME",
     "description": null,
     "isReadme": false,
@@ -319,7 +357,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 9,
+      "line": 10,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -337,7 +375,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 19,
+      "line": 20,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -359,6 +397,156 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "DEFAULT_OPENAPI_DISCOVERY_PATHS",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/discovery/index.ts",
+    "sourceLocation": {
+      "filePath": "src/discovery/index.ts",
+      "line": 16,
+      "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "discoverOpenApiDataSource",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/discovery/index.ts",
+    "sourceLocation": {
+      "filePath": "src/discovery/index.ts",
+      "line": 124,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DiscoverOpenApiDataSourceInput", "DiscoverOpenApiDataSourceResult"],
+    "signatures": [
+      {
+        "label": "(input: DiscoverOpenApiDataSourceInput) => Promise<DiscoverOpenApiDataSourceResult>",
+        "parameters": [
+          {
+            "name": "input",
+            "type": "DiscoverOpenApiDataSourceInput",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "Promise<DiscoverOpenApiDataSourceResult>",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DiscoverOpenApiDataSourceInput",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/discovery/index.ts",
+    "sourceLocation": {
+      "filePath": "src/discovery/index.ts",
+      "line": 53,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ExternalApiFetch"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "baseUrl",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "conventionalPaths",
+        "kind": "property",
+        "type": "readonly string[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "credential",
+        "kind": "property",
+        "type": "CredentialRef | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "fetch",
+        "kind": "property",
+        "type": "ExternalApiFetch",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "metadata",
+        "kind": "property",
+        "type": "DataContractValue | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DiscoverOpenApiDataSourceResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/discovery/index.ts",
+    "sourceLocation": {
+      "filePath": "src/discovery/index.ts",
+      "line": 65,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
     "structuredRows": []
   },
   {
@@ -762,6 +950,97 @@
     "structuredRows": []
   },
   {
+    "name": "ExternalApiFetch",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/discovery/index.ts",
+    "sourceLocation": {
+      "filePath": "src/discovery/index.ts",
+      "line": 34,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ExternalApiFetchInit",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/discovery/index.ts",
+    "sourceLocation": {
+      "filePath": "src/discovery/index.ts",
+      "line": 23,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "body",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "headers",
+        "kind": "property",
+        "type": "Readonly<Record<string, string>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "method",
+        "kind": "property",
+        "type": "\"GET\" | \"POST\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExternalApiFetchResponse",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/discovery/index.ts",
+    "sourceLocation": {
+      "filePath": "src/discovery/index.ts",
+      "line": 29,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "text",
+        "kind": "method",
+        "type": "() => Promise<string>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "extractRestPathParams",
     "description": null,
     "isReadme": false,
@@ -802,7 +1081,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 35,
+      "line": 36,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -834,7 +1113,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 24,
+      "line": 25,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1468,6 +1747,138 @@
     "structuredRows": []
   },
   {
+    "name": "introspectGraphQlDataSource",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/discovery/index.ts",
+    "sourceLocation": {
+      "filePath": "src/discovery/index.ts",
+      "line": 156,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["IntrospectGraphQlDataSourceInput", "IntrospectGraphQlDataSourceResult"],
+    "signatures": [
+      {
+        "label": "(input: IntrospectGraphQlDataSourceInput) => Promise<IntrospectGraphQlDataSourceResult>",
+        "parameters": [
+          {
+            "name": "input",
+            "type": "IntrospectGraphQlDataSourceInput",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "Promise<IntrospectGraphQlDataSourceResult>",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "IntrospectGraphQlDataSourceInput",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/discovery/index.ts",
+    "sourceLocation": {
+      "filePath": "src/discovery/index.ts",
+      "line": 79,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ExternalApiFetch"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "credential",
+        "kind": "property",
+        "type": "CredentialRef | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "endpointUrl",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "fetch",
+        "kind": "property",
+        "type": "ExternalApiFetch",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "headers",
+        "kind": "property",
+        "type": "Readonly<Record<string, string>> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "metadata",
+        "kind": "property",
+        "type": "DataContractValue | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "schemaVersion",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "IntrospectGraphQlDataSourceResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/discovery/index.ts",
+    "sourceLocation": {
+      "filePath": "src/discovery/index.ts",
+      "line": 91,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "isManualRestMethod",
     "description": null,
     "isReadme": false,
@@ -1508,7 +1919,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 31,
+      "line": 32,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2337,6 +2748,64 @@
     "structuredRows": []
   },
   {
+    "name": "OpenApiDiscoveryAttempt",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/discovery/index.ts",
+    "sourceLocation": {
+      "filePath": "src/discovery/index.ts",
+      "line": 47,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["OpenApiDiscoveryAttemptOutcome"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "outcome",
+        "kind": "property",
+        "type": "OpenApiDiscoveryAttemptOutcome",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "number | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "OpenApiDiscoveryAttemptOutcome",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/discovery/index.ts",
+    "sourceLocation": {
+      "filePath": "src/discovery/index.ts",
+      "line": 39,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "OpenApiDocumentObject",
     "description": null,
     "isReadme": false,
@@ -2924,7 +3393,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 11,
+      "line": 12,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],

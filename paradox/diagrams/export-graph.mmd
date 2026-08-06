@@ -1,5 +1,7 @@
 graph LR
   module_src_ankh_provider_ts["src/ankh.provider.ts"]
+  module_src_cli_index_ts["src/cli/index.ts"]
+  module_src_discovery_index_ts["src/discovery/index.ts"]
   module_src_graphql_index_ts["src/graphql/index.ts"]
   module_src_index_ts["src/index.ts"]
   module_src_managed_api_index_ts["src/managed-api/index.ts"]
@@ -34,10 +36,23 @@ graph LR
   export_createManualRestDataSource["createManualRestDataSource"]
   module_src_rest_index_ts --> export_createManualRestDataSource
   export_createManualRestDataSource -.-> export_ManualRestDataSourceDefinition
+  export_createOpenApiDiscoveryCandidates["createOpenApiDiscoveryCandidates"]
+  module_src_discovery_index_ts --> export_createOpenApiDiscoveryCandidates
   export_DATA_SOURCES_PACKAGE_NAME["DATA_SOURCES_PACKAGE_NAME"]
   module_src_index_ts --> export_DATA_SOURCES_PACKAGE_NAME
   export_DataSourcesPackageInfo["DataSourcesPackageInfo"]
   module_src_index_ts --> export_DataSourcesPackageInfo
+  export_DEFAULT_OPENAPI_DISCOVERY_PATHS["DEFAULT_OPENAPI_DISCOVERY_PATHS"]
+  module_src_discovery_index_ts --> export_DEFAULT_OPENAPI_DISCOVERY_PATHS
+  export_discoverOpenApiDataSource["discoverOpenApiDataSource"]
+  module_src_discovery_index_ts --> export_discoverOpenApiDataSource
+  export_discoverOpenApiDataSource -.-> export_DiscoverOpenApiDataSourceInput
+  export_discoverOpenApiDataSource -.-> export_DiscoverOpenApiDataSourceResult
+  export_DiscoverOpenApiDataSourceInput["DiscoverOpenApiDataSourceInput"]
+  module_src_discovery_index_ts --> export_DiscoverOpenApiDataSourceInput
+  export_DiscoverOpenApiDataSourceInput -.-> export_ExternalApiFetch
+  export_DiscoverOpenApiDataSourceResult["DiscoverOpenApiDataSourceResult"]
+  module_src_discovery_index_ts --> export_DiscoverOpenApiDataSourceResult
   export_EndpointTestCredential["EndpointTestCredential"]
   module_src_test_runner_index_ts --> export_EndpointTestCredential
   export_EndpointTestCredentialResolver["EndpointTestCredentialResolver"]
@@ -62,6 +77,12 @@ graph LR
   module_src_test_runner_index_ts --> export_EndpointTestResponseDiagnostic
   export_EndpointTestResult["EndpointTestResult"]
   module_src_test_runner_index_ts --> export_EndpointTestResult
+  export_ExternalApiFetch["ExternalApiFetch"]
+  module_src_discovery_index_ts --> export_ExternalApiFetch
+  export_ExternalApiFetchInit["ExternalApiFetchInit"]
+  module_src_discovery_index_ts --> export_ExternalApiFetchInit
+  export_ExternalApiFetchResponse["ExternalApiFetchResponse"]
+  module_src_discovery_index_ts --> export_ExternalApiFetchResponse
   export_extractRestPathParams["extractRestPathParams"]
   module_src_rest_index_ts --> export_extractRestPathParams
   export_getDataSourceKind["getDataSourceKind"]
@@ -112,6 +133,15 @@ graph LR
   module_src_openapi_index_ts --> export_importOpenApiDocument
   export_importOpenApiDocument -.-> export_OpenApiImportInput
   export_importOpenApiDocument -.-> export_OpenApiImportResult
+  export_introspectGraphQlDataSource["introspectGraphQlDataSource"]
+  module_src_discovery_index_ts --> export_introspectGraphQlDataSource
+  export_introspectGraphQlDataSource -.-> export_IntrospectGraphQlDataSourceInput
+  export_introspectGraphQlDataSource -.-> export_IntrospectGraphQlDataSourceResult
+  export_IntrospectGraphQlDataSourceInput["IntrospectGraphQlDataSourceInput"]
+  module_src_discovery_index_ts --> export_IntrospectGraphQlDataSourceInput
+  export_IntrospectGraphQlDataSourceInput -.-> export_ExternalApiFetch
+  export_IntrospectGraphQlDataSourceResult["IntrospectGraphQlDataSourceResult"]
+  module_src_discovery_index_ts --> export_IntrospectGraphQlDataSourceResult
   export_isManualRestMethod["isManualRestMethod"]
   module_src_rest_index_ts --> export_isManualRestMethod
   export_isSupportedDataSourceKind["isSupportedDataSourceKind"]
@@ -169,6 +199,11 @@ graph LR
   export_OpenApiComponentsObject["OpenApiComponentsObject"]
   module_src_openapi_index_ts --> export_OpenApiComponentsObject
   export_OpenApiComponentsObject -.-> export_OpenApiSchemaObject
+  export_OpenApiDiscoveryAttempt["OpenApiDiscoveryAttempt"]
+  module_src_discovery_index_ts --> export_OpenApiDiscoveryAttempt
+  export_OpenApiDiscoveryAttempt -.-> export_OpenApiDiscoveryAttemptOutcome
+  export_OpenApiDiscoveryAttemptOutcome["OpenApiDiscoveryAttemptOutcome"]
+  module_src_discovery_index_ts --> export_OpenApiDiscoveryAttemptOutcome
   export_OpenApiDocumentObject["OpenApiDocumentObject"]
   module_src_openapi_index_ts --> export_OpenApiDocumentObject
   export_OpenApiDocumentObject -.-> export_OpenApiComponentsObject
