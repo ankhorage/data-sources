@@ -321,10 +321,12 @@ function readGraphQlIntrospection(value: unknown): GraphQlIntrospectionResult | 
   return data as GraphQlIntrospectionResult;
 }
 
+function isRecord(value: unknown): value is Readonly<Record<string, unknown>> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
 function readRecord(value: unknown): Readonly<Record<string, unknown>> | undefined {
-  return typeof value === 'object' && value !== null && !Array.isArray(value)
-    ? (value as Readonly<Record<string, unknown>>)
-    : undefined;
+  return isRecord(value) ? value : undefined;
 }
 
 function discoveryFailure(
