@@ -1,39 +1,46 @@
-import type { RestDataSourceConfig } from '@ankhorage/contracts/data';
+import type { ExternalRestApiDataSourceConfig } from '@ankhorage/contracts/data';
 import { describe, expect, it } from 'bun:test';
 
 import {
   DATA_SOURCES_PACKAGE_NAME,
   getDataSourceKind,
   getDataSourcesPackageInfo,
+  isSupportedApiOrigin,
+  isSupportedApiProtocol,
   isSupportedDataSourceKind,
-  SUPPORTED_DATA_SOURCE_KINDS,
 } from './index';
 
-describe('data-sources package baseline', () => {
-  it('exports package metadata', () => {
-    const info = getDataSourcesPackageInfo();
-
-    expect(info.packageName).toBe(DATA_SOURCES_PACKAGE_NAME);
-    expect(info.supportedKinds).toEqual(SUPPORTED_DATA_SOURCE_KINDS);
+describe('data-sources package model', () => {
+  it('exports orthogonal package capabilities', () => {
+    expect(getDataSourcesPackageInfo()).toEqual({
+      packageName: DATA_SOURCES_PACKAGE_NAME,
+      supportedKinds: ['api', 'database'],
+      supportedApiOrigins: ['external', 'generated'],
+      supportedApiProtocols: ['graphql', 'rest'],
+    });
   });
 
-  it('recognizes supported shared contract data-source kinds', () => {
-    expect(isSupportedDataSourceKind('rest')).toBe(true);
-    expect(isSupportedDataSourceKind('openapi')).toBe(true);
-    expect(isSupportedDataSourceKind('graphql')).toBe(true);
-    expect(isSupportedDataSourceKind('managed-api')).toBe(true);
+  it('recognizes only canonical source dimensions', () => {
+    expect(isSupportedDataSourceKind('api')).toBe(true);
     expect(isSupportedDataSourceKind('database')).toBe(true);
-    expect(isSupportedDataSourceKind('studio')).toBe(false);
+    expect(isSupportedDataSourceKind('managed-api')).toBe(false);
+    expect(isSupportedDataSourceKind('openapi')).toBe(false);
+    expect(isSupportedApiOrigin('external')).toBe(true);
+    expect(isSupportedApiOrigin('generated')).toBe(true);
+    expect(isSupportedApiProtocol('rest')).toBe(true);
+    expect(isSupportedApiProtocol('graphql')).toBe(true);
   });
 
-  it('consumes data-source contracts from @ankhorage/contracts', () => {
-    const source: RestDataSourceConfig = {
+  it('consumes canonical contracts from @ankhorage/contracts', () => {
+    const source: ExternalRestApiDataSourceConfig = {
       id: 'cms',
-      kind: 'rest',
+      kind: 'api',
+      origin: 'external',
+      protocol: 'rest',
       baseUrl: 'https://cms.example.com',
       endpoints: {},
     };
 
-    expect(getDataSourceKind(source)).toBe('rest');
+    expect(getDataSourceKind(source)).toBe('api');
   });
 });

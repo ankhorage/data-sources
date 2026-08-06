@@ -8,7 +8,7 @@
     "modulePath": "src/test-runner/index.ts",
     "sourceLocation": {
       "filePath": "src/test-runner/index.ts",
-      "line": 157,
+      "line": 140,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -32,31 +32,31 @@
     "structuredRows": []
   },
   {
-    "name": "createGraphQlDataSource",
+    "name": "createGeneratedApiDataSource",
     "description": null,
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/generated-api/index.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 144,
+      "filePath": "src/generated-api/index.ts",
+      "line": 24,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlDataSourceDefinition"],
+    "relatedSymbols": [],
     "signatures": [
       {
-        "label": "(definition: GraphQlDataSourceDefinition) => DataSourceDiagnosticResult<GraphQlDataSourceConfig>",
+        "label": "(definition: GeneratedApiDefinition) => DataSourceDiagnosticResult<GeneratedRestApiDataSourceConfig>",
         "parameters": [
           {
             "name": "definition",
-            "type": "GraphQlDataSourceDefinition",
+            "type": "GeneratedApiDefinition",
             "required": true,
             "description": null
           }
         ],
-        "returnType": "DataSourceDiagnosticResult<GraphQlDataSourceConfig>",
+        "returnType": "DataSourceDiagnosticResult<GeneratedRestApiDataSourceConfig>",
         "returnDescription": null
       }
     ],
@@ -64,95 +64,32 @@
     "structuredRows": []
   },
   {
-    "name": "createGraphQlIntrospectionRequest",
+    "name": "createGeneratedApiEndpoint",
     "description": null,
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/generated-api/index.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 128,
+      "filePath": "src/generated-api/index.ts",
+      "line": 98,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlIntrospectionRequest"],
+    "relatedSymbols": [],
     "signatures": [
       {
-        "label": "() => GraphQlIntrospectionRequest",
-        "parameters": [],
-        "returnType": "GraphQlIntrospectionRequest",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "createManagedApiDataSource",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "function",
-    "modulePath": "src/managed-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/managed-api/index.ts",
-      "line": 45,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManagedApiGenerationDefinition"],
-    "signatures": [
-      {
-        "label": "(definition: ManagedApiGenerationDefinition) => DataSourceDiagnosticResult<ManagedApiDataSourceConfig>",
+        "label": "(definition: GeneratedApiDefinition, resource: GeneratedApiResourceDefinition) => DataEndpointConfig",
         "parameters": [
           {
             "name": "definition",
-            "type": "ManagedApiGenerationDefinition",
+            "type": "GeneratedApiDefinition",
             "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "DataSourceDiagnosticResult<ManagedApiDataSourceConfig>",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "createManagedApiEndpoint",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "function",
-    "modulePath": "src/managed-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/managed-api/index.ts",
-      "line": 151,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManagedApiGenerationDefinition", "ManagedApiGenerationResourceDefinition"],
-    "signatures": [
-      {
-        "label": "(definition: ManagedApiGenerationDefinition, resource: ManagedApiGenerationResourceDefinition, operations?: readonly (\"list\" | \"read\" | \"create\" | \"update\" | \"delete\")[]) => DataEndpointConfig",
-        "parameters": [
-          {
-            "name": "definition",
-            "type": "ManagedApiGenerationDefinition",
-            "required": true,
-            "description": null
-          },
-          {
-            "name": "operations",
-            "type": "readonly (\"list\" | \"read\" | \"create\" | \"update\" | \"delete\")[]",
-            "required": false,
             "description": null
           },
           {
             "name": "resource",
-            "type": "ManagedApiGenerationResourceDefinition",
+            "type": "GeneratedApiResourceDefinition",
             "required": true,
             "description": null
           }
@@ -165,26 +102,26 @@
     "structuredRows": []
   },
   {
-    "name": "createManagedApiOperation",
+    "name": "createGeneratedApiOperation",
     "description": null,
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/managed-api/index.ts",
+    "modulePath": "src/generated-api/index.ts",
     "sourceLocation": {
-      "filePath": "src/managed-api/index.ts",
-      "line": 176,
+      "filePath": "src/generated-api/index.ts",
+      "line": 120,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManagedApiGenerationDefinition", "ManagedApiGenerationResourceDefinition"],
+    "relatedSymbols": [],
     "signatures": [
       {
-        "label": "(definition: ManagedApiGenerationDefinition, resource: ManagedApiGenerationResourceDefinition, operation: \"list\" | \"read\" | \"create\" | \"update\" | \"delete\") => DataOperationConfig",
+        "label": "(definition: GeneratedApiDefinition, resource: GeneratedApiResourceDefinition, operation: \"list\" | \"read\" | \"create\" | \"update\" | \"delete\") => DataOperationConfig",
         "parameters": [
           {
             "name": "definition",
-            "type": "ManagedApiGenerationDefinition",
+            "type": "GeneratedApiDefinition",
             "required": true,
             "description": null
           },
@@ -196,7 +133,7 @@
           },
           {
             "name": "resource",
-            "type": "ManagedApiGenerationResourceDefinition",
+            "type": "GeneratedApiResourceDefinition",
             "required": true,
             "description": null
           }
@@ -209,22 +146,22 @@
     "structuredRows": []
   },
   {
-    "name": "createManagedApiOperationId",
+    "name": "createGeneratedApiOperationId",
     "description": null,
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/managed-api/index.ts",
+    "modulePath": "src/generated-api/index.ts",
     "sourceLocation": {
-      "filePath": "src/managed-api/index.ts",
-      "line": 210,
+      "filePath": "src/generated-api/index.ts",
+      "line": 147,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [
       {
-        "label": "(resourceName: string, operation: \"list\" | \"read\" | \"create\" | \"update\" | \"delete\") => string",
+        "label": "(resourceId: string, operation: \"list\" | \"read\" | \"create\" | \"update\" | \"delete\") => string",
         "parameters": [
           {
             "name": "operation",
@@ -233,7 +170,7 @@
             "description": null
           },
           {
-            "name": "resourceName",
+            "name": "resourceId",
             "type": "string",
             "required": true,
             "description": null
@@ -247,15 +184,15 @@
     "structuredRows": []
   },
   {
-    "name": "createManagedApiResourceSchema",
+    "name": "createGeneratedApiResourceSchema",
     "description": null,
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/managed-api/index.ts",
+    "modulePath": "src/generated-api/index.ts",
     "sourceLocation": {
-      "filePath": "src/managed-api/index.ts",
-      "line": 217,
+      "filePath": "src/generated-api/index.ts",
+      "line": 154,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -279,6 +216,63 @@
     "structuredRows": []
   },
   {
+    "name": "createGraphQlDataSource",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 142,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["GraphQlDataSourceDefinition"],
+    "signatures": [
+      {
+        "label": "(definition: GraphQlDataSourceDefinition) => DataSourceDiagnosticResult<ExternalGraphQlApiDataSourceConfig>",
+        "parameters": [
+          {
+            "name": "definition",
+            "type": "GraphQlDataSourceDefinition",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "DataSourceDiagnosticResult<ExternalGraphQlApiDataSourceConfig>",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "createGraphQlIntrospectionRequest",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/graphql/index.ts",
+    "sourceLocation": {
+      "filePath": "src/graphql/index.ts",
+      "line": 127,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["GraphQlIntrospectionRequest"],
+    "signatures": [
+      {
+        "label": "() => GraphQlIntrospectionRequest",
+        "parameters": [],
+        "returnType": "GraphQlIntrospectionRequest",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "createManualRestDataSource",
     "description": null,
     "isReadme": false,
@@ -287,14 +281,14 @@
     "modulePath": "src/rest/index.ts",
     "sourceLocation": {
       "filePath": "src/rest/index.ts",
-      "line": 166,
+      "line": 121,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
     "relatedSymbols": ["ManualRestDataSourceDefinition"],
     "signatures": [
       {
-        "label": "(definition: ManualRestDataSourceDefinition) => DataSourceDiagnosticResult<RestDataSourceConfig>",
+        "label": "(definition: ManualRestDataSourceDefinition) => DataSourceDiagnosticResult<ExternalRestApiDataSourceConfig>",
         "parameters": [
           {
             "name": "definition",
@@ -303,7 +297,7 @@
             "description": null
           }
         ],
-        "returnType": "DataSourceDiagnosticResult<RestDataSourceConfig>",
+        "returnType": "DataSourceDiagnosticResult<ExternalRestApiDataSourceConfig>",
         "returnDescription": null
       }
     ],
@@ -357,7 +351,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 10,
+      "line": 15,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -375,7 +369,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 20,
+      "line": 29,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -390,9 +384,23 @@
         "description": null
       },
       {
+        "name": "supportedApiOrigins",
+        "kind": "property",
+        "type": "readonly [\"external\", \"generated\"]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "supportedApiProtocols",
+        "kind": "property",
+        "type": "readonly [\"graphql\", \"rest\"]",
+        "required": true,
+        "description": null
+      },
+      {
         "name": "supportedKinds",
         "kind": "property",
-        "type": "readonly [\"database\", \"graphql\", \"managed-api\", \"openapi\", \"rest\"]",
+        "type": "readonly [\"api\", \"database\"]",
         "required": true,
         "description": null
       }
@@ -1081,7 +1089,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 36,
+      "line": 57,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1113,7 +1121,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 25,
+      "line": 36,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1123,38 +1131,6 @@
         "label": "() => DataSourcesPackageInfo",
         "parameters": [],
         "returnType": "DataSourcesPackageInfo",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "getManagedApiOperations",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "function",
-    "modulePath": "src/managed-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/managed-api/index.ts",
-      "line": 204,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManagedApiGenerationResourceDefinition"],
-    "signatures": [
-      {
-        "label": "(resource: ManagedApiGenerationResourceDefinition) => readonly (\"list\" | \"read\" | \"create\" | \"update\" | \"delete\")[]",
-        "parameters": [
-          {
-            "name": "resource",
-            "type": "ManagedApiGenerationResourceDefinition",
-            "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "readonly (\"list\" | \"read\" | \"create\" | \"update\" | \"delete\")[]",
         "returnDescription": null
       }
     ],
@@ -1188,7 +1164,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 110,
+      "line": 109,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1277,7 +1253,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 72,
+      "line": 71,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1310,7 +1286,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 65,
+      "line": 64,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1357,7 +1333,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 58,
+      "line": 57,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1404,7 +1380,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 123,
+      "line": 122,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1437,7 +1413,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 94,
+      "line": 93,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1463,7 +1439,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 87,
+      "line": 86,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1510,7 +1486,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 77,
+      "line": 76,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1583,7 +1559,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 52,
+      "line": 51,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1623,7 +1599,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 98,
+      "line": 97,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1755,7 +1731,7 @@
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 156,
+      "line": 155,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1911,6 +1887,70 @@
     "structuredRows": []
   },
   {
+    "name": "isSupportedApiOrigin",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/index.ts",
+    "sourceLocation": {
+      "filePath": "src/index.ts",
+      "line": 49,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(origin: string) => boolean",
+        "parameters": [
+          {
+            "name": "origin",
+            "type": "string",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "isSupportedApiProtocol",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/index.ts",
+    "sourceLocation": {
+      "filePath": "src/index.ts",
+      "line": 53,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(protocol: string) => boolean",
+        "parameters": [
+          {
+            "name": "protocol",
+            "type": "string",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "isSupportedDataSourceKind",
     "description": null,
     "isReadme": false,
@@ -1919,7 +1959,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 32,
+      "line": 45,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1940,176 +1980,6 @@
       }
     ],
     "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "MANAGED_API_CRUD_OPERATIONS",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "value",
-    "modulePath": "src/managed-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/managed-api/index.ts",
-      "line": 21,
-      "column": 14
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "ManagedApiCrudOperation",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/managed-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/managed-api/index.ts",
-      "line": 23,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "ManagedApiGenerationDefinition",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "type",
-    "modulePath": "src/managed-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/managed-api/index.ts",
-      "line": 37,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManagedApiGenerationResourceDefinition"],
-    "signatures": [],
-    "members": [
-      {
-        "name": "adapter",
-        "kind": "property",
-        "type": "AdapterRef",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "description",
-        "kind": "property",
-        "type": "string | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "id",
-        "kind": "property",
-        "type": "string",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "name",
-        "kind": "property",
-        "type": "string | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "resources",
-        "kind": "property",
-        "type": "readonly ManagedApiGenerationResourceDefinition[]",
-        "required": true,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
-    "name": "ManagedApiGenerationResourceDefinition",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "type",
-    "modulePath": "src/managed-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/managed-api/index.ts",
-      "line": 30,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManagedApiOperationPolicyRef"],
-    "signatures": [],
-    "members": [
-      {
-        "name": "collection",
-        "kind": "property",
-        "type": "DbCollectionDefinition",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "name",
-        "kind": "property",
-        "type": "string",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "operations",
-        "kind": "property",
-        "type": "readonly (\"list\" | \"read\" | \"create\" | \"update\" | \"delete\")[] | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "policies",
-        "kind": "property",
-        "type": "readonly ManagedApiOperationPolicyRef[] | undefined",
-        "required": false,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
-    "name": "ManagedApiOperationPolicyRef",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "type",
-    "modulePath": "src/managed-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/managed-api/index.ts",
-      "line": 25,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [
-      {
-        "name": "id",
-        "kind": "property",
-        "type": "string",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "operation",
-        "kind": "property",
-        "type": "string | undefined",
-        "required": false,
-        "description": null
-      }
-    ],
     "structuredRows": []
   },
   {
@@ -2377,6 +2247,38 @@
     "structuredRows": []
   },
   {
+    "name": "normalizeGeneratedApiDataSource",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/generated-api/index.ts",
+    "sourceLocation": {
+      "filePath": "src/generated-api/index.ts",
+      "line": 72,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(definition: GeneratedApiDefinition) => GeneratedRestApiDataSourceConfig",
+        "parameters": [
+          {
+            "name": "definition",
+            "type": "GeneratedApiDefinition",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "GeneratedRestApiDataSourceConfig",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "normalizeGraphQlDataSource",
     "description": null,
     "isReadme": false,
@@ -2385,14 +2287,14 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 198,
+      "line": 196,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
     "relatedSymbols": ["GraphQlDataSourceDefinition"],
     "signatures": [
       {
-        "label": "(definition: GraphQlDataSourceDefinition) => GraphQlDataSourceConfig",
+        "label": "(definition: GraphQlDataSourceDefinition) => ExternalGraphQlApiDataSourceConfig",
         "parameters": [
           {
             "name": "definition",
@@ -2401,7 +2303,7 @@
             "description": null
           }
         ],
-        "returnType": "GraphQlDataSourceConfig",
+        "returnType": "ExternalGraphQlApiDataSourceConfig",
         "returnDescription": null
       }
     ],
@@ -2417,7 +2319,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 256,
+      "line": 249,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2449,7 +2351,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 240,
+      "line": 235,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2481,7 +2383,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 135,
+      "line": 134,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2511,38 +2413,6 @@
     "structuredRows": []
   },
   {
-    "name": "normalizeManagedApiDataSource",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "function",
-    "modulePath": "src/managed-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/managed-api/index.ts",
-      "line": 118,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManagedApiGenerationDefinition"],
-    "signatures": [
-      {
-        "label": "(definition: ManagedApiGenerationDefinition) => ManagedApiDataSourceConfig",
-        "parameters": [
-          {
-            "name": "definition",
-            "type": "ManagedApiGenerationDefinition",
-            "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "ManagedApiDataSourceConfig",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
     "name": "normalizeManualRestDataSource",
     "description": null,
     "isReadme": false,
@@ -2551,14 +2421,14 @@
     "modulePath": "src/rest/index.ts",
     "sourceLocation": {
       "filePath": "src/rest/index.ts",
-      "line": 183,
+      "line": 136,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
     "relatedSymbols": ["ManualRestDataSourceDefinition"],
     "signatures": [
       {
-        "label": "(definition: ManualRestDataSourceDefinition) => RestDataSourceConfig",
+        "label": "(definition: ManualRestDataSourceDefinition) => ExternalRestApiDataSourceConfig",
         "parameters": [
           {
             "name": "definition",
@@ -2567,7 +2437,7 @@
             "description": null
           }
         ],
-        "returnType": "RestDataSourceConfig",
+        "returnType": "ExternalRestApiDataSourceConfig",
         "returnDescription": null
       }
     ],
@@ -2647,7 +2517,7 @@
     "modulePath": "src/openapi/index.ts",
     "sourceLocation": {
       "filePath": "src/openapi/index.ts",
-      "line": 163,
+      "line": 164,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2691,7 +2561,7 @@
     "modulePath": "src/openapi/index.ts",
     "sourceLocation": {
       "filePath": "src/openapi/index.ts",
-      "line": 188,
+      "line": 187,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3385,6 +3255,42 @@
     "structuredRows": []
   },
   {
+    "name": "SUPPORTED_API_ORIGINS",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/index.ts",
+    "sourceLocation": {
+      "filePath": "src/index.ts",
+      "line": 20,
+      "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "SUPPORTED_API_PROTOCOLS",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/index.ts",
+    "sourceLocation": {
+      "filePath": "src/index.ts",
+      "line": 24,
+      "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "SUPPORTED_DATA_SOURCE_KINDS",
     "description": null,
     "isReadme": false,
@@ -3393,7 +3299,7 @@
     "modulePath": "src/index.ts",
     "sourceLocation": {
       "filePath": "src/index.ts",
-      "line": 12,
+      "line": 16,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -3435,26 +3341,26 @@
     "structuredRows": []
   },
   {
-    "name": "validateGraphQlDataSource",
+    "name": "validateGeneratedApiDefinition",
     "description": null,
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/generated-api/index.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 159,
+      "filePath": "src/generated-api/index.ts",
+      "line": 39,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlDataSourceDefinition"],
+    "relatedSymbols": [],
     "signatures": [
       {
-        "label": "(definition: GraphQlDataSourceDefinition) => readonly DataSourceDiagnostic[]",
+        "label": "(definition: GeneratedApiDefinition) => readonly DataSourceDiagnostic[]",
         "parameters": [
           {
             "name": "definition",
-            "type": "GraphQlDataSourceDefinition",
+            "type": "GeneratedApiDefinition",
             "required": true,
             "description": null
           }
@@ -3467,26 +3373,26 @@
     "structuredRows": []
   },
   {
-    "name": "validateManagedApiDefinition",
+    "name": "validateGraphQlDataSource",
     "description": null,
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/managed-api/index.ts",
+    "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
-      "filePath": "src/managed-api/index.ts",
-      "line": 60,
+      "filePath": "src/graphql/index.ts",
+      "line": 157,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManagedApiGenerationDefinition"],
+    "relatedSymbols": ["GraphQlDataSourceDefinition"],
     "signatures": [
       {
-        "label": "(definition: ManagedApiGenerationDefinition) => readonly DataSourceDiagnostic[]",
+        "label": "(definition: GraphQlDataSourceDefinition) => readonly DataSourceDiagnostic[]",
         "parameters": [
           {
             "name": "definition",
-            "type": "ManagedApiGenerationDefinition",
+            "type": "GraphQlDataSourceDefinition",
             "required": true,
             "description": null
           }

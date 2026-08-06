@@ -4,7 +4,7 @@
 
 Kind: `function`
 Module: `src/test-runner/index.ts`
-Source: `src/test-runner/index.ts:157:1`
+Source: `src/test-runner/index.ts:140:1`
 
 ### Signatures
 
@@ -12,87 +12,63 @@ Source: `src/test-runner/index.ts:157:1`
   - input: `EndpointTestInput`
   - returns: `Promise<EndpointTestResult>`
 
-## createGraphQlDataSource
+## createGeneratedApiDataSource
 
 Kind: `function`
-Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:144:1`
+Module: `src/generated-api/index.ts`
+Source: `src/generated-api/index.ts:24:1`
 
 ### Signatures
 
-- `(definition: GraphQlDataSourceDefinition) => DataSourceDiagnosticResult<GraphQlDataSourceConfig>`
-  - definition: `GraphQlDataSourceDefinition`
-  - returns: `DataSourceDiagnosticResult<GraphQlDataSourceConfig>`
+- `(definition: GeneratedApiDefinition) => DataSourceDiagnosticResult<GeneratedRestApiDataSourceConfig>`
+  - definition: `GeneratedApiDefinition`
+  - returns: `DataSourceDiagnosticResult<GeneratedRestApiDataSourceConfig>`
 
-## createGraphQlIntrospectionRequest
+## createGeneratedApiEndpoint
 
 Kind: `function`
-Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:128:1`
+Module: `src/generated-api/index.ts`
+Source: `src/generated-api/index.ts:98:1`
 
 ### Signatures
 
-- `() => GraphQlIntrospectionRequest`
-  - returns: `GraphQlIntrospectionRequest`
-
-## createManagedApiDataSource
-
-Kind: `function`
-Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:45:1`
-
-### Signatures
-
-- `(definition: ManagedApiGenerationDefinition) => DataSourceDiagnosticResult<ManagedApiDataSourceConfig>`
-  - definition: `ManagedApiGenerationDefinition`
-  - returns: `DataSourceDiagnosticResult<ManagedApiDataSourceConfig>`
-
-## createManagedApiEndpoint
-
-Kind: `function`
-Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:151:1`
-
-### Signatures
-
-- `(definition: ManagedApiGenerationDefinition, resource: ManagedApiGenerationResourceDefinition, operations?: readonly ("list" | "read" | "create" | "update" | "delete")[]) => DataEndpointConfig`
-  - definition: `ManagedApiGenerationDefinition`
-  - operations: `readonly ("list" | "read" | "create" | "update" | "delete")[]` (optional)
-  - resource: `ManagedApiGenerationResourceDefinition`
+- `(definition: GeneratedApiDefinition, resource: GeneratedApiResourceDefinition) => DataEndpointConfig`
+  - definition: `GeneratedApiDefinition`
+  - resource: `GeneratedApiResourceDefinition`
   - returns: `DataEndpointConfig`
 
-## createManagedApiOperation
+## createGeneratedApiOperation
 
 Kind: `function`
-Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:176:1`
+Module: `src/generated-api/index.ts`
+Source: `src/generated-api/index.ts:120:1`
 
 ### Signatures
 
-- `(definition: ManagedApiGenerationDefinition, resource: ManagedApiGenerationResourceDefinition, operation: "list" | "read" | "create" | "update" | "delete") => DataOperationConfig`
-  - definition: `ManagedApiGenerationDefinition`
+- `(definition: GeneratedApiDefinition, resource: GeneratedApiResourceDefinition, operation: "list" | "read" | "create" | "update" | "delete") => DataOperationConfig`
+  - definition: `GeneratedApiDefinition`
   - operation: `"list" | "read" | "create" | "update" | "delete"`
-  - resource: `ManagedApiGenerationResourceDefinition`
+  - resource: `GeneratedApiResourceDefinition`
   - returns: `DataOperationConfig`
 
-## createManagedApiOperationId
+## createGeneratedApiOperationId
 
 Kind: `function`
-Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:210:1`
+Module: `src/generated-api/index.ts`
+Source: `src/generated-api/index.ts:147:1`
 
 ### Signatures
 
-- `(resourceName: string, operation: "list" | "read" | "create" | "update" | "delete") => string`
+- `(resourceId: string, operation: "list" | "read" | "create" | "update" | "delete") => string`
   - operation: `"list" | "read" | "create" | "update" | "delete"`
-  - resourceName: `string`
+  - resourceId: `string`
   - returns: `string`
 
-## createManagedApiResourceSchema
+## createGeneratedApiResourceSchema
 
 Kind: `function`
-Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:217:1`
+Module: `src/generated-api/index.ts`
+Source: `src/generated-api/index.ts:154:1`
 
 ### Signatures
 
@@ -100,17 +76,40 @@ Source: `src/managed-api/index.ts:217:1`
   - collection: `DbCollectionDefinition`
   - returns: `DataSchema`
 
+## createGraphQlDataSource
+
+Kind: `function`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:142:1`
+
+### Signatures
+
+- `(definition: GraphQlDataSourceDefinition) => DataSourceDiagnosticResult<ExternalGraphQlApiDataSourceConfig>`
+  - definition: `GraphQlDataSourceDefinition`
+  - returns: `DataSourceDiagnosticResult<ExternalGraphQlApiDataSourceConfig>`
+
+## createGraphQlIntrospectionRequest
+
+Kind: `function`
+Module: `src/graphql/index.ts`
+Source: `src/graphql/index.ts:127:1`
+
+### Signatures
+
+- `() => GraphQlIntrospectionRequest`
+  - returns: `GraphQlIntrospectionRequest`
+
 ## createManualRestDataSource
 
 Kind: `function`
 Module: `src/rest/index.ts`
-Source: `src/rest/index.ts:166:1`
+Source: `src/rest/index.ts:121:1`
 
 ### Signatures
 
-- `(definition: ManualRestDataSourceDefinition) => DataSourceDiagnosticResult<RestDataSourceConfig>`
+- `(definition: ManualRestDataSourceDefinition) => DataSourceDiagnosticResult<ExternalRestApiDataSourceConfig>`
   - definition: `ManualRestDataSourceDefinition`
-  - returns: `DataSourceDiagnosticResult<RestDataSourceConfig>`
+  - returns: `DataSourceDiagnosticResult<ExternalRestApiDataSourceConfig>`
 
 ## createOpenApiDiscoveryCandidates
 
@@ -129,20 +128,22 @@ Source: `src/discovery/index.ts:103:1`
 
 Kind: `value`
 Module: `src/index.ts`
-Source: `src/index.ts:10:14`
+Source: `src/index.ts:15:14`
 
 ## DataSourcesPackageInfo
 
 Kind: `type`
 Module: `src/index.ts`
-Source: `src/index.ts:20:1`
+Source: `src/index.ts:29:1`
 
 ### Members
 
-| Name           | Kind     | Type                                                                 | Required | Description |
-| -------------- | -------- | -------------------------------------------------------------------- | -------- | ----------- |
-| packageName    | property | `"@ankhorage/data-sources"`                                          | yes      |             |
-| supportedKinds | property | `readonly ["database", "graphql", "managed-api", "openapi", "rest"]` | yes      |             |
+| Name                  | Kind     | Type                                 | Required | Description |
+| --------------------- | -------- | ------------------------------------ | -------- | ----------- |
+| packageName           | property | `"@ankhorage/data-sources"`          | yes      |             |
+| supportedApiOrigins   | property | `readonly ["external", "generated"]` | yes      |             |
+| supportedApiProtocols | property | `readonly ["graphql", "rest"]`       | yes      |             |
+| supportedKinds        | property | `readonly ["api", "database"]`       | yes      |             |
 
 ## DEFAULT_OPENAPI_DISCOVERY_PATHS
 
@@ -361,7 +362,7 @@ Source: `src/rest/index.ts:68:1`
 
 Kind: `function`
 Module: `src/index.ts`
-Source: `src/index.ts:36:1`
+Source: `src/index.ts:57:1`
 
 ### Signatures
 
@@ -373,24 +374,12 @@ Source: `src/index.ts:36:1`
 
 Kind: `function`
 Module: `src/index.ts`
-Source: `src/index.ts:25:1`
+Source: `src/index.ts:36:1`
 
 ### Signatures
 
 - `() => DataSourcesPackageInfo`
   - returns: `DataSourcesPackageInfo`
-
-## getManagedApiOperations
-
-Kind: `function`
-Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:204:1`
-
-### Signatures
-
-- `(resource: ManagedApiGenerationResourceDefinition) => readonly ("list" | "read" | "create" | "update" | "delete")[]`
-  - resource: `ManagedApiGenerationResourceDefinition`
-  - returns: `readonly ("list" | "read" | "create" | "update" | "delete")[]`
 
 ## GRAPHQL_INTROSPECTION_QUERY
 
@@ -402,7 +391,7 @@ Source: `src/graphql/index.ts:16:14`
 
 Kind: `type`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:110:1`
+Source: `src/graphql/index.ts:109:1`
 
 ### Members
 
@@ -423,7 +412,7 @@ Source: `src/graphql/index.ts:110:1`
 
 Kind: `type`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:72:1`
+Source: `src/graphql/index.ts:71:1`
 
 ### Members
 
@@ -436,7 +425,7 @@ Source: `src/graphql/index.ts:72:1`
 
 Kind: `type`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:65:1`
+Source: `src/graphql/index.ts:64:1`
 
 ### Members
 
@@ -451,7 +440,7 @@ Source: `src/graphql/index.ts:65:1`
 
 Kind: `type`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:58:1`
+Source: `src/graphql/index.ts:57:1`
 
 ### Members
 
@@ -466,7 +455,7 @@ Source: `src/graphql/index.ts:58:1`
 
 Kind: `type`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:123:1`
+Source: `src/graphql/index.ts:122:1`
 
 ### Members
 
@@ -479,7 +468,7 @@ Source: `src/graphql/index.ts:123:1`
 
 Kind: `type`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:94:1`
+Source: `src/graphql/index.ts:93:1`
 
 ### Members
 
@@ -491,7 +480,7 @@ Source: `src/graphql/index.ts:94:1`
 
 Kind: `type`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:87:1`
+Source: `src/graphql/index.ts:86:1`
 
 ### Members
 
@@ -506,7 +495,7 @@ Source: `src/graphql/index.ts:87:1`
 
 Kind: `type`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:77:1`
+Source: `src/graphql/index.ts:76:1`
 
 ### Members
 
@@ -524,7 +513,7 @@ Source: `src/graphql/index.ts:77:1`
 
 Kind: `type`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:52:1`
+Source: `src/graphql/index.ts:51:1`
 
 ### Members
 
@@ -538,7 +527,7 @@ Source: `src/graphql/index.ts:52:1`
 
 Kind: `type`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:98:1`
+Source: `src/graphql/index.ts:97:1`
 
 ### Members
 
@@ -576,7 +565,7 @@ Source: `src/openapi/index.ts:126:1`
 
 Kind: `function`
 Module: `src/discovery/index.ts`
-Source: `src/discovery/index.ts:156:1`
+Source: `src/discovery/index.ts:155:1`
 
 ### Signatures
 
@@ -622,73 +611,41 @@ Source: `src/rest/index.ts:60:1`
   - method: `string`
   - returns: `boolean`
 
+## isSupportedApiOrigin
+
+Kind: `function`
+Module: `src/index.ts`
+Source: `src/index.ts:49:1`
+
+### Signatures
+
+- `(origin: string) => boolean`
+  - origin: `string`
+  - returns: `boolean`
+
+## isSupportedApiProtocol
+
+Kind: `function`
+Module: `src/index.ts`
+Source: `src/index.ts:53:1`
+
+### Signatures
+
+- `(protocol: string) => boolean`
+  - protocol: `string`
+  - returns: `boolean`
+
 ## isSupportedDataSourceKind
 
 Kind: `function`
 Module: `src/index.ts`
-Source: `src/index.ts:32:1`
+Source: `src/index.ts:45:1`
 
 ### Signatures
 
 - `(kind: string) => boolean`
   - kind: `string`
   - returns: `boolean`
-
-## MANAGED_API_CRUD_OPERATIONS
-
-Kind: `value`
-Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:21:14`
-
-## ManagedApiCrudOperation
-
-Kind: `unknown`
-Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:23:1`
-
-## ManagedApiGenerationDefinition
-
-Kind: `type`
-Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:37:1`
-
-### Members
-
-| Name        | Kind     | Type                                                | Required | Description |
-| ----------- | -------- | --------------------------------------------------- | -------- | ----------- |
-| adapter     | property | `AdapterRef`                                        | yes      |             |
-| description | property | `string \| undefined`                               | no       |             |
-| id          | property | `string`                                            | yes      |             |
-| name        | property | `string \| undefined`                               | no       |             |
-| resources   | property | `readonly ManagedApiGenerationResourceDefinition[]` | yes      |             |
-
-## ManagedApiGenerationResourceDefinition
-
-Kind: `type`
-Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:30:1`
-
-### Members
-
-| Name       | Kind     | Type                                                                             | Required | Description |
-| ---------- | -------- | -------------------------------------------------------------------------------- | -------- | ----------- |
-| collection | property | `DbCollectionDefinition`                                                         | yes      |             |
-| name       | property | `string`                                                                         | yes      |             |
-| operations | property | `readonly ("list" \| "read" \| "create" \| "update" \| "delete")[] \| undefined` | no       |             |
-| policies   | property | `readonly ManagedApiOperationPolicyRef[] \| undefined`                           | no       |             |
-
-## ManagedApiOperationPolicyRef
-
-Kind: `type`
-Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:25:1`
-
-### Members
-
-| Name      | Kind     | Type                  | Required | Description |
-| --------- | -------- | --------------------- | -------- | ----------- |
-| id        | property | `string`              | yes      |             |
-| operation | property | `string \| undefined` | no       |             |
 
 ## ManualRestDataSourceDefinition
 
@@ -756,23 +713,35 @@ Source: `src/rest/index.ts:24:1`
 | request     | property | `DataOperationRequest \| undefined`              | no       |             |
 | response    | property | `DataOperationResponse \| undefined`             | no       |             |
 
+## normalizeGeneratedApiDataSource
+
+Kind: `function`
+Module: `src/generated-api/index.ts`
+Source: `src/generated-api/index.ts:72:1`
+
+### Signatures
+
+- `(definition: GeneratedApiDefinition) => GeneratedRestApiDataSourceConfig`
+  - definition: `GeneratedApiDefinition`
+  - returns: `GeneratedRestApiDataSourceConfig`
+
 ## normalizeGraphQlDataSource
 
 Kind: `function`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:198:1`
+Source: `src/graphql/index.ts:196:1`
 
 ### Signatures
 
-- `(definition: GraphQlDataSourceDefinition) => GraphQlDataSourceConfig`
+- `(definition: GraphQlDataSourceDefinition) => ExternalGraphQlApiDataSourceConfig`
   - definition: `GraphQlDataSourceDefinition`
-  - returns: `GraphQlDataSourceConfig`
+  - returns: `ExternalGraphQlApiDataSourceConfig`
 
 ## normalizeGraphQlIntrospectionOperations
 
 Kind: `function`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:256:1`
+Source: `src/graphql/index.ts:249:1`
 
 ### Signatures
 
@@ -784,7 +753,7 @@ Source: `src/graphql/index.ts:256:1`
 
 Kind: `function`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:240:1`
+Source: `src/graphql/index.ts:235:1`
 
 ### Signatures
 
@@ -796,7 +765,7 @@ Source: `src/graphql/index.ts:240:1`
 
 Kind: `function`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:135:1`
+Source: `src/graphql/index.ts:134:1`
 
 ### Signatures
 
@@ -805,29 +774,17 @@ Source: `src/graphql/index.ts:135:1`
   - name: `string`
   - returns: `string`
 
-## normalizeManagedApiDataSource
-
-Kind: `function`
-Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:118:1`
-
-### Signatures
-
-- `(definition: ManagedApiGenerationDefinition) => ManagedApiDataSourceConfig`
-  - definition: `ManagedApiGenerationDefinition`
-  - returns: `ManagedApiDataSourceConfig`
-
 ## normalizeManualRestDataSource
 
 Kind: `function`
 Module: `src/rest/index.ts`
-Source: `src/rest/index.ts:183:1`
+Source: `src/rest/index.ts:136:1`
 
 ### Signatures
 
-- `(definition: ManualRestDataSourceDefinition) => RestDataSourceConfig`
+- `(definition: ManualRestDataSourceDefinition) => ExternalRestApiDataSourceConfig`
   - definition: `ManualRestDataSourceDefinition`
-  - returns: `RestDataSourceConfig`
+  - returns: `ExternalRestApiDataSourceConfig`
 
 ## normalizeManualRestMethod
 
@@ -857,7 +814,7 @@ Source: `src/openapi/index.ts:178:1`
 
 Kind: `function`
 Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:163:1`
+Source: `src/openapi/index.ts:164:1`
 
 ### Signatures
 
@@ -871,7 +828,7 @@ Source: `src/openapi/index.ts:163:1`
 
 Kind: `function`
 Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:188:1`
+Source: `src/openapi/index.ts:187:1`
 
 ### Signatures
 
@@ -1079,11 +1036,23 @@ Source: `src/openapi/index.ts:34:1`
 | description | property | `string \| undefined` | no       |             |
 | url         | property | `string`              | yes      |             |
 
+## SUPPORTED_API_ORIGINS
+
+Kind: `value`
+Module: `src/index.ts`
+Source: `src/index.ts:20:14`
+
+## SUPPORTED_API_PROTOCOLS
+
+Kind: `value`
+Module: `src/index.ts`
+Source: `src/index.ts:24:14`
+
 ## SUPPORTED_DATA_SOURCE_KINDS
 
 Kind: `value`
 Module: `src/index.ts`
-Source: `src/index.ts:12:14`
+Source: `src/index.ts:16:14`
 
 ## testEndpoint
 
@@ -1097,28 +1066,28 @@ Source: `src/test-runner/index.ts:91:1`
   - input: `EndpointTestInput`
   - returns: `Promise<EndpointTestResult>`
 
+## validateGeneratedApiDefinition
+
+Kind: `function`
+Module: `src/generated-api/index.ts`
+Source: `src/generated-api/index.ts:39:1`
+
+### Signatures
+
+- `(definition: GeneratedApiDefinition) => readonly DataSourceDiagnostic[]`
+  - definition: `GeneratedApiDefinition`
+  - returns: `readonly DataSourceDiagnostic[]`
+
 ## validateGraphQlDataSource
 
 Kind: `function`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:159:1`
+Source: `src/graphql/index.ts:157:1`
 
 ### Signatures
 
 - `(definition: GraphQlDataSourceDefinition) => readonly DataSourceDiagnostic[]`
   - definition: `GraphQlDataSourceDefinition`
-  - returns: `readonly DataSourceDiagnostic[]`
-
-## validateManagedApiDefinition
-
-Kind: `function`
-Module: `src/managed-api/index.ts`
-Source: `src/managed-api/index.ts:60:1`
-
-### Signatures
-
-- `(definition: ManagedApiGenerationDefinition) => readonly DataSourceDiagnostic[]`
-  - definition: `ManagedApiGenerationDefinition`
   - returns: `readonly DataSourceDiagnostic[]`
 
 ## validateManualRestDataSource

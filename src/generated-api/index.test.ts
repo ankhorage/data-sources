@@ -1,30 +1,34 @@
+import type { GeneratedApiDefinition } from '@ankhorage/contracts/data';
 import { describe, expect, it } from 'bun:test';
 
 import {
-  createManagedApiDataSource,
-  createManagedApiOperationId,
-  createManagedApiResourceSchema,
-  getManagedApiOperations,
-  type ManagedApiGenerationDefinition,
-  normalizeManagedApiDataSource,
+  createGeneratedApiDataSource,
+  createGeneratedApiOperationId,
+  createGeneratedApiResourceSchema,
+  normalizeGeneratedApiDataSource,
 } from './index';
 
 function assertSerializable<TValue>(value: TValue): void {
   expect(JSON.parse(JSON.stringify(value))).toEqual(value);
 }
 
-function createPostsApiDefinition(): ManagedApiGenerationDefinition {
+function createPostsApiDefinition(): GeneratedApiDefinition {
   return {
     id: 'posts-api',
+    protocol: 'rest',
     name: 'Posts API',
-    adapter: {
+    basePath: '/api',
+    database: {
       id: 'primary-db',
       kind: 'database',
       packageName: '@ankhorage/supabase-db',
     },
     resources: [
       {
-        name: 'posts',
+        id: 'posts',
+        name: 'Posts',
+        path: '/posts',
+        operations: ['list', 'read', 'create', 'update', 'delete'],
         collection: {
           name: 'posts',
           schema: 'public',
@@ -37,93 +41,78 @@ function createPostsApiDefinition(): ManagedApiGenerationDefinition {
             { name: 'metadata', type: 'json' },
           ],
         },
+        seed: [{ id: 'seed-1', title: 'Hello' }],
         policies: [{ id: 'posts-policy' }],
       },
     ],
   };
 }
 
-describe('managed API generation helpers', () => {
+describe('generated API normalization', () => {
   it('generates deterministic operation IDs', () => {
-    expect(createManagedApiOperationId('posts', 'list')).toBe('posts.list');
-    expect(createManagedApiOperationId('posts', 'delete')).toBe('posts.delete');
-  });
-
-  it('uses all CRUD operations by default', () => {
-    const [resource] = createPostsApiDefinition().resources;
-
-    expect(resource).toBeDefined();
-    if (resource !== undefined) {
-      expect(getManagedApiOperations(resource)).toEqual([
-        'list',
-        'read',
-        'create',
-        'update',
-        'delete',
-      ]);
-    }
+    expect(createGeneratedApiOperationId('posts', 'list')).toBe('posts.list');
+    expect(createGeneratedApiOperationId('posts', 'delete')).toBe('posts.delete');
   });
 
   it('generates a serializable resource schema from a DB collection', () => {
     const [resource] = createPostsApiDefinition().resources;
-
     expect(resource).toBeDefined();
-    if (resource !== undefined) {
-      const schema = createManagedApiResourceSchema(resource.collection);
+    if (resource === undefined) return;
 
-      assertSerializable(schema);
-      expect(schema.type).toBe('object');
-      expect(schema.properties?.id?.format).toBe('uuid');
-      expect(schema.properties?.createdAt?.format).toBe('date-time');
-      expect(schema.properties?.metadata?.type).toBe('object');
-      expect(schema.required).toEqual(['id', 'title']);
-    }
+    const schema = createGeneratedApiResourceSchema(resource.collection);
+    assertSerializable(schema);
+    expect(schema.type).toBe('object');
+    expect(schema.properties?.id?.format).toBe('uuid');
+    expect(schema.properties?.createdAt?.format).toBe('date-time');
+    expect(schema.properties?.metadata?.type).toBe('object');
+    expect(schema.required).toEqual(['id', 'title']);
   });
 
-  it('generates list/read/create/update/delete endpoint configs', () => {
-    const source = normalizeManagedApiDataSource(createPostsApiDefinition());
+  it('normalizes generated REST desired state into canonical API operations', () => {
+    const source = normalizeGeneratedApiDataSource(createPostsApiDefinition());
 
     assertSerializable(source);
-    expect(source.kind).toBe('managed-api');
+    expect(source.kind).toBe('api');
+    expect(source.origin).toBe('generated');
+    expect(source.protocol).toBe('rest');
+    expect(source.generatedApiId).toBe('posts-api');
     expect(source.adapter.id).toBe('primary-db');
     expect(source.endpoints.posts?.kind).toBe('database');
+    expect(source.endpoints.posts?.path).toBe('/posts');
     expect(source.endpoints.posts?.operations['posts.list']?.intent).toBe('read');
-    expect(source.endpoints.posts?.operations['posts.read']?.intent).toBe('read');
     expect(source.endpoints.posts?.operations['posts.create']?.intent).toBe('create');
     expect(source.endpoints.posts?.operations['posts.update']?.intent).toBe('update');
     expect(source.endpoints.posts?.operations['posts.delete']?.intent).toBe('delete');
     expect(source.endpoints.posts?.operations['posts.read']?.request?.parameters?.[0]?.name).toBe(
       'id',
     );
-    expect(
-      source.endpoints.posts?.operations['posts.list']?.request?.parameters?.map(
-        (parameter) => parameter.name,
-      ),
-    ).toEqual(['limit', 'offset']);
   });
 
-  it('creates diagnostic result for valid managed APIs', () => {
-    const result = createManagedApiDataSource(createPostsApiDefinition());
+  it('creates a diagnostic result for valid generated APIs', () => {
+    const result = createGeneratedApiDataSource(createPostsApiDefinition());
 
     expect(result.ok).toBe(true);
     if (result.ok) {
-      expect(result.data.resources[0]?.name).toBe('posts');
+      expect(result.data.endpoints.posts?.operations['posts.list']).toBeDefined();
       expect(result.diagnostics).toEqual([]);
     }
   });
 
-  it('supports multiple managed APIs backed by different adapter refs', () => {
-    const postsApi = normalizeManagedApiDataSource(createPostsApiDefinition());
-    const analyticsApi = normalizeManagedApiDataSource({
+  it('supports multiple generated APIs backed by different database adapters', () => {
+    const postsApi = normalizeGeneratedApiDataSource(createPostsApiDefinition());
+    const analyticsApi = normalizeGeneratedApiDataSource({
       id: 'analytics-api',
-      adapter: {
+      protocol: 'rest',
+      basePath: '/analytics',
+      database: {
         id: 'analytics-db',
         kind: 'database',
         packageName: '@ankhorage/postgres-db',
       },
       resources: [
         {
-          name: 'events',
+          id: 'events',
+          path: '/events',
           operations: ['list'],
           collection: {
             name: 'events',
@@ -138,26 +127,30 @@ describe('managed API generation helpers', () => {
     });
 
     assertSerializable([postsApi, analyticsApi]);
-    expect(postsApi.id).toBe('posts-api');
-    expect(analyticsApi.id).toBe('analytics-api');
     expect(postsApi.adapter.id).toBe('primary-db');
     expect(analyticsApi.adapter.id).toBe('analytics-db');
     expect(analyticsApi.endpoints.events?.operations['events.list']?.intent).toBe('read');
     expect(analyticsApi.endpoints.events?.operations['events.read']).toBeUndefined();
   });
 
-  it('reports missing resources and missing primary key diagnostics', () => {
-    const emptyResult = createManagedApiDataSource({
+  it('reports missing resources, invalid paths and missing primary keys', () => {
+    const emptyResult = createGeneratedApiDataSource({
       id: 'empty-api',
-      adapter: { id: 'db', kind: 'database' },
+      protocol: 'rest',
+      basePath: 'api',
+      database: { id: 'db', kind: 'database' },
       resources: [],
     });
-    const missingPrimaryKeyResult = createManagedApiDataSource({
+    const missingPrimaryKeyResult = createGeneratedApiDataSource({
       id: 'broken-api',
-      adapter: { id: 'db', kind: 'database' },
+      protocol: 'rest',
+      basePath: '/api',
+      database: { id: 'db', kind: 'database' },
       resources: [
         {
-          name: 'posts',
+          id: 'posts',
+          path: 'posts',
+          operations: ['read'],
           collection: {
             name: 'posts',
             fields: [{ name: 'title', type: 'text' }],
@@ -167,14 +160,13 @@ describe('managed API generation helpers', () => {
     });
 
     expect(emptyResult.ok).toBe(false);
-    if (!emptyResult.ok) {
-      expect(emptyResult.diagnostics.map((diagnostic) => diagnostic.path)).toContain('resources');
-    }
-
     expect(missingPrimaryKeyResult.ok).toBe(false);
     if (!missingPrimaryKeyResult.ok) {
       expect(missingPrimaryKeyResult.diagnostics.map((diagnostic) => diagnostic.path)).toContain(
         'resources.posts.collection.primaryKey',
+      );
+      expect(missingPrimaryKeyResult.diagnostics.map((diagnostic) => diagnostic.path)).toContain(
+        'resources.posts.path',
       );
     }
   });

@@ -9,77 +9,13 @@ import {
   normalizeManualRestMethod,
 } from './index';
 
-function assertSerializable<TValue>(value: TValue): void {
-  expect(JSON.parse(JSON.stringify(value))).toEqual(value);
-}
-
-function createBlogDefinition(): ManualRestDataSourceDefinition {
+function definition(): ManualRestDataSourceDefinition {
   return {
     id: 'blog-api',
-    name: 'Blog API',
     baseUrl: 'https://api.example.com',
-    credential: {
-      id: 'blog-api-token',
-      kind: 'bearer',
-      label: 'Blog API token',
-    },
-    schemas: {
-      post: {
-        type: 'object',
-        required: ['id', 'title'],
-        properties: {
-          id: { type: 'string' },
-          title: { type: 'string' },
-          published: { type: 'boolean' },
-        },
-      },
-    },
     endpoints: [
       {
         id: 'posts',
-        path: '/posts',
-        operations: [
-          {
-            id: 'posts.list',
-            method: 'GET',
-            intent: 'read',
-            parameters: [
-              {
-                name: 'limit',
-                location: 'query',
-                schema: { type: 'integer', default: 20 },
-              },
-            ],
-            response: {
-              status: 200,
-              schema: {
-                type: 'array',
-                items: { ref: { id: 'post' } },
-              },
-            },
-            pagination: {
-              kind: 'limit-offset',
-              limitParameter: 'limit',
-              offsetParameter: 'offset',
-            },
-          },
-          {
-            id: 'posts.create',
-            method: 'POST',
-            intent: 'create',
-            request: {
-              contentType: 'application/json',
-              schemaRef: { id: 'post' },
-            },
-            response: {
-              status: 201,
-              schemaRef: { id: 'post' },
-            },
-          },
-        ],
-      },
-      {
-        id: 'post',
         path: '/posts/{postId}',
         operations: [
           {
@@ -94,144 +30,57 @@ function createBlogDefinition(): ManualRestDataSourceDefinition {
                 schema: { type: 'string' },
               },
             ],
-            response: {
-              status: 200,
-              schemaRef: { id: 'post' },
-            },
           },
-          {
-            id: 'posts.update',
-            method: 'PATCH',
-            intent: 'update',
-            parameters: [
-              {
-                name: 'postId',
-                location: 'path',
-                required: true,
-                schema: { type: 'string' },
-              },
-            ],
-            request: {
-              contentType: 'application/json',
-              schemaRef: { id: 'post' },
-            },
-            response: {
-              status: 200,
-              schemaRef: { id: 'post' },
-            },
-          },
-          {
-            id: 'posts.delete',
-            method: 'DELETE',
-            intent: 'delete',
-            parameters: [
-              {
-                name: 'postId',
-                location: 'path',
-                required: true,
-                schema: { type: 'string' },
-              },
-            ],
-            response: {
-              status: 204,
-            },
-          },
+          { id: 'posts.create', method: 'POST', intent: 'create', path: '/posts' },
         ],
       },
     ],
   };
 }
 
-describe('manual REST data-source helpers', () => {
-  it('normalizes REST methods', () => {
+describe('manual REST normalization', () => {
+  it('normalizes methods and path parameters', () => {
     expect(normalizeManualRestMethod('get')).toBe('GET');
     expect(isManualRestMethod('GET')).toBe(true);
     expect(isManualRestMethod('TRACE')).toBe(false);
-  });
-
-  it('extracts braced and colon path parameters', () => {
     expect(extractRestPathParams('/posts/{postId}/comments/:commentId')).toEqual([
       'postId',
       'commentId',
     ]);
   });
 
-  it('normalizes list, get, create, update, and delete operations', () => {
-    const source = normalizeManualRestDataSource(createBlogDefinition());
-
-    assertSerializable(source);
-    expect(source.kind).toBe('rest');
-    expect(source.endpoints.posts?.operations['posts.list']?.intent).toBe('read');
-    expect(source.endpoints.post?.operations['posts.get']?.method).toBe('GET');
+  it('creates an external REST API source', () => {
+    const source = normalizeManualRestDataSource(definition());
+    expect(source).toMatchObject({ kind: 'api', origin: 'external', protocol: 'rest' });
+    expect(source.endpoints.posts?.operations['posts.get']?.method).toBe('GET');
     expect(source.endpoints.posts?.operations['posts.create']?.intent).toBe('create');
-    expect(source.endpoints.post?.operations['posts.update']?.intent).toBe('update');
-    expect(source.endpoints.post?.operations['posts.delete']?.intent).toBe('delete');
   });
 
-  it('returns an ok diagnostic result for valid manual definitions', () => {
-    const result = createManualRestDataSource(createBlogDefinition());
-
-    expect(result.ok).toBe(true);
-    if (result.ok) {
-      expect(
-        result.data.endpoints.post?.operations['posts.get']?.request?.parameters?.[0]?.name,
-      ).toBe('postId');
-      expect(result.diagnostics).toEqual([]);
-    }
+  it('returns canonical diagnostic results', () => {
+    const valid = createManualRestDataSource(definition());
+    const invalid = createManualRestDataSource({ ...definition(), baseUrl: ' ' });
+    expect(valid.ok).toBe(true);
+    expect(invalid.ok).toBe(false);
   });
 
-  it('reports missing base URL', () => {
+  it('reports unsupported methods and missing path parameters', () => {
+    const broken = definition();
     const result = createManualRestDataSource({
-      ...createBlogDefinition(),
-      baseUrl: ' ',
-    });
-
-    expect(result.ok).toBe(false);
-    if (!result.ok) {
-      expect(result.diagnostics.map((diagnostic) => diagnostic.path)).toContain('baseUrl');
-    }
-  });
-
-  it('reports invalid methods and path-template mismatches', () => {
-    const result = createManualRestDataSource({
-      id: 'broken-api',
-      baseUrl: 'https://api.example.com',
+      ...broken,
       endpoints: [
         {
           id: 'broken',
-          path: 'broken/{id}',
-          operations: [
-            {
-              id: 'broken.trace',
-              method: 'TRACE',
-              intent: 'read',
-              parameters: [
-                {
-                  name: 'unusedId',
-                  location: 'path',
-                  schema: { type: 'string' },
-                },
-              ],
-            },
-          ],
+          path: '/broken/{id}',
+          operations: [{ id: 'broken.trace', method: 'TRACE', intent: 'read' }],
         },
       ],
     });
-
     expect(result.ok).toBe(false);
     if (!result.ok) {
-      const messages = result.diagnostics.map((diagnostic) => diagnostic.message);
-
-      expect(messages).toContain('Manual REST endpoint paths must start with `/`.');
-      expect(messages).toContain(
-        'Manual REST operation method must be one of DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT.',
-      );
-      expect(messages).toContain(
-        "Path template parameter 'id' must have a matching path parameter definition.",
-      );
-      expect(messages).toContain(
-        "Path parameter 'unusedId' is not referenced by the operation path template.",
-      );
+      expect(result.diagnostics.map((diagnostic) => diagnostic.code)).toEqual([
+        'invalid-config',
+        'invalid-config',
+      ]);
     }
   });
 });

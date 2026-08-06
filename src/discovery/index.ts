@@ -2,8 +2,8 @@ import type {
   CredentialRef,
   DataContractValue,
   DataSourceDiagnostic,
-  GraphQlDataSourceConfig,
-  OpenApiDataSourceConfig,
+  ExternalGraphQlApiDataSourceConfig,
+  ExternalRestApiDataSourceConfig,
 } from '@ankhorage/contracts/data';
 
 import {
@@ -65,7 +65,7 @@ export interface DiscoverOpenApiDataSourceInput {
 export type DiscoverOpenApiDataSourceResult =
   | {
       readonly ok: true;
-      readonly data: OpenApiDataSourceConfig;
+      readonly data: ExternalRestApiDataSourceConfig;
       readonly documentUrl: string;
       readonly attempts: readonly OpenApiDiscoveryAttempt[];
       readonly diagnostics: readonly DataSourceDiagnostic[];
@@ -91,7 +91,7 @@ export interface IntrospectGraphQlDataSourceInput {
 export type IntrospectGraphQlDataSourceResult =
   | {
       readonly ok: true;
-      readonly data: GraphQlDataSourceConfig;
+      readonly data: ExternalGraphQlApiDataSourceConfig;
       readonly diagnostics: readonly DataSourceDiagnostic[];
     }
   | {
@@ -133,17 +133,16 @@ export async function discoverOpenApiDataSource(
   for (const candidate of candidates) {
     const probed = await probeOpenApiCandidate(input, candidate);
     attempts.push(probed.attempt);
-    if (probed.result !== undefined) {
-      return probed.result.ok
-        ? {
-            ok: true,
-            data: probed.result.data,
-            documentUrl: candidate,
-            attempts,
-            diagnostics: probed.result.diagnostics ?? [],
-          }
-        : { ok: false, attempts, diagnostics: probed.result.diagnostics };
-    }
+    if (probed.result === undefined) continue;
+    return probed.result.ok
+      ? {
+          ok: true,
+          data: probed.result.data,
+          documentUrl: candidate,
+          attempts,
+          diagnostics: probed.result.diagnostics ?? [],
+        }
+      : { ok: false, attempts, diagnostics: probed.result.diagnostics };
   }
 
   return discoveryFailure(
@@ -161,7 +160,6 @@ export async function introspectGraphQlDataSource(
     return graphqlFailure(input.id, 'GraphQL introspection requires a valid HTTP or HTTPS URL.');
   }
 
-  const request = createGraphQlIntrospectionRequest();
   let response: ExternalApiFetchResponse;
   try {
     response = await input.fetch(normalizeCandidateUrl(endpoint), {
@@ -171,7 +169,7 @@ export async function introspectGraphQlDataSource(
         'content-type': 'application/json',
         ...(input.headers ?? {}),
       },
-      body: JSON.stringify(request),
+      body: JSON.stringify(createGraphQlIntrospectionRequest()),
     });
   } catch {
     return graphqlFailure(input.id, 'GraphQL introspection request failed.', 'network-error');
@@ -188,8 +186,7 @@ export async function introspectGraphQlDataSource(
     };
   }
 
-  const parsed = await parseJsonResponse(response);
-  const introspection = readGraphQlIntrospection(parsed);
+  const introspection = readGraphQlIntrospection(await parseJsonResponse(response));
   if (introspection === undefined) {
     return graphqlFailure(
       input.id,
@@ -228,27 +225,20 @@ async function probeOpenApiCandidate(
   try {
     response = await input.fetch(candidate, {
       method: 'GET',
-      headers: {
-        accept: 'application/json, application/vnd.oai.openapi+json',
-      },
+      headers: { accept: 'application/json, application/vnd.oai.openapi+json' },
     });
   } catch {
     return { attempt: { url: candidate, outcome: 'network-error' } };
   }
 
   if (!isSuccessfulStatus(response.status)) {
-    return {
-      attempt: { url: candidate, outcome: 'http-error', status: response.status },
-    };
+    return { attempt: { url: candidate, outcome: 'http-error', status: response.status } };
   }
 
   const parsed = await parseJsonResponse(response);
   if (parsed === undefined) {
-    return {
-      attempt: { url: candidate, outcome: 'parse-error', status: response.status },
-    };
+    return { attempt: { url: candidate, outcome: 'parse-error', status: response.status } };
   }
-
   if (!isOpenApiDocument(parsed)) {
     return {
       attempt: { url: candidate, outcome: 'unsupported-document', status: response.status },
@@ -265,7 +255,6 @@ async function probeOpenApiCandidate(
     description: input.description,
     metadata: input.metadata,
   });
-
   return {
     attempt: {
       url: candidate,
@@ -321,12 +310,10 @@ function readGraphQlIntrospection(value: unknown): GraphQlIntrospectionResult | 
   return data;
 }
 
-function isRecord(value: unknown): value is Readonly<Record<string, unknown>> {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
-
 function readRecord(value: unknown): Readonly<Record<string, unknown>> | undefined {
-  return isRecord(value) ? value : undefined;
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
+    ? (value as Readonly<Record<string, unknown>>)
+    : undefined;
 }
 
 function discoveryFailure(

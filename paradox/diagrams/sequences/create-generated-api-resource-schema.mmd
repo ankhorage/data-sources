@@ -1,0 +1,8 @@
+sequenceDiagram
+  participant participant_createGeneratedApiFieldSchema as createGeneratedApiFieldSchema
+  participant participant_createGeneratedApiResourceSchema as createGeneratedApiResourceSchema
+  participant participant_mapDbFieldTypeToDataSchema as mapDbFieldTypeToDataSchema
+  participant_createGeneratedApiResourceSchema->>participant_createGeneratedApiFieldSchema: createGeneratedApiFieldSchema()
+  participant_createGeneratedApiFieldSchema->>participant_mapDbFieldTypeToDataSchema: mapDbFieldTypeToDataSchema()
+  participant_mapDbFieldTypeToDataSchema-->>participant_createGeneratedApiFieldSchema: return
+  participant_createGeneratedApiFieldSchema-->>participant_createGeneratedApiResourceSchema: return
