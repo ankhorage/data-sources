@@ -142,10 +142,7 @@ describe('external API discovery', () => {
     ]);
     if (result.ok) {
       expect(result.documentUrl).toBe('https://api.example.com/service/openapi.json');
-      expect(result.attempts.map((attempt) => attempt.outcome)).toEqual([
-        'http-error',
-        'matched',
-      ]);
+      expect(result.attempts.map((attempt) => attempt.outcome)).toEqual(['http-error', 'matched']);
     }
   });
 
