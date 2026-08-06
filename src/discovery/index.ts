@@ -142,7 +142,7 @@ export async function discoverOpenApiDataSource(
           attempts,
           diagnostics: probed.result.diagnostics ?? [],
         }
-      : { ok: false, attempts, diagnostics: probed.result.diagnostics ?? [] };
+      : { ok: false, attempts, diagnostics: probed.result.diagnostics };
   }
 
   return discoveryFailure(
@@ -209,7 +209,7 @@ export async function introspectGraphQlDataSource(
 
   return result.ok
     ? { ok: true, data: result.data, diagnostics: result.diagnostics ?? [] }
-    : { ok: false, diagnostics: result.diagnostics ?? [] };
+    : { ok: false, diagnostics: result.diagnostics };
 }
 
 interface OpenApiProbeResult {
