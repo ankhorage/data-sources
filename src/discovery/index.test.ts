@@ -3,16 +3,16 @@ import { describe, expect, it } from 'bun:test';
 import {
   createOpenApiDiscoveryCandidates,
   discoverOpenApiDataSource,
-  introspectGraphQlDataSource,
   type ExternalApiFetch,
   type ExternalApiFetchInit,
   type ExternalApiFetchResponse,
+  introspectGraphQlDataSource,
 } from './index';
 
 function jsonResponse(value: unknown, status = 200): ExternalApiFetchResponse {
   return {
     status,
-    text: async () => JSON.stringify(value),
+    text: () => Promise.resolve(JSON.stringify(value)),
   };
 }
 
@@ -72,29 +72,27 @@ function createGraphQlPayload() {
 
 describe('external API discovery', () => {
   it('creates direct, service-relative, and origin-relative OpenAPI candidates', () => {
-    expect(createOpenApiDiscoveryCandidates('https://api.example.com/service')).toEqual(
-      expect.arrayContaining([
-        'https://api.example.com/service',
-        'https://api.example.com/service/openapi.json',
-        'https://api.example.com/openapi.json',
-        'https://api.example.com/service/v3/api-docs',
-        'https://api.example.com/v3/api-docs',
-      ]),
-    );
+    const candidates = createOpenApiDiscoveryCandidates('https://api.example.com/service');
+
+    expect(candidates).toContain('https://api.example.com/service');
+    expect(candidates).toContain('https://api.example.com/service/openapi.json');
+    expect(candidates).toContain('https://api.example.com/openapi.json');
+    expect(candidates).toContain('https://api.example.com/service/v3/api-docs');
+    expect(candidates).toContain('https://api.example.com/v3/api-docs');
   });
 
   it('rejects non-http URLs and URLs containing inline credentials', () => {
     expect(createOpenApiDiscoveryCandidates('file:///tmp/openapi.json')).toEqual([]);
-    expect(createOpenApiDiscoveryCandidates('https://user:secret@example.com/openapi.json')).toEqual(
-      [],
-    );
+    expect(
+      createOpenApiDiscoveryCandidates('https://user:secret@example.com/openapi.json'),
+    ).toEqual([]);
   });
 
   it('imports a directly supplied OpenAPI document URL', async () => {
     const calls: string[] = [];
-    const fetch: ExternalApiFetch = async (url) => {
+    const fetch: ExternalApiFetch = (url) => {
       calls.push(url);
-      return jsonResponse(createOpenApiDocument());
+      return Promise.resolve(jsonResponse(createOpenApiDocument()));
     };
 
     const result = await discoverOpenApiDataSource({
@@ -121,11 +119,13 @@ describe('external API discovery', () => {
 
   it('falls back to a conventional OpenAPI location', async () => {
     const calls: string[] = [];
-    const fetch: ExternalApiFetch = async (url) => {
+    const fetch: ExternalApiFetch = (url) => {
       calls.push(url);
-      return url === 'https://api.example.com/service/openapi.json'
-        ? jsonResponse(createOpenApiDocument())
-        : jsonResponse({ message: 'not a schema' }, 404);
+      return Promise.resolve(
+        url === 'https://api.example.com/service/openapi.json'
+          ? jsonResponse(createOpenApiDocument())
+          : jsonResponse({ message: 'not a schema' }, 404),
+      );
     };
 
     const result = await discoverOpenApiDataSource({
@@ -150,7 +150,8 @@ describe('external API discovery', () => {
   });
 
   it('returns safe diagnostics when no OpenAPI document can be discovered', async () => {
-    const fetch: ExternalApiFetch = async () => jsonResponse({ error: 'private detail' }, 404);
+    const fetch: ExternalApiFetch = () =>
+      Promise.resolve(jsonResponse({ error: 'private detail' }, 404));
     const result = await discoverOpenApiDataSource({
       id: 'missing',
       url: 'https://api.example.com',
@@ -169,9 +170,9 @@ describe('external API discovery', () => {
 
   it('executes GraphQL introspection and normalizes discovered operations', async () => {
     let capturedInit: ExternalApiFetchInit | undefined;
-    const fetch: ExternalApiFetch = async (_url, init) => {
+    const fetch: ExternalApiFetch = (_url, init) => {
       capturedInit = init;
-      return jsonResponse(createGraphQlPayload());
+      return Promise.resolve(jsonResponse(createGraphQlPayload()));
     };
 
     const result = await introspectGraphQlDataSource({
@@ -195,7 +196,7 @@ describe('external API discovery', () => {
     const httpFailure = await introspectGraphQlDataSource({
       id: 'catalog',
       endpointUrl: 'https://api.example.com/graphql',
-      fetch: async () => jsonResponse({ secret: 'hidden' }, 403),
+      fetch: () => Promise.resolve(jsonResponse({ secret: 'hidden' }, 403)),
     });
     expect(httpFailure).toMatchObject({ ok: false, status: 403 });
     expect(JSON.stringify(httpFailure)).not.toContain('hidden');
@@ -203,7 +204,7 @@ describe('external API discovery', () => {
     const shapeFailure = await introspectGraphQlDataSource({
       id: 'catalog',
       endpointUrl: 'https://api.example.com/graphql',
-      fetch: async () => jsonResponse({ data: {} }),
+      fetch: () => Promise.resolve(jsonResponse({ data: {} })),
     });
     expect(shapeFailure.ok).toBe(false);
     expect(shapeFailure.diagnostics[0]?.code).toBe('parse-error');
