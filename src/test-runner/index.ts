@@ -193,7 +193,11 @@ async function resolveEndpointCredential(
   const credential = await input.credentialResolver(ref);
   if (credential === undefined) {
     diagnostics.push(
-      createDiagnostic(input, 'missing-credential', `Credential '${ref.id}' could not be resolved.`),
+      createDiagnostic(
+        input,
+        'missing-credential',
+        `Credential '${ref.id}' could not be resolved.`,
+      ),
     );
   }
   return credential;
@@ -453,5 +457,7 @@ function isDataContractValue(value: unknown): value is DataContractValue {
 function isDataContractRecord(
   value: DataContractValue | undefined,
 ): value is Record<string, DataContractValue> {
-  return value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value);
+  return (
+    value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value)
+  );
 }

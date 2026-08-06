@@ -131,10 +131,7 @@ export function createGraphQlIntrospectionRequest(): GraphQlIntrospectionRequest
   };
 }
 
-export function normalizeGraphQlOperationId(
-  kind: GraphQlOperationKind,
-  name: string,
-): OperationId {
+export function normalizeGraphQlOperationId(kind: GraphQlOperationKind, name: string): OperationId {
   const normalizedName = name
     .replace(/[^A-Za-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
@@ -186,7 +183,8 @@ export function validateGraphQlDataSource(
     diagnostics.push({
       code: 'missing-schema',
       dataSourceId: definition.id,
-      message: 'GraphQL introspection result was not provided. Manual operations can still be used.',
+      message:
+        'GraphQL introspection result was not provided. Manual operations can still be used.',
       path: 'introspection',
       severity: 'info',
     });
@@ -285,9 +283,7 @@ function appendRootOperations(
   }
 }
 
-function normalizeGraphQlOperation(
-  operation: GraphQlOperationDefinition,
-): DataOperationConfig {
+function normalizeGraphQlOperation(operation: GraphQlOperationDefinition): DataOperationConfig {
   const response: DataOperationResponse | undefined =
     operation.response === undefined ? undefined : { schema: operation.response };
 
@@ -410,9 +406,7 @@ function isNamedGraphQlType(type: GraphQlIntrospectionType): boolean {
   return type.name !== undefined && type.name !== null;
 }
 
-function createGraphQlOperationMetadata(
-  operation: GraphQlOperationDefinition,
-): DataContractRecord {
+function createGraphQlOperationMetadata(operation: GraphQlOperationDefinition): DataContractRecord {
   const metadata = toMetadataRecord(operation.metadata);
   metadata.kind = operation.kind;
   if (operation.document !== undefined) metadata.document = operation.document;
@@ -425,8 +419,8 @@ function toMetadataRecord(value: DataContractValue | undefined): DataContractRec
   return { ...value };
 }
 
-function isDataContractRecord(
-  value: DataContractValue | undefined,
-): value is DataContractRecord {
-  return value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value);
+function isDataContractRecord(value: DataContractValue | undefined): value is DataContractRecord {
+  return (
+    value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value)
+  );
 }

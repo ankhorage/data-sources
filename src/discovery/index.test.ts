@@ -57,9 +57,9 @@ describe('external API discovery', () => {
     expect(candidates).toContain('https://api.example.com/service/openapi.json');
     expect(candidates).toContain('https://api.example.com/openapi.json');
     expect(createOpenApiDiscoveryCandidates('file:///tmp/openapi.json')).toEqual([]);
-    expect(createOpenApiDiscoveryCandidates('https://user:secret@example.com/openapi.json')).toEqual(
-      [],
-    );
+    expect(
+      createOpenApiDiscoveryCandidates('https://user:secret@example.com/openapi.json'),
+    ).toEqual([]);
   });
 
   it('discovers OpenAPI into an external REST source', async () => {

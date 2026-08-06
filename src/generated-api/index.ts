@@ -151,9 +151,7 @@ export function createGeneratedApiOperationId(
   return `${resourceId}.${operation}`;
 }
 
-export function createGeneratedApiResourceSchema(
-  collection: DbCollectionDefinition,
-): DataSchema {
+export function createGeneratedApiResourceSchema(collection: DbCollectionDefinition): DataSchema {
   const properties: Record<string, DataSchema> = {};
   const required: string[] = [];
 
@@ -177,7 +175,9 @@ function validateGeneratedApiResource(
   diagnostics: DataSourceDiagnostic[],
 ): void {
   if (resource.id.trim().length === 0) {
-    diagnostics.push(resourceDiagnostic(definition, resource, 'Resource IDs must be non-empty.', 'id'));
+    diagnostics.push(
+      resourceDiagnostic(definition, resource, 'Resource IDs must be non-empty.', 'id'),
+    );
   } else if (resourceIds.has(resource.id)) {
     diagnostics.push(
       resourceDiagnostic(definition, resource, `Resource ID '${resource.id}' is duplicated.`, 'id'),
@@ -250,9 +250,7 @@ function resourceDiagnostic(
   };
 }
 
-function createGeneratedApiSourceMetadata(
-  definition: GeneratedApiDefinition,
-): DataContractValue {
+function createGeneratedApiSourceMetadata(definition: GeneratedApiDefinition): DataContractValue {
   return {
     ...readMetadataRecord(definition.metadata),
     basePath: definition.basePath,
@@ -326,9 +324,7 @@ function createGeneratedApiOperationName(
   return `${operation} ${resource.name ?? resource.id}`;
 }
 
-function mapGeneratedApiOperationIntent(
-  operation: GeneratedApiCrudOperation,
-): DataOperationIntent {
+function mapGeneratedApiOperationIntent(operation: GeneratedApiCrudOperation): DataOperationIntent {
   if (operation === 'list' || operation === 'read') return 'read';
   if (operation === 'create') return 'create';
   if (operation === 'update') return 'update';
@@ -384,9 +380,7 @@ function createPrimaryKeyParameter(primaryKey: string): DataOperationParameter {
   };
 }
 
-function resolveGeneratedApiPrimaryKey(
-  collection: DbCollectionDefinition,
-): string | undefined {
+function resolveGeneratedApiPrimaryKey(collection: DbCollectionDefinition): string | undefined {
   return collection.primaryKey ?? collection.fields.find((field) => field.unique === true)?.name;
 }
 

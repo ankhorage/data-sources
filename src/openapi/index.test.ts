@@ -35,9 +35,9 @@ describe('OpenAPI normalization', () => {
   it('normalizes endpoint, operation and schema shapes', () => {
     expect(normalizeOpenApiEndpointId('/pets/{petId}')).toBe('pets-petid');
     expect(normalizeOpenApiOperationId('get', '/pets/{petId}')).toBe('get-pets-petid');
-    expect(
-      normalizeOpenApiSchema({ type: 'array', items: { type: 'string' } }).items?.type,
-    ).toBe('string');
+    expect(normalizeOpenApiSchema({ type: 'array', items: { type: 'string' } }).items?.type).toBe(
+      'string',
+    );
   });
 
   it('imports OpenAPI as an external REST source with OpenAPI metadata', () => {

@@ -133,10 +133,7 @@ export function importOpenApiDocument(input: OpenApiImportInput): OpenApiImportR
   );
   const endpoints = normalizeOpenApiEndpoints(input, baseUrl, diagnostics);
 
-  if (
-    baseUrl === undefined ||
-    diagnostics.some((diagnostic) => diagnostic.severity === 'error')
-  ) {
+  if (baseUrl === undefined || diagnostics.some((diagnostic) => diagnostic.severity === 'error')) {
     return { ok: false, diagnostics };
   }
 
@@ -264,7 +261,7 @@ function normalizeOpenApiEndpoints(
   baseUrl: string | undefined,
   diagnostics: DataSourceDiagnostic[],
 ): Record<EndpointId, DataEndpointConfig> {
-  const paths = input.document.paths;
+  const { paths } = input.document;
   if (paths === undefined || Object.keys(paths).length === 0) {
     diagnostics.push({
       code: 'invalid-config',
@@ -407,9 +404,7 @@ function normalizeOpenApiParameters(
   return normalized;
 }
 
-function normalizeParameterLocation(
-  location: string,
-): DataOperationParameterLocation | undefined {
+function normalizeParameterLocation(location: string): DataOperationParameterLocation | undefined {
   if (
     location === 'cookie' ||
     location === 'header' ||
@@ -473,9 +468,7 @@ function mapOpenApiMethodToIntent(method: OpenApiHttpMethod): DataOperationInten
   return 'action';
 }
 
-function normalizeOpenApiSchemaRef(
-  ref: string | undefined,
-): { readonly id: string } | undefined {
+function normalizeOpenApiSchemaRef(ref: string | undefined): { readonly id: string } | undefined {
   if (ref === undefined) return undefined;
   const prefix = '#/components/schemas/';
   return { id: ref.startsWith(prefix) ? ref.slice(prefix.length) : ref };

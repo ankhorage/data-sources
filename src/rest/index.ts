@@ -142,7 +142,7 @@ export function normalizeManualRestDataSource(
     const operations: Record<OperationId, DataOperationConfig> = {};
 
     for (const operation of endpoint.operations) {
-      const parameters = operation.parameters;
+      const { parameters } = operation;
       const request: DataOperationRequest | undefined =
         operation.request === undefined && parameters === undefined
           ? undefined

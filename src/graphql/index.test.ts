@@ -29,9 +29,7 @@ function introspection(): GraphQlIntrospectionResult {
         {
           kind: 'OBJECT',
           name: 'Mutation',
-          fields: [
-            { name: 'createPost', args: [], type: { kind: 'OBJECT', name: 'Post' } },
-          ],
+          fields: [{ name: 'createPost', args: [], type: { kind: 'OBJECT', name: 'Post' } }],
         },
         {
           kind: 'OBJECT',
@@ -56,9 +54,9 @@ describe('GraphQL normalization', () => {
 
   it('normalizes introspection schemas and operations', () => {
     expect(normalizeGraphQlIntrospectionSchemas(introspection())?.Post?.required).toContain('id');
-    expect(
-      normalizeGraphQlIntrospectionOperations(introspection()).map((item) => item.id),
-    ).toEqual(['query.posts', 'mutation.createpost']);
+    expect(normalizeGraphQlIntrospectionOperations(introspection()).map((item) => item.id)).toEqual(
+      ['query.posts', 'mutation.createpost'],
+    );
   });
 
   it('creates an external GraphQL API source', () => {

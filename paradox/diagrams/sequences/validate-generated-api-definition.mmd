@@ -1,0 +1,11 @@
+sequenceDiagram
+  participant participant_resolveGeneratedApiPrimaryKey as resolveGeneratedApiPrimaryKey
+  participant participant_resourceDiagnostic as resourceDiagnostic
+  participant participant_validateGeneratedApiDefinition as validateGeneratedApiDefinition
+  participant participant_validateGeneratedApiResource as validateGeneratedApiResource
+  participant_validateGeneratedApiDefinition->>participant_validateGeneratedApiResource: validateGeneratedApiResource()
+  participant_validateGeneratedApiResource->>participant_resourceDiagnostic: resourceDiagnostic()
+  participant_resourceDiagnostic-->>participant_validateGeneratedApiResource: return
+  participant_validateGeneratedApiResource->>participant_resolveGeneratedApiPrimaryKey: resolveGeneratedApiPrimaryKey()
+  participant_resolveGeneratedApiPrimaryKey-->>participant_validateGeneratedApiResource: return
+  participant_validateGeneratedApiResource-->>participant_validateGeneratedApiDefinition: return
