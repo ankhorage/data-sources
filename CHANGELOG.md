@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 1.0.0
+
+### Major Changes
+
+- c540b7f: Adopt the canonical API source taxonomy, normalize generated API desired state directly from `@ankhorage/contracts`, and remove the legacy managed API source surface.
+
 ## 0.6.0
 
 ### Minor Changes
