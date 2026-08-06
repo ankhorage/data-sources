@@ -14,7 +14,7 @@ import type {
   DataSourceDiagnostic,
   DataSourceDiagnosticResult,
   EndpointId,
-  OpenApiDataSourceConfig,
+  ExternalRestApiDataSourceConfig,
   OperationId,
 } from '@ankhorage/contracts/data';
 
@@ -121,7 +121,7 @@ export interface OpenApiImportInput {
   readonly metadata?: DataContractValue;
 }
 
-export type OpenApiImportResult = DataSourceDiagnosticResult<OpenApiDataSourceConfig>;
+export type OpenApiImportResult = DataSourceDiagnosticResult<ExternalRestApiDataSourceConfig>;
 
 export function importOpenApiDocument(input: OpenApiImportInput): OpenApiImportResult {
   const diagnostics: DataSourceDiagnostic[] = [];
@@ -132,9 +132,11 @@ export function importOpenApiDocument(input: OpenApiImportInput): OpenApiImportR
     diagnostics,
   );
   const endpoints = normalizeOpenApiEndpoints(input, baseUrl, diagnostics);
-  const hasErrors = diagnostics.some((diagnostic) => diagnostic.severity === 'error');
 
-  if (hasErrors) {
+  if (
+    baseUrl === undefined ||
+    diagnostics.some((diagnostic) => diagnostic.severity === 'error')
+  ) {
     return { ok: false, diagnostics };
   }
 
@@ -142,14 +144,16 @@ export function importOpenApiDocument(input: OpenApiImportInput): OpenApiImportR
     ok: true,
     data: {
       id: input.id,
-      kind: 'openapi',
+      kind: 'api',
+      origin: 'external',
+      protocol: 'rest',
       name: input.name ?? input.document.info?.title,
       description: input.description ?? input.document.info?.description,
       baseUrl,
       credential: input.credential,
       endpoints,
       schemas,
-      import: {
+      openApi: {
         url: input.documentUrl,
         documentId: input.documentId,
         version: input.document.info?.version,
@@ -171,7 +175,6 @@ export function normalizeOpenApiOperationId(
     .replace(/[^A-Za-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .toLowerCase();
-
   return normalized.length > 0 ? normalized : `${method}-root`;
 }
 
@@ -181,13 +184,10 @@ export function normalizeOpenApiEndpointId(path: string): EndpointId {
     .replace(/[^A-Za-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .toLowerCase();
-
   return normalized.length > 0 ? normalized : 'root';
 }
 
 export function normalizeOpenApiSchema(schema: OpenApiSchemaObject): DataSchema {
-  const additionalProperties = normalizeAdditionalProperties(schema.additionalProperties);
-
   return {
     ref: normalizeOpenApiSchemaRef(schema.$ref),
     type: normalizeSchemaType(schema.type),
@@ -200,7 +200,7 @@ export function normalizeOpenApiSchema(schema: OpenApiSchemaObject): DataSchema 
     nullable: schema.nullable,
     required: schema.required,
     properties: normalizeSchemaRecord(schema.properties),
-    additionalProperties,
+    additionalProperties: normalizeAdditionalProperties(schema.additionalProperties),
     items: schema.items === undefined ? undefined : normalizeOpenApiSchema(schema.items),
     allOf: normalizeSchemaList(schema.allOf),
     anyOf: normalizeSchemaList(schema.anyOf),
@@ -212,18 +212,16 @@ function resolveOpenApiBaseUrl(
   input: OpenApiImportInput,
   diagnostics: DataSourceDiagnostic[],
 ): string | undefined {
-  if (input.baseUrl !== undefined) return input.baseUrl;
+  if (input.baseUrl !== undefined && input.baseUrl.trim().length > 0) return input.baseUrl;
 
   const servers = input.document.servers ?? [];
-
   if (servers.length === 0) {
     diagnostics.push({
       code: 'ambiguous-server',
       dataSourceId: input.id,
-      message:
-        'OpenAPI document does not define a server URL and no baseUrl override was provided.',
+      message: 'OpenAPI import requires a server URL or an explicit baseUrl override.',
       path: 'servers',
-      severity: 'warning',
+      severity: 'error',
     });
     return undefined;
   }
@@ -247,7 +245,6 @@ function normalizeOpenApiSchemas(
   diagnostics: DataSourceDiagnostic[],
 ): DataSchemaRegistry | undefined {
   if (schemas === undefined) return undefined;
-
   const registry: Record<string, DataSchema> = {};
 
   for (const [schemaId, schema] of Object.entries(schemas)) {
@@ -259,7 +256,6 @@ function normalizeOpenApiSchemas(
       diagnostics,
     );
   }
-
   return registry;
 }
 
@@ -268,8 +264,7 @@ function normalizeOpenApiEndpoints(
   baseUrl: string | undefined,
   diagnostics: DataSourceDiagnostic[],
 ): Record<EndpointId, DataEndpointConfig> {
-  const { paths } = input.document;
-
+  const paths = input.document.paths;
   if (paths === undefined || Object.keys(paths).length === 0) {
     diagnostics.push({
       code: 'invalid-config',
@@ -308,8 +303,6 @@ function normalizeOpenApiEndpoints(
         operationId,
         diagnostics,
       );
-      const request = normalizeOpenApiRequest(operation.requestBody, parameters);
-      const response = normalizeOpenApiResponse(operation.responses);
 
       operations[operationId] = {
         id: operationId,
@@ -320,8 +313,8 @@ function normalizeOpenApiEndpoints(
         intent: mapOpenApiMethodToIntent(method),
         method: method.toUpperCase(),
         path,
-        request,
-        response,
+        request: normalizeOpenApiRequest(operation.requestBody, parameters),
+        response: normalizeOpenApiResponse(operation.responses),
         metadata: {
           deprecated: operation.deprecated ?? false,
           source: 'openapi',
@@ -352,7 +345,6 @@ function resolveUniqueOperationId(
   diagnostics: DataSourceDiagnostic[],
 ): OperationId {
   const normalized = normalizeOpenApiOperationId(method, path, operationId);
-
   if (!operationIds.has(normalized)) {
     operationIds.add(normalized);
     return normalized;
@@ -360,7 +352,6 @@ function resolveUniqueOperationId(
 
   let suffix = 2;
   let uniqueId: OperationId = `${normalized}-${suffix}`;
-
   while (operationIds.has(uniqueId)) {
     suffix += 1;
     uniqueId = `${normalized}-${suffix}`;
@@ -376,7 +367,6 @@ function resolveUniqueOperationId(
     path: `paths.${path}.${method}.operationId`,
     severity: 'warning',
   });
-
   return uniqueId;
 }
 
@@ -388,12 +378,10 @@ function normalizeOpenApiParameters(
   diagnostics: DataSourceDiagnostic[],
 ): readonly DataOperationParameter[] | undefined {
   if (parameters.length === 0) return undefined;
-
   const normalized: DataOperationParameter[] = [];
 
   for (const parameter of parameters) {
     const location = normalizeParameterLocation(parameter.in);
-
     if (location === undefined) {
       diagnostics.push({
         code: 'invalid-config',
@@ -419,7 +407,9 @@ function normalizeOpenApiParameters(
   return normalized;
 }
 
-function normalizeParameterLocation(location: string): DataOperationParameterLocation | undefined {
+function normalizeParameterLocation(
+  location: string,
+): DataOperationParameterLocation | undefined {
   if (
     location === 'cookie' ||
     location === 'header' ||
@@ -428,7 +418,6 @@ function normalizeParameterLocation(location: string): DataOperationParameterLoc
   ) {
     return location;
   }
-
   return undefined;
 }
 
@@ -437,9 +426,7 @@ function normalizeOpenApiRequest(
   parameters: readonly DataOperationParameter[] | undefined,
 ): DataOperationRequest | undefined {
   const content = firstContentEntry(requestBody?.content);
-
   if (requestBody === undefined && parameters === undefined) return undefined;
-
   return {
     contentType: content?.contentType,
     parameters,
@@ -451,13 +438,11 @@ function normalizeOpenApiResponse(
   responses: Readonly<Record<string, OpenApiResponseObject>> | undefined,
 ): DataOperationResponse | undefined {
   if (responses === undefined) return undefined;
-
   const status = chooseResponseStatus(Object.keys(responses));
   if (status === undefined) return undefined;
 
   const response = responses[status];
   const content = firstContentEntry(response?.content);
-
   return {
     status,
     contentType: content?.contentType,
@@ -470,10 +455,8 @@ function firstContentEntry(
   content: Readonly<Record<string, OpenApiMediaTypeObject>> | undefined,
 ): { readonly contentType: string; readonly schema?: OpenApiSchemaObject } | undefined {
   if (content === undefined) return undefined;
-
   const [entry] = Object.entries(content);
   if (entry === undefined) return undefined;
-
   const [contentType, media] = entry;
   return { contentType, schema: media.schema };
 }
@@ -490,54 +473,41 @@ function mapOpenApiMethodToIntent(method: OpenApiHttpMethod): DataOperationInten
   return 'action';
 }
 
-function normalizeOpenApiSchemaRef(ref: string | undefined): { readonly id: string } | undefined {
+function normalizeOpenApiSchemaRef(
+  ref: string | undefined,
+): { readonly id: string } | undefined {
   if (ref === undefined) return undefined;
-
   const prefix = '#/components/schemas/';
-  if (ref.startsWith(prefix)) return { id: ref.slice(prefix.length) };
-
-  return { id: ref };
+  return { id: ref.startsWith(prefix) ? ref.slice(prefix.length) : ref };
 }
 
 function normalizeSchemaRecord(
   record: Readonly<Record<string, OpenApiSchemaObject>> | undefined,
 ): Readonly<Record<string, DataSchema>> | undefined {
   if (record === undefined) return undefined;
-
-  const normalized: Record<string, DataSchema> = {};
-
-  for (const [key, schema] of Object.entries(record)) {
-    normalized[key] = normalizeOpenApiSchema(schema);
-  }
-
-  return normalized;
+  return Object.fromEntries(
+    Object.entries(record).map(([key, schema]) => [key, normalizeOpenApiSchema(schema)]),
+  );
 }
 
 function normalizeSchemaList(
   list: readonly OpenApiSchemaObject[] | undefined,
 ): readonly DataSchema[] | undefined {
-  return list?.map((schema) => normalizeOpenApiSchema(schema));
+  return list?.map(normalizeOpenApiSchema);
 }
 
 function normalizeAdditionalProperties(
-  additionalProperties: boolean | OpenApiSchemaObject | undefined,
+  value: boolean | OpenApiSchemaObject | undefined,
 ): boolean | DataSchema | undefined {
-  if (additionalProperties === undefined || typeof additionalProperties === 'boolean') {
-    return additionalProperties;
-  }
-
-  return normalizeOpenApiSchema(additionalProperties);
+  if (value === undefined || typeof value === 'boolean') return value;
+  return normalizeOpenApiSchema(value);
 }
 
 function normalizeSchemaType(
   type: string | readonly string[] | undefined,
 ): DataSchemaPrimitiveType | readonly DataSchemaPrimitiveType[] | undefined {
   if (type === undefined) return undefined;
-
-  if (typeof type === 'string') {
-    return isDataSchemaPrimitive(type) ? type : undefined;
-  }
-
+  if (typeof type === 'string') return isDataSchemaPrimitive(type) ? type : undefined;
   return type.filter(isDataSchemaPrimitive);
 }
 
@@ -569,7 +539,6 @@ function collectUnsupportedSchemaDiagnostics(
       diagnostics,
     );
   }
-
   if (schema.items !== undefined) {
     collectUnsupportedSchemaDiagnostics(schema.items, dataSourceId, `${path}.items`, diagnostics);
   }
