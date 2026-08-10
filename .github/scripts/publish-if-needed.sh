@@ -10,6 +10,7 @@ export GH_TOKEN="${GH_TOKEN:-${GITHUB_TOKEN:-}}"
 recover_release_state() {
   if ! git rev-parse -q --verify "refs/tags/${TAG}" >/dev/null; then
     echo "${PACKAGE_NAME}@${PACKAGE_VERSION} is already on npm; recovering missing ${TAG}."
+    git tag "${TAG}"
     echo "New tag: ${TAG}"
     return
   fi
