@@ -370,7 +370,7 @@ function createGeneratedApiOperationResponse(
 
   if (operation === 'list') return { schema: { type: 'array', items: schema } };
   if (operation === 'delete') {
-    return { schema: { type: 'object', properties: { deleted: { type: 'boolean' } } };
+    return { schema: { type: 'object', properties: { deleted: { type: 'boolean' } } } };
   }
   return { schema };
 }
