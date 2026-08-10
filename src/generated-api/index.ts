@@ -21,6 +21,8 @@ import type {
   DbFieldType,
 } from '@ankhorage/contracts/db';
 
+import { validateGeneratedApiCollection } from './validateGeneratedApiCollection';
+
 export function createGeneratedApiDataSource(
   definition: GeneratedApiDefinition,
 ): DataSourceDiagnosticResult<GeneratedRestApiDataSourceConfig> {
@@ -207,6 +209,8 @@ function validateGeneratedApiResource(
     );
   }
 
+  diagnostics.push(...validateGeneratedApiCollection(definition, resource));
+
   if (resource.operations.length === 0) {
     diagnostics.push(
       resourceDiagnostic(
@@ -366,7 +370,7 @@ function createGeneratedApiOperationResponse(
 
   if (operation === 'list') return { schema: { type: 'array', items: schema } };
   if (operation === 'delete') {
-    return { schema: { type: 'object', properties: { deleted: { type: 'boolean' } } } };
+    return { schema: { type: 'object', properties: { deleted: { type: 'boolean' } } };
   }
   return { schema };
 }
