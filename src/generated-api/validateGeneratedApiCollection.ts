@@ -9,31 +9,42 @@ export function validateGeneratedApiCollection(
   resource: GeneratedApiResourceDefinition,
 ): readonly DataSourceDiagnostic[] {
   const diagnostics: DataSourceDiagnostic[] = [];
-  const fields = resource.collection.fields;
+  const { fields, primaryKey } = resource.collection;
   const fieldNames = new Set<string>();
 
   if (fields.length === 0) {
-    diagnostics.push(diagnostic(definition, resource, 'Generated API resources require fields.', 'fields'));
+    diagnostics.push(
+      diagnostic(definition, resource, 'Generated API resources require fields.', 'fields'),
+    );
   }
 
   fields.forEach((field, index) => {
     const name = field.name.trim();
     if (!name) {
       diagnostics.push(
-        diagnostic(definition, resource, 'Generated API field names must be non-empty.', `fields.${index}.name`),
+        diagnostic(
+          definition,
+          resource,
+          'Generated API field names must be non-empty.',
+          `fields.${index}.name`,
+        ),
       );
       return;
     }
     if (fieldNames.has(name)) {
       diagnostics.push(
-        diagnostic(definition, resource, `Generated API field '${name}' is duplicated.`, `fields.${index}.name`),
+        diagnostic(
+          definition,
+          resource,
+          `Generated API field '${name}' is duplicated.`,
+          `fields.${index}.name`,
+        ),
       );
       return;
     }
     fieldNames.add(name);
   });
 
-  const primaryKey = resource.collection.primaryKey;
   if (primaryKey !== undefined && !fields.some((field) => field.name === primaryKey)) {
     diagnostics.push(
       diagnostic(
