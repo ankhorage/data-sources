@@ -9,7 +9,7 @@ import type {
   DataSchemaRegistry,
   DataSourceDiagnostic,
   DataSourceDiagnosticResult,
-  ExternalGraphQlApiDataSourceConfig,
+  ExternalGraphQlApiDefinition,
   OperationId,
 } from '@ankhorage/contracts/data';
 
@@ -106,7 +106,7 @@ export interface GraphQlOperationDefinition {
   readonly metadata?: DataContractValue;
 }
 
-export interface GraphQlDataSourceDefinition {
+export interface GraphQlApiDefinition {
   readonly id: string;
   readonly endpointUrl: string;
   readonly name?: string;
@@ -139,31 +139,31 @@ export function normalizeGraphQlOperationId(kind: GraphQlOperationKind, name: st
   return normalizedName.length > 0 ? `${kind}.${normalizedName}` : `${kind}.operation`;
 }
 
-export function createGraphQlDataSource(
-  definition: GraphQlDataSourceDefinition,
-): DataSourceDiagnosticResult<ExternalGraphQlApiDataSourceConfig> {
-  const diagnostics = validateGraphQlDataSource(definition);
+export function createGraphQlApi(
+  definition: GraphQlApiDefinition,
+): DataSourceDiagnosticResult<ExternalGraphQlApiDefinition> {
+  const diagnostics = validateGraphQlApi(definition);
   if (diagnostics.some((diagnostic) => diagnostic.severity === 'error')) {
     return { ok: false, diagnostics };
   }
 
   return {
     ok: true,
-    data: normalizeGraphQlDataSource(definition),
+    data: normalizeGraphQlApi(definition),
     diagnostics,
   };
 }
 
-export function validateGraphQlDataSource(
-  definition: GraphQlDataSourceDefinition,
+export function validateGraphQlApi(
+  definition: GraphQlApiDefinition,
 ): readonly DataSourceDiagnostic[] {
   const diagnostics: DataSourceDiagnostic[] = [];
 
   if (definition.endpointUrl.trim().length === 0) {
     diagnostics.push({
       code: 'invalid-config',
-      dataSourceId: definition.id,
-      message: 'GraphQL data source requires a non-empty endpointUrl.',
+      apiId: definition.id,
+      message: 'GraphQL API requires a non-empty endpointUrl.',
       path: 'endpointUrl',
       severity: 'error',
     });
@@ -172,7 +172,7 @@ export function validateGraphQlDataSource(
   if (definition.introspectionEnabled === false && definition.introspection !== undefined) {
     diagnostics.push({
       code: 'invalid-config',
-      dataSourceId: definition.id,
+      apiId: definition.id,
       message: 'GraphQL introspection data was provided while introspection is disabled.',
       path: 'introspection',
       severity: 'warning',
@@ -182,9 +182,8 @@ export function validateGraphQlDataSource(
   if (definition.introspectionEnabled !== false && definition.introspection === undefined) {
     diagnostics.push({
       code: 'missing-schema',
-      dataSourceId: definition.id,
-      message:
-        'GraphQL introspection result was not provided. Manual operations can still be used.',
+      apiId: definition.id,
+      message: 'GraphQL introspection result was not provided. Manual operations can still be used.',
       path: 'introspection',
       severity: 'info',
     });
@@ -193,9 +192,9 @@ export function validateGraphQlDataSource(
   return diagnostics;
 }
 
-export function normalizeGraphQlDataSource(
-  definition: GraphQlDataSourceDefinition,
-): ExternalGraphQlApiDataSourceConfig {
+export function normalizeGraphQlApi(
+  definition: GraphQlApiDefinition,
+): ExternalGraphQlApiDefinition {
   const schemas = normalizeGraphQlIntrospectionSchemas(definition.introspection);
   const discovered = normalizeGraphQlIntrospectionOperations(definition.introspection);
   const operations: Record<OperationId, DataOperationConfig> = {};
@@ -207,7 +206,6 @@ export function normalizeGraphQlDataSource(
   const endpoint: DataEndpointConfig = {
     id: 'graphql',
     kind: 'graphql',
-    baseUrl: definition.endpointUrl,
     credential: definition.credential,
     operations,
     metadata: { source: 'graphql' },
@@ -215,7 +213,6 @@ export function normalizeGraphQlDataSource(
 
   return {
     id: definition.id,
-    kind: 'api',
     origin: 'external',
     protocol: 'graphql',
     name: definition.name,
@@ -420,7 +417,5 @@ function toMetadataRecord(value: DataContractValue | undefined): DataContractRec
 }
 
 function isDataContractRecord(value: DataContractValue | undefined): value is DataContractRecord {
-  return (
-    value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value)
-  );
+  return value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value);
 }
