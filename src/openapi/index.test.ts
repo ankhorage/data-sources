@@ -56,8 +56,10 @@ describe('OpenAPI normalization', () => {
       expect(result.data.endpoints.pets?.operations.createpet?.intent).toBe('create');
     }
   });
+});
 
-  it('uses an explicit base URL and reports ambiguous servers', () => {
+describe('OpenAPI import diagnostics', () => {
+  it('uses an explicit base URL with ambiguous servers', () => {
     const result = importOpenApiDocument({
       id: 'pet-store',
       document: {
@@ -80,7 +82,6 @@ describe('OpenAPI normalization', () => {
       baseUrl: 'https://example.com',
       document: { openapi: '3.1.0' },
     });
-
     expect(noServer.ok).toBe(false);
     if (!noServer.ok) expect(noServer.diagnostics[0]?.apiId).toBe('no-server');
     expect(noPaths.ok).toBe(false);
