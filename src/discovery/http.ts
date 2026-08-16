@@ -1,4 +1,6 @@
-import type { ExternalApiFetchResponse } from './index';
+interface TextResponse {
+  text(): Promise<string>;
+}
 
 export function parseHttpUrl(rawUrl: string): URL | undefined {
   try {
@@ -21,7 +23,7 @@ export function isSuccessfulStatus(status: number): boolean {
   return status >= 200 && status < 300;
 }
 
-export async function parseJsonResponse(response: ExternalApiFetchResponse): Promise<unknown> {
+export async function parseJsonResponse(response: TextResponse): Promise<unknown> {
   try {
     return JSON.parse(await response.text()) as unknown;
   } catch {
