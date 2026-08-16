@@ -1,5 +1,5 @@
 import type { ApiDefinition, ExternalRestApiDefinition } from '@ankhorage/contracts/data';
-import { describe, expect, it } from 'bun:test';
+import { expect, it } from 'bun:test';
 
 import { buildEndpointTestRequest, type EndpointTestFetch, testEndpoint } from './index';
 
@@ -101,137 +101,131 @@ function graphQlApi(): ApiDefinition {
   };
 }
 
-describe('canonical REST request building', () => {
-  it('builds the Nutrition products URL from the canonical API base', async () => {
-    const result = await buildEndpointTestRequest({
-      api: nutritionApi(),
-      endpointId: 'products',
-      operationId: 'products.list',
-      dryRun: true,
-    });
-    expect(result.ok).toBe(true);
-    if (result.ok) {
-      expect(result.request.apiId).toBe('nutrition');
-      expect(result.request.method).toBe('GET');
-      expect(result.request.url).toBe('https://api.ankhorage.com/v1/nutrition/products');
-    }
+it('builds the canonical Nutrition products URL', async () => {
+  const result = await buildEndpointTestRequest({
+    api: nutritionApi(),
+    endpointId: 'products',
+    operationId: 'products.list',
+    dryRun: true,
   });
-
-  it('serializes path, query and header parameters with credentials', async () => {
-    const result = await buildEndpointTestRequest({
-      api: parameterApi(),
-      endpointId: 'posts',
-      operationId: 'posts.get',
-      dryRun: true,
-      values: { postId: 'post 1', preview: true, 'x-locale': 'de-CH' },
-      credentialResolver: () => ({ headers: { authorization: 'Bearer token' } }),
-    });
-    expect(result.ok).toBe(true);
-    if (result.ok) {
-      expect(result.request.url).toBe('https://cms.example.com/posts/post%201?preview=true');
-      expect(result.request.headers).toEqual({
-        authorization: 'Bearer token',
-        'x-locale': 'de-CH',
-      });
-    }
-  });
-
-  it('serializes body parameters without provider-specific handling', async () => {
-    const result = await buildEndpointTestRequest({
-      api: parameterApi(),
-      endpointId: 'posts',
-      operationId: 'posts.create',
-      dryRun: true,
-      values: { title: 'Hello', published: true },
-      credentialResolver: () => ({ headers: {} }),
-    });
-    expect(result.ok).toBe(true);
-    if (result.ok) {
-      expect(result.request.body).toBe('{"title":"Hello","published":true}');
-      expect(result.request.headers['content-type']).toBe('application/json');
-    }
-  });
+  expect(result.ok).toBe(true);
+  if (result.ok) {
+    expect(result.request.apiId).toBe('nutrition');
+    expect(result.request.method).toBe('GET');
+    expect(result.request.url).toBe('https://api.ankhorage.com/v1/nutrition/products');
+  }
 });
 
-describe('canonical API execution', () => {
-  it('executes external REST requests and parses responses', async () => {
-    const fetch: EndpointTestFetch = () =>
-      Promise.resolve({ status: 200, text: () => Promise.resolve('{"products":[]}') });
-    const result = await testEndpoint({
-      api: nutritionApi(),
-      endpointId: 'products',
-      operationId: 'products.list',
-      fetch,
-    });
-    expect(result.ok).toBe(true);
-    if (result.ok) expect(result.data).toEqual({ products: [] });
+it('serializes path, query and header parameters with credentials', async () => {
+  const result = await buildEndpointTestRequest({
+    api: parameterApi(),
+    endpointId: 'posts',
+    operationId: 'posts.get',
+    dryRun: true,
+    values: { postId: 'post 1', preview: true, 'x-locale': 'de-CH' },
+    credentialResolver: () => ({ headers: { authorization: 'Bearer token' } }),
   });
-
-  it('builds GraphQL requests through the same canonical API input', async () => {
-    const result = await buildEndpointTestRequest({
-      api: graphQlApi(),
-      endpointId: 'graphql',
-      operationId: 'query.viewer',
-      dryRun: true,
-      values: { variables: { id: 'viewer-1' } },
+  expect(result.ok).toBe(true);
+  if (result.ok) {
+    expect(result.request.url).toBe('https://cms.example.com/posts/post%201?preview=true');
+    expect(result.request.headers).toEqual({
+      authorization: 'Bearer token',
+      'x-locale': 'de-CH',
     });
-    expect(result.ok).toBe(true);
-    if (result.ok) {
-      expect(result.request.url).toBe('https://content.example.com/graphql');
-      expect(result.request.method).toBe('POST');
-    }
-  });
+  }
 });
 
-describe('API phase 1 execution boundaries', () => {
-  it('rejects internal APIs during phase 1', async () => {
-    const internal: ApiDefinition = {
-      id: 'future-api',
-      origin: 'internal',
-      protocol: 'rest',
-      basePath: '/v1/future',
-      endpoints: {},
-    };
-    const result = await buildEndpointTestRequest({
-      api: internal,
-      endpointId: 'products',
-      operationId: 'products.list',
-    });
-    expect(result.ok).toBe(false);
-    if (!result.ok) {
-      expect(result.diagnostics[0]?.apiId).toBe('future-api');
-      expect(result.diagnostics[0]?.message).toContain('not executable in API phase 1');
-    }
+it('serializes body parameters without provider-specific handling', async () => {
+  const result = await buildEndpointTestRequest({
+    api: parameterApi(),
+    endpointId: 'posts',
+    operationId: 'posts.create',
+    dryRun: true,
+    values: { title: 'Hello', published: true },
+    credentialResolver: () => ({ headers: {} }),
   });
+  expect(result.ok).toBe(true);
+  if (result.ok) {
+    expect(result.request.body).toBe('{"title":"Hello","published":true}');
+    expect(result.request.headers['content-type']).toBe('application/json');
+  }
+});
 
-  it('never treats database protocol operations as API HTTP operations', async () => {
-    const api: ExternalRestApiDefinition = {
-      id: 'broken-api',
-      origin: 'external',
-      protocol: 'rest',
-      baseUrl: 'https://example.com',
-      endpoints: {
-        products: {
-          id: 'products',
-          kind: 'http',
-          operations: {
-            'products.list': {
-              id: 'products.list',
-              endpointId: 'products',
-              protocol: 'database',
-              intent: 'read',
-              path: '/products',
-            },
+it('executes external REST requests and parses responses', async () => {
+  const fetch: EndpointTestFetch = () =>
+    Promise.resolve({ status: 200, text: () => Promise.resolve('{"products":[]}') });
+  const result = await testEndpoint({
+    api: nutritionApi(),
+    endpointId: 'products',
+    operationId: 'products.list',
+    fetch,
+  });
+  expect(result.ok).toBe(true);
+  if (result.ok) expect(result.data).toEqual({ products: [] });
+});
+
+it('builds GraphQL requests through the same canonical API input', async () => {
+  const result = await buildEndpointTestRequest({
+    api: graphQlApi(),
+    endpointId: 'graphql',
+    operationId: 'query.viewer',
+    dryRun: true,
+    values: { variables: { id: 'viewer-1' } },
+  });
+  expect(result.ok).toBe(true);
+  if (result.ok) {
+    expect(result.request.url).toBe('https://content.example.com/graphql');
+    expect(result.request.method).toBe('POST');
+  }
+});
+
+it('rejects internal APIs during phase 1', async () => {
+  const internal: ApiDefinition = {
+    id: 'future-api',
+    origin: 'internal',
+    protocol: 'rest',
+    basePath: '/v1/future',
+    endpoints: {},
+  };
+  const result = await buildEndpointTestRequest({
+    api: internal,
+    endpointId: 'products',
+    operationId: 'products.list',
+  });
+  expect(result.ok).toBe(false);
+  if (!result.ok) {
+    expect(result.diagnostics[0]?.apiId).toBe('future-api');
+    expect(result.diagnostics[0]?.message).toContain('not executable in API phase 1');
+  }
+});
+
+it('never treats database protocol operations as API HTTP operations', async () => {
+  const api: ExternalRestApiDefinition = {
+    id: 'broken-api',
+    origin: 'external',
+    protocol: 'rest',
+    baseUrl: 'https://example.com',
+    endpoints: {
+      products: {
+        id: 'products',
+        kind: 'http',
+        operations: {
+          'products.list': {
+            id: 'products.list',
+            endpointId: 'products',
+            protocol: 'database',
+            intent: 'read',
+            path: '/products',
           },
         },
       },
-    };
-    const result = await buildEndpointTestRequest({
-      api,
-      endpointId: 'products',
-      operationId: 'products.list',
-    });
-    expect(result.ok).toBe(false);
-    if (!result.ok) expect(result.diagnostics[0]?.message).toContain("protocol 'database'");
+    },
+  };
+  const result = await buildEndpointTestRequest({
+    api,
+    endpointId: 'products',
+    operationId: 'products.list',
   });
+  expect(result.ok).toBe(false);
+  if (!result.ok) expect(result.diagnostics[0]?.message).toContain("protocol 'database'");
 });
