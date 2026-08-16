@@ -12,9 +12,14 @@ export * from './rest';
 export * from './test-runner';
 
 export const DATA_SOURCES_PACKAGE_NAME = '@ankhorage/data-sources' as const;
-export const SUPPORTED_DATA_SOURCE_KINDS = ['database'] as const satisfies readonly DataSourceKind[];
+export const SUPPORTED_DATA_SOURCE_KINDS = [
+  'database',
+] as const satisfies readonly DataSourceKind[];
 export const SUPPORTED_API_ORIGINS = ['external'] as const satisfies readonly ApiOrigin[];
-export const SUPPORTED_API_PROTOCOLS = ['graphql', 'rest'] as const satisfies readonly ApiProtocol[];
+export const SUPPORTED_API_PROTOCOLS = [
+  'graphql',
+  'rest',
+] as const satisfies readonly ApiProtocol[];
 
 export type SupportedApiOrigin = (typeof SUPPORTED_API_ORIGINS)[number];
 

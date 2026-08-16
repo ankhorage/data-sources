@@ -183,7 +183,8 @@ export function validateGraphQlApi(
     diagnostics.push({
       code: 'missing-schema',
       apiId: definition.id,
-      message: 'GraphQL introspection result was not provided. Manual operations can still be used.',
+      message:
+        'GraphQL introspection result was not provided. Manual operations can still be used.',
       path: 'introspection',
       severity: 'info',
     });
@@ -417,5 +418,7 @@ function toMetadataRecord(value: DataContractValue | undefined): DataContractRec
 }
 
 function isDataContractRecord(value: DataContractValue | undefined): value is DataContractRecord {
-  return value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value);
+  return (
+    value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value)
+  );
 }

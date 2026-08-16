@@ -1,4 +1,7 @@
-import type { DatabaseDataSourceConfig, ExternalRestApiDefinition } from '@ankhorage/contracts/data';
+import type {
+  DatabaseDataSourceConfig,
+  ExternalRestApiDefinition,
+} from '@ankhorage/contracts/data';
 import { describe, expect, it } from 'bun:test';
 
 import {
