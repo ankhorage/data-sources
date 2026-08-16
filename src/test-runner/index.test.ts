@@ -101,7 +101,7 @@ function graphQlApi(): ApiDefinition {
   };
 }
 
-describe('canonical API endpoint runner', () => {
+describe('canonical REST request building', () => {
   it('builds the Nutrition products URL from the canonical API base', async () => {
     const result = await buildEndpointTestRequest({
       api: nutritionApi(),
@@ -109,7 +109,6 @@ describe('canonical API endpoint runner', () => {
       operationId: 'products.list',
       dryRun: true,
     });
-
     expect(result.ok).toBe(true);
     if (result.ok) {
       expect(result.request.apiId).toBe('nutrition');
@@ -127,7 +126,6 @@ describe('canonical API endpoint runner', () => {
       values: { postId: 'post 1', preview: true, 'x-locale': 'de-CH' },
       credentialResolver: () => ({ headers: { authorization: 'Bearer token' } }),
     });
-
     expect(result.ok).toBe(true);
     if (result.ok) {
       expect(result.request.url).toBe('https://cms.example.com/posts/post%201?preview=true');
@@ -147,14 +145,15 @@ describe('canonical API endpoint runner', () => {
       values: { title: 'Hello', published: true },
       credentialResolver: () => ({ headers: {} }),
     });
-
     expect(result.ok).toBe(true);
     if (result.ok) {
       expect(result.request.body).toBe('{"title":"Hello","published":true}');
       expect(result.request.headers['content-type']).toBe('application/json');
     }
   });
+});
 
+describe('canonical API execution', () => {
   it('executes external REST requests and parses responses', async () => {
     const fetch: EndpointTestFetch = () =>
       Promise.resolve({ status: 200, text: () => Promise.resolve('{"products":[]}') });
@@ -164,7 +163,6 @@ describe('canonical API endpoint runner', () => {
       operationId: 'products.list',
       fetch,
     });
-
     expect(result.ok).toBe(true);
     if (result.ok) expect(result.data).toEqual({ products: [] });
   });
@@ -177,14 +175,15 @@ describe('canonical API endpoint runner', () => {
       dryRun: true,
       values: { variables: { id: 'viewer-1' } },
     });
-
     expect(result.ok).toBe(true);
     if (result.ok) {
       expect(result.request.url).toBe('https://content.example.com/graphql');
       expect(result.request.method).toBe('POST');
     }
   });
+});
 
+describe('API phase 1 execution boundaries', () => {
   it('rejects internal APIs during phase 1', async () => {
     const internal: ApiDefinition = {
       id: 'future-api',
@@ -198,7 +197,6 @@ describe('canonical API endpoint runner', () => {
       endpointId: 'products',
       operationId: 'products.list',
     });
-
     expect(result.ok).toBe(false);
     if (!result.ok) {
       expect(result.diagnostics[0]?.apiId).toBe('future-api');
@@ -233,7 +231,6 @@ describe('canonical API endpoint runner', () => {
       endpointId: 'products',
       operationId: 'products.list',
     });
-
     expect(result.ok).toBe(false);
     if (!result.ok) expect(result.diagnostics[0]?.message).toContain("protocol 'database'");
   });
