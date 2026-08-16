@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'bun:test';
+import { expect, it } from 'bun:test';
 
 import {
   importOpenApiDocument,
@@ -31,56 +31,56 @@ function document(): OpenApiDocumentObject {
   };
 }
 
-describe('OpenAPI normalization', () => {
-  it('normalizes endpoint, operation and schema shapes', () => {
-    expect(normalizeOpenApiEndpointId('/pets/{petId}')).toBe('pets-petid');
-    expect(normalizeOpenApiOperationId('get', '/pets/{petId}')).toBe('get-pets-petid');
-    expect(normalizeOpenApiSchema({ type: 'array', items: { type: 'string' } }).items?.type).toBe(
-      'string',
-    );
-  });
+it('normalizes OpenAPI endpoint, operation and schema shapes', () => {
+  expect(normalizeOpenApiEndpointId('/pets/{petId}')).toBe('pets-petid');
+  expect(normalizeOpenApiOperationId('get', '/pets/{petId}')).toBe('get-pets-petid');
+  expect(normalizeOpenApiSchema({ type: 'array', items: { type: 'string' } }).items?.type).toBe(
+    'string',
+  );
+});
 
-  it('imports OpenAPI as an external REST source with OpenAPI metadata', () => {
-    const result = importOpenApiDocument({
-      id: 'pet-store',
-      document: document(),
-      documentUrl: 'https://api.example.com/openapi.json',
-    });
-    expect(result.ok).toBe(true);
-    if (result.ok) {
-      expect(result.data).toMatchObject({ kind: 'api', origin: 'external', protocol: 'rest' });
-      expect(result.data.openApi?.version).toBe('2026-08-06');
-      expect(result.data.endpoints.pets?.operations.listpets?.intent).toBe('read');
-      expect(result.data.endpoints.pets?.operations.createpet?.intent).toBe('create');
-    }
+it('imports OpenAPI as a canonical external REST API', () => {
+  const result = importOpenApiDocument({
+    id: 'pet-store',
+    document: document(),
+    documentUrl: 'https://api.example.com/openapi.json',
   });
+  expect(result.ok).toBe(true);
+  if (result.ok) {
+    expect(result.data).toMatchObject({ origin: 'external', protocol: 'rest' });
+    expect('kind' in result.data).toBe(false);
+    expect(result.data.openApi?.version).toBe('2026-08-06');
+    expect(result.data.endpoints.pets?.baseUrl).toBeUndefined();
+    expect(result.data.endpoints.pets?.operations.listpets?.intent).toBe('read');
+    expect(result.data.endpoints.pets?.operations.createpet?.intent).toBe('create');
+  }
+});
 
-  it('uses an explicit base URL and reports ambiguous servers', () => {
-    const result = importOpenApiDocument({
-      id: 'pet-store',
-      document: {
-        ...document(),
-        servers: [{ url: 'https://one.example.com' }, { url: 'https://two.example.com' }],
-      },
-      baseUrl: 'https://override.example.com',
-    });
-    expect(result.ok).toBe(true);
-    if (result.ok) expect(result.data.baseUrl).toBe('https://override.example.com');
+it('uses an explicit OpenAPI base URL with ambiguous servers', () => {
+  const result = importOpenApiDocument({
+    id: 'pet-store',
+    document: {
+      ...document(),
+      servers: [{ url: 'https://one.example.com' }, { url: 'https://two.example.com' }],
+    },
+    baseUrl: 'https://override.example.com',
   });
+  expect(result.ok).toBe(true);
+  if (result.ok) expect(result.data.baseUrl).toBe('https://override.example.com');
+});
 
-  it('requires a resolvable base URL and paths', () => {
-    expect(
-      importOpenApiDocument({
-        id: 'no-server',
-        document: { openapi: '3.1.0', paths: { '/x': { get: {} } } },
-      }).ok,
-    ).toBe(false);
-    expect(
-      importOpenApiDocument({
-        id: 'no-paths',
-        baseUrl: 'https://example.com',
-        document: { openapi: '3.1.0' },
-      }).ok,
-    ).toBe(false);
+it('requires a resolvable OpenAPI base URL and paths', () => {
+  const noServer = importOpenApiDocument({
+    id: 'no-server',
+    document: { openapi: '3.1.0', paths: { '/x': { get: {} } } },
   });
+  const noPaths = importOpenApiDocument({
+    id: 'no-paths',
+    baseUrl: 'https://example.com',
+    document: { openapi: '3.1.0' },
+  });
+  expect(noServer.ok).toBe(false);
+  if (!noServer.ok) expect(noServer.diagnostics[0]?.apiId).toBe('no-server');
+  expect(noPaths.ok).toBe(false);
+  if (!noPaths.ok) expect(noPaths.diagnostics[0]?.apiId).toBe('no-paths');
 });

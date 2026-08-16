@@ -2,16 +2,23 @@ import type {
   CredentialRef,
   DataContractValue,
   DataSourceDiagnostic,
-  ExternalGraphQlApiDataSourceConfig,
-  ExternalRestApiDataSourceConfig,
+  ExternalGraphQlApiDefinition,
+  ExternalRestApiDefinition,
 } from '@ankhorage/contracts/data';
 
 import {
-  createGraphQlDataSource,
+  createGraphQlApi,
   createGraphQlIntrospectionRequest,
   type GraphQlIntrospectionResult,
 } from '../graphql';
 import { importOpenApiDocument, type OpenApiDocumentObject } from '../openapi';
+import {
+  isSuccessfulStatus,
+  normalizeCandidateUrl,
+  parseHttpUrl,
+  parseJsonResponse,
+  readRecord,
+} from './http';
 
 export const DEFAULT_OPENAPI_DISCOVERY_PATHS = [
   'openapi.json',
@@ -50,7 +57,7 @@ export interface OpenApiDiscoveryAttempt {
   readonly status?: number;
 }
 
-export interface DiscoverOpenApiDataSourceInput {
+export interface DiscoverOpenApiInput {
   readonly id: string;
   readonly url: string;
   readonly fetch: ExternalApiFetch;
@@ -62,10 +69,10 @@ export interface DiscoverOpenApiDataSourceInput {
   readonly conventionalPaths?: readonly string[];
 }
 
-export type DiscoverOpenApiDataSourceResult =
+export type DiscoverOpenApiResult =
   | {
       readonly ok: true;
-      readonly data: ExternalRestApiDataSourceConfig;
+      readonly data: ExternalRestApiDefinition;
       readonly documentUrl: string;
       readonly attempts: readonly OpenApiDiscoveryAttempt[];
       readonly diagnostics: readonly DataSourceDiagnostic[];
@@ -76,7 +83,7 @@ export type DiscoverOpenApiDataSourceResult =
       readonly diagnostics: readonly DataSourceDiagnostic[];
     };
 
-export interface IntrospectGraphQlDataSourceInput {
+export interface IntrospectGraphQlApiInput {
   readonly id: string;
   readonly endpointUrl: string;
   readonly fetch: ExternalApiFetch;
@@ -88,10 +95,10 @@ export interface IntrospectGraphQlDataSourceInput {
   readonly metadata?: DataContractValue;
 }
 
-export type IntrospectGraphQlDataSourceResult =
+export type IntrospectGraphQlApiResult =
   | {
       readonly ok: true;
-      readonly data: ExternalGraphQlApiDataSourceConfig;
+      readonly data: ExternalGraphQlApiDefinition;
       readonly diagnostics: readonly DataSourceDiagnostic[];
     }
   | {
@@ -121,9 +128,7 @@ export function createOpenApiDiscoveryCandidates(
   return [...new Set(candidates)];
 }
 
-export async function discoverOpenApiDataSource(
-  input: DiscoverOpenApiDataSourceInput,
-): Promise<DiscoverOpenApiDataSourceResult> {
+export async function discoverOpenApi(input: DiscoverOpenApiInput): Promise<DiscoverOpenApiResult> {
   const candidates = createOpenApiDiscoveryCandidates(input.url, input.conventionalPaths);
   if (candidates.length === 0) {
     return discoveryFailure(input.id, [], 'OpenAPI discovery requires a valid HTTP or HTTPS URL.');
@@ -152,29 +157,18 @@ export async function discoverOpenApiDataSource(
   );
 }
 
-export async function introspectGraphQlDataSource(
-  input: IntrospectGraphQlDataSourceInput,
-): Promise<IntrospectGraphQlDataSourceResult> {
+export async function introspectGraphQlApi(
+  input: IntrospectGraphQlApiInput,
+): Promise<IntrospectGraphQlApiResult> {
   const endpoint = parseHttpUrl(input.endpointUrl);
   if (endpoint === undefined) {
     return graphqlFailure(input.id, 'GraphQL introspection requires a valid HTTP or HTTPS URL.');
   }
 
-  let response: ExternalApiFetchResponse;
-  try {
-    response = await input.fetch(normalizeCandidateUrl(endpoint), {
-      method: 'POST',
-      headers: {
-        accept: 'application/json',
-        'content-type': 'application/json',
-        ...(input.headers ?? {}),
-      },
-      body: JSON.stringify(createGraphQlIntrospectionRequest()),
-    });
-  } catch {
+  const response = await fetchGraphQlIntrospection(input, endpoint);
+  if (response === undefined) {
     return graphqlFailure(input.id, 'GraphQL introspection request failed.', 'network-error');
   }
-
   if (!isSuccessfulStatus(response.status)) {
     return {
       ...graphqlFailure(
@@ -195,7 +189,7 @@ export async function introspectGraphQlDataSource(
     );
   }
 
-  const result = createGraphQlDataSource({
+  const result = createGraphQlApi({
     id: input.id,
     endpointUrl: normalizeCandidateUrl(endpoint),
     credential: input.credential,
@@ -206,10 +200,28 @@ export async function introspectGraphQlDataSource(
     schemaVersion: input.schemaVersion,
     metadata: input.metadata,
   });
-
   return result.ok
     ? { ok: true, data: result.data, diagnostics: result.diagnostics ?? [] }
     : { ok: false, diagnostics: result.diagnostics };
+}
+
+async function fetchGraphQlIntrospection(
+  input: IntrospectGraphQlApiInput,
+  endpoint: URL,
+): Promise<ExternalApiFetchResponse | undefined> {
+  try {
+    return await input.fetch(normalizeCandidateUrl(endpoint), {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+        ...(input.headers ?? {}),
+      },
+      body: JSON.stringify(createGraphQlIntrospectionRequest()),
+    });
+  } catch {
+    return undefined;
+  }
 }
 
 interface OpenApiProbeResult {
@@ -218,7 +230,7 @@ interface OpenApiProbeResult {
 }
 
 async function probeOpenApiCandidate(
-  input: DiscoverOpenApiDataSourceInput,
+  input: DiscoverOpenApiInput,
   candidate: string,
 ): Promise<OpenApiProbeResult> {
   let response: ExternalApiFetchResponse;
@@ -265,35 +277,6 @@ async function probeOpenApiCandidate(
   };
 }
 
-function parseHttpUrl(rawUrl: string): URL | undefined {
-  try {
-    const parsed = new URL(rawUrl.trim());
-    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return undefined;
-    if (parsed.username.length > 0 || parsed.password.length > 0) return undefined;
-    return parsed;
-  } catch {
-    return undefined;
-  }
-}
-
-function normalizeCandidateUrl(url: URL): string {
-  const normalized = new URL(url.toString());
-  normalized.hash = '';
-  return normalized.toString();
-}
-
-function isSuccessfulStatus(status: number): boolean {
-  return status >= 200 && status < 300;
-}
-
-async function parseJsonResponse(response: ExternalApiFetchResponse): Promise<unknown> {
-  try {
-    return JSON.parse(await response.text()) as unknown;
-  } catch {
-    return undefined;
-  }
-}
-
 function isOpenApiDocument(value: unknown): value is OpenApiDocumentObject {
   const record = readRecord(value);
   return (
@@ -310,31 +293,25 @@ function readGraphQlIntrospection(value: unknown): GraphQlIntrospectionResult | 
   return data;
 }
 
-function readRecord(value: unknown): Readonly<Record<string, unknown>> | undefined {
-  return typeof value === 'object' && value !== null && !Array.isArray(value)
-    ? (value as Readonly<Record<string, unknown>>)
-    : undefined;
-}
-
 function discoveryFailure(
-  dataSourceId: string,
+  apiId: string,
   attempts: readonly OpenApiDiscoveryAttempt[],
   message: string,
-): DiscoverOpenApiDataSourceResult {
+): DiscoverOpenApiResult {
   return {
     ok: false,
     attempts,
-    diagnostics: [{ code: 'missing-schema', dataSourceId, message, severity: 'error' }],
+    diagnostics: [{ code: 'missing-schema', apiId, message, severity: 'error' }],
   };
 }
 
 function graphqlFailure(
-  dataSourceId: string,
+  apiId: string,
   message: string,
   code: DataSourceDiagnostic['code'] = 'invalid-config',
-): Extract<IntrospectGraphQlDataSourceResult, { readonly ok: false }> {
+): Extract<IntrospectGraphQlApiResult, { readonly ok: false }> {
   return {
     ok: false,
-    diagnostics: [{ code, dataSourceId, message, severity: 'error' }],
+    diagnostics: [{ code, apiId, message, severity: 'error' }],
   };
 }

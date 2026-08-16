@@ -1,15 +1,15 @@
 import { describe, expect, it } from 'bun:test';
 
 import {
-  createManualRestDataSource,
+  createManualRestApi,
   extractRestPathParams,
   isManualRestMethod,
-  type ManualRestDataSourceDefinition,
-  normalizeManualRestDataSource,
+  type ManualRestApiDefinition,
+  normalizeManualRestApi,
   normalizeManualRestMethod,
 } from './index';
 
-function definition(): ManualRestDataSourceDefinition {
+function definition(): ManualRestApiDefinition {
   return {
     id: 'blog-api',
     baseUrl: 'https://api.example.com',
@@ -38,7 +38,7 @@ function definition(): ManualRestDataSourceDefinition {
   };
 }
 
-describe('manual REST normalization', () => {
+describe('manual REST API normalization', () => {
   it('normalizes methods and path parameters', () => {
     expect(normalizeManualRestMethod('get')).toBe('GET');
     expect(isManualRestMethod('GET')).toBe(true);
@@ -49,23 +49,26 @@ describe('manual REST normalization', () => {
     ]);
   });
 
-  it('creates an external REST API source', () => {
-    const source = normalizeManualRestDataSource(definition());
-    expect(source).toMatchObject({ kind: 'api', origin: 'external', protocol: 'rest' });
-    expect(source.endpoints.posts?.operations['posts.get']?.method).toBe('GET');
-    expect(source.endpoints.posts?.operations['posts.create']?.intent).toBe('create');
+  it('creates a canonical external REST API', () => {
+    const api = normalizeManualRestApi(definition());
+    expect(api).toMatchObject({ origin: 'external', protocol: 'rest' });
+    expect('kind' in api).toBe(false);
+    expect(api.endpoints.posts?.baseUrl).toBeUndefined();
+    expect(api.endpoints.posts?.operations['posts.get']?.method).toBe('GET');
+    expect(api.endpoints.posts?.operations['posts.create']?.intent).toBe('create');
   });
 
-  it('returns canonical diagnostic results', () => {
-    const valid = createManualRestDataSource(definition());
-    const invalid = createManualRestDataSource({ ...definition(), baseUrl: ' ' });
+  it('returns canonical diagnostics with API identity', () => {
+    const valid = createManualRestApi(definition());
+    const invalid = createManualRestApi({ ...definition(), baseUrl: ' ' });
     expect(valid.ok).toBe(true);
     expect(invalid.ok).toBe(false);
+    if (!invalid.ok) expect(invalid.diagnostics[0]?.apiId).toBe('blog-api');
   });
 
   it('reports unsupported methods and missing path parameters', () => {
     const broken = definition();
-    const result = createManualRestDataSource({
+    const result = createManualRestApi({
       ...broken,
       endpoints: [
         {

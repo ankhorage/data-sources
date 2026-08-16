@@ -1,0 +1,14 @@
+sequenceDiagram
+  participant participant_extractRestPathParams as extractRestPathParams
+  participant participant_isManualRestMethod as isManualRestMethod
+  participant participant_normalizeManualRestMethod as normalizeManualRestMethod
+  participant participant_validateManualRestApi as validateManualRestApi
+  participant participant_validateManualRestOperation as validateManualRestOperation
+  participant_validateManualRestApi->>participant_validateManualRestOperation: validateManualRestOperation()
+  participant_validateManualRestOperation->>participant_normalizeManualRestMethod: normalizeManualRestMethod()
+  participant_normalizeManualRestMethod-->>participant_validateManualRestOperation: return
+  participant_validateManualRestOperation->>participant_extractRestPathParams: extractRestPathParams()
+  participant_extractRestPathParams-->>participant_validateManualRestOperation: return
+  participant_validateManualRestOperation->>participant_isManualRestMethod: isManualRestMethod()
+  participant_isManualRestMethod-->>participant_validateManualRestOperation: return
+  participant_validateManualRestOperation-->>participant_validateManualRestApi: return

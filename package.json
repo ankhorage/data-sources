@@ -2,7 +2,7 @@
   "name": "@ankhorage/data-sources",
   "type": "module",
   "version": "1.0.1",
-  "description": "Headless toolkit for importing, generating, normalizing, and testing Ankhorage data-source configs.",
+  "description": "Headless toolkit for importing, normalizing, and executing canonical Ankhorage API and data-source configs.",
   "homepage": "https://github.com/ankhorage/data-sources#readme",
   "bugs": {
     "url": "https://github.com/ankhorage/data-sources/issues"
@@ -25,7 +25,7 @@
     "typescript"
   ],
   "dependencies": {
-    "@ankhorage/contracts": "^4.0.2"
+    "@ankhorage/contracts": "^8.0.0"
   },
   "ankh": {
     "category": "data-sources",
@@ -78,8 +78,8 @@
     "version-packages": "changeset version"
   },
   "devDependencies": {
-    "@ankhorage/devtools": "^1.0.6",
-    "@ankhorage/paradox": "^0.1.7",
+    "@ankhorage/devtools": "^1.4.1",
+    "@ankhorage/paradox": "^0.1.21",
     "@changesets/cli": "^2.30.0",
     "@types/bun": "^1.3.13",
     "@types/node": "^25.6.0",

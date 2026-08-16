@@ -1,4 +1,7 @@
-import type { ExternalRestApiDataSourceConfig } from '@ankhorage/contracts/data';
+import type {
+  DatabaseDataSourceConfig,
+  ExternalRestApiDefinition,
+} from '@ankhorage/contracts/data';
 import { describe, expect, it } from 'bun:test';
 
 import {
@@ -11,36 +14,41 @@ import {
 } from './index';
 
 describe('data-sources package model', () => {
-  it('exports orthogonal package capabilities', () => {
+  it('exports canonical API and database capabilities separately', () => {
     expect(getDataSourcesPackageInfo()).toEqual({
       packageName: DATA_SOURCES_PACKAGE_NAME,
-      supportedKinds: ['api', 'database'],
-      supportedApiOrigins: ['external', 'generated'],
+      supportedKinds: ['database'],
+      supportedApiOrigins: ['external'],
       supportedApiProtocols: ['graphql', 'rest'],
     });
   });
 
-  it('recognizes only canonical source dimensions', () => {
-    expect(isSupportedDataSourceKind('api')).toBe(true);
+  it('recognizes only currently executable API origins', () => {
     expect(isSupportedDataSourceKind('database')).toBe(true);
-    expect(isSupportedDataSourceKind('managed-api')).toBe(false);
-    expect(isSupportedDataSourceKind('openapi')).toBe(false);
+    expect(isSupportedDataSourceKind('api')).toBe(false);
     expect(isSupportedApiOrigin('external')).toBe(true);
-    expect(isSupportedApiOrigin('generated')).toBe(true);
+    expect(isSupportedApiOrigin('internal')).toBe(false);
+    expect(isSupportedApiOrigin('generated')).toBe(false);
     expect(isSupportedApiProtocol('rest')).toBe(true);
     expect(isSupportedApiProtocol('graphql')).toBe(true);
   });
 
-  it('consumes canonical contracts from @ankhorage/contracts', () => {
-    const source: ExternalRestApiDataSourceConfig = {
+  it('consumes canonical API contracts from @ankhorage/contracts', () => {
+    const api: ExternalRestApiDefinition = {
       id: 'cms',
-      kind: 'api',
       origin: 'external',
       protocol: 'rest',
       baseUrl: 'https://cms.example.com',
       endpoints: {},
     };
+    const source: DatabaseDataSourceConfig = {
+      id: 'primary-db',
+      kind: 'database',
+      adapter: { id: 'database-adapter', kind: 'database' },
+      endpoints: {},
+    };
 
-    expect(getDataSourceKind(source)).toBe('api');
+    expect(api.origin).toBe('external');
+    expect(getDataSourceKind(source)).toBe('database');
   });
 });

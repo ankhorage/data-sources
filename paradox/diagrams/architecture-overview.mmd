@@ -4,21 +4,68 @@ graph TD
   package__ankhorage_data_sources --> entrypoint_src_index_ts
   module_src_ankh_provider_ts["src/ankh.provider.ts"]
   package__ankhorage_data_sources -.-> module_src_ankh_provider_ts
-  module_src_ankh_provider_ts --> module_src_index_ts
+  module_src_ankh_provider_ts --> module_src_packageInfo_ts
   module_src_cli_index_ts["src/cli/index.ts"]
   package__ankhorage_data_sources -.-> module_src_cli_index_ts
+  module_src_discovery_http_ts["src/discovery/http.ts"]
+  package__ankhorage_data_sources -.-> module_src_discovery_http_ts
   module_src_discovery_index_ts["src/discovery/index.ts"]
   package__ankhorage_data_sources -.-> module_src_discovery_index_ts
+  module_src_discovery_index_ts --> module_src_discovery_http_ts
   module_src_discovery_index_ts --> module_src_graphql_index_ts
   module_src_discovery_index_ts --> module_src_openapi_index_ts
-  module_src_generated_api_index_ts["src/generated-api/index.ts"]
-  package__ankhorage_data_sources -.-> module_src_generated_api_index_ts
   module_src_graphql_index_ts["src/graphql/index.ts"]
   package__ankhorage_data_sources -.-> module_src_graphql_index_ts
+  module_src_graphql_index_ts --> module_src_graphql_introspection_ts
+  module_src_graphql_index_ts --> module_src_graphql_operation_ts
+  module_src_graphql_index_ts --> module_src_graphql_types_ts
+  module_src_graphql_introspection_ts["src/graphql/introspection.ts"]
+  package__ankhorage_data_sources -.-> module_src_graphql_introspection_ts
+  module_src_graphql_introspection_ts --> module_src_graphql_operation_ts
+  module_src_graphql_introspection_ts --> module_src_graphql_types_ts
+  module_src_graphql_operation_ts["src/graphql/operation.ts"]
+  package__ankhorage_data_sources -.-> module_src_graphql_operation_ts
+  module_src_graphql_operation_ts --> module_src_graphql_types_ts
+  module_src_graphql_types_ts["src/graphql/types.ts"]
+  package__ankhorage_data_sources -.-> module_src_graphql_types_ts
   module_src_index_ts["src/index.ts"]
+  module_src_openapi_endpoints_ts["src/openapi/endpoints.ts"]
+  package__ankhorage_data_sources -.-> module_src_openapi_endpoints_ts
+  module_src_openapi_endpoints_ts --> module_src_openapi_operation_ts
+  module_src_openapi_endpoints_ts --> module_src_openapi_types_ts
   module_src_openapi_index_ts["src/openapi/index.ts"]
   package__ankhorage_data_sources -.-> module_src_openapi_index_ts
+  module_src_openapi_index_ts --> module_src_openapi_endpoints_ts
+  module_src_openapi_index_ts --> module_src_openapi_schema_ts
+  module_src_openapi_index_ts --> module_src_openapi_types_ts
+  module_src_openapi_operation_ts["src/openapi/operation.ts"]
+  package__ankhorage_data_sources -.-> module_src_openapi_operation_ts
+  module_src_openapi_operation_ts --> module_src_openapi_schema_ts
+  module_src_openapi_operation_ts --> module_src_openapi_types_ts
+  module_src_openapi_schema_ts["src/openapi/schema.ts"]
+  package__ankhorage_data_sources -.-> module_src_openapi_schema_ts
+  module_src_openapi_schema_ts --> module_src_openapi_types_ts
+  module_src_openapi_types_ts["src/openapi/types.ts"]
+  package__ankhorage_data_sources -.-> module_src_openapi_types_ts
+  module_src_packageInfo_ts["src/packageInfo.ts"]
+  package__ankhorage_data_sources -.-> module_src_packageInfo_ts
   module_src_rest_index_ts["src/rest/index.ts"]
   package__ankhorage_data_sources -.-> module_src_rest_index_ts
   module_src_test_runner_index_ts["src/test-runner/index.ts"]
   package__ankhorage_data_sources -.-> module_src_test_runner_index_ts
+  module_src_test_runner_index_ts --> module_src_test_runner_response_ts
+  module_src_test_runner_index_ts --> module_src_test_runner_result_ts
+  module_src_test_runner_index_ts --> module_src_test_runner_serialization_ts
+  module_src_test_runner_index_ts --> module_src_test_runner_types_ts
+  module_src_test_runner_response_ts["src/test-runner/response.ts"]
+  package__ankhorage_data_sources -.-> module_src_test_runner_response_ts
+  module_src_test_runner_response_ts --> module_src_test_runner_types_ts
+  module_src_test_runner_result_ts["src/test-runner/result.ts"]
+  package__ankhorage_data_sources -.-> module_src_test_runner_result_ts
+  module_src_test_runner_result_ts --> module_src_test_runner_types_ts
+  module_src_test_runner_serialization_ts["src/test-runner/serialization.ts"]
+  package__ankhorage_data_sources -.-> module_src_test_runner_serialization_ts
+  module_src_test_runner_serialization_ts --> module_src_test_runner_result_ts
+  module_src_test_runner_serialization_ts --> module_src_test_runner_types_ts
+  module_src_test_runner_types_ts["src/test-runner/types.ts"]
+  package__ankhorage_data_sources -.-> module_src_test_runner_types_ts

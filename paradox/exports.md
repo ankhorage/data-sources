@@ -4,7 +4,7 @@
 
 Kind: `function`
 Module: `src/test-runner/index.ts`
-Source: `src/test-runner/index.ts:140:1`
+Source: `src/test-runner/index.ts:65:1`
 
 ### Signatures
 
@@ -12,94 +12,30 @@ Source: `src/test-runner/index.ts:140:1`
   - input: `EndpointTestInput`
   - returns: `Promise<EndpointTestResult>`
 
-## createGeneratedApiDataSource
-
-Kind: `function`
-Module: `src/generated-api/index.ts`
-Source: `src/generated-api/index.ts:24:1`
-
-### Signatures
-
-- `(definition: GeneratedApiDefinition) => DataSourceDiagnosticResult<GeneratedRestApiDataSourceConfig>`
-  - definition: `GeneratedApiDefinition`
-  - returns: `DataSourceDiagnosticResult<GeneratedRestApiDataSourceConfig>`
-
-## createGeneratedApiEndpoint
-
-Kind: `function`
-Module: `src/generated-api/index.ts`
-Source: `src/generated-api/index.ts:98:1`
-
-### Signatures
-
-- `(definition: GeneratedApiDefinition, resource: GeneratedApiResourceDefinition) => DataEndpointConfig`
-  - definition: `GeneratedApiDefinition`
-  - resource: `GeneratedApiResourceDefinition`
-  - returns: `DataEndpointConfig`
-
-## createGeneratedApiOperation
-
-Kind: `function`
-Module: `src/generated-api/index.ts`
-Source: `src/generated-api/index.ts:120:1`
-
-### Signatures
-
-- `(definition: GeneratedApiDefinition, resource: GeneratedApiResourceDefinition, operation: "list" | "read" | "create" | "update" | "delete") => DataOperationConfig`
-  - definition: `GeneratedApiDefinition`
-  - operation: `"list" | "read" | "create" | "update" | "delete"`
-  - resource: `GeneratedApiResourceDefinition`
-  - returns: `DataOperationConfig`
-
-## createGeneratedApiOperationId
-
-Kind: `function`
-Module: `src/generated-api/index.ts`
-Source: `src/generated-api/index.ts:147:1`
-
-### Signatures
-
-- `(resourceId: string, operation: "list" | "read" | "create" | "update" | "delete") => string`
-  - operation: `"list" | "read" | "create" | "update" | "delete"`
-  - resourceId: `string`
-  - returns: `string`
-
-## createGeneratedApiResourceSchema
-
-Kind: `function`
-Module: `src/generated-api/index.ts`
-Source: `src/generated-api/index.ts:154:1`
-
-### Signatures
-
-- `(collection: DbCollectionDefinition) => DataSchema`
-  - collection: `DbCollectionDefinition`
-  - returns: `DataSchema`
-
-## createGraphQlDataSource
+## createGraphQlApi
 
 Kind: `function`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:142:1`
+Source: `src/graphql/index.ts:66:1`
 
 ### Signatures
 
-- `(definition: GraphQlDataSourceDefinition) => DataSourceDiagnosticResult<ExternalGraphQlApiDataSourceConfig>`
-  - definition: `GraphQlDataSourceDefinition`
-  - returns: `DataSourceDiagnosticResult<ExternalGraphQlApiDataSourceConfig>`
+- `(definition: GraphQlApiDefinition) => DataSourceDiagnosticResult<ExternalGraphQlApiDefinition>`
+  - definition: `GraphQlApiDefinition`
+  - returns: `DataSourceDiagnosticResult<ExternalGraphQlApiDefinition>`
 
 ## createGraphQlIntrospectionRequest
 
 Kind: `function`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:127:1`
+Source: `src/graphql/index.ts:59:1`
 
 ### Signatures
 
 - `() => GraphQlIntrospectionRequest`
   - returns: `GraphQlIntrospectionRequest`
 
-## createManualRestDataSource
+## createManualRestApi
 
 Kind: `function`
 Module: `src/rest/index.ts`
@@ -107,15 +43,15 @@ Source: `src/rest/index.ts:121:1`
 
 ### Signatures
 
-- `(definition: ManualRestDataSourceDefinition) => DataSourceDiagnosticResult<ExternalRestApiDataSourceConfig>`
-  - definition: `ManualRestDataSourceDefinition`
-  - returns: `DataSourceDiagnosticResult<ExternalRestApiDataSourceConfig>`
+- `(definition: ManualRestApiDefinition) => DataSourceDiagnosticResult<ExternalRestApiDefinition>`
+  - definition: `ManualRestApiDefinition`
+  - returns: `DataSourceDiagnosticResult<ExternalRestApiDefinition>`
 
 ## createOpenApiDiscoveryCandidates
 
 Kind: `function`
 Module: `src/discovery/index.ts`
-Source: `src/discovery/index.ts:103:1`
+Source: `src/discovery/index.ts:110:1`
 
 ### Signatures
 
@@ -127,47 +63,47 @@ Source: `src/discovery/index.ts:103:1`
 ## DATA_SOURCES_PACKAGE_NAME
 
 Kind: `value`
-Module: `src/index.ts`
-Source: `src/index.ts:15:14`
+Module: `src/packageInfo.ts`
+Source: `src/packageInfo.ts:8:14`
 
 ## DataSourcesPackageInfo
 
 Kind: `type`
-Module: `src/index.ts`
-Source: `src/index.ts:29:1`
+Module: `src/packageInfo.ts`
+Source: `src/packageInfo.ts:20:1`
 
 ### Members
 
-| Name                  | Kind     | Type                                 | Required | Description |
-| --------------------- | -------- | ------------------------------------ | -------- | ----------- |
-| packageName           | property | `"@ankhorage/data-sources"`          | yes      |             |
-| supportedApiOrigins   | property | `readonly ["external", "generated"]` | yes      |             |
-| supportedApiProtocols | property | `readonly ["graphql", "rest"]`       | yes      |             |
-| supportedKinds        | property | `readonly ["api", "database"]`       | yes      |             |
+| Name                  | Kind     | Type                           | Required | Description |
+| --------------------- | -------- | ------------------------------ | -------- | ----------- |
+| packageName           | property | `"@ankhorage/data-sources"`    | yes      |             |
+| supportedApiOrigins   | property | `readonly ["external"]`        | yes      |             |
+| supportedApiProtocols | property | `readonly ["graphql", "rest"]` | yes      |             |
+| supportedKinds        | property | `readonly ["database"]`        | yes      |             |
 
 ## DEFAULT_OPENAPI_DISCOVERY_PATHS
 
 Kind: `value`
 Module: `src/discovery/index.ts`
-Source: `src/discovery/index.ts:16:14`
+Source: `src/discovery/index.ts:23:14`
 
-## discoverOpenApiDataSource
+## discoverOpenApi
 
 Kind: `function`
 Module: `src/discovery/index.ts`
-Source: `src/discovery/index.ts:124:1`
+Source: `src/discovery/index.ts:131:1`
 
 ### Signatures
 
-- `(input: DiscoverOpenApiDataSourceInput) => Promise<DiscoverOpenApiDataSourceResult>`
-  - input: `DiscoverOpenApiDataSourceInput`
-  - returns: `Promise<DiscoverOpenApiDataSourceResult>`
+- `(input: DiscoverOpenApiInput) => Promise<DiscoverOpenApiResult>`
+  - input: `DiscoverOpenApiInput`
+  - returns: `Promise<DiscoverOpenApiResult>`
 
-## DiscoverOpenApiDataSourceInput
+## DiscoverOpenApiInput
 
 Kind: `type`
 Module: `src/discovery/index.ts`
-Source: `src/discovery/index.ts:53:1`
+Source: `src/discovery/index.ts:60:1`
 
 ### Members
 
@@ -183,17 +119,17 @@ Source: `src/discovery/index.ts:53:1`
 | name              | property | `string \| undefined`            | no       |             |
 | url               | property | `string`                         | yes      |             |
 
-## DiscoverOpenApiDataSourceResult
+## DiscoverOpenApiResult
 
 Kind: `unknown`
 Module: `src/discovery/index.ts`
-Source: `src/discovery/index.ts:65:1`
+Source: `src/discovery/index.ts:72:1`
 
 ## EndpointTestCredential
 
 Kind: `type`
-Module: `src/test-runner/index.ts`
-Source: `src/test-runner/index.ts:16:1`
+Module: `src/test-runner/types.ts`
+Source: `src/test-runner/types.ts:13:1`
 
 ### Members
 
@@ -205,20 +141,20 @@ Source: `src/test-runner/index.ts:16:1`
 ## EndpointTestCredentialResolver
 
 Kind: `unknown`
-Module: `src/test-runner/index.ts`
-Source: `src/test-runner/index.ts:21:1`
+Module: `src/test-runner/types.ts`
+Source: `src/test-runner/types.ts:18:1`
 
 ## EndpointTestFetch
 
 Kind: `unknown`
-Module: `src/test-runner/index.ts`
-Source: `src/test-runner/index.ts:37:1`
+Module: `src/test-runner/types.ts`
+Source: `src/test-runner/types.ts:34:1`
 
 ## EndpointTestFetchInit
 
 Kind: `type`
-Module: `src/test-runner/index.ts`
-Source: `src/test-runner/index.ts:25:1`
+Module: `src/test-runner/types.ts`
+Source: `src/test-runner/types.ts:22:1`
 
 ### Members
 
@@ -231,8 +167,8 @@ Source: `src/test-runner/index.ts:25:1`
 ## EndpointTestFetchResponse
 
 Kind: `type`
-Module: `src/test-runner/index.ts`
-Source: `src/test-runner/index.ts:31:1`
+Module: `src/test-runner/types.ts`
+Source: `src/test-runner/types.ts:28:1`
 
 ### Members
 
@@ -245,21 +181,21 @@ Source: `src/test-runner/index.ts:31:1`
 ## EndpointTestHeaders
 
 Kind: `unknown`
-Module: `src/test-runner/index.ts`
-Source: `src/test-runner/index.ts:14:1`
+Module: `src/test-runner/types.ts`
+Source: `src/test-runner/types.ts:11:1`
 
 ## EndpointTestInput
 
 Kind: `type`
-Module: `src/test-runner/index.ts`
-Source: `src/test-runner/index.ts:42:1`
+Module: `src/test-runner/types.ts`
+Source: `src/test-runner/types.ts:39:1`
 
 ### Members
 
 | Name               | Kind     | Type                                                       | Required | Description |
 | ------------------ | -------- | ---------------------------------------------------------- | -------- | ----------- |
+| api                | property | `ApiDefinition`                                            | yes      |             |
 | credentialResolver | property | `EndpointTestCredentialResolver \| undefined`              | no       |             |
-| dataSource         | property | `DataSourceConfig`                                         | yes      |             |
 | dryRun             | property | `boolean \| undefined`                                     | no       |             |
 | endpointId         | property | `string`                                                   | yes      |             |
 | fetch              | property | `EndpointTestFetch \| undefined`                           | no       |             |
@@ -269,33 +205,33 @@ Source: `src/test-runner/index.ts:42:1`
 ## EndpointTestInputValues
 
 Kind: `unknown`
-Module: `src/test-runner/index.ts`
-Source: `src/test-runner/index.ts:13:1`
+Module: `src/test-runner/types.ts`
+Source: `src/test-runner/types.ts:10:1`
 
 ## EndpointTestRequestDiagnostic
 
 Kind: `type`
-Module: `src/test-runner/index.ts`
-Source: `src/test-runner/index.ts:52:1`
+Module: `src/test-runner/types.ts`
+Source: `src/test-runner/types.ts:49:1`
 
 ### Members
 
-| Name         | Kind     | Type                               | Required | Description |
-| ------------ | -------- | ---------------------------------- | -------- | ----------- |
-| body         | property | `string \| undefined`              | no       |             |
-| dataSourceId | property | `string`                           | yes      |             |
-| dryRun       | property | `boolean`                          | yes      |             |
-| endpointId   | property | `string`                           | yes      |             |
-| headers      | property | `Readonly<Record<string, string>>` | yes      |             |
-| method       | property | `string`                           | yes      |             |
-| operationId  | property | `string`                           | yes      |             |
-| url          | property | `string`                           | yes      |             |
+| Name        | Kind     | Type                               | Required | Description |
+| ----------- | -------- | ---------------------------------- | -------- | ----------- |
+| apiId       | property | `string`                           | yes      |             |
+| body        | property | `string \| undefined`              | no       |             |
+| dryRun      | property | `boolean`                          | yes      |             |
+| endpointId  | property | `string`                           | yes      |             |
+| headers     | property | `Readonly<Record<string, string>>` | yes      |             |
+| method      | property | `string`                           | yes      |             |
+| operationId | property | `string`                           | yes      |             |
+| url         | property | `string`                           | yes      |             |
 
 ## EndpointTestResponseDiagnostic
 
 Kind: `type`
-Module: `src/test-runner/index.ts`
-Source: `src/test-runner/index.ts:63:1`
+Module: `src/test-runner/types.ts`
+Source: `src/test-runner/types.ts:60:1`
 
 ### Members
 
@@ -310,20 +246,20 @@ Source: `src/test-runner/index.ts:63:1`
 ## EndpointTestResult
 
 Kind: `unknown`
-Module: `src/test-runner/index.ts`
-Source: `src/test-runner/index.ts:71:1`
+Module: `src/test-runner/types.ts`
+Source: `src/test-runner/types.ts:68:1`
 
 ## ExternalApiFetch
 
 Kind: `unknown`
 Module: `src/discovery/index.ts`
-Source: `src/discovery/index.ts:34:1`
+Source: `src/discovery/index.ts:41:1`
 
 ## ExternalApiFetchInit
 
 Kind: `type`
 Module: `src/discovery/index.ts`
-Source: `src/discovery/index.ts:23:1`
+Source: `src/discovery/index.ts:30:1`
 
 ### Members
 
@@ -337,7 +273,7 @@ Source: `src/discovery/index.ts:23:1`
 
 Kind: `type`
 Module: `src/discovery/index.ts`
-Source: `src/discovery/index.ts:29:1`
+Source: `src/discovery/index.ts:36:1`
 
 ### Members
 
@@ -361,20 +297,20 @@ Source: `src/rest/index.ts:68:1`
 ## getDataSourceKind
 
 Kind: `function`
-Module: `src/index.ts`
-Source: `src/index.ts:57:1`
+Module: `src/packageInfo.ts`
+Source: `src/packageInfo.ts:48:1`
 
 ### Signatures
 
-- `(source: DataSourceConfig) => DataSourceKind`
-  - source: `DataSourceConfig`
-  - returns: `DataSourceKind`
+- `(source: import("@ankhorage/contracts/dist/data/sources").DatabaseDataSourceConfig) => "database"`
+  - source: `import("@ankhorage/contracts/dist/data/sources").DatabaseDataSourceConfig`
+  - returns: `"database"`
 
 ## getDataSourcesPackageInfo
 
 Kind: `function`
-Module: `src/index.ts`
-Source: `src/index.ts:36:1`
+Module: `src/packageInfo.ts`
+Source: `src/packageInfo.ts:27:1`
 
 ### Signatures
 
@@ -385,13 +321,13 @@ Source: `src/index.ts:36:1`
 
 Kind: `value`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:16:14`
+Source: `src/graphql/index.ts:22:14`
 
-## GraphQlDataSourceDefinition
+## GraphQlApiDefinition
 
 Kind: `type`
-Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:109:1`
+Module: `src/graphql/types.ts`
+Source: `src/graphql/types.ts:68:1`
 
 ### Members
 
@@ -411,8 +347,8 @@ Source: `src/graphql/index.ts:109:1`
 ## GraphQlIntrospectionEnumValue
 
 Kind: `type`
-Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:71:1`
+Module: `src/graphql/types.ts`
+Source: `src/graphql/types.ts:30:1`
 
 ### Members
 
@@ -424,8 +360,8 @@ Source: `src/graphql/index.ts:71:1`
 ## GraphQlIntrospectionField
 
 Kind: `type`
-Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:64:1`
+Module: `src/graphql/types.ts`
+Source: `src/graphql/types.ts:23:1`
 
 ### Members
 
@@ -439,8 +375,8 @@ Source: `src/graphql/index.ts:64:1`
 ## GraphQlIntrospectionInputValue
 
 Kind: `type`
-Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:57:1`
+Module: `src/graphql/types.ts`
+Source: `src/graphql/types.ts:16:1`
 
 ### Members
 
@@ -455,7 +391,7 @@ Source: `src/graphql/index.ts:57:1`
 
 Kind: `type`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:122:1`
+Source: `src/graphql/index.ts:54:1`
 
 ### Members
 
@@ -467,8 +403,8 @@ Source: `src/graphql/index.ts:122:1`
 ## GraphQlIntrospectionResult
 
 Kind: `type`
-Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:93:1`
+Module: `src/graphql/types.ts`
+Source: `src/graphql/types.ts:52:1`
 
 ### Members
 
@@ -479,8 +415,8 @@ Source: `src/graphql/index.ts:93:1`
 ## GraphQlIntrospectionSchema
 
 Kind: `type`
-Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:86:1`
+Module: `src/graphql/types.ts`
+Source: `src/graphql/types.ts:45:1`
 
 ### Members
 
@@ -494,8 +430,8 @@ Source: `src/graphql/index.ts:86:1`
 ## GraphQlIntrospectionType
 
 Kind: `type`
-Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:76:1`
+Module: `src/graphql/types.ts`
+Source: `src/graphql/types.ts:35:1`
 
 ### Members
 
@@ -512,8 +448,8 @@ Source: `src/graphql/index.ts:76:1`
 ## GraphQlIntrospectionTypeRef
 
 Kind: `type`
-Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:51:1`
+Module: `src/graphql/types.ts`
+Source: `src/graphql/types.ts:10:1`
 
 ### Members
 
@@ -526,8 +462,8 @@ Source: `src/graphql/index.ts:51:1`
 ## GraphQlOperationDefinition
 
 Kind: `type`
-Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:97:1`
+Module: `src/graphql/types.ts`
+Source: `src/graphql/types.ts:56:1`
 
 ### Members
 
@@ -546,14 +482,14 @@ Source: `src/graphql/index.ts:97:1`
 ## GraphQlOperationKind
 
 Kind: `unknown`
-Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:48:1`
+Module: `src/graphql/types.ts`
+Source: `src/graphql/types.ts:8:1`
 
 ## importOpenApiDocument
 
 Kind: `function`
 Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:126:1`
+Source: `src/openapi/index.ts:18:1`
 
 ### Signatures
 
@@ -561,23 +497,23 @@ Source: `src/openapi/index.ts:126:1`
   - input: `OpenApiImportInput`
   - returns: `OpenApiImportResult`
 
-## introspectGraphQlDataSource
+## introspectGraphQlApi
 
 Kind: `function`
 Module: `src/discovery/index.ts`
-Source: `src/discovery/index.ts:155:1`
+Source: `src/discovery/index.ts:160:1`
 
 ### Signatures
 
-- `(input: IntrospectGraphQlDataSourceInput) => Promise<IntrospectGraphQlDataSourceResult>`
-  - input: `IntrospectGraphQlDataSourceInput`
-  - returns: `Promise<IntrospectGraphQlDataSourceResult>`
+- `(input: IntrospectGraphQlApiInput) => Promise<IntrospectGraphQlApiResult>`
+  - input: `IntrospectGraphQlApiInput`
+  - returns: `Promise<IntrospectGraphQlApiResult>`
 
-## IntrospectGraphQlDataSourceInput
+## IntrospectGraphQlApiInput
 
 Kind: `type`
 Module: `src/discovery/index.ts`
-Source: `src/discovery/index.ts:79:1`
+Source: `src/discovery/index.ts:86:1`
 
 ### Members
 
@@ -593,11 +529,11 @@ Source: `src/discovery/index.ts:79:1`
 | name          | property | `string \| undefined`                           | no       |             |
 | schemaVersion | property | `string \| undefined`                           | no       |             |
 
-## IntrospectGraphQlDataSourceResult
+## IntrospectGraphQlApiResult
 
 Kind: `unknown`
 Module: `src/discovery/index.ts`
-Source: `src/discovery/index.ts:91:1`
+Source: `src/discovery/index.ts:98:1`
 
 ## isManualRestMethod
 
@@ -614,8 +550,8 @@ Source: `src/rest/index.ts:60:1`
 ## isSupportedApiOrigin
 
 Kind: `function`
-Module: `src/index.ts`
-Source: `src/index.ts:49:1`
+Module: `src/packageInfo.ts`
+Source: `src/packageInfo.ts:40:1`
 
 ### Signatures
 
@@ -626,8 +562,8 @@ Source: `src/index.ts:49:1`
 ## isSupportedApiProtocol
 
 Kind: `function`
-Module: `src/index.ts`
-Source: `src/index.ts:53:1`
+Module: `src/packageInfo.ts`
+Source: `src/packageInfo.ts:44:1`
 
 ### Signatures
 
@@ -638,8 +574,8 @@ Source: `src/index.ts:53:1`
 ## isSupportedDataSourceKind
 
 Kind: `function`
-Module: `src/index.ts`
-Source: `src/index.ts:45:1`
+Module: `src/packageInfo.ts`
+Source: `src/packageInfo.ts:36:1`
 
 ### Signatures
 
@@ -647,7 +583,7 @@ Source: `src/index.ts:45:1`
   - kind: `string`
   - returns: `boolean`
 
-## ManualRestDataSourceDefinition
+## ManualRestApiDefinition
 
 Kind: `type`
 Module: `src/rest/index.ts`
@@ -655,16 +591,16 @@ Source: `src/rest/index.ts:49:1`
 
 ### Members
 
-| Name        | Kind     | Type                                                                                                                                                    | Required | Description |
-| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| baseUrl     | property | `string`                                                                                                                                                | yes      |             |
-| credential  | property | `CredentialRef \| undefined`                                                                                                                            | no       |             |
-| description | property | `string \| undefined`                                                                                                                                   | no       |             |
-| endpoints   | property | `readonly ManualRestEndpointDefinition[]`                                                                                                               | yes      |             |
-| id          | property | `string`                                                                                                                                                | yes      |             |
-| metadata    | property | `DataContractValue \| undefined`                                                                                                                        | no       |             |
-| name        | property | `string \| undefined`                                                                                                                                   | no       |             |
-| schemas     | property | `Readonly<Record<string, import("/Users/a_rtiphishl_e/git/data-sources/node_modules/@ankhorage/contracts/dist/data/schemas").DataSchema>> \| undefined` | no       |             |
+| Name        | Kind     | Type                                                                                                 | Required | Description |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| baseUrl     | property | `string`                                                                                             | yes      |             |
+| credential  | property | `CredentialRef \| undefined`                                                                         | no       |             |
+| description | property | `string \| undefined`                                                                                | no       |             |
+| endpoints   | property | `readonly ManualRestEndpointDefinition[]`                                                            | yes      |             |
+| id          | property | `string`                                                                                             | yes      |             |
+| metadata    | property | `DataContractValue \| undefined`                                                                     | no       |             |
+| name        | property | `string \| undefined`                                                                                | no       |             |
+| schemas     | property | `Readonly<Record<string, import("@ankhorage/contracts/dist/data/schemas").DataSchema>> \| undefined` | no       |             |
 
 ## ManualRestEndpointDefinition
 
@@ -713,35 +649,23 @@ Source: `src/rest/index.ts:24:1`
 | request     | property | `DataOperationRequest \| undefined`              | no       |             |
 | response    | property | `DataOperationResponse \| undefined`             | no       |             |
 
-## normalizeGeneratedApiDataSource
-
-Kind: `function`
-Module: `src/generated-api/index.ts`
-Source: `src/generated-api/index.ts:72:1`
-
-### Signatures
-
-- `(definition: GeneratedApiDefinition) => GeneratedRestApiDataSourceConfig`
-  - definition: `GeneratedApiDefinition`
-  - returns: `GeneratedRestApiDataSourceConfig`
-
-## normalizeGraphQlDataSource
+## normalizeGraphQlApi
 
 Kind: `function`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:196:1`
+Source: `src/graphql/index.ts:112:1`
 
 ### Signatures
 
-- `(definition: GraphQlDataSourceDefinition) => ExternalGraphQlApiDataSourceConfig`
-  - definition: `GraphQlDataSourceDefinition`
-  - returns: `ExternalGraphQlApiDataSourceConfig`
+- `(definition: GraphQlApiDefinition) => ExternalGraphQlApiDefinition`
+  - definition: `GraphQlApiDefinition`
+  - returns: `ExternalGraphQlApiDefinition`
 
 ## normalizeGraphQlIntrospectionOperations
 
 Kind: `function`
-Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:249:1`
+Module: `src/graphql/introspection.ts`
+Source: `src/graphql/introspection.ts:27:1`
 
 ### Signatures
 
@@ -752,8 +676,8 @@ Source: `src/graphql/index.ts:249:1`
 ## normalizeGraphQlIntrospectionSchemas
 
 Kind: `function`
-Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:235:1`
+Module: `src/graphql/introspection.ts`
+Source: `src/graphql/introspection.ts:15:1`
 
 ### Signatures
 
@@ -764,8 +688,8 @@ Source: `src/graphql/index.ts:235:1`
 ## normalizeGraphQlOperationId
 
 Kind: `function`
-Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:134:1`
+Module: `src/graphql/operation.ts`
+Source: `src/graphql/operation.ts:13:1`
 
 ### Signatures
 
@@ -774,7 +698,7 @@ Source: `src/graphql/index.ts:134:1`
   - name: `string`
   - returns: `string`
 
-## normalizeManualRestDataSource
+## normalizeManualRestApi
 
 Kind: `function`
 Module: `src/rest/index.ts`
@@ -782,9 +706,9 @@ Source: `src/rest/index.ts:136:1`
 
 ### Signatures
 
-- `(definition: ManualRestDataSourceDefinition) => ExternalRestApiDataSourceConfig`
-  - definition: `ManualRestDataSourceDefinition`
-  - returns: `ExternalRestApiDataSourceConfig`
+- `(definition: ManualRestApiDefinition) => ExternalRestApiDefinition`
+  - definition: `ManualRestApiDefinition`
+  - returns: `ExternalRestApiDefinition`
 
 ## normalizeManualRestMethod
 
@@ -801,8 +725,8 @@ Source: `src/rest/index.ts:64:1`
 ## normalizeOpenApiEndpointId
 
 Kind: `function`
-Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:178:1`
+Module: `src/openapi/endpoints.ts`
+Source: `src/openapi/endpoints.ts:26:1`
 
 ### Signatures
 
@@ -813,13 +737,13 @@ Source: `src/openapi/index.ts:178:1`
 ## normalizeOpenApiOperationId
 
 Kind: `function`
-Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:164:1`
+Module: `src/openapi/operation.ts`
+Source: `src/openapi/operation.ts:26:1`
 
 ### Signatures
 
-- `(method: "delete" | "get" | "head" | "options" | "patch" | "post" | "put", path: string, operationId?: string | undefined) => string`
-  - method: `"delete" | "get" | "head" | "options" | "patch" | "post" | "put"`
+- `(method: OpenApiHttpMethod, path: string, operationId?: string | undefined) => string`
+  - method: `OpenApiHttpMethod`
   - operationId: `string | undefined` (optional)
   - path: `string`
   - returns: `string`
@@ -827,8 +751,8 @@ Source: `src/openapi/index.ts:164:1`
 ## normalizeOpenApiSchema
 
 Kind: `function`
-Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:187:1`
+Module: `src/openapi/schema.ts`
+Source: `src/openapi/schema.ts:20:1`
 
 ### Signatures
 
@@ -839,8 +763,8 @@ Source: `src/openapi/index.ts:187:1`
 ## OpenApiComponentsObject
 
 Kind: `type`
-Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:95:1`
+Module: `src/openapi/types.ts`
+Source: `src/openapi/types.ts:66:1`
 
 ### Members
 
@@ -853,7 +777,7 @@ Source: `src/openapi/index.ts:95:1`
 
 Kind: `type`
 Module: `src/discovery/index.ts`
-Source: `src/discovery/index.ts:47:1`
+Source: `src/discovery/index.ts:54:1`
 
 ### Members
 
@@ -867,13 +791,13 @@ Source: `src/discovery/index.ts:47:1`
 
 Kind: `unknown`
 Module: `src/discovery/index.ts`
-Source: `src/discovery/index.ts:39:1`
+Source: `src/discovery/index.ts:46:1`
 
 ## OpenApiDocumentObject
 
 Kind: `type`
-Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:100:1`
+Module: `src/openapi/types.ts`
+Source: `src/openapi/types.ts:71:1`
 
 ### Members
 
@@ -888,14 +812,14 @@ Source: `src/openapi/index.ts:100:1`
 ## OpenApiHttpMethod
 
 Kind: `unknown`
-Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:32:1`
+Module: `src/openapi/types.ts`
+Source: `src/openapi/types.ts:3:1`
 
 ## OpenApiImportInput
 
 Kind: `type`
-Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:112:1`
+Module: `src/openapi/types.ts`
+Source: `src/openapi/types.ts:83:1`
 
 ### Members
 
@@ -915,13 +839,13 @@ Source: `src/openapi/index.ts:112:1`
 
 Kind: `unknown`
 Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:124:1`
+Source: `src/openapi/index.ts:16:1`
 
 ## OpenApiMediaTypeObject
 
 Kind: `type`
-Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:58:1`
+Module: `src/openapi/types.ts`
+Source: `src/openapi/types.ts:29:1`
 
 ### Members
 
@@ -932,8 +856,8 @@ Source: `src/openapi/index.ts:58:1`
 ## OpenApiOperationObject
 
 Kind: `type`
-Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:81:1`
+Module: `src/openapi/types.ts`
+Source: `src/openapi/types.ts:52:1`
 
 ### Members
 
@@ -950,8 +874,8 @@ Source: `src/openapi/index.ts:81:1`
 ## OpenApiParameterObject
 
 Kind: `type`
-Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:73:1`
+Module: `src/openapi/types.ts`
+Source: `src/openapi/types.ts:44:1`
 
 ### Members
 
@@ -966,14 +890,14 @@ Source: `src/openapi/index.ts:73:1`
 ## OpenApiPathItemObject
 
 Kind: `unknown`
-Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:91:1`
+Module: `src/openapi/types.ts`
+Source: `src/openapi/types.ts:62:1`
 
 ## OpenApiRequestBodyObject
 
 Kind: `type`
-Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:62:1`
+Module: `src/openapi/types.ts`
+Source: `src/openapi/types.ts:33:1`
 
 ### Members
 
@@ -986,8 +910,8 @@ Source: `src/openapi/index.ts:62:1`
 ## OpenApiResponseObject
 
 Kind: `type`
-Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:68:1`
+Module: `src/openapi/types.ts`
+Source: `src/openapi/types.ts:39:1`
 
 ### Members
 
@@ -999,8 +923,8 @@ Source: `src/openapi/index.ts:68:1`
 ## OpenApiSchemaObject
 
 Kind: `type`
-Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:39:1`
+Module: `src/openapi/types.ts`
+Source: `src/openapi/types.ts:10:1`
 
 ### Members
 
@@ -1026,8 +950,8 @@ Source: `src/openapi/index.ts:39:1`
 ## OpenApiServerObject
 
 Kind: `type`
-Module: `src/openapi/index.ts`
-Source: `src/openapi/index.ts:34:1`
+Module: `src/openapi/types.ts`
+Source: `src/openapi/types.ts:5:1`
 
 ### Members
 
@@ -1039,26 +963,32 @@ Source: `src/openapi/index.ts:34:1`
 ## SUPPORTED_API_ORIGINS
 
 Kind: `value`
-Module: `src/index.ts`
-Source: `src/index.ts:20:14`
+Module: `src/packageInfo.ts`
+Source: `src/packageInfo.ts:12:14`
 
 ## SUPPORTED_API_PROTOCOLS
 
 Kind: `value`
-Module: `src/index.ts`
-Source: `src/index.ts:24:14`
+Module: `src/packageInfo.ts`
+Source: `src/packageInfo.ts:13:14`
 
 ## SUPPORTED_DATA_SOURCE_KINDS
 
 Kind: `value`
-Module: `src/index.ts`
-Source: `src/index.ts:16:14`
+Module: `src/packageInfo.ts`
+Source: `src/packageInfo.ts:9:14`
+
+## SupportedApiOrigin
+
+Kind: `unknown`
+Module: `src/packageInfo.ts`
+Source: `src/packageInfo.ts:18:1`
 
 ## testEndpoint
 
 Kind: `function`
 Module: `src/test-runner/index.ts`
-Source: `src/test-runner/index.ts:91:1`
+Source: `src/test-runner/index.ts:35:1`
 
 ### Signatures
 
@@ -1066,31 +996,19 @@ Source: `src/test-runner/index.ts:91:1`
   - input: `EndpointTestInput`
   - returns: `Promise<EndpointTestResult>`
 
-## validateGeneratedApiDefinition
-
-Kind: `function`
-Module: `src/generated-api/index.ts`
-Source: `src/generated-api/index.ts:39:1`
-
-### Signatures
-
-- `(definition: GeneratedApiDefinition) => readonly DataSourceDiagnostic[]`
-  - definition: `GeneratedApiDefinition`
-  - returns: `readonly DataSourceDiagnostic[]`
-
-## validateGraphQlDataSource
+## validateGraphQlApi
 
 Kind: `function`
 Module: `src/graphql/index.ts`
-Source: `src/graphql/index.ts:157:1`
+Source: `src/graphql/index.ts:76:1`
 
 ### Signatures
 
-- `(definition: GraphQlDataSourceDefinition) => readonly DataSourceDiagnostic[]`
-  - definition: `GraphQlDataSourceDefinition`
+- `(definition: GraphQlApiDefinition) => readonly DataSourceDiagnostic[]`
+  - definition: `GraphQlApiDefinition`
   - returns: `readonly DataSourceDiagnostic[]`
 
-## validateManualRestDataSource
+## validateManualRestApi
 
 Kind: `function`
 Module: `src/rest/index.ts`
@@ -1098,6 +1016,6 @@ Source: `src/rest/index.ts:86:1`
 
 ### Signatures
 
-- `(definition: ManualRestDataSourceDefinition) => readonly DataSourceDiagnostic[]`
-  - definition: `ManualRestDataSourceDefinition`
+- `(definition: ManualRestApiDefinition) => readonly DataSourceDiagnostic[]`
+  - definition: `ManualRestApiDefinition`
   - returns: `readonly DataSourceDiagnostic[]`

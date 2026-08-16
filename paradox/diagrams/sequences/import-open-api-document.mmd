@@ -1,0 +1,11 @@
+sequenceDiagram
+  participant participant_importOpenApiDocument as importOpenApiDocument
+  participant participant_normalizeOpenApiEndpoints as normalizeOpenApiEndpoints
+  participant participant_normalizeOpenApiSchemas as normalizeOpenApiSchemas
+  participant participant_resolveOpenApiBaseUrl as resolveOpenApiBaseUrl
+  participant_importOpenApiDocument->>participant_resolveOpenApiBaseUrl: resolveOpenApiBaseUrl()
+  participant_resolveOpenApiBaseUrl-->>participant_importOpenApiDocument: return
+  participant_importOpenApiDocument->>participant_normalizeOpenApiSchemas: normalizeOpenApiSchemas()
+  participant_normalizeOpenApiSchemas-->>participant_importOpenApiDocument: return
+  participant_importOpenApiDocument->>participant_normalizeOpenApiEndpoints: normalizeOpenApiEndpoints()
+  participant_normalizeOpenApiEndpoints-->>participant_importOpenApiDocument: return
