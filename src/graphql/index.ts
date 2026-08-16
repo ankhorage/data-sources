@@ -1,17 +1,20 @@
 import type {
-  CredentialRef,
-  DataContractValue,
   DataEndpointConfig,
-  DataOperationConfig,
-  DataOperationIntent,
-  DataOperationResponse,
-  DataSchema,
-  DataSchemaRegistry,
   DataSourceDiagnostic,
   DataSourceDiagnosticResult,
   ExternalGraphQlApiDefinition,
-  OperationId,
 } from '@ankhorage/contracts/data';
+
+import {
+  normalizeGraphQlIntrospectionOperations,
+  normalizeGraphQlIntrospectionSchemas,
+} from './introspection';
+import { normalizeGraphQlOperation, normalizeGraphQlOperationId } from './operation';
+import type { GraphQlApiDefinition } from './types';
+
+export type * from './types';
+export { normalizeGraphQlIntrospectionOperations, normalizeGraphQlIntrospectionSchemas };
+export { normalizeGraphQlOperationId };
 
 export const GRAPHQL_INTROSPECTION_QUERY = `query AnkhorageGraphQlIntrospection {
   __schema {
@@ -45,80 +48,6 @@ export const GRAPHQL_INTROSPECTION_QUERY = `query AnkhorageGraphQlIntrospection 
   }
 }`;
 
-export type GraphQlOperationKind = 'mutation' | 'query' | 'subscription';
-type DataContractRecord = Record<string, DataContractValue>;
-
-export interface GraphQlIntrospectionTypeRef {
-  readonly kind: string;
-  readonly name?: string | null;
-  readonly ofType?: GraphQlIntrospectionTypeRef | null;
-}
-
-export interface GraphQlIntrospectionInputValue {
-  readonly name: string;
-  readonly description?: string | null;
-  readonly type: GraphQlIntrospectionTypeRef;
-  readonly defaultValue?: string | null;
-}
-
-export interface GraphQlIntrospectionField {
-  readonly name: string;
-  readonly description?: string | null;
-  readonly args?: readonly GraphQlIntrospectionInputValue[] | null;
-  readonly type: GraphQlIntrospectionTypeRef;
-}
-
-export interface GraphQlIntrospectionEnumValue {
-  readonly name: string;
-  readonly description?: string | null;
-}
-
-export interface GraphQlIntrospectionType {
-  readonly kind: string;
-  readonly name?: string | null;
-  readonly description?: string | null;
-  readonly fields?: readonly GraphQlIntrospectionField[] | null;
-  readonly inputFields?: readonly GraphQlIntrospectionInputValue[] | null;
-  readonly enumValues?: readonly GraphQlIntrospectionEnumValue[] | null;
-  readonly possibleTypes?: readonly GraphQlIntrospectionTypeRef[] | null;
-}
-
-export interface GraphQlIntrospectionSchema {
-  readonly queryType?: { readonly name?: string | null } | null;
-  readonly mutationType?: { readonly name?: string | null } | null;
-  readonly subscriptionType?: { readonly name?: string | null } | null;
-  readonly types?: readonly GraphQlIntrospectionType[] | null;
-}
-
-export interface GraphQlIntrospectionResult {
-  readonly __schema?: GraphQlIntrospectionSchema;
-}
-
-export interface GraphQlOperationDefinition {
-  readonly id: OperationId;
-  readonly kind: GraphQlOperationKind;
-  readonly name?: string;
-  readonly description?: string;
-  readonly document?: string;
-  readonly variables?: DataSchema;
-  readonly response?: DataSchema;
-  readonly selectionPath?: string;
-  readonly metadata?: DataContractValue;
-}
-
-export interface GraphQlApiDefinition {
-  readonly id: string;
-  readonly endpointUrl: string;
-  readonly name?: string;
-  readonly description?: string;
-  readonly credential?: CredentialRef;
-  readonly introspection?: GraphQlIntrospectionResult;
-  readonly introspectionEnabled?: boolean;
-  readonly schemaVersion?: string;
-  readonly operations?: readonly GraphQlOperationDefinition[];
-  readonly metadata?: DataContractValue;
-}
-
 export interface GraphQlIntrospectionRequest {
   readonly query: typeof GRAPHQL_INTROSPECTION_QUERY;
   readonly operationName: 'AnkhorageGraphQlIntrospection';
@@ -131,14 +60,6 @@ export function createGraphQlIntrospectionRequest(): GraphQlIntrospectionRequest
   };
 }
 
-export function normalizeGraphQlOperationId(kind: GraphQlOperationKind, name: string): OperationId {
-  const normalizedName = name
-    .replace(/[^A-Za-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .toLowerCase();
-  return normalizedName.length > 0 ? `${kind}.${normalizedName}` : `${kind}.operation`;
-}
-
 export function createGraphQlApi(
   definition: GraphQlApiDefinition,
 ): DataSourceDiagnosticResult<ExternalGraphQlApiDefinition> {
@@ -146,12 +67,7 @@ export function createGraphQlApi(
   if (diagnostics.some((diagnostic) => diagnostic.severity === 'error')) {
     return { ok: false, diagnostics };
   }
-
-  return {
-    ok: true,
-    data: normalizeGraphQlApi(definition),
-    diagnostics,
-  };
+  return { ok: true, data: normalizeGraphQlApi(definition), diagnostics };
 }
 
 export function validateGraphQlApi(
@@ -168,7 +84,6 @@ export function validateGraphQlApi(
       severity: 'error',
     });
   }
-
   if (definition.introspectionEnabled === false && definition.introspection !== undefined) {
     diagnostics.push({
       code: 'invalid-config',
@@ -178,18 +93,15 @@ export function validateGraphQlApi(
       severity: 'warning',
     });
   }
-
   if (definition.introspectionEnabled !== false && definition.introspection === undefined) {
     diagnostics.push({
       code: 'missing-schema',
       apiId: definition.id,
-      message:
-        'GraphQL introspection result was not provided. Manual operations can still be used.',
+      message: 'GraphQL introspection result was not provided. Manual operations can still be used.',
       path: 'introspection',
       severity: 'info',
     });
   }
-
   return diagnostics;
 }
 
@@ -198,12 +110,12 @@ export function normalizeGraphQlApi(
 ): ExternalGraphQlApiDefinition {
   const schemas = normalizeGraphQlIntrospectionSchemas(definition.introspection);
   const discovered = normalizeGraphQlIntrospectionOperations(definition.introspection);
-  const operations: Record<OperationId, DataOperationConfig> = {};
-
-  for (const operation of [...discovered, ...(definition.operations ?? [])]) {
-    operations[operation.id] = normalizeGraphQlOperation(operation);
-  }
-
+  const operations = Object.fromEntries(
+    [...discovered, ...(definition.operations ?? [])].map((operation) => [
+      operation.id,
+      normalizeGraphQlOperation(operation),
+    ]),
+  );
   const endpoint: DataEndpointConfig = {
     id: 'graphql',
     kind: 'graphql',
@@ -211,7 +123,6 @@ export function normalizeGraphQlApi(
     operations,
     metadata: { source: 'graphql' },
   };
-
   return {
     id: definition.id,
     origin: 'external',
@@ -228,197 +139,4 @@ export function normalizeGraphQlApi(
     },
     metadata: definition.metadata,
   };
-}
-
-export function normalizeGraphQlIntrospectionSchemas(
-  introspection: GraphQlIntrospectionResult | undefined,
-): DataSchemaRegistry | undefined {
-  const types = introspection?.__schema?.types?.filter(isNamedGraphQlType) ?? [];
-  if (types.length === 0) return undefined;
-
-  const schemas: Record<string, DataSchema> = {};
-  for (const type of types) {
-    if (type.name === undefined || type.name === null || type.name.startsWith('__')) continue;
-    schemas[type.name] = normalizeGraphQlType(type);
-  }
-  return schemas;
-}
-
-export function normalizeGraphQlIntrospectionOperations(
-  introspection: GraphQlIntrospectionResult | undefined,
-): readonly GraphQlOperationDefinition[] {
-  const schema = introspection?.__schema;
-  if (schema === undefined) return [];
-
-  const types = schema.types?.filter(isNamedGraphQlType) ?? [];
-  const operations: GraphQlOperationDefinition[] = [];
-  appendRootOperations(operations, 'query', schema.queryType?.name, types);
-  appendRootOperations(operations, 'mutation', schema.mutationType?.name, types);
-  appendRootOperations(operations, 'subscription', schema.subscriptionType?.name, types);
-  return operations;
-}
-
-function appendRootOperations(
-  operations: GraphQlOperationDefinition[],
-  kind: GraphQlOperationKind,
-  rootTypeName: string | null | undefined,
-  types: readonly GraphQlIntrospectionType[],
-): void {
-  if (rootTypeName === undefined || rootTypeName === null) return;
-  const rootType = types.find((type) => type.name === rootTypeName);
-
-  for (const field of rootType?.fields ?? []) {
-    operations.push({
-      id: normalizeGraphQlOperationId(kind, field.name),
-      kind,
-      name: field.name,
-      description: field.description ?? undefined,
-      variables: normalizeGraphQlVariablesSchema(field.args ?? []),
-      response: normalizeGraphQlTypeRef(field.type),
-      selectionPath: `$.data.${field.name}`,
-      metadata: { rootType: rootTypeName, source: 'introspection' },
-    });
-  }
-}
-
-function normalizeGraphQlOperation(operation: GraphQlOperationDefinition): DataOperationConfig {
-  const response: DataOperationResponse | undefined =
-    operation.response === undefined ? undefined : { schema: operation.response };
-
-  return {
-    id: operation.id,
-    endpointId: 'graphql',
-    name: operation.name,
-    description: operation.description,
-    protocol: 'graphql',
-    intent: mapGraphQlOperationKindToIntent(operation.kind),
-    request: { schema: operation.variables },
-    response,
-    metadata: createGraphQlOperationMetadata(operation),
-  };
-}
-
-function mapGraphQlOperationKindToIntent(kind: GraphQlOperationKind): DataOperationIntent {
-  return kind === 'query' || kind === 'subscription' ? 'read' : 'action';
-}
-
-function normalizeGraphQlVariablesSchema(
-  args: readonly GraphQlIntrospectionInputValue[],
-): DataSchema {
-  const properties: Record<string, DataSchema> = {};
-  const required: string[] = [];
-
-  for (const arg of args) {
-    properties[arg.name] = {
-      ...normalizeGraphQlTypeRef(arg.type),
-      description: arg.description ?? undefined,
-      default: arg.defaultValue ?? undefined,
-    };
-    if (isGraphQlNonNull(arg.type)) required.push(arg.name);
-  }
-
-  return {
-    type: 'object',
-    required: required.length > 0 ? required : undefined,
-    properties,
-  };
-}
-
-function normalizeGraphQlType(type: GraphQlIntrospectionType): DataSchema {
-  if (type.kind === 'OBJECT' || type.kind === 'INTERFACE' || type.kind === 'INPUT_OBJECT') {
-    return normalizeGraphQlObjectType(type);
-  }
-  if (type.kind === 'ENUM') {
-    return {
-      type: 'string',
-      title: type.name ?? undefined,
-      description: type.description ?? undefined,
-      enum: type.enumValues?.map((value) => value.name),
-    };
-  }
-  if (type.kind === 'SCALAR') {
-    return {
-      ...normalizeGraphQlNamedScalar(type.name),
-      title: type.name ?? undefined,
-      description: type.description ?? undefined,
-    };
-  }
-  if (type.kind === 'UNION') {
-    return {
-      title: type.name ?? undefined,
-      description: type.description ?? undefined,
-      anyOf: type.possibleTypes?.map(normalizeGraphQlTypeRef),
-    };
-  }
-  return { title: type.name ?? undefined, description: type.description ?? undefined };
-}
-
-function normalizeGraphQlObjectType(type: GraphQlIntrospectionType): DataSchema {
-  const fields = type.kind === 'INPUT_OBJECT' ? type.inputFields : type.fields;
-  const properties: Record<string, DataSchema> = {};
-  const required: string[] = [];
-
-  for (const field of fields ?? []) {
-    const fieldType = field.type;
-    properties[field.name] = {
-      ...normalizeGraphQlTypeRef(fieldType),
-      description: field.description ?? undefined,
-    };
-    if (isGraphQlNonNull(fieldType)) required.push(field.name);
-  }
-
-  return {
-    type: 'object',
-    title: type.name ?? undefined,
-    description: type.description ?? undefined,
-    required: required.length > 0 ? required : undefined,
-    properties,
-  };
-}
-
-function normalizeGraphQlTypeRef(type: GraphQlIntrospectionTypeRef): DataSchema {
-  if (type.kind === 'NON_NULL' && type.ofType !== undefined && type.ofType !== null) {
-    return { ...normalizeGraphQlTypeRef(type.ofType), nullable: false };
-  }
-  if (type.kind === 'LIST' && type.ofType !== undefined && type.ofType !== null) {
-    return { type: 'array', items: normalizeGraphQlTypeRef(type.ofType) };
-  }
-  if (type.kind === 'SCALAR') return normalizeGraphQlNamedScalar(type.name);
-  if (type.name !== undefined && type.name !== null) return { ref: { id: type.name } };
-  return {};
-}
-
-function normalizeGraphQlNamedScalar(name: string | null | undefined): DataSchema {
-  if (name === 'Boolean') return { type: 'boolean' };
-  if (name === 'Float') return { type: 'number' };
-  if (name === 'ID' || name === 'String') return { type: 'string' };
-  if (name === 'Int') return { type: 'integer' };
-  return { type: 'string', format: name ?? undefined };
-}
-
-function isGraphQlNonNull(type: GraphQlIntrospectionTypeRef): boolean {
-  return type.kind === 'NON_NULL';
-}
-
-function isNamedGraphQlType(type: GraphQlIntrospectionType): boolean {
-  return type.name !== undefined && type.name !== null;
-}
-
-function createGraphQlOperationMetadata(operation: GraphQlOperationDefinition): DataContractRecord {
-  const metadata = toMetadataRecord(operation.metadata);
-  metadata.kind = operation.kind;
-  if (operation.document !== undefined) metadata.document = operation.document;
-  if (operation.selectionPath !== undefined) metadata.selectionPath = operation.selectionPath;
-  return metadata;
-}
-
-function toMetadataRecord(value: DataContractValue | undefined): DataContractRecord {
-  if (!isDataContractRecord(value)) return {};
-  return { ...value };
-}
-
-function isDataContractRecord(value: DataContractValue | undefined): value is DataContractRecord {
-  return (
-    value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value)
-  );
 }
