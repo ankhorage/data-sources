@@ -98,7 +98,7 @@ function getOpenApiOperations(
   pathItem: OpenApiPathItemObject,
 ): readonly [OpenApiHttpMethod, OpenApiOperationObject][] {
   return Object.entries(pathItem).flatMap(([key, value]) =>
-    isOpenApiHttpMethod(key) && value !== undefined ? [[key, value]] : [],
+    isOpenApiHttpMethod(key) ? [[key, value]] : [],
   );
 }
 
