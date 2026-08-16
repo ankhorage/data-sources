@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'bun:test';
 
 import {
-  createGraphQlDataSource,
+  createGraphQlApi,
   createGraphQlIntrospectionRequest,
   type GraphQlIntrospectionResult,
   normalizeGraphQlIntrospectionOperations,
@@ -46,7 +46,7 @@ function introspection(): GraphQlIntrospectionResult {
   };
 }
 
-describe('GraphQL normalization', () => {
+describe('GraphQL API normalization', () => {
   it('creates the standard introspection request and stable IDs', () => {
     expect(createGraphQlIntrospectionRequest().query).toContain('__schema');
     expect(normalizeGraphQlOperationId('query', 'Posts')).toBe('query.posts');
@@ -59,25 +59,23 @@ describe('GraphQL normalization', () => {
     );
   });
 
-  it('creates an external GraphQL API source', () => {
-    const result = createGraphQlDataSource({
+  it('creates a canonical external GraphQL API', () => {
+    const result = createGraphQlApi({
       id: 'content',
       endpointUrl: 'https://example.com/graphql',
       introspection: introspection(),
     });
     expect(result.ok).toBe(true);
     if (result.ok) {
-      expect(result.data).toMatchObject({
-        kind: 'api',
-        origin: 'external',
-        protocol: 'graphql',
-      });
+      expect(result.data).toMatchObject({ origin: 'external', protocol: 'graphql' });
+      expect('kind' in result.data).toBe(false);
+      expect(result.data.endpoints.graphql?.baseUrl).toBeUndefined();
       expect(result.data.endpoints.graphql?.operations['query.posts']?.intent).toBe('read');
     }
   });
 
   it('supports manual operations and validates endpoint URLs', () => {
-    const manual = createGraphQlDataSource({
+    const manual = createGraphQlApi({
       id: 'manual',
       endpointUrl: 'https://example.com/graphql',
       introspectionEnabled: false,
@@ -89,8 +87,9 @@ describe('GraphQL normalization', () => {
         },
       ],
     });
-    const invalid = createGraphQlDataSource({ id: 'broken', endpointUrl: ' ' });
+    const invalid = createGraphQlApi({ id: 'broken', endpointUrl: ' ' });
     expect(manual.ok).toBe(true);
     expect(invalid.ok).toBe(false);
+    if (!invalid.ok) expect(invalid.diagnostics[0]?.apiId).toBe('broken');
   });
 });
