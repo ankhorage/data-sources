@@ -13,7 +13,7 @@ import type {
   DataSourceDiagnostic,
   DataSourceDiagnosticResult,
   EndpointId,
-  ExternalRestApiDataSourceConfig,
+  ExternalRestApiDefinition,
   OperationId,
 } from '@ankhorage/contracts/data';
 
@@ -46,7 +46,7 @@ export interface ManualRestEndpointDefinition {
   readonly metadata?: DataContractValue;
 }
 
-export interface ManualRestDataSourceDefinition {
+export interface ManualRestApiDefinition {
   readonly id: string;
   readonly baseUrl: string;
   readonly name?: string;
@@ -83,16 +83,16 @@ export function extractRestPathParams(path: string): readonly string[] {
   return [...params];
 }
 
-export function validateManualRestDataSource(
-  definition: ManualRestDataSourceDefinition,
+export function validateManualRestApi(
+  definition: ManualRestApiDefinition,
 ): readonly DataSourceDiagnostic[] {
   const diagnostics: DataSourceDiagnostic[] = [];
 
   if (definition.baseUrl.trim().length === 0) {
     diagnostics.push({
       code: 'invalid-config',
-      dataSourceId: definition.id,
-      message: 'Manual REST data source requires a non-empty baseUrl.',
+      apiId: definition.id,
+      message: 'Manual REST API requires a non-empty baseUrl.',
       path: 'baseUrl',
       severity: 'error',
     });
@@ -102,7 +102,7 @@ export function validateManualRestDataSource(
     if (!endpoint.path.startsWith('/')) {
       diagnostics.push({
         code: 'invalid-config',
-        dataSourceId: definition.id,
+        apiId: definition.id,
         endpointId: endpoint.id,
         message: 'Manual REST endpoint paths must start with `/`.',
         path: `endpoints.${endpoint.id}.path`,
@@ -118,24 +118,24 @@ export function validateManualRestDataSource(
   return diagnostics;
 }
 
-export function createManualRestDataSource(
-  definition: ManualRestDataSourceDefinition,
-): DataSourceDiagnosticResult<ExternalRestApiDataSourceConfig> {
-  const diagnostics = validateManualRestDataSource(definition);
+export function createManualRestApi(
+  definition: ManualRestApiDefinition,
+): DataSourceDiagnosticResult<ExternalRestApiDefinition> {
+  const diagnostics = validateManualRestApi(definition);
   if (diagnostics.some((diagnostic) => diagnostic.severity === 'error')) {
     return { ok: false, diagnostics };
   }
 
   return {
     ok: true,
-    data: normalizeManualRestDataSource(definition),
+    data: normalizeManualRestApi(definition),
     diagnostics,
   };
 }
 
-export function normalizeManualRestDataSource(
-  definition: ManualRestDataSourceDefinition,
-): ExternalRestApiDataSourceConfig {
+export function normalizeManualRestApi(
+  definition: ManualRestApiDefinition,
+): ExternalRestApiDefinition {
   const endpoints: Record<EndpointId, DataEndpointConfig> = {};
 
   for (const endpoint of definition.endpoints) {
@@ -170,7 +170,6 @@ export function normalizeManualRestDataSource(
       kind: 'http',
       name: endpoint.name,
       description: endpoint.description,
-      baseUrl: definition.baseUrl,
       path: endpoint.path,
       credential: endpoint.credential,
       operations,
@@ -180,7 +179,6 @@ export function normalizeManualRestDataSource(
 
   return {
     id: definition.id,
-    kind: 'api',
     origin: 'external',
     protocol: 'rest',
     name: definition.name,
@@ -194,7 +192,7 @@ export function normalizeManualRestDataSource(
 }
 
 function validateManualRestOperation(
-  definition: ManualRestDataSourceDefinition,
+  definition: ManualRestApiDefinition,
   endpoint: ManualRestEndpointDefinition,
   operation: ManualRestOperationDefinition,
   diagnostics: DataSourceDiagnostic[],
@@ -209,7 +207,7 @@ function validateManualRestOperation(
   if (!isManualRestMethod(method)) {
     diagnostics.push({
       code: 'invalid-config',
-      dataSourceId: definition.id,
+      apiId: definition.id,
       endpointId: endpoint.id,
       operationId: operation.id,
       message: `Manual REST operation method must be one of ${REST_METHODS.join(', ')}.`,
@@ -222,7 +220,7 @@ function validateManualRestOperation(
     if (pathParameterNames.has(templateParam)) continue;
     diagnostics.push({
       code: 'invalid-config',
-      dataSourceId: definition.id,
+      apiId: definition.id,
       endpointId: endpoint.id,
       operationId: operation.id,
       message: `Path template parameter '${templateParam}' must have a matching path parameter definition.`,
@@ -235,7 +233,7 @@ function validateManualRestOperation(
     if (templateParams.includes(pathParameter.name)) continue;
     diagnostics.push({
       code: 'invalid-config',
-      dataSourceId: definition.id,
+      apiId: definition.id,
       endpointId: endpoint.id,
       operationId: operation.id,
       message: `Path parameter '${pathParameter.name}' is not referenced by the operation path template.`,
