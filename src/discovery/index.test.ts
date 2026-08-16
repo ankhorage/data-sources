@@ -50,8 +50,8 @@ function graphQlPayload() {
   } as const;
 }
 
-describe('external API discovery', () => {
-  it('creates direct and conventional candidates and rejects unsafe URLs', () => {
+describe('OpenAPI discovery candidates', () => {
+  it('creates conventional candidates and rejects unsafe URLs', () => {
     const candidates = createOpenApiDiscoveryCandidates('https://api.example.com/service');
     expect(candidates).toContain('https://api.example.com/service');
     expect(candidates).toContain('https://api.example.com/service/openapi.json');
@@ -61,8 +61,10 @@ describe('external API discovery', () => {
       createOpenApiDiscoveryCandidates('https://user:secret@example.com/openapi.json'),
     ).toEqual([]);
   });
+});
 
-  it('discovers OpenAPI into an external REST API', async () => {
+describe('OpenAPI discovery', () => {
+  it('discovers an external REST API', async () => {
     const result = await discoverOpenApi({
       id: 'inventory',
       url: 'https://api.example.com/openapi.json',
@@ -77,7 +79,7 @@ describe('external API discovery', () => {
     }
   });
 
-  it('falls back to conventional locations and keeps diagnostics safe', async () => {
+  it('falls back to conventional locations without leaking response data', async () => {
     const calls: string[] = [];
     const fetch: ExternalApiFetch = (url) => {
       calls.push(url);
@@ -100,8 +102,10 @@ describe('external API discovery', () => {
     ]);
     expect(JSON.stringify(result)).not.toContain('hidden');
   });
+});
 
-  it('introspects GraphQL into an external API without echoing trusted headers', async () => {
+describe('GraphQL API discovery', () => {
+  it('introspects without echoing trusted headers', async () => {
     const result = await introspectGraphQlApi({
       id: 'catalog',
       endpointUrl: 'https://api.example.com/graphql',
