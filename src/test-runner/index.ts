@@ -5,8 +5,8 @@ import type {
   DataSourceDiagnostic,
 } from '@ankhorage/contracts/data';
 
-import { createNetworkErrorMessage, createDiagnostic, failure } from './result';
 import { createResponseDiagnostic } from './response';
+import { createDiagnostic, createNetworkErrorMessage, failure } from './result';
 import {
   appendQuery,
   collectHeaders,
@@ -104,7 +104,11 @@ function createEndpointTestResult(
   const diagnostics = [...built.diagnostics];
   if (!response.ok) {
     diagnostics.push(
-      createDiagnostic(input, 'http-error', `Endpoint test request returned HTTP status ${response.status}.`),
+      createDiagnostic(
+        input,
+        'http-error',
+        `Endpoint test request returned HTTP status ${response.status}.`,
+      ),
     );
     return failure(built.request, diagnostics, response);
   }
@@ -128,7 +132,8 @@ async function resolveEndpointCredential(
   selection: EndpointOperationSelection,
   diagnostics: DataSourceDiagnostic[],
 ): Promise<EndpointTestCredential | undefined> {
-  const ref = selection.operation.credential ?? selection.endpoint.credential ?? input.api.credential;
+  const ref =
+    selection.operation.credential ?? selection.endpoint.credential ?? input.api.credential;
   if (ref === undefined) return undefined;
   if (input.credentialResolver === undefined) {
     diagnostics.push(
@@ -139,7 +144,11 @@ async function resolveEndpointCredential(
   const credential = await input.credentialResolver(ref);
   if (credential === undefined) {
     diagnostics.push(
-      createDiagnostic(input, 'missing-credential', `Credential '${ref.id}' could not be resolved.`),
+      createDiagnostic(
+        input,
+        'missing-credential',
+        `Credential '${ref.id}' could not be resolved.`,
+      ),
     );
   }
   return credential;
@@ -165,7 +174,10 @@ function buildHttpRequest(
   const baseUrl = getRestBaseUrl(input.api, selection.endpoint);
   const path = selection.operation.path ?? selection.endpoint.path;
   if (baseUrl === undefined || path === undefined) {
-    const message = baseUrl === undefined ? 'HTTP endpoint requires a base URL.' : 'HTTP operation requires a path.';
+    const message =
+      baseUrl === undefined
+        ? 'HTTP endpoint requires a base URL.'
+        : 'HTTP operation requires a path.';
     diagnostics.push(createDiagnostic(input, 'invalid-config', message));
     return undefined;
   }
@@ -181,7 +193,10 @@ function buildHttpRequest(
       ? headers
       : {
           ...headers,
-          'content-type': headers['content-type'] ?? selection.operation.request?.contentType ?? 'application/json',
+          'content-type':
+            headers['content-type'] ??
+            selection.operation.request?.contentType ??
+            'application/json',
         };
   return {
     apiId: input.api.id,
@@ -203,14 +218,19 @@ function buildGraphQlRequest(
 ): EndpointTestRequestDiagnostic | undefined {
   const endpointUrl = getGraphQlEndpointUrl(input.api, selection.endpoint);
   if (endpointUrl === undefined) {
-    diagnostics.push(createDiagnostic(input, 'invalid-config', 'GraphQL endpoint requires an endpoint URL.'));
+    diagnostics.push(
+      createDiagnostic(input, 'invalid-config', 'GraphQL endpoint requires an endpoint URL.'),
+    );
     return undefined;
   }
 
   const query =
-    getStringMetadataValue(selection.operation.metadata, 'document') ?? getStringValue(input.values, 'query');
+    getStringMetadataValue(selection.operation.metadata, 'document') ??
+    getStringValue(input.values, 'query');
   if (query === undefined) {
-    diagnostics.push(createDiagnostic(input, 'invalid-config', 'GraphQL operation requires a query document.'));
+    diagnostics.push(
+      createDiagnostic(input, 'invalid-config', 'GraphQL operation requires a query document.'),
+    );
     return undefined;
   }
 
