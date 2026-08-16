@@ -14,7 +14,7 @@ import type {
   DataSourceDiagnostic,
   DataSourceDiagnosticResult,
   EndpointId,
-  ExternalRestApiDataSourceConfig,
+  ExternalRestApiDefinition,
   OperationId,
 } from '@ankhorage/contracts/data';
 
@@ -121,7 +121,7 @@ export interface OpenApiImportInput {
   readonly metadata?: DataContractValue;
 }
 
-export type OpenApiImportResult = DataSourceDiagnosticResult<ExternalRestApiDataSourceConfig>;
+export type OpenApiImportResult = DataSourceDiagnosticResult<ExternalRestApiDefinition>;
 
 export function importOpenApiDocument(input: OpenApiImportInput): OpenApiImportResult {
   const diagnostics: DataSourceDiagnostic[] = [];
@@ -131,7 +131,7 @@ export function importOpenApiDocument(input: OpenApiImportInput): OpenApiImportR
     input.id,
     diagnostics,
   );
-  const endpoints = normalizeOpenApiEndpoints(input, baseUrl, diagnostics);
+  const endpoints = normalizeOpenApiEndpoints(input, diagnostics);
 
   if (baseUrl === undefined || diagnostics.some((diagnostic) => diagnostic.severity === 'error')) {
     return { ok: false, diagnostics };
@@ -141,7 +141,6 @@ export function importOpenApiDocument(input: OpenApiImportInput): OpenApiImportR
     ok: true,
     data: {
       id: input.id,
-      kind: 'api',
       origin: 'external',
       protocol: 'rest',
       name: input.name ?? input.document.info?.title,
@@ -215,7 +214,7 @@ function resolveOpenApiBaseUrl(
   if (servers.length === 0) {
     diagnostics.push({
       code: 'ambiguous-server',
-      dataSourceId: input.id,
+      apiId: input.id,
       message: 'OpenAPI import requires a server URL or an explicit baseUrl override.',
       path: 'servers',
       severity: 'error',
@@ -226,7 +225,7 @@ function resolveOpenApiBaseUrl(
   if (servers.length > 1) {
     diagnostics.push({
       code: 'ambiguous-server',
-      dataSourceId: input.id,
+      apiId: input.id,
       message: 'OpenAPI document defines multiple servers. The first server URL was selected.',
       path: 'servers',
       severity: 'warning',
@@ -238,7 +237,7 @@ function resolveOpenApiBaseUrl(
 
 function normalizeOpenApiSchemas(
   schemas: Readonly<Record<string, OpenApiSchemaObject>> | undefined,
-  dataSourceId: string,
+  apiId: string,
   diagnostics: DataSourceDiagnostic[],
 ): DataSchemaRegistry | undefined {
   if (schemas === undefined) return undefined;
@@ -248,7 +247,7 @@ function normalizeOpenApiSchemas(
     registry[schemaId] = normalizeOpenApiSchema(schema);
     collectUnsupportedSchemaDiagnostics(
       schema,
-      dataSourceId,
+      apiId,
       `components.schemas.${schemaId}`,
       diagnostics,
     );
@@ -258,14 +257,13 @@ function normalizeOpenApiSchemas(
 
 function normalizeOpenApiEndpoints(
   input: OpenApiImportInput,
-  baseUrl: string | undefined,
   diagnostics: DataSourceDiagnostic[],
 ): Record<EndpointId, DataEndpointConfig> {
   const { paths } = input.document;
   if (paths === undefined || Object.keys(paths).length === 0) {
     diagnostics.push({
       code: 'invalid-config',
-      dataSourceId: input.id,
+      apiId: input.id,
       message: 'OpenAPI document must define at least one path.',
       path: 'paths',
       severity: 'error',
@@ -322,7 +320,6 @@ function normalizeOpenApiEndpoints(
     endpoints[endpointId] = {
       id: endpointId,
       kind: 'http',
-      baseUrl,
       path,
       credential: input.credential,
       operations,
@@ -333,7 +330,7 @@ function normalizeOpenApiEndpoints(
 }
 
 function resolveUniqueOperationId(
-  dataSourceId: string,
+  apiId: string,
   endpointId: EndpointId,
   method: OpenApiHttpMethod,
   path: string,
@@ -357,7 +354,7 @@ function resolveUniqueOperationId(
   operationIds.add(uniqueId);
   diagnostics.push({
     code: 'duplicate-operation-id',
-    dataSourceId,
+    apiId,
     endpointId,
     operationId: uniqueId,
     message: `OpenAPI operation id '${normalized}' is duplicated. Normalized to '${uniqueId}'.`,
@@ -369,7 +366,7 @@ function resolveUniqueOperationId(
 
 function normalizeOpenApiParameters(
   parameters: readonly OpenApiParameterObject[],
-  dataSourceId: string,
+  apiId: string,
   endpointId: EndpointId,
   operationId: OperationId,
   diagnostics: DataSourceDiagnostic[],
@@ -382,7 +379,7 @@ function normalizeOpenApiParameters(
     if (location === undefined) {
       diagnostics.push({
         code: 'invalid-config',
-        dataSourceId,
+        apiId,
         endpointId,
         operationId,
         message: `OpenAPI parameter '${parameter.name}' uses unsupported location '${parameter.in}'.`,
@@ -510,14 +507,14 @@ function isDataSchemaPrimitive(type: string): type is DataSchemaPrimitiveType {
 
 function collectUnsupportedSchemaDiagnostics(
   schema: OpenApiSchemaObject,
-  dataSourceId: string,
+  apiId: string,
   path: string,
   diagnostics: DataSourceDiagnostic[],
 ): void {
   if (typeof schema.type === 'string' && !isDataSchemaPrimitive(schema.type)) {
     diagnostics.push({
       code: 'unsupported-schema',
-      dataSourceId,
+      apiId,
       message: `OpenAPI schema type '${schema.type}' is not supported by the normalized schema model.`,
       path: `${path}.type`,
       severity: 'warning',
@@ -527,12 +524,12 @@ function collectUnsupportedSchemaDiagnostics(
   for (const [propertyName, propertySchema] of Object.entries(schema.properties ?? {})) {
     collectUnsupportedSchemaDiagnostics(
       propertySchema,
-      dataSourceId,
+      apiId,
       `${path}.properties.${propertyName}`,
       diagnostics,
     );
   }
   if (schema.items !== undefined) {
-    collectUnsupportedSchemaDiagnostics(schema.items, dataSourceId, `${path}.items`, diagnostics);
+    collectUnsupportedSchemaDiagnostics(schema.items, apiId, `${path}.items`, diagnostics);
   }
 }
