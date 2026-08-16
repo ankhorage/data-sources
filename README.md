@@ -3,7 +3,7 @@
 
 # @ankhorage/data-sources
 
-![license: MIT](././paradox/badges/license.svg) ![npm: v0.6.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![docs: paradox](././paradox/badges/docs.svg)
+![license: MIT](././paradox/badges/license.svg) ![npm: v1.0.1](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![docs: paradox](././paradox/badges/docs.svg)
 
 Provider-neutral data source and endpoint system for APIs, databases, and runtime bindings.
 
@@ -15,46 +15,11 @@ Provider-neutral data source and endpoint system for APIs, databases, and runtim
 - [Architecture overview](././paradox/diagrams/architecture-overview.mmd)
 - [Module relationships](././paradox/diagrams/module-relationships.mmd)
 - [Export graph](././paradox/diagrams/export-graph.mmd)
-- [createGeneratedApiResourceSchema sequence](././paradox/diagrams/sequences/create-generated-api-resource-schema.mmd)
-- [createManualRestDataSource sequence](././paradox/diagrams/sequences/create-manual-rest-data-source.mmd)
+- [createGraphQlApi sequence](././paradox/diagrams/sequences/create-graph-ql-api.mmd)
+- [createManualRestApi sequence](././paradox/diagrams/sequences/create-manual-rest-api.mmd)
 - [createOpenApiDiscoveryCandidates sequence](././paradox/diagrams/sequences/create-open-api-discovery-candidates.mmd)
+- [importOpenApiDocument sequence](././paradox/diagrams/sequences/import-open-api-document.mmd)
+- [normalizeGraphQlApi sequence](././paradox/diagrams/sequences/normalize-graph-ql-api.mmd)
 - [normalizeGraphQlIntrospectionOperations sequence](././paradox/diagrams/sequences/normalize-graph-ql-introspection-operations.mmd)
-- [normalizeGraphQlIntrospectionSchemas sequence](././paradox/diagrams/sequences/normalize-graph-ql-introspection-schemas.mmd)
-- [normalizeManualRestDataSource sequence](././paradox/diagrams/sequences/normalize-manual-rest-data-source.mmd)
 - [normalizeOpenApiSchema sequence](././paradox/diagrams/sequences/normalize-open-api-schema.mmd)
-- [validateGeneratedApiDefinition sequence](././paradox/diagrams/sequences/validate-generated-api-definition.mmd)
-- [validateManualRestDataSource sequence](././paradox/diagrams/sequences/validate-manual-rest-data-source.mmd)
-
-## Architecture preview
-
-<details>
-<summary>Architecture overview</summary>
-
-```mermaid
-graph TD
-  package__ankhorage_data_sources["@ankhorage/data-sources"]
-  entrypoint_src_index_ts["src/index.ts"]
-  package__ankhorage_data_sources --> entrypoint_src_index_ts
-  module_src_ankh_provider_ts["src/ankh.provider.ts"]
-  package__ankhorage_data_sources -.-> module_src_ankh_provider_ts
-  module_src_ankh_provider_ts --> module_src_index_ts
-  module_src_cli_index_ts["src/cli/index.ts"]
-  package__ankhorage_data_sources -.-> module_src_cli_index_ts
-  module_src_discovery_index_ts["src/discovery/index.ts"]
-  package__ankhorage_data_sources -.-> module_src_discovery_index_ts
-  module_src_discovery_index_ts --> module_src_graphql_index_ts
-  module_src_discovery_index_ts --> module_src_openapi_index_ts
-  module_src_generated_api_index_ts["src/generated-api/index.ts"]
-  package__ankhorage_data_sources -.-> module_src_generated_api_index_ts
-  module_src_graphql_index_ts["src/graphql/index.ts"]
-  package__ankhorage_data_sources -.-> module_src_graphql_index_ts
-  module_src_index_ts["src/index.ts"]
-  module_src_openapi_index_ts["src/openapi/index.ts"]
-  package__ankhorage_data_sources -.-> module_src_openapi_index_ts
-  module_src_rest_index_ts["src/rest/index.ts"]
-  package__ankhorage_data_sources -.-> module_src_rest_index_ts
-  module_src_test_runner_index_ts["src/test-runner/index.ts"]
-  package__ankhorage_data_sources -.-> module_src_test_runner_index_ts
-```
-
-</details>
+- [validateManualRestApi sequence](././paradox/diagrams/sequences/validate-manual-rest-api.mmd)

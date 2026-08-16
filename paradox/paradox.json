@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.6.0",
+      "value": "v1.0.1",
       "color": "cb3837"
     },
     {
@@ -59,13 +59,17 @@
     }
   ],
   "usage": null,
+  "readmeUsageDescription": null,
+  "readmeUsage": [],
+  "readmeCli": null,
+  "readmeConfig": null,
   "config": null,
   "entrypoints": ["src/index.ts"],
   "modules": [
     {
       "path": "src/ankh.provider.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/index.ts"],
+      "dependencies": ["src/packageInfo.ts"],
       "exports": ["default"]
     },
     {
@@ -75,48 +79,50 @@
       "exports": ["default"]
     },
     {
+      "path": "src/discovery/http.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "isSuccessfulStatus",
+        "normalizeCandidateUrl",
+        "parseHttpUrl",
+        "parseJsonResponse",
+        "readRecord"
+      ]
+    },
+    {
       "path": "src/discovery/index.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/graphql/index.ts", "src/openapi/index.ts"],
+      "dependencies": ["src/discovery/http.ts", "src/graphql/index.ts", "src/openapi/index.ts"],
       "exports": [
         "createOpenApiDiscoveryCandidates",
         "DEFAULT_OPENAPI_DISCOVERY_PATHS",
-        "discoverOpenApiDataSource",
-        "DiscoverOpenApiDataSourceInput",
-        "DiscoverOpenApiDataSourceResult",
+        "discoverOpenApi",
+        "DiscoverOpenApiInput",
+        "DiscoverOpenApiResult",
         "ExternalApiFetch",
         "ExternalApiFetchInit",
         "ExternalApiFetchResponse",
-        "introspectGraphQlDataSource",
-        "IntrospectGraphQlDataSourceInput",
-        "IntrospectGraphQlDataSourceResult",
+        "introspectGraphQlApi",
+        "IntrospectGraphQlApiInput",
+        "IntrospectGraphQlApiResult",
         "OpenApiDiscoveryAttempt",
         "OpenApiDiscoveryAttemptOutcome"
       ]
     },
     {
-      "path": "src/generated-api/index.ts",
-      "isEntrypoint": false,
-      "dependencies": [],
-      "exports": [
-        "createGeneratedApiDataSource",
-        "createGeneratedApiEndpoint",
-        "createGeneratedApiOperation",
-        "createGeneratedApiOperationId",
-        "createGeneratedApiResourceSchema",
-        "normalizeGeneratedApiDataSource",
-        "validateGeneratedApiDefinition"
-      ]
-    },
-    {
       "path": "src/graphql/index.ts",
       "isEntrypoint": false,
-      "dependencies": [],
+      "dependencies": [
+        "src/graphql/introspection.ts",
+        "src/graphql/operation.ts",
+        "src/graphql/types.ts"
+      ],
       "exports": [
-        "createGraphQlDataSource",
+        "createGraphQlApi",
         "createGraphQlIntrospectionRequest",
         "GRAPHQL_INTROSPECTION_QUERY",
-        "GraphQlDataSourceDefinition",
+        "GraphQlApiDefinition",
         "GraphQlIntrospectionEnumValue",
         "GraphQlIntrospectionField",
         "GraphQlIntrospectionInputValue",
@@ -127,11 +133,40 @@
         "GraphQlIntrospectionTypeRef",
         "GraphQlOperationDefinition",
         "GraphQlOperationKind",
-        "normalizeGraphQlDataSource",
+        "normalizeGraphQlApi",
         "normalizeGraphQlIntrospectionOperations",
         "normalizeGraphQlIntrospectionSchemas",
         "normalizeGraphQlOperationId",
-        "validateGraphQlDataSource"
+        "validateGraphQlApi"
+      ]
+    },
+    {
+      "path": "src/graphql/introspection.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/graphql/operation.ts", "src/graphql/types.ts"],
+      "exports": ["normalizeGraphQlIntrospectionOperations", "normalizeGraphQlIntrospectionSchemas"]
+    },
+    {
+      "path": "src/graphql/operation.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/graphql/types.ts"],
+      "exports": ["normalizeGraphQlOperation", "normalizeGraphQlOperationId"]
+    },
+    {
+      "path": "src/graphql/types.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "GraphQlApiDefinition",
+        "GraphQlIntrospectionEnumValue",
+        "GraphQlIntrospectionField",
+        "GraphQlIntrospectionInputValue",
+        "GraphQlIntrospectionResult",
+        "GraphQlIntrospectionSchema",
+        "GraphQlIntrospectionType",
+        "GraphQlIntrospectionTypeRef",
+        "GraphQlOperationDefinition",
+        "GraphQlOperationKind"
       ]
     },
     {
@@ -140,21 +175,16 @@
       "dependencies": [],
       "exports": [
         "buildEndpointTestRequest",
-        "createGeneratedApiDataSource",
-        "createGeneratedApiEndpoint",
-        "createGeneratedApiOperation",
-        "createGeneratedApiOperationId",
-        "createGeneratedApiResourceSchema",
-        "createGraphQlDataSource",
+        "createGraphQlApi",
         "createGraphQlIntrospectionRequest",
-        "createManualRestDataSource",
+        "createManualRestApi",
         "createOpenApiDiscoveryCandidates",
         "DATA_SOURCES_PACKAGE_NAME",
         "DataSourcesPackageInfo",
         "DEFAULT_OPENAPI_DISCOVERY_PATHS",
-        "discoverOpenApiDataSource",
-        "DiscoverOpenApiDataSourceInput",
-        "DiscoverOpenApiDataSourceResult",
+        "discoverOpenApi",
+        "DiscoverOpenApiInput",
+        "DiscoverOpenApiResult",
         "EndpointTestCredential",
         "EndpointTestCredentialResolver",
         "EndpointTestFetch",
@@ -173,7 +203,7 @@
         "getDataSourceKind",
         "getDataSourcesPackageInfo",
         "GRAPHQL_INTROSPECTION_QUERY",
-        "GraphQlDataSourceDefinition",
+        "GraphQlApiDefinition",
         "GraphQlIntrospectionEnumValue",
         "GraphQlIntrospectionField",
         "GraphQlIntrospectionInputValue",
@@ -185,23 +215,22 @@
         "GraphQlOperationDefinition",
         "GraphQlOperationKind",
         "importOpenApiDocument",
-        "introspectGraphQlDataSource",
-        "IntrospectGraphQlDataSourceInput",
-        "IntrospectGraphQlDataSourceResult",
+        "introspectGraphQlApi",
+        "IntrospectGraphQlApiInput",
+        "IntrospectGraphQlApiResult",
         "isManualRestMethod",
         "isSupportedApiOrigin",
         "isSupportedApiProtocol",
         "isSupportedDataSourceKind",
-        "ManualRestDataSourceDefinition",
+        "ManualRestApiDefinition",
         "ManualRestEndpointDefinition",
         "ManualRestMethod",
         "ManualRestOperationDefinition",
-        "normalizeGeneratedApiDataSource",
-        "normalizeGraphQlDataSource",
+        "normalizeGraphQlApi",
         "normalizeGraphQlIntrospectionOperations",
         "normalizeGraphQlIntrospectionSchemas",
         "normalizeGraphQlOperationId",
-        "normalizeManualRestDataSource",
+        "normalizeManualRestApi",
         "normalizeManualRestMethod",
         "normalizeOpenApiEndpointId",
         "normalizeOpenApiOperationId",
@@ -224,16 +253,22 @@
         "SUPPORTED_API_ORIGINS",
         "SUPPORTED_API_PROTOCOLS",
         "SUPPORTED_DATA_SOURCE_KINDS",
+        "SupportedApiOrigin",
         "testEndpoint",
-        "validateGeneratedApiDefinition",
-        "validateGraphQlDataSource",
-        "validateManualRestDataSource"
+        "validateGraphQlApi",
+        "validateManualRestApi"
       ]
+    },
+    {
+      "path": "src/openapi/endpoints.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/openapi/operation.ts", "src/openapi/types.ts"],
+      "exports": ["normalizeOpenApiEndpointId", "normalizeOpenApiEndpoints"]
     },
     {
       "path": "src/openapi/index.ts",
       "isEntrypoint": false,
-      "dependencies": [],
+      "dependencies": ["src/openapi/endpoints.ts", "src/openapi/schema.ts", "src/openapi/types.ts"],
       "exports": [
         "importOpenApiDocument",
         "normalizeOpenApiEndpointId",
@@ -255,26 +290,80 @@
       ]
     },
     {
+      "path": "src/openapi/operation.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/openapi/schema.ts", "src/openapi/types.ts"],
+      "exports": ["normalizeOpenApiOperation", "normalizeOpenApiOperationId"]
+    },
+    {
+      "path": "src/openapi/schema.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/openapi/types.ts"],
+      "exports": ["normalizeOpenApiSchema", "normalizeOpenApiSchemas"]
+    },
+    {
+      "path": "src/openapi/types.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "OpenApiComponentsObject",
+        "OpenApiDocumentObject",
+        "OpenApiHttpMethod",
+        "OpenApiImportInput",
+        "OpenApiMediaTypeObject",
+        "OpenApiOperationObject",
+        "OpenApiParameterObject",
+        "OpenApiPathItemObject",
+        "OpenApiRequestBodyObject",
+        "OpenApiResponseObject",
+        "OpenApiSchemaObject",
+        "OpenApiServerObject"
+      ]
+    },
+    {
+      "path": "src/packageInfo.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "DATA_SOURCES_PACKAGE_NAME",
+        "DataSourcesPackageInfo",
+        "getDataSourceKind",
+        "getDataSourcesPackageInfo",
+        "isSupportedApiOrigin",
+        "isSupportedApiProtocol",
+        "isSupportedDataSourceKind",
+        "SUPPORTED_API_ORIGINS",
+        "SUPPORTED_API_PROTOCOLS",
+        "SUPPORTED_DATA_SOURCE_KINDS",
+        "SupportedApiOrigin"
+      ]
+    },
+    {
       "path": "src/rest/index.ts",
       "isEntrypoint": false,
       "dependencies": [],
       "exports": [
-        "createManualRestDataSource",
+        "createManualRestApi",
         "extractRestPathParams",
         "isManualRestMethod",
-        "ManualRestDataSourceDefinition",
+        "ManualRestApiDefinition",
         "ManualRestEndpointDefinition",
         "ManualRestMethod",
         "ManualRestOperationDefinition",
-        "normalizeManualRestDataSource",
+        "normalizeManualRestApi",
         "normalizeManualRestMethod",
-        "validateManualRestDataSource"
+        "validateManualRestApi"
       ]
     },
     {
       "path": "src/test-runner/index.ts",
       "isEntrypoint": false,
-      "dependencies": [],
+      "dependencies": [
+        "src/test-runner/response.ts",
+        "src/test-runner/result.ts",
+        "src/test-runner/serialization.ts",
+        "src/test-runner/types.ts"
+      ],
       "exports": [
         "buildEndpointTestRequest",
         "EndpointTestCredential",
@@ -290,6 +379,52 @@
         "EndpointTestResult",
         "testEndpoint"
       ]
+    },
+    {
+      "path": "src/test-runner/response.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/test-runner/types.ts"],
+      "exports": ["createResponseDiagnostic"]
+    },
+    {
+      "path": "src/test-runner/result.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/test-runner/types.ts"],
+      "exports": ["createDiagnostic", "createNetworkErrorMessage", "failure"]
+    },
+    {
+      "path": "src/test-runner/serialization.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/test-runner/result.ts", "src/test-runner/types.ts"],
+      "exports": [
+        "appendQuery",
+        "collectHeaders",
+        "collectQuery",
+        "createHttpBody",
+        "getRecordValue",
+        "getStringMetadataValue",
+        "getStringValue",
+        "interpolatePath",
+        "joinUrl"
+      ]
+    },
+    {
+      "path": "src/test-runner/types.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "EndpointTestCredential",
+        "EndpointTestCredentialResolver",
+        "EndpointTestFetch",
+        "EndpointTestFetchInit",
+        "EndpointTestFetchResponse",
+        "EndpointTestHeaders",
+        "EndpointTestInput",
+        "EndpointTestInputValues",
+        "EndpointTestRequestDiagnostic",
+        "EndpointTestResponseDiagnostic",
+        "EndpointTestResult"
+      ]
     }
   ],
   "exports": [
@@ -302,7 +437,7 @@
       "modulePath": "src/test-runner/index.ts",
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 140,
+        "line": 65,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -326,191 +461,7 @@
       "structuredRows": []
     },
     {
-      "name": "createGeneratedApiDataSource",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "function",
-      "modulePath": "src/generated-api/index.ts",
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 24,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
-      "signatures": [
-        {
-          "label": "(definition: GeneratedApiDefinition) => DataSourceDiagnosticResult<GeneratedRestApiDataSourceConfig>",
-          "parameters": [
-            {
-              "name": "definition",
-              "type": "GeneratedApiDefinition",
-              "required": true,
-              "description": null
-            }
-          ],
-          "returnType": "DataSourceDiagnosticResult<GeneratedRestApiDataSourceConfig>",
-          "returnDescription": null
-        }
-      ],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "createGeneratedApiEndpoint",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "function",
-      "modulePath": "src/generated-api/index.ts",
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 98,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
-      "signatures": [
-        {
-          "label": "(definition: GeneratedApiDefinition, resource: GeneratedApiResourceDefinition) => DataEndpointConfig",
-          "parameters": [
-            {
-              "name": "definition",
-              "type": "GeneratedApiDefinition",
-              "required": true,
-              "description": null
-            },
-            {
-              "name": "resource",
-              "type": "GeneratedApiResourceDefinition",
-              "required": true,
-              "description": null
-            }
-          ],
-          "returnType": "DataEndpointConfig",
-          "returnDescription": null
-        }
-      ],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "createGeneratedApiOperation",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "function",
-      "modulePath": "src/generated-api/index.ts",
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 120,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
-      "signatures": [
-        {
-          "label": "(definition: GeneratedApiDefinition, resource: GeneratedApiResourceDefinition, operation: \"list\" | \"read\" | \"create\" | \"update\" | \"delete\") => DataOperationConfig",
-          "parameters": [
-            {
-              "name": "definition",
-              "type": "GeneratedApiDefinition",
-              "required": true,
-              "description": null
-            },
-            {
-              "name": "operation",
-              "type": "\"list\" | \"read\" | \"create\" | \"update\" | \"delete\"",
-              "required": true,
-              "description": null
-            },
-            {
-              "name": "resource",
-              "type": "GeneratedApiResourceDefinition",
-              "required": true,
-              "description": null
-            }
-          ],
-          "returnType": "DataOperationConfig",
-          "returnDescription": null
-        }
-      ],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "createGeneratedApiOperationId",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "function",
-      "modulePath": "src/generated-api/index.ts",
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 147,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
-      "signatures": [
-        {
-          "label": "(resourceId: string, operation: \"list\" | \"read\" | \"create\" | \"update\" | \"delete\") => string",
-          "parameters": [
-            {
-              "name": "operation",
-              "type": "\"list\" | \"read\" | \"create\" | \"update\" | \"delete\"",
-              "required": true,
-              "description": null
-            },
-            {
-              "name": "resourceId",
-              "type": "string",
-              "required": true,
-              "description": null
-            }
-          ],
-          "returnType": "string",
-          "returnDescription": null
-        }
-      ],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "createGeneratedApiResourceSchema",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "function",
-      "modulePath": "src/generated-api/index.ts",
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 154,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
-      "signatures": [
-        {
-          "label": "(collection: DbCollectionDefinition) => DataSchema",
-          "parameters": [
-            {
-              "name": "collection",
-              "type": "DbCollectionDefinition",
-              "required": true,
-              "description": null
-            }
-          ],
-          "returnType": "DataSchema",
-          "returnDescription": null
-        }
-      ],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "createGraphQlDataSource",
+      "name": "createGraphQlApi",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -518,23 +469,23 @@
       "modulePath": "src/graphql/index.ts",
       "sourceLocation": {
         "filePath": "src/graphql/index.ts",
-        "line": 142,
+        "line": 66,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlDataSourceDefinition"],
+      "relatedSymbols": ["GraphQlApiDefinition"],
       "signatures": [
         {
-          "label": "(definition: GraphQlDataSourceDefinition) => DataSourceDiagnosticResult<ExternalGraphQlApiDataSourceConfig>",
+          "label": "(definition: GraphQlApiDefinition) => DataSourceDiagnosticResult<ExternalGraphQlApiDefinition>",
           "parameters": [
             {
               "name": "definition",
-              "type": "GraphQlDataSourceDefinition",
+              "type": "GraphQlApiDefinition",
               "required": true,
               "description": null
             }
           ],
-          "returnType": "DataSourceDiagnosticResult<ExternalGraphQlApiDataSourceConfig>",
+          "returnType": "DataSourceDiagnosticResult<ExternalGraphQlApiDefinition>",
           "returnDescription": null
         }
       ],
@@ -550,7 +501,7 @@
       "modulePath": "src/graphql/index.ts",
       "sourceLocation": {
         "filePath": "src/graphql/index.ts",
-        "line": 127,
+        "line": 59,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -567,7 +518,7 @@
       "structuredRows": []
     },
     {
-      "name": "createManualRestDataSource",
+      "name": "createManualRestApi",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -579,19 +530,19 @@
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ManualRestDataSourceDefinition"],
+      "relatedSymbols": ["ManualRestApiDefinition"],
       "signatures": [
         {
-          "label": "(definition: ManualRestDataSourceDefinition) => DataSourceDiagnosticResult<ExternalRestApiDataSourceConfig>",
+          "label": "(definition: ManualRestApiDefinition) => DataSourceDiagnosticResult<ExternalRestApiDefinition>",
           "parameters": [
             {
               "name": "definition",
-              "type": "ManualRestDataSourceDefinition",
+              "type": "ManualRestApiDefinition",
               "required": true,
               "description": null
             }
           ],
-          "returnType": "DataSourceDiagnosticResult<ExternalRestApiDataSourceConfig>",
+          "returnType": "DataSourceDiagnosticResult<ExternalRestApiDefinition>",
           "returnDescription": null
         }
       ],
@@ -607,7 +558,7 @@
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 103,
+        "line": 110,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -642,10 +593,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "value",
-      "modulePath": "src/index.ts",
+      "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
-        "filePath": "src/index.ts",
-        "line": 15,
+        "filePath": "src/packageInfo.ts",
+        "line": 8,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -660,10 +611,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/index.ts",
+      "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
-        "filePath": "src/index.ts",
-        "line": 29,
+        "filePath": "src/packageInfo.ts",
+        "line": 20,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -680,7 +631,7 @@
         {
           "name": "supportedApiOrigins",
           "kind": "property",
-          "type": "readonly [\"external\", \"generated\"]",
+          "type": "readonly [\"external\"]",
           "required": true,
           "description": null
         },
@@ -694,7 +645,7 @@
         {
           "name": "supportedKinds",
           "kind": "property",
-          "type": "readonly [\"api\", \"database\"]",
+          "type": "readonly [\"database\"]",
           "required": true,
           "description": null
         }
@@ -710,7 +661,7 @@
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 16,
+        "line": 23,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -720,7 +671,7 @@
       "structuredRows": []
     },
     {
-      "name": "discoverOpenApiDataSource",
+      "name": "discoverOpenApi",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -728,23 +679,23 @@
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 124,
+        "line": 131,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["DiscoverOpenApiDataSourceInput", "DiscoverOpenApiDataSourceResult"],
+      "relatedSymbols": ["DiscoverOpenApiInput", "DiscoverOpenApiResult"],
       "signatures": [
         {
-          "label": "(input: DiscoverOpenApiDataSourceInput) => Promise<DiscoverOpenApiDataSourceResult>",
+          "label": "(input: DiscoverOpenApiInput) => Promise<DiscoverOpenApiResult>",
           "parameters": [
             {
               "name": "input",
-              "type": "DiscoverOpenApiDataSourceInput",
+              "type": "DiscoverOpenApiInput",
               "required": true,
               "description": null
             }
           ],
-          "returnType": "Promise<DiscoverOpenApiDataSourceResult>",
+          "returnType": "Promise<DiscoverOpenApiResult>",
           "returnDescription": null
         }
       ],
@@ -752,7 +703,7 @@
       "structuredRows": []
     },
     {
-      "name": "DiscoverOpenApiDataSourceInput",
+      "name": "DiscoverOpenApiInput",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -760,7 +711,7 @@
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 53,
+        "line": 60,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -834,7 +785,7 @@
       "structuredRows": []
     },
     {
-      "name": "DiscoverOpenApiDataSourceResult",
+      "name": "DiscoverOpenApiResult",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -842,7 +793,7 @@
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 65,
+        "line": 72,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -857,10 +808,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/test-runner/index.ts",
+      "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 16,
+        "filePath": "src/test-runner/types.ts",
+        "line": 13,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -890,10 +841,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/test-runner/index.ts",
+      "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 21,
+        "filePath": "src/test-runner/types.ts",
+        "line": 18,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -908,10 +859,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/test-runner/index.ts",
+      "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 37,
+        "filePath": "src/test-runner/types.ts",
+        "line": 34,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -926,10 +877,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/test-runner/index.ts",
+      "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 25,
+        "filePath": "src/test-runner/types.ts",
+        "line": 22,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -966,10 +917,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/test-runner/index.ts",
+      "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 31,
+        "filePath": "src/test-runner/types.ts",
+        "line": 28,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1006,10 +957,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/test-runner/index.ts",
+      "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 14,
+        "filePath": "src/test-runner/types.ts",
+        "line": 11,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1024,10 +975,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/test-runner/index.ts",
+      "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 42,
+        "filePath": "src/test-runner/types.ts",
+        "line": 39,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1035,17 +986,17 @@
       "signatures": [],
       "members": [
         {
+          "name": "api",
+          "kind": "property",
+          "type": "ApiDefinition",
+          "required": true,
+          "description": null
+        },
+        {
           "name": "credentialResolver",
           "kind": "property",
           "type": "EndpointTestCredentialResolver | undefined",
           "required": false,
-          "description": null
-        },
-        {
-          "name": "dataSource",
-          "kind": "property",
-          "type": "DataSourceConfig",
-          "required": true,
           "description": null
         },
         {
@@ -1092,10 +1043,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/test-runner/index.ts",
+      "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 13,
+        "filePath": "src/test-runner/types.ts",
+        "line": 10,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1110,10 +1061,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/test-runner/index.ts",
+      "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 52,
+        "filePath": "src/test-runner/types.ts",
+        "line": 49,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1121,17 +1072,17 @@
       "signatures": [],
       "members": [
         {
+          "name": "apiId",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
           "name": "body",
           "kind": "property",
           "type": "string | undefined",
           "required": false,
-          "description": null
-        },
-        {
-          "name": "dataSourceId",
-          "kind": "property",
-          "type": "string",
-          "required": true,
           "description": null
         },
         {
@@ -1185,10 +1136,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/test-runner/index.ts",
+      "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 63,
+        "filePath": "src/test-runner/types.ts",
+        "line": 60,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1239,10 +1190,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/test-runner/index.ts",
+      "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 71,
+        "filePath": "src/test-runner/types.ts",
+        "line": 68,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1260,7 +1211,7 @@
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 34,
+        "line": 41,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1278,7 +1229,7 @@
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 23,
+        "line": 30,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1318,7 +1269,7 @@
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 29,
+        "line": 36,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1380,26 +1331,26 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/index.ts",
+      "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
-        "filePath": "src/index.ts",
-        "line": 57,
+        "filePath": "src/packageInfo.ts",
+        "line": 48,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
-          "label": "(source: DataSourceConfig) => DataSourceKind",
+          "label": "(source: import(\"@ankhorage/contracts/dist/data/sources\").DatabaseDataSourceConfig) => \"database\"",
           "parameters": [
             {
               "name": "source",
-              "type": "DataSourceConfig",
+              "type": "import(\"@ankhorage/contracts/dist/data/sources\").DatabaseDataSourceConfig",
               "required": true,
               "description": null
             }
           ],
-          "returnType": "DataSourceKind",
+          "returnType": "\"database\"",
           "returnDescription": null
         }
       ],
@@ -1412,10 +1363,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/index.ts",
+      "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
-        "filePath": "src/index.ts",
-        "line": 36,
+        "filePath": "src/packageInfo.ts",
+        "line": 27,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1440,7 +1391,7 @@
       "modulePath": "src/graphql/index.ts",
       "sourceLocation": {
         "filePath": "src/graphql/index.ts",
-        "line": 16,
+        "line": 22,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -1450,15 +1401,15 @@
       "structuredRows": []
     },
     {
-      "name": "GraphQlDataSourceDefinition",
+      "name": "GraphQlApiDefinition",
       "description": null,
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/graphql/index.ts",
+      "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 109,
+        "filePath": "src/graphql/types.ts",
+        "line": 68,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1544,10 +1495,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/graphql/index.ts",
+      "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 71,
+        "filePath": "src/graphql/types.ts",
+        "line": 30,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1577,10 +1528,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/graphql/index.ts",
+      "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 64,
+        "filePath": "src/graphql/types.ts",
+        "line": 23,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1624,10 +1575,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/graphql/index.ts",
+      "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 57,
+        "filePath": "src/graphql/types.ts",
+        "line": 16,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1674,7 +1625,7 @@
       "modulePath": "src/graphql/index.ts",
       "sourceLocation": {
         "filePath": "src/graphql/index.ts",
-        "line": 122,
+        "line": 54,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1704,10 +1655,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/graphql/index.ts",
+      "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 93,
+        "filePath": "src/graphql/types.ts",
+        "line": 52,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1730,10 +1681,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/graphql/index.ts",
+      "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 86,
+        "filePath": "src/graphql/types.ts",
+        "line": 45,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1777,10 +1728,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/graphql/index.ts",
+      "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 76,
+        "filePath": "src/graphql/types.ts",
+        "line": 35,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1850,10 +1801,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/graphql/index.ts",
+      "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 51,
+        "filePath": "src/graphql/types.ts",
+        "line": 10,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1890,10 +1841,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/graphql/index.ts",
+      "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 97,
+        "filePath": "src/graphql/types.ts",
+        "line": 56,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1972,10 +1923,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/graphql/index.ts",
+      "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 48,
+        "filePath": "src/graphql/types.ts",
+        "line": 8,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1993,7 +1944,7 @@
       "modulePath": "src/openapi/index.ts",
       "sourceLocation": {
         "filePath": "src/openapi/index.ts",
-        "line": 126,
+        "line": 18,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2017,7 +1968,7 @@
       "structuredRows": []
     },
     {
-      "name": "introspectGraphQlDataSource",
+      "name": "introspectGraphQlApi",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -2025,23 +1976,23 @@
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 155,
+        "line": 160,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["IntrospectGraphQlDataSourceInput", "IntrospectGraphQlDataSourceResult"],
+      "relatedSymbols": ["IntrospectGraphQlApiInput", "IntrospectGraphQlApiResult"],
       "signatures": [
         {
-          "label": "(input: IntrospectGraphQlDataSourceInput) => Promise<IntrospectGraphQlDataSourceResult>",
+          "label": "(input: IntrospectGraphQlApiInput) => Promise<IntrospectGraphQlApiResult>",
           "parameters": [
             {
               "name": "input",
-              "type": "IntrospectGraphQlDataSourceInput",
+              "type": "IntrospectGraphQlApiInput",
               "required": true,
               "description": null
             }
           ],
-          "returnType": "Promise<IntrospectGraphQlDataSourceResult>",
+          "returnType": "Promise<IntrospectGraphQlApiResult>",
           "returnDescription": null
         }
       ],
@@ -2049,7 +2000,7 @@
       "structuredRows": []
     },
     {
-      "name": "IntrospectGraphQlDataSourceInput",
+      "name": "IntrospectGraphQlApiInput",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -2057,7 +2008,7 @@
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 79,
+        "line": 86,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2131,7 +2082,7 @@
       "structuredRows": []
     },
     {
-      "name": "IntrospectGraphQlDataSourceResult",
+      "name": "IntrospectGraphQlApiResult",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -2139,7 +2090,7 @@
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 91,
+        "line": 98,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2186,10 +2137,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/index.ts",
+      "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
-        "filePath": "src/index.ts",
-        "line": 49,
+        "filePath": "src/packageInfo.ts",
+        "line": 40,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2218,10 +2169,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/index.ts",
+      "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
-        "filePath": "src/index.ts",
-        "line": 53,
+        "filePath": "src/packageInfo.ts",
+        "line": 44,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2250,10 +2201,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/index.ts",
+      "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
-        "filePath": "src/index.ts",
-        "line": 45,
+        "filePath": "src/packageInfo.ts",
+        "line": 36,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2277,7 +2228,7 @@
       "structuredRows": []
     },
     {
-      "name": "ManualRestDataSourceDefinition",
+      "name": "ManualRestApiDefinition",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -2344,7 +2295,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/data-sources/node_modules/@ankhorage/contracts/dist/data/schemas\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"@ankhorage/contracts/dist/data/schemas\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -2541,39 +2492,7 @@
       "structuredRows": []
     },
     {
-      "name": "normalizeGeneratedApiDataSource",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "function",
-      "modulePath": "src/generated-api/index.ts",
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 72,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
-      "signatures": [
-        {
-          "label": "(definition: GeneratedApiDefinition) => GeneratedRestApiDataSourceConfig",
-          "parameters": [
-            {
-              "name": "definition",
-              "type": "GeneratedApiDefinition",
-              "required": true,
-              "description": null
-            }
-          ],
-          "returnType": "GeneratedRestApiDataSourceConfig",
-          "returnDescription": null
-        }
-      ],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "normalizeGraphQlDataSource",
+      "name": "normalizeGraphQlApi",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -2581,23 +2500,23 @@
       "modulePath": "src/graphql/index.ts",
       "sourceLocation": {
         "filePath": "src/graphql/index.ts",
-        "line": 196,
+        "line": 112,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlDataSourceDefinition"],
+      "relatedSymbols": ["GraphQlApiDefinition"],
       "signatures": [
         {
-          "label": "(definition: GraphQlDataSourceDefinition) => ExternalGraphQlApiDataSourceConfig",
+          "label": "(definition: GraphQlApiDefinition) => ExternalGraphQlApiDefinition",
           "parameters": [
             {
               "name": "definition",
-              "type": "GraphQlDataSourceDefinition",
+              "type": "GraphQlApiDefinition",
               "required": true,
               "description": null
             }
           ],
-          "returnType": "ExternalGraphQlApiDataSourceConfig",
+          "returnType": "ExternalGraphQlApiDefinition",
           "returnDescription": null
         }
       ],
@@ -2610,10 +2529,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/graphql/index.ts",
+      "modulePath": "src/graphql/introspection.ts",
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 249,
+        "filePath": "src/graphql/introspection.ts",
+        "line": 27,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2642,10 +2561,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/graphql/index.ts",
+      "modulePath": "src/graphql/introspection.ts",
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 235,
+        "filePath": "src/graphql/introspection.ts",
+        "line": 15,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2674,10 +2593,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/graphql/index.ts",
+      "modulePath": "src/graphql/operation.ts",
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 134,
+        "filePath": "src/graphql/operation.ts",
+        "line": 13,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2707,7 +2626,7 @@
       "structuredRows": []
     },
     {
-      "name": "normalizeManualRestDataSource",
+      "name": "normalizeManualRestApi",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -2719,19 +2638,19 @@
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ManualRestDataSourceDefinition"],
+      "relatedSymbols": ["ManualRestApiDefinition"],
       "signatures": [
         {
-          "label": "(definition: ManualRestDataSourceDefinition) => ExternalRestApiDataSourceConfig",
+          "label": "(definition: ManualRestApiDefinition) => ExternalRestApiDefinition",
           "parameters": [
             {
               "name": "definition",
-              "type": "ManualRestDataSourceDefinition",
+              "type": "ManualRestApiDefinition",
               "required": true,
               "description": null
             }
           ],
-          "returnType": "ExternalRestApiDataSourceConfig",
+          "returnType": "ExternalRestApiDefinition",
           "returnDescription": null
         }
       ],
@@ -2776,10 +2695,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/openapi/index.ts",
+      "modulePath": "src/openapi/endpoints.ts",
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 178,
+        "filePath": "src/openapi/endpoints.ts",
+        "line": 26,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2808,21 +2727,21 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/openapi/index.ts",
+      "modulePath": "src/openapi/operation.ts",
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 164,
+        "filePath": "src/openapi/operation.ts",
+        "line": 26,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
+      "relatedSymbols": ["OpenApiHttpMethod"],
       "signatures": [
         {
-          "label": "(method: \"delete\" | \"get\" | \"head\" | \"options\" | \"patch\" | \"post\" | \"put\", path: string, operationId?: string | undefined) => string",
+          "label": "(method: OpenApiHttpMethod, path: string, operationId?: string | undefined) => string",
           "parameters": [
             {
               "name": "method",
-              "type": "\"delete\" | \"get\" | \"head\" | \"options\" | \"patch\" | \"post\" | \"put\"",
+              "type": "OpenApiHttpMethod",
               "required": true,
               "description": null
             },
@@ -2852,10 +2771,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "function",
-      "modulePath": "src/openapi/index.ts",
+      "modulePath": "src/openapi/schema.ts",
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 187,
+        "filePath": "src/openapi/schema.ts",
+        "line": 20,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2884,10 +2803,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/openapi/index.ts",
+      "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 95,
+        "filePath": "src/openapi/types.ts",
+        "line": 66,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2920,7 +2839,7 @@
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 47,
+        "line": 54,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2960,7 +2879,7 @@
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 39,
+        "line": 46,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2975,10 +2894,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/openapi/index.ts",
+      "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 100,
+        "filePath": "src/openapi/types.ts",
+        "line": 71,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3029,10 +2948,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/openapi/index.ts",
+      "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 32,
+        "filePath": "src/openapi/types.ts",
+        "line": 3,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3047,10 +2966,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/openapi/index.ts",
+      "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 112,
+        "filePath": "src/openapi/types.ts",
+        "line": 83,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3132,7 +3051,7 @@
       "modulePath": "src/openapi/index.ts",
       "sourceLocation": {
         "filePath": "src/openapi/index.ts",
-        "line": 124,
+        "line": 16,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3147,10 +3066,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/openapi/index.ts",
+      "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 58,
+        "filePath": "src/openapi/types.ts",
+        "line": 29,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3173,10 +3092,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/openapi/index.ts",
+      "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 81,
+        "filePath": "src/openapi/types.ts",
+        "line": 52,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3245,10 +3164,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/openapi/index.ts",
+      "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 73,
+        "filePath": "src/openapi/types.ts",
+        "line": 44,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3299,10 +3218,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "unknown",
-      "modulePath": "src/openapi/index.ts",
+      "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 91,
+        "filePath": "src/openapi/types.ts",
+        "line": 62,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3317,10 +3236,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/openapi/index.ts",
+      "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 62,
+        "filePath": "src/openapi/types.ts",
+        "line": 33,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3357,10 +3276,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/openapi/index.ts",
+      "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 68,
+        "filePath": "src/openapi/types.ts",
+        "line": 39,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3390,10 +3309,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/openapi/index.ts",
+      "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 39,
+        "filePath": "src/openapi/types.ts",
+        "line": 10,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3521,10 +3440,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "type",
-      "modulePath": "src/openapi/index.ts",
+      "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 34,
+        "filePath": "src/openapi/types.ts",
+        "line": 5,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3554,10 +3473,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "value",
-      "modulePath": "src/index.ts",
+      "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
-        "filePath": "src/index.ts",
-        "line": 20,
+        "filePath": "src/packageInfo.ts",
+        "line": 12,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3572,10 +3491,10 @@
       "isReadme": false,
       "examples": [],
       "kind": "value",
-      "modulePath": "src/index.ts",
+      "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
-        "filePath": "src/index.ts",
-        "line": 24,
+        "filePath": "src/packageInfo.ts",
+        "line": 13,
         "column": 14
       },
       "exportPaths": ["src/index.ts"],
@@ -3590,11 +3509,29 @@
       "isReadme": false,
       "examples": [],
       "kind": "value",
-      "modulePath": "src/index.ts",
+      "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
-        "filePath": "src/index.ts",
-        "line": 16,
+        "filePath": "src/packageInfo.ts",
+        "line": 9,
         "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SupportedApiOrigin",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/packageInfo.ts",
+      "sourceLocation": {
+        "filePath": "src/packageInfo.ts",
+        "line": 18,
+        "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": [],
@@ -3611,7 +3548,7 @@
       "modulePath": "src/test-runner/index.ts",
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 91,
+        "line": 35,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3635,39 +3572,7 @@
       "structuredRows": []
     },
     {
-      "name": "validateGeneratedApiDefinition",
-      "description": null,
-      "isReadme": false,
-      "examples": [],
-      "kind": "function",
-      "modulePath": "src/generated-api/index.ts",
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 39,
-        "column": 1
-      },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
-      "signatures": [
-        {
-          "label": "(definition: GeneratedApiDefinition) => readonly DataSourceDiagnostic[]",
-          "parameters": [
-            {
-              "name": "definition",
-              "type": "GeneratedApiDefinition",
-              "required": true,
-              "description": null
-            }
-          ],
-          "returnType": "readonly DataSourceDiagnostic[]",
-          "returnDescription": null
-        }
-      ],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "validateGraphQlDataSource",
+      "name": "validateGraphQlApi",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -3675,18 +3580,18 @@
       "modulePath": "src/graphql/index.ts",
       "sourceLocation": {
         "filePath": "src/graphql/index.ts",
-        "line": 157,
+        "line": 76,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlDataSourceDefinition"],
+      "relatedSymbols": ["GraphQlApiDefinition"],
       "signatures": [
         {
-          "label": "(definition: GraphQlDataSourceDefinition) => readonly DataSourceDiagnostic[]",
+          "label": "(definition: GraphQlApiDefinition) => readonly DataSourceDiagnostic[]",
           "parameters": [
             {
               "name": "definition",
-              "type": "GraphQlDataSourceDefinition",
+              "type": "GraphQlApiDefinition",
               "required": true,
               "description": null
             }
@@ -3699,7 +3604,7 @@
       "structuredRows": []
     },
     {
-      "name": "validateManualRestDataSource",
+      "name": "validateManualRestApi",
       "description": null,
       "isReadme": false,
       "examples": [],
@@ -3711,14 +3616,14 @@
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ManualRestDataSourceDefinition"],
+      "relatedSymbols": ["ManualRestApiDefinition"],
       "signatures": [
         {
-          "label": "(definition: ManualRestDataSourceDefinition) => readonly DataSourceDiagnostic[]",
+          "label": "(definition: ManualRestApiDefinition) => readonly DataSourceDiagnostic[]",
           "parameters": [
             {
               "name": "definition",
-              "type": "ManualRestDataSourceDefinition",
+              "type": "ManualRestApiDefinition",
               "required": true,
               "description": null
             }
@@ -3734,29 +3639,83 @@
   "components": [],
   "sourceFunctions": [
     {
+      "name": "parseHttpUrl",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/http.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeCandidateUrl",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/http.ts",
+        "line": 16,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSuccessfulStatus",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/http.ts",
+        "line": 22,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseJsonResponse",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/http.ts",
+        "line": 26,
+        "column": 1
+      }
+    },
+    {
+      "name": "readRecord",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/http.ts",
+        "line": 34,
+        "column": 1
+      }
+    },
+    {
       "name": "createOpenApiDiscoveryCandidates",
       "description": null,
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 103,
+        "line": 110,
         "column": 1
       }
     },
     {
-      "name": "discoverOpenApiDataSource",
+      "name": "discoverOpenApi",
       "description": null,
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 124,
+        "line": 131,
         "column": 1
       }
     },
     {
-      "name": "introspectGraphQlDataSource",
+      "name": "introspectGraphQlApi",
       "description": null,
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 155,
+        "line": 160,
+        "column": 1
+      }
+    },
+    {
+      "name": "fetchGraphQlIntrospection",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 208,
         "column": 1
       }
     },
@@ -3765,43 +3724,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 220,
-        "column": 1
-      }
-    },
-    {
-      "name": "parseHttpUrl",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/discovery/index.ts",
-        "line": 268,
-        "column": 1
-      }
-    },
-    {
-      "name": "normalizeCandidateUrl",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/discovery/index.ts",
-        "line": 279,
-        "column": 1
-      }
-    },
-    {
-      "name": "isSuccessfulStatus",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/discovery/index.ts",
-        "line": 285,
-        "column": 1
-      }
-    },
-    {
-      "name": "parseJsonResponse",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/discovery/index.ts",
-        "line": 289,
+        "line": 232,
         "column": 1
       }
     },
@@ -3810,7 +3733,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 297,
+        "line": 280,
         "column": 1
       }
     },
@@ -3819,16 +3742,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 306,
-        "column": 1
-      }
-    },
-    {
-      "name": "readRecord",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/discovery/index.ts",
-        "line": 313,
+        "line": 289,
         "column": 1
       }
     },
@@ -3837,7 +3751,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 319,
+        "line": 296,
         "column": 1
       }
     },
@@ -3846,214 +3760,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 331,
-        "column": 1
-      }
-    },
-    {
-      "name": "createGeneratedApiDataSource",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 24,
-        "column": 1
-      }
-    },
-    {
-      "name": "validateGeneratedApiDefinition",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 39,
-        "column": 1
-      }
-    },
-    {
-      "name": "normalizeGeneratedApiDataSource",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 72,
-        "column": 1
-      }
-    },
-    {
-      "name": "createGeneratedApiEndpoint",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 98,
-        "column": 1
-      }
-    },
-    {
-      "name": "createGeneratedApiOperation",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 120,
-        "column": 1
-      }
-    },
-    {
-      "name": "createGeneratedApiOperationId",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 147,
-        "column": 1
-      }
-    },
-    {
-      "name": "createGeneratedApiResourceSchema",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 154,
-        "column": 1
-      }
-    },
-    {
-      "name": "validateGeneratedApiResource",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 171,
-        "column": 1
-      }
-    },
-    {
-      "name": "resourceDiagnostic",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 237,
-        "column": 1
-      }
-    },
-    {
-      "name": "createGeneratedApiSourceMetadata",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 253,
-        "column": 1
-      }
-    },
-    {
-      "name": "createGeneratedApiResourceMetadata",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 262,
-        "column": 1
-      }
-    },
-    {
-      "name": "createGeneratedApiOperationMetadata",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 277,
-        "column": 1
-      }
-    },
-    {
-      "name": "createGeneratedApiAuthMetadata",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 296,
-        "column": 1
-      }
-    },
-    {
-      "name": "createGeneratedApiPolicyMetadata",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 310,
-        "column": 1
-      }
-    },
-    {
-      "name": "createGeneratedApiOperationName",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 320,
-        "column": 1
-      }
-    },
-    {
-      "name": "mapGeneratedApiOperationIntent",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 327,
-        "column": 1
-      }
-    },
-    {
-      "name": "createGeneratedApiOperationRequest",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 334,
-        "column": 1
-      }
-    },
-    {
-      "name": "createGeneratedApiOperationResponse",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 361,
-        "column": 1
-      }
-    },
-    {
-      "name": "createPrimaryKeyParameter",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 374,
-        "column": 1
-      }
-    },
-    {
-      "name": "resolveGeneratedApiPrimaryKey",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 383,
-        "column": 1
-      }
-    },
-    {
-      "name": "createGeneratedApiFieldSchema",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 387,
-        "column": 1
-      }
-    },
-    {
-      "name": "mapDbFieldTypeToDataSchema",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 394,
-        "column": 1
-      }
-    },
-    {
-      "name": "readMetadataRecord",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/generated-api/index.ts",
-        "line": 403,
+        "line": 308,
         "column": 1
       }
     },
@@ -4062,43 +3769,34 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/graphql/index.ts",
-        "line": 127,
+        "line": 59,
         "column": 1
       }
     },
     {
-      "name": "normalizeGraphQlOperationId",
+      "name": "createGraphQlApi",
       "description": null,
       "sourceLocation": {
         "filePath": "src/graphql/index.ts",
-        "line": 134,
+        "line": 66,
         "column": 1
       }
     },
     {
-      "name": "createGraphQlDataSource",
+      "name": "validateGraphQlApi",
       "description": null,
       "sourceLocation": {
         "filePath": "src/graphql/index.ts",
-        "line": 142,
+        "line": 76,
         "column": 1
       }
     },
     {
-      "name": "validateGraphQlDataSource",
+      "name": "normalizeGraphQlApi",
       "description": null,
       "sourceLocation": {
         "filePath": "src/graphql/index.ts",
-        "line": 157,
-        "column": 1
-      }
-    },
-    {
-      "name": "normalizeGraphQlDataSource",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 196,
+        "line": 112,
         "column": 1
       }
     },
@@ -4106,8 +3804,8 @@
       "name": "normalizeGraphQlIntrospectionSchemas",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 235,
+        "filePath": "src/graphql/introspection.ts",
+        "line": 15,
         "column": 1
       }
     },
@@ -4115,35 +3813,17 @@
       "name": "normalizeGraphQlIntrospectionOperations",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 249,
+        "filePath": "src/graphql/introspection.ts",
+        "line": 27,
         "column": 1
       }
     },
     {
-      "name": "appendRootOperations",
+      "name": "normalizeRootOperations",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 263,
-        "column": 1
-      }
-    },
-    {
-      "name": "normalizeGraphQlOperation",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 286,
-        "column": 1
-      }
-    },
-    {
-      "name": "mapGraphQlOperationKindToIntent",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 303,
+        "filePath": "src/graphql/introspection.ts",
+        "line": 41,
         "column": 1
       }
     },
@@ -4151,8 +3831,8 @@
       "name": "normalizeGraphQlVariablesSchema",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 307,
+        "filePath": "src/graphql/introspection.ts",
+        "line": 60,
         "column": 1
       }
     },
@@ -4160,8 +3840,35 @@
       "name": "normalizeGraphQlType",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 329,
+        "filePath": "src/graphql/introspection.ts",
+        "line": 81,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeGraphQlEnumType",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/introspection.ts",
+        "line": 89,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeGraphQlScalarType",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/introspection.ts",
+        "line": 98,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeGraphQlUnionType",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/introspection.ts",
+        "line": 106,
         "column": 1
       }
     },
@@ -4169,8 +3876,8 @@
       "name": "normalizeGraphQlObjectType",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 358,
+        "filePath": "src/graphql/introspection.ts",
+        "line": 114,
         "column": 1
       }
     },
@@ -4178,8 +3885,8 @@
       "name": "normalizeGraphQlTypeRef",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 381,
+        "filePath": "src/graphql/introspection.ts",
+        "line": 138,
         "column": 1
       }
     },
@@ -4187,8 +3894,8 @@
       "name": "normalizeGraphQlNamedScalar",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 393,
+        "filePath": "src/graphql/introspection.ts",
+        "line": 149,
         "column": 1
       }
     },
@@ -4196,8 +3903,8 @@
       "name": "isGraphQlNonNull",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 401,
+        "filePath": "src/graphql/introspection.ts",
+        "line": 157,
         "column": 1
       }
     },
@@ -4205,8 +3912,35 @@
       "name": "isNamedGraphQlType",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 405,
+        "filePath": "src/graphql/introspection.ts",
+        "line": 161,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeGraphQlOperationId",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/operation.ts",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeGraphQlOperation",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/operation.ts",
+        "line": 21,
+        "column": 1
+      }
+    },
+    {
+      "name": "mapGraphQlOperationKindToIntent",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/graphql/operation.ts",
+        "line": 39,
         "column": 1
       }
     },
@@ -4214,8 +3948,8 @@
       "name": "createGraphQlOperationMetadata",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 409,
+        "filePath": "src/graphql/operation.ts",
+        "line": 43,
         "column": 1
       }
     },
@@ -4223,8 +3957,8 @@
       "name": "toMetadataRecord",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 417,
+        "filePath": "src/graphql/operation.ts",
+        "line": 52,
         "column": 1
       }
     },
@@ -4232,53 +3966,53 @@
       "name": "isDataContractRecord",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/graphql/index.ts",
-        "line": 422,
+        "filePath": "src/graphql/operation.ts",
+        "line": 56,
         "column": 1
       }
     },
     {
-      "name": "getDataSourcesPackageInfo",
+      "name": "normalizeOpenApiEndpointId",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/index.ts",
-        "line": 36,
+        "filePath": "src/openapi/endpoints.ts",
+        "line": 26,
         "column": 1
       }
     },
     {
-      "name": "isSupportedDataSourceKind",
+      "name": "normalizeOpenApiEndpoints",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/index.ts",
-        "line": 45,
+        "filePath": "src/openapi/endpoints.ts",
+        "line": 35,
         "column": 1
       }
     },
     {
-      "name": "isSupportedApiOrigin",
+      "name": "normalizeOpenApiEndpoint",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/index.ts",
-        "line": 49,
+        "filePath": "src/openapi/endpoints.ts",
+        "line": 63,
         "column": 1
       }
     },
     {
-      "name": "isSupportedApiProtocol",
+      "name": "getOpenApiOperations",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/index.ts",
-        "line": 53,
+        "filePath": "src/openapi/endpoints.ts",
+        "line": 95,
         "column": 1
       }
     },
     {
-      "name": "getDataSourceKind",
+      "name": "getOpenApiOperation",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/index.ts",
-        "line": 57,
+        "filePath": "src/openapi/endpoints.ts",
+        "line": 104,
         "column": 1
       }
     },
@@ -4287,34 +4021,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/openapi/index.ts",
-        "line": 126,
-        "column": 1
-      }
-    },
-    {
-      "name": "normalizeOpenApiOperationId",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 164,
-        "column": 1
-      }
-    },
-    {
-      "name": "normalizeOpenApiEndpointId",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 178,
-        "column": 1
-      }
-    },
-    {
-      "name": "normalizeOpenApiSchema",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 187,
+        "line": 18,
         "column": 1
       }
     },
@@ -4323,25 +4030,25 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/openapi/index.ts",
-        "line": 208,
+        "line": 55,
         "column": 1
       }
     },
     {
-      "name": "normalizeOpenApiSchemas",
+      "name": "normalizeOpenApiOperationId",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 239,
+        "filePath": "src/openapi/operation.ts",
+        "line": 26,
         "column": 1
       }
     },
     {
-      "name": "normalizeOpenApiEndpoints",
+      "name": "normalizeOpenApiOperation",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 259,
+        "filePath": "src/openapi/operation.ts",
+        "line": 40,
         "column": 1
       }
     },
@@ -4349,8 +4056,17 @@
       "name": "resolveUniqueOperationId",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 335,
+        "filePath": "src/openapi/operation.ts",
+        "line": 81,
+        "column": 1
+      }
+    },
+    {
+      "name": "findUniqueOperationId",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/openapi/operation.ts",
+        "line": 110,
         "column": 1
       }
     },
@@ -4358,8 +4074,17 @@
       "name": "normalizeOpenApiParameters",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 370,
+        "filePath": "src/openapi/operation.ts",
+        "line": 123,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeOpenApiParameter",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/openapi/operation.ts",
+        "line": 136,
         "column": 1
       }
     },
@@ -4367,8 +4092,8 @@
       "name": "normalizeParameterLocation",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 407,
+        "filePath": "src/openapi/operation.ts",
+        "line": 168,
         "column": 1
       }
     },
@@ -4376,8 +4101,8 @@
       "name": "normalizeOpenApiRequest",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 419,
+        "filePath": "src/openapi/operation.ts",
+        "line": 180,
         "column": 1
       }
     },
@@ -4385,8 +4110,17 @@
       "name": "normalizeOpenApiResponse",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 432,
+        "filePath": "src/openapi/operation.ts",
+        "line": 193,
+        "column": 1
+      }
+    },
+    {
+      "name": "chooseResponseEntry",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/openapi/operation.ts",
+        "line": 208,
         "column": 1
       }
     },
@@ -4394,17 +4128,8 @@
       "name": "firstContentEntry",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 449,
-        "column": 1
-      }
-    },
-    {
-      "name": "chooseResponseStatus",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 459,
+        "filePath": "src/openapi/operation.ts",
+        "line": 216,
         "column": 1
       }
     },
@@ -4412,8 +4137,26 @@
       "name": "mapOpenApiMethodToIntent",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 463,
+        "filePath": "src/openapi/operation.ts",
+        "line": 225,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeOpenApiSchema",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/openapi/schema.ts",
+        "line": 20,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeOpenApiSchemas",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/openapi/schema.ts",
+        "line": 41,
         "column": 1
       }
     },
@@ -4421,8 +4164,8 @@
       "name": "normalizeOpenApiSchemaRef",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 471,
+        "filePath": "src/openapi/schema.ts",
+        "line": 60,
         "column": 1
       }
     },
@@ -4430,8 +4173,8 @@
       "name": "normalizeSchemaRecord",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 477,
+        "filePath": "src/openapi/schema.ts",
+        "line": 66,
         "column": 1
       }
     },
@@ -4439,8 +4182,8 @@
       "name": "normalizeSchemaList",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 486,
+        "filePath": "src/openapi/schema.ts",
+        "line": 75,
         "column": 1
       }
     },
@@ -4448,8 +4191,8 @@
       "name": "normalizeAdditionalProperties",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 492,
+        "filePath": "src/openapi/schema.ts",
+        "line": 81,
         "column": 1
       }
     },
@@ -4457,8 +4200,8 @@
       "name": "normalizeSchemaType",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 499,
+        "filePath": "src/openapi/schema.ts",
+        "line": 88,
         "column": 1
       }
     },
@@ -4466,8 +4209,8 @@
       "name": "isDataSchemaPrimitive",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 507,
+        "filePath": "src/openapi/schema.ts",
+        "line": 96,
         "column": 1
       }
     },
@@ -4475,8 +4218,53 @@
       "name": "collectUnsupportedSchemaDiagnostics",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/openapi/index.ts",
-        "line": 511,
+        "filePath": "src/openapi/schema.ts",
+        "line": 100,
+        "column": 1
+      }
+    },
+    {
+      "name": "getDataSourcesPackageInfo",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/packageInfo.ts",
+        "line": 27,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSupportedDataSourceKind",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/packageInfo.ts",
+        "line": 36,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSupportedApiOrigin",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/packageInfo.ts",
+        "line": 40,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSupportedApiProtocol",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/packageInfo.ts",
+        "line": 44,
+        "column": 1
+      }
+    },
+    {
+      "name": "getDataSourceKind",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/packageInfo.ts",
+        "line": 48,
         "column": 1
       }
     },
@@ -4508,7 +4296,7 @@
       }
     },
     {
-      "name": "validateManualRestDataSource",
+      "name": "validateManualRestApi",
       "description": null,
       "sourceLocation": {
         "filePath": "src/rest/index.ts",
@@ -4517,7 +4305,7 @@
       }
     },
     {
-      "name": "createManualRestDataSource",
+      "name": "createManualRestApi",
       "description": null,
       "sourceLocation": {
         "filePath": "src/rest/index.ts",
@@ -4526,7 +4314,7 @@
       }
     },
     {
-      "name": "normalizeManualRestDataSource",
+      "name": "normalizeManualRestApi",
       "description": null,
       "sourceLocation": {
         "filePath": "src/rest/index.ts",
@@ -4535,11 +4323,29 @@
       }
     },
     {
+      "name": "normalizeManualRestEndpoint",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 157,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeManualRestOperation",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/rest/index.ts",
+        "line": 176,
+        "column": 1
+      }
+    },
+    {
       "name": "validateManualRestOperation",
       "description": null,
       "sourceLocation": {
         "filePath": "src/rest/index.ts",
-        "line": 196,
+        "line": 202,
         "column": 1
       }
     },
@@ -4548,7 +4354,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 91,
+        "line": 35,
         "column": 1
       }
     },
@@ -4557,7 +4363,16 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 140,
+        "line": 65,
+        "column": 1
+      }
+    },
+    {
+      "name": "createEndpointTestResult",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/index.ts",
+        "line": 99,
         "column": 1
       }
     },
@@ -4566,7 +4381,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 173,
+        "line": 124,
         "column": 1
       }
     },
@@ -4575,7 +4390,16 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 179,
+        "line": 130,
+        "column": 1
+      }
+    },
+    {
+      "name": "buildProtocolRequest",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/index.ts",
+        "line": 157,
         "column": 1
       }
     },
@@ -4584,7 +4408,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 206,
+        "line": 168,
         "column": 1
       }
     },
@@ -4593,16 +4417,16 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 245,
+        "line": 213,
         "column": 1
       }
     },
     {
-      "name": "getDataSourceBaseUrl",
+      "name": "getRestBaseUrl",
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 282,
+        "line": 250,
         "column": 1
       }
     },
@@ -4611,34 +4435,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
-        "line": 291,
-        "column": 1
-      }
-    },
-    {
-      "name": "interpolatePath",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 301,
-        "column": 1
-      }
-    },
-    {
-      "name": "collectQuery",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 329,
-        "column": 1
-      }
-    },
-    {
-      "name": "createHttpBody",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 343,
+        "line": 255,
         "column": 1
       }
     },
@@ -4646,8 +4443,8 @@
       "name": "createResponseDiagnostic",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 351,
+        "filePath": "src/test-runner/response.ts",
+        "line": 5,
         "column": 1
       }
     },
@@ -4655,89 +4452,8 @@
       "name": "parseResponseBody",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 364,
-        "column": 1
-      }
-    },
-    {
-      "name": "appendQuery",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 374,
-        "column": 1
-      }
-    },
-    {
-      "name": "serializeEndpointUrlValue",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 386,
-        "column": 1
-      }
-    },
-    {
-      "name": "joinUrl",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 393,
-        "column": 1
-      }
-    },
-    {
-      "name": "getStringValue",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 399,
-        "column": 1
-      }
-    },
-    {
-      "name": "getRecordValue",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 407,
-        "column": 1
-      }
-    },
-    {
-      "name": "getStringMetadataValue",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 415,
-        "column": 1
-      }
-    },
-    {
-      "name": "createDiagnostic",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 424,
-        "column": 1
-      }
-    },
-    {
-      "name": "failure",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 439,
-        "column": 1
-      }
-    },
-    {
-      "name": "createNetworkErrorMessage",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 447,
+        "filePath": "src/test-runner/response.ts",
+        "line": 18,
         "column": 1
       }
     },
@@ -4745,8 +4461,143 @@
       "name": "isDataContractValue",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 451,
+        "filePath": "src/test-runner/response.ts",
+        "line": 28,
+        "column": 1
+      }
+    },
+    {
+      "name": "createDiagnostic",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/result.ts",
+        "line": 10,
+        "column": 1
+      }
+    },
+    {
+      "name": "failure",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/result.ts",
+        "line": 25,
+        "column": 1
+      }
+    },
+    {
+      "name": "createNetworkErrorMessage",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/result.ts",
+        "line": 33,
+        "column": 1
+      }
+    },
+    {
+      "name": "interpolatePath",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/serialization.ts",
+        "line": 11,
+        "column": 1
+      }
+    },
+    {
+      "name": "collectQuery",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/serialization.ts",
+        "line": 39,
+        "column": 1
+      }
+    },
+    {
+      "name": "collectHeaders",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/serialization.ts",
+        "line": 52,
+        "column": 1
+      }
+    },
+    {
+      "name": "createHttpBody",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/serialization.ts",
+        "line": 65,
+        "column": 1
+      }
+    },
+    {
+      "name": "appendQuery",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/serialization.ts",
+        "line": 82,
+        "column": 1
+      }
+    },
+    {
+      "name": "joinUrl",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/serialization.ts",
+        "line": 94,
+        "column": 1
+      }
+    },
+    {
+      "name": "getStringValue",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/serialization.ts",
+        "line": 100,
+        "column": 1
+      }
+    },
+    {
+      "name": "getRecordValue",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/serialization.ts",
+        "line": 108,
+        "column": 1
+      }
+    },
+    {
+      "name": "getStringMetadataValue",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/serialization.ts",
+        "line": 116,
+        "column": 1
+      }
+    },
+    {
+      "name": "serializeEndpointUrlValue",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/serialization.ts",
+        "line": 125,
+        "column": 1
+      }
+    },
+    {
+      "name": "readValue",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/serialization.ts",
+        "line": 132,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDataContractValue",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/test-runner/serialization.ts",
+        "line": 139,
         "column": 1
       }
     },
@@ -4754,8 +4605,8 @@
       "name": "isDataContractRecord",
       "description": null,
       "sourceLocation": {
-        "filePath": "src/test-runner/index.ts",
-        "line": 457,
+        "filePath": "src/test-runner/serialization.ts",
+        "line": 145,
         "column": 1
       }
     }
@@ -4771,49 +4622,9 @@
     },
     {
       "kind": "export",
-      "name": "createGeneratedApiDataSource",
-      "sourcePath": "src/generated-api/index.ts",
-      "symbolName": "createGeneratedApiDataSource",
-      "description": null,
-      "isReadme": false
-    },
-    {
-      "kind": "export",
-      "name": "createGeneratedApiEndpoint",
-      "sourcePath": "src/generated-api/index.ts",
-      "symbolName": "createGeneratedApiEndpoint",
-      "description": null,
-      "isReadme": false
-    },
-    {
-      "kind": "export",
-      "name": "createGeneratedApiOperation",
-      "sourcePath": "src/generated-api/index.ts",
-      "symbolName": "createGeneratedApiOperation",
-      "description": null,
-      "isReadme": false
-    },
-    {
-      "kind": "export",
-      "name": "createGeneratedApiOperationId",
-      "sourcePath": "src/generated-api/index.ts",
-      "symbolName": "createGeneratedApiOperationId",
-      "description": null,
-      "isReadme": false
-    },
-    {
-      "kind": "export",
-      "name": "createGeneratedApiResourceSchema",
-      "sourcePath": "src/generated-api/index.ts",
-      "symbolName": "createGeneratedApiResourceSchema",
-      "description": null,
-      "isReadme": false
-    },
-    {
-      "kind": "export",
-      "name": "createGraphQlDataSource",
+      "name": "createGraphQlApi",
       "sourcePath": "src/graphql/index.ts",
-      "symbolName": "createGraphQlDataSource",
+      "symbolName": "createGraphQlApi",
       "description": null,
       "isReadme": false
     },
@@ -4827,9 +4638,9 @@
     },
     {
       "kind": "export",
-      "name": "createManualRestDataSource",
+      "name": "createManualRestApi",
       "sourcePath": "src/rest/index.ts",
-      "symbolName": "createManualRestDataSource",
+      "symbolName": "createManualRestApi",
       "description": null,
       "isReadme": false
     },
@@ -4843,9 +4654,9 @@
     },
     {
       "kind": "export",
-      "name": "discoverOpenApiDataSource",
+      "name": "discoverOpenApi",
       "sourcePath": "src/discovery/index.ts",
-      "symbolName": "discoverOpenApiDataSource",
+      "symbolName": "discoverOpenApi",
       "description": null,
       "isReadme": false
     },
@@ -4860,7 +4671,7 @@
     {
       "kind": "export",
       "name": "getDataSourceKind",
-      "sourcePath": "src/index.ts",
+      "sourcePath": "src/packageInfo.ts",
       "symbolName": "getDataSourceKind",
       "description": null,
       "isReadme": false
@@ -4868,7 +4679,7 @@
     {
       "kind": "export",
       "name": "getDataSourcesPackageInfo",
-      "sourcePath": "src/index.ts",
+      "sourcePath": "src/packageInfo.ts",
       "symbolName": "getDataSourcesPackageInfo",
       "description": null,
       "isReadme": false
@@ -4883,9 +4694,9 @@
     },
     {
       "kind": "export",
-      "name": "introspectGraphQlDataSource",
+      "name": "introspectGraphQlApi",
       "sourcePath": "src/discovery/index.ts",
-      "symbolName": "introspectGraphQlDataSource",
+      "symbolName": "introspectGraphQlApi",
       "description": null,
       "isReadme": false
     },
@@ -4900,7 +4711,7 @@
     {
       "kind": "export",
       "name": "isSupportedApiOrigin",
-      "sourcePath": "src/index.ts",
+      "sourcePath": "src/packageInfo.ts",
       "symbolName": "isSupportedApiOrigin",
       "description": null,
       "isReadme": false
@@ -4908,7 +4719,7 @@
     {
       "kind": "export",
       "name": "isSupportedApiProtocol",
-      "sourcePath": "src/index.ts",
+      "sourcePath": "src/packageInfo.ts",
       "symbolName": "isSupportedApiProtocol",
       "description": null,
       "isReadme": false
@@ -4916,31 +4727,23 @@
     {
       "kind": "export",
       "name": "isSupportedDataSourceKind",
-      "sourcePath": "src/index.ts",
+      "sourcePath": "src/packageInfo.ts",
       "symbolName": "isSupportedDataSourceKind",
       "description": null,
       "isReadme": false
     },
     {
       "kind": "export",
-      "name": "normalizeGeneratedApiDataSource",
-      "sourcePath": "src/generated-api/index.ts",
-      "symbolName": "normalizeGeneratedApiDataSource",
-      "description": null,
-      "isReadme": false
-    },
-    {
-      "kind": "export",
-      "name": "normalizeGraphQlDataSource",
+      "name": "normalizeGraphQlApi",
       "sourcePath": "src/graphql/index.ts",
-      "symbolName": "normalizeGraphQlDataSource",
+      "symbolName": "normalizeGraphQlApi",
       "description": null,
       "isReadme": false
     },
     {
       "kind": "export",
       "name": "normalizeGraphQlIntrospectionOperations",
-      "sourcePath": "src/graphql/index.ts",
+      "sourcePath": "src/graphql/introspection.ts",
       "symbolName": "normalizeGraphQlIntrospectionOperations",
       "description": null,
       "isReadme": false
@@ -4948,7 +4751,7 @@
     {
       "kind": "export",
       "name": "normalizeGraphQlIntrospectionSchemas",
-      "sourcePath": "src/graphql/index.ts",
+      "sourcePath": "src/graphql/introspection.ts",
       "symbolName": "normalizeGraphQlIntrospectionSchemas",
       "description": null,
       "isReadme": false
@@ -4956,16 +4759,16 @@
     {
       "kind": "export",
       "name": "normalizeGraphQlOperationId",
-      "sourcePath": "src/graphql/index.ts",
+      "sourcePath": "src/graphql/operation.ts",
       "symbolName": "normalizeGraphQlOperationId",
       "description": null,
       "isReadme": false
     },
     {
       "kind": "export",
-      "name": "normalizeManualRestDataSource",
+      "name": "normalizeManualRestApi",
       "sourcePath": "src/rest/index.ts",
-      "symbolName": "normalizeManualRestDataSource",
+      "symbolName": "normalizeManualRestApi",
       "description": null,
       "isReadme": false
     },
@@ -4980,7 +4783,7 @@
     {
       "kind": "export",
       "name": "normalizeOpenApiEndpointId",
-      "sourcePath": "src/openapi/index.ts",
+      "sourcePath": "src/openapi/endpoints.ts",
       "symbolName": "normalizeOpenApiEndpointId",
       "description": null,
       "isReadme": false
@@ -4988,7 +4791,7 @@
     {
       "kind": "export",
       "name": "normalizeOpenApiOperationId",
-      "sourcePath": "src/openapi/index.ts",
+      "sourcePath": "src/openapi/operation.ts",
       "symbolName": "normalizeOpenApiOperationId",
       "description": null,
       "isReadme": false
@@ -4996,7 +4799,7 @@
     {
       "kind": "export",
       "name": "normalizeOpenApiSchema",
-      "sourcePath": "src/openapi/index.ts",
+      "sourcePath": "src/openapi/schema.ts",
       "symbolName": "normalizeOpenApiSchema",
       "description": null,
       "isReadme": false
@@ -5011,25 +4814,17 @@
     },
     {
       "kind": "export",
-      "name": "validateGeneratedApiDefinition",
-      "sourcePath": "src/generated-api/index.ts",
-      "symbolName": "validateGeneratedApiDefinition",
-      "description": null,
-      "isReadme": false
-    },
-    {
-      "kind": "export",
-      "name": "validateGraphQlDataSource",
+      "name": "validateGraphQlApi",
       "sourcePath": "src/graphql/index.ts",
-      "symbolName": "validateGraphQlDataSource",
+      "symbolName": "validateGraphQlApi",
       "description": null,
       "isReadme": false
     },
     {
       "kind": "export",
-      "name": "validateManualRestDataSource",
+      "name": "validateManualRestApi",
       "sourcePath": "src/rest/index.ts",
-      "symbolName": "validateManualRestDataSource",
+      "symbolName": "validateManualRestApi",
       "description": null,
       "isReadme": false
     }
@@ -5038,17 +4833,12 @@
     "imports": [
       {
         "fromPath": "src/ankh.provider.ts",
-        "toPath": "src/index.ts",
+        "toPath": "src/packageInfo.ts",
         "sourcePath": "src/ankh.provider.ts"
       },
       {
         "fromPath": "src/index.ts",
         "toPath": "src/discovery/index.ts",
-        "sourcePath": "src/index.ts"
-      },
-      {
-        "fromPath": "src/index.ts",
-        "toPath": "src/generated-api/index.ts",
         "sourcePath": "src/index.ts"
       },
       {
@@ -5059,6 +4849,11 @@
       {
         "fromPath": "src/index.ts",
         "toPath": "src/openapi/index.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/packageInfo.ts",
         "sourcePath": "src/index.ts"
       },
       {
@@ -5085,6 +4880,126 @@
         "fromPath": "src/discovery/index.ts",
         "toPath": "src/openapi/index.ts",
         "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromPath": "src/discovery/index.ts",
+        "toPath": "src/discovery/http.ts",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromPath": "src/graphql/index.ts",
+        "toPath": "src/graphql/introspection.ts",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromPath": "src/graphql/index.ts",
+        "toPath": "src/graphql/operation.ts",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromPath": "src/graphql/index.ts",
+        "toPath": "src/graphql/types.ts",
+        "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromPath": "src/graphql/introspection.ts",
+        "toPath": "src/graphql/operation.ts",
+        "sourcePath": "src/graphql/introspection.ts"
+      },
+      {
+        "fromPath": "src/graphql/introspection.ts",
+        "toPath": "src/graphql/types.ts",
+        "sourcePath": "src/graphql/introspection.ts"
+      },
+      {
+        "fromPath": "src/graphql/operation.ts",
+        "toPath": "src/graphql/types.ts",
+        "sourcePath": "src/graphql/operation.ts"
+      },
+      {
+        "fromPath": "src/openapi/endpoints.ts",
+        "toPath": "src/openapi/operation.ts",
+        "sourcePath": "src/openapi/endpoints.ts"
+      },
+      {
+        "fromPath": "src/openapi/endpoints.ts",
+        "toPath": "src/openapi/types.ts",
+        "sourcePath": "src/openapi/endpoints.ts"
+      },
+      {
+        "fromPath": "src/openapi/index.ts",
+        "toPath": "src/openapi/endpoints.ts",
+        "sourcePath": "src/openapi/index.ts"
+      },
+      {
+        "fromPath": "src/openapi/index.ts",
+        "toPath": "src/openapi/schema.ts",
+        "sourcePath": "src/openapi/index.ts"
+      },
+      {
+        "fromPath": "src/openapi/index.ts",
+        "toPath": "src/openapi/types.ts",
+        "sourcePath": "src/openapi/index.ts"
+      },
+      {
+        "fromPath": "src/openapi/index.ts",
+        "toPath": "src/openapi/operation.ts",
+        "sourcePath": "src/openapi/index.ts"
+      },
+      {
+        "fromPath": "src/openapi/operation.ts",
+        "toPath": "src/openapi/schema.ts",
+        "sourcePath": "src/openapi/operation.ts"
+      },
+      {
+        "fromPath": "src/openapi/operation.ts",
+        "toPath": "src/openapi/types.ts",
+        "sourcePath": "src/openapi/operation.ts"
+      },
+      {
+        "fromPath": "src/openapi/schema.ts",
+        "toPath": "src/openapi/types.ts",
+        "sourcePath": "src/openapi/schema.ts"
+      },
+      {
+        "fromPath": "src/test-runner/index.ts",
+        "toPath": "src/test-runner/response.ts",
+        "sourcePath": "src/test-runner/index.ts"
+      },
+      {
+        "fromPath": "src/test-runner/index.ts",
+        "toPath": "src/test-runner/result.ts",
+        "sourcePath": "src/test-runner/index.ts"
+      },
+      {
+        "fromPath": "src/test-runner/index.ts",
+        "toPath": "src/test-runner/serialization.ts",
+        "sourcePath": "src/test-runner/index.ts"
+      },
+      {
+        "fromPath": "src/test-runner/index.ts",
+        "toPath": "src/test-runner/types.ts",
+        "sourcePath": "src/test-runner/index.ts"
+      },
+      {
+        "fromPath": "src/test-runner/response.ts",
+        "toPath": "src/test-runner/types.ts",
+        "sourcePath": "src/test-runner/response.ts"
+      },
+      {
+        "fromPath": "src/test-runner/result.ts",
+        "toPath": "src/test-runner/types.ts",
+        "sourcePath": "src/test-runner/result.ts"
+      },
+      {
+        "fromPath": "src/test-runner/serialization.ts",
+        "toPath": "src/test-runner/result.ts",
+        "sourcePath": "src/test-runner/serialization.ts"
+      },
+      {
+        "fromPath": "src/test-runner/serialization.ts",
+        "toPath": "src/test-runner/types.ts",
+        "sourcePath": "src/test-runner/serialization.ts"
       }
     ],
     "calls": [
@@ -5095,6 +5010,12 @@
         "sourcePath": "src/ankh.provider.ts"
       },
       {
+        "fromSymbol": "parseJsonResponse",
+        "toSymbol": "text",
+        "callExpression": "response.text",
+        "sourcePath": "src/discovery/http.ts"
+      },
+      {
         "fromSymbol": "createOpenApiDiscoveryCandidates",
         "toSymbol": "parseHttpUrl",
         "callExpression": "parseHttpUrl",
@@ -5107,75 +5028,87 @@
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "discoverOpenApiDataSource",
+        "fromSymbol": "discoverOpenApi",
         "toSymbol": "createOpenApiDiscoveryCandidates",
         "callExpression": "createOpenApiDiscoveryCandidates",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "discoverOpenApiDataSource",
+        "fromSymbol": "discoverOpenApi",
         "toSymbol": "discoveryFailure",
         "callExpression": "discoveryFailure",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "discoverOpenApiDataSource",
+        "fromSymbol": "discoverOpenApi",
         "toSymbol": "probeOpenApiCandidate",
         "callExpression": "probeOpenApiCandidate",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "introspectGraphQlDataSource",
+        "fromSymbol": "introspectGraphQlApi",
         "toSymbol": "parseHttpUrl",
         "callExpression": "parseHttpUrl",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "introspectGraphQlDataSource",
+        "fromSymbol": "introspectGraphQlApi",
         "toSymbol": "graphqlFailure",
         "callExpression": "graphqlFailure",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "introspectGraphQlDataSource",
-        "toSymbol": "fetch",
-        "callExpression": "input.fetch",
+        "fromSymbol": "introspectGraphQlApi",
+        "toSymbol": "fetchGraphQlIntrospection",
+        "callExpression": "fetchGraphQlIntrospection",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "introspectGraphQlDataSource",
-        "toSymbol": "normalizeCandidateUrl",
-        "callExpression": "normalizeCandidateUrl",
-        "sourcePath": "src/discovery/index.ts"
-      },
-      {
-        "fromSymbol": "introspectGraphQlDataSource",
-        "toSymbol": "createGraphQlIntrospectionRequest",
-        "callExpression": "createGraphQlIntrospectionRequest",
-        "sourcePath": "src/discovery/index.ts"
-      },
-      {
-        "fromSymbol": "introspectGraphQlDataSource",
+        "fromSymbol": "introspectGraphQlApi",
         "toSymbol": "isSuccessfulStatus",
         "callExpression": "isSuccessfulStatus",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "introspectGraphQlDataSource",
+        "fromSymbol": "introspectGraphQlApi",
         "toSymbol": "readGraphQlIntrospection",
         "callExpression": "readGraphQlIntrospection",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "introspectGraphQlDataSource",
+        "fromSymbol": "introspectGraphQlApi",
         "toSymbol": "parseJsonResponse",
         "callExpression": "parseJsonResponse",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "introspectGraphQlDataSource",
-        "toSymbol": "createGraphQlDataSource",
-        "callExpression": "createGraphQlDataSource",
+        "fromSymbol": "introspectGraphQlApi",
+        "toSymbol": "createGraphQlApi",
+        "callExpression": "createGraphQlApi",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "introspectGraphQlApi",
+        "toSymbol": "normalizeCandidateUrl",
+        "callExpression": "normalizeCandidateUrl",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "fetchGraphQlIntrospection",
+        "toSymbol": "fetch",
+        "callExpression": "input.fetch",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "fetchGraphQlIntrospection",
+        "toSymbol": "normalizeCandidateUrl",
+        "callExpression": "normalizeCandidateUrl",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "fetchGraphQlIntrospection",
+        "toSymbol": "createGraphQlIntrospectionRequest",
+        "callExpression": "createGraphQlIntrospectionRequest",
         "sourcePath": "src/discovery/index.ts"
       },
       {
@@ -5209,12 +5142,6 @@
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "parseJsonResponse",
-        "toSymbol": "text",
-        "callExpression": "response.text",
-        "sourcePath": "src/discovery/index.ts"
-      },
-      {
         "fromSymbol": "isOpenApiDocument",
         "toSymbol": "readRecord",
         "callExpression": "readRecord",
@@ -5227,298 +5154,166 @@
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "createGeneratedApiDataSource",
-        "toSymbol": "validateGeneratedApiDefinition",
-        "callExpression": "validateGeneratedApiDefinition",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiDataSource",
-        "toSymbol": "normalizeGeneratedApiDataSource",
-        "callExpression": "normalizeGeneratedApiDataSource",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "validateGeneratedApiDefinition",
-        "toSymbol": "validateGeneratedApiResource",
-        "callExpression": "validateGeneratedApiResource",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeGeneratedApiDataSource",
-        "toSymbol": "createGeneratedApiEndpoint",
-        "callExpression": "createGeneratedApiEndpoint",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeGeneratedApiDataSource",
-        "toSymbol": "createGeneratedApiResourceSchema",
-        "callExpression": "createGeneratedApiResourceSchema",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeGeneratedApiDataSource",
-        "toSymbol": "createGeneratedApiSourceMetadata",
-        "callExpression": "createGeneratedApiSourceMetadata",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiEndpoint",
-        "toSymbol": "createGeneratedApiOperation",
-        "callExpression": "createGeneratedApiOperation",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiEndpoint",
-        "toSymbol": "createGeneratedApiResourceMetadata",
-        "callExpression": "createGeneratedApiResourceMetadata",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiOperation",
-        "toSymbol": "createGeneratedApiOperationId",
-        "callExpression": "createGeneratedApiOperationId",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiOperation",
-        "toSymbol": "resolveGeneratedApiPrimaryKey",
-        "callExpression": "resolveGeneratedApiPrimaryKey",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiOperation",
-        "toSymbol": "createPrimaryKeyParameter",
-        "callExpression": "createPrimaryKeyParameter",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiOperation",
-        "toSymbol": "createGeneratedApiOperationName",
-        "callExpression": "createGeneratedApiOperationName",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiOperation",
-        "toSymbol": "mapGeneratedApiOperationIntent",
-        "callExpression": "mapGeneratedApiOperationIntent",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiOperation",
-        "toSymbol": "createGeneratedApiOperationRequest",
-        "callExpression": "createGeneratedApiOperationRequest",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiOperation",
-        "toSymbol": "createGeneratedApiOperationResponse",
-        "callExpression": "createGeneratedApiOperationResponse",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiOperation",
-        "toSymbol": "createGeneratedApiOperationMetadata",
-        "callExpression": "createGeneratedApiOperationMetadata",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiResourceSchema",
-        "toSymbol": "createGeneratedApiFieldSchema",
-        "callExpression": "createGeneratedApiFieldSchema",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "validateGeneratedApiResource",
-        "toSymbol": "resourceDiagnostic",
-        "callExpression": "resourceDiagnostic",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "validateGeneratedApiResource",
-        "toSymbol": "resolveGeneratedApiPrimaryKey",
-        "callExpression": "resolveGeneratedApiPrimaryKey",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiSourceMetadata",
-        "toSymbol": "readMetadataRecord",
-        "callExpression": "readMetadataRecord",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiSourceMetadata",
-        "toSymbol": "createGeneratedApiAuthMetadata",
-        "callExpression": "createGeneratedApiAuthMetadata",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiResourceMetadata",
-        "toSymbol": "readMetadataRecord",
-        "callExpression": "readMetadataRecord",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiResourceMetadata",
-        "toSymbol": "createGeneratedApiPolicyMetadata",
-        "callExpression": "createGeneratedApiPolicyMetadata",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiOperationMetadata",
-        "toSymbol": "createGeneratedApiPolicyMetadata",
-        "callExpression": "createGeneratedApiPolicyMetadata",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiOperationRequest",
-        "toSymbol": "createGeneratedApiResourceSchema",
-        "callExpression": "createGeneratedApiResourceSchema",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiOperationResponse",
-        "toSymbol": "createGeneratedApiResourceSchema",
-        "callExpression": "createGeneratedApiResourceSchema",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiFieldSchema",
-        "toSymbol": "mapDbFieldTypeToDataSchema",
-        "callExpression": "mapDbFieldTypeToDataSchema",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGraphQlDataSource",
-        "toSymbol": "validateGraphQlDataSource",
-        "callExpression": "validateGraphQlDataSource",
+        "fromSymbol": "createGraphQlApi",
+        "toSymbol": "validateGraphQlApi",
+        "callExpression": "validateGraphQlApi",
         "sourcePath": "src/graphql/index.ts"
       },
       {
-        "fromSymbol": "createGraphQlDataSource",
-        "toSymbol": "normalizeGraphQlDataSource",
-        "callExpression": "normalizeGraphQlDataSource",
+        "fromSymbol": "createGraphQlApi",
+        "toSymbol": "normalizeGraphQlApi",
+        "callExpression": "normalizeGraphQlApi",
         "sourcePath": "src/graphql/index.ts"
       },
       {
-        "fromSymbol": "normalizeGraphQlDataSource",
+        "fromSymbol": "normalizeGraphQlApi",
         "toSymbol": "normalizeGraphQlIntrospectionSchemas",
         "callExpression": "normalizeGraphQlIntrospectionSchemas",
         "sourcePath": "src/graphql/index.ts"
       },
       {
-        "fromSymbol": "normalizeGraphQlDataSource",
+        "fromSymbol": "normalizeGraphQlApi",
         "toSymbol": "normalizeGraphQlIntrospectionOperations",
         "callExpression": "normalizeGraphQlIntrospectionOperations",
         "sourcePath": "src/graphql/index.ts"
       },
       {
-        "fromSymbol": "normalizeGraphQlDataSource",
+        "fromSymbol": "src/graphql/index.ts",
         "toSymbol": "normalizeGraphQlOperation",
         "callExpression": "normalizeGraphQlOperation",
         "sourcePath": "src/graphql/index.ts"
       },
       {
-        "fromSymbol": "normalizeGraphQlIntrospectionSchemas",
+        "fromSymbol": "src/graphql/introspection.ts",
         "toSymbol": "normalizeGraphQlType",
         "callExpression": "normalizeGraphQlType",
-        "sourcePath": "src/graphql/index.ts"
+        "sourcePath": "src/graphql/introspection.ts"
       },
       {
         "fromSymbol": "normalizeGraphQlIntrospectionOperations",
-        "toSymbol": "appendRootOperations",
-        "callExpression": "appendRootOperations",
-        "sourcePath": "src/graphql/index.ts"
+        "toSymbol": "normalizeRootOperations",
+        "callExpression": "normalizeRootOperations",
+        "sourcePath": "src/graphql/introspection.ts"
       },
       {
-        "fromSymbol": "appendRootOperations",
+        "fromSymbol": "src/graphql/introspection.ts",
         "toSymbol": "normalizeGraphQlOperationId",
         "callExpression": "normalizeGraphQlOperationId",
-        "sourcePath": "src/graphql/index.ts"
+        "sourcePath": "src/graphql/introspection.ts"
       },
       {
-        "fromSymbol": "appendRootOperations",
+        "fromSymbol": "src/graphql/introspection.ts",
         "toSymbol": "normalizeGraphQlVariablesSchema",
         "callExpression": "normalizeGraphQlVariablesSchema",
-        "sourcePath": "src/graphql/index.ts"
+        "sourcePath": "src/graphql/introspection.ts"
       },
       {
-        "fromSymbol": "appendRootOperations",
+        "fromSymbol": "src/graphql/introspection.ts",
         "toSymbol": "normalizeGraphQlTypeRef",
         "callExpression": "normalizeGraphQlTypeRef",
-        "sourcePath": "src/graphql/index.ts"
+        "sourcePath": "src/graphql/introspection.ts"
       },
       {
-        "fromSymbol": "normalizeGraphQlOperation",
-        "toSymbol": "mapGraphQlOperationKindToIntent",
-        "callExpression": "mapGraphQlOperationKindToIntent",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeGraphQlOperation",
-        "toSymbol": "createGraphQlOperationMetadata",
-        "callExpression": "createGraphQlOperationMetadata",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeGraphQlVariablesSchema",
-        "toSymbol": "normalizeGraphQlTypeRef",
-        "callExpression": "normalizeGraphQlTypeRef",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeGraphQlVariablesSchema",
+        "fromSymbol": "src/graphql/introspection.ts",
         "toSymbol": "isGraphQlNonNull",
         "callExpression": "isGraphQlNonNull",
-        "sourcePath": "src/graphql/index.ts"
+        "sourcePath": "src/graphql/introspection.ts"
       },
       {
         "fromSymbol": "normalizeGraphQlType",
         "toSymbol": "normalizeGraphQlObjectType",
         "callExpression": "normalizeGraphQlObjectType",
-        "sourcePath": "src/graphql/index.ts"
+        "sourcePath": "src/graphql/introspection.ts"
       },
       {
         "fromSymbol": "normalizeGraphQlType",
+        "toSymbol": "normalizeGraphQlEnumType",
+        "callExpression": "normalizeGraphQlEnumType",
+        "sourcePath": "src/graphql/introspection.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlType",
+        "toSymbol": "normalizeGraphQlScalarType",
+        "callExpression": "normalizeGraphQlScalarType",
+        "sourcePath": "src/graphql/introspection.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlType",
+        "toSymbol": "normalizeGraphQlUnionType",
+        "callExpression": "normalizeGraphQlUnionType",
+        "sourcePath": "src/graphql/introspection.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlScalarType",
         "toSymbol": "normalizeGraphQlNamedScalar",
         "callExpression": "normalizeGraphQlNamedScalar",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeGraphQlObjectType",
-        "toSymbol": "normalizeGraphQlTypeRef",
-        "callExpression": "normalizeGraphQlTypeRef",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeGraphQlObjectType",
-        "toSymbol": "isGraphQlNonNull",
-        "callExpression": "isGraphQlNonNull",
-        "sourcePath": "src/graphql/index.ts"
+        "sourcePath": "src/graphql/introspection.ts"
       },
       {
         "fromSymbol": "normalizeGraphQlTypeRef",
         "toSymbol": "normalizeGraphQlTypeRef",
         "callExpression": "normalizeGraphQlTypeRef",
-        "sourcePath": "src/graphql/index.ts"
+        "sourcePath": "src/graphql/introspection.ts"
       },
       {
         "fromSymbol": "normalizeGraphQlTypeRef",
         "toSymbol": "normalizeGraphQlNamedScalar",
         "callExpression": "normalizeGraphQlNamedScalar",
-        "sourcePath": "src/graphql/index.ts"
+        "sourcePath": "src/graphql/introspection.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlOperation",
+        "toSymbol": "mapGraphQlOperationKindToIntent",
+        "callExpression": "mapGraphQlOperationKindToIntent",
+        "sourcePath": "src/graphql/operation.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlOperation",
+        "toSymbol": "createGraphQlOperationMetadata",
+        "callExpression": "createGraphQlOperationMetadata",
+        "sourcePath": "src/graphql/operation.ts"
       },
       {
         "fromSymbol": "createGraphQlOperationMetadata",
         "toSymbol": "toMetadataRecord",
         "callExpression": "toMetadataRecord",
-        "sourcePath": "src/graphql/index.ts"
+        "sourcePath": "src/graphql/operation.ts"
       },
       {
         "fromSymbol": "toMetadataRecord",
         "toSymbol": "isDataContractRecord",
         "callExpression": "isDataContractRecord",
-        "sourcePath": "src/graphql/index.ts"
+        "sourcePath": "src/graphql/operation.ts"
+      },
+      {
+        "fromSymbol": "src/openapi/endpoints.ts",
+        "toSymbol": "normalizeOpenApiEndpointId",
+        "callExpression": "normalizeOpenApiEndpointId",
+        "sourcePath": "src/openapi/endpoints.ts"
+      },
+      {
+        "fromSymbol": "src/openapi/endpoints.ts",
+        "toSymbol": "normalizeOpenApiEndpoint",
+        "callExpression": "normalizeOpenApiEndpoint",
+        "sourcePath": "src/openapi/endpoints.ts"
+      },
+      {
+        "fromSymbol": "normalizeOpenApiEndpoint",
+        "toSymbol": "getOpenApiOperations",
+        "callExpression": "getOpenApiOperations",
+        "sourcePath": "src/openapi/endpoints.ts"
+      },
+      {
+        "fromSymbol": "src/openapi/endpoints.ts",
+        "toSymbol": "normalizeOpenApiOperation",
+        "callExpression": "normalizeOpenApiOperation",
+        "sourcePath": "src/openapi/endpoints.ts"
+      },
+      {
+        "fromSymbol": "src/openapi/endpoints.ts",
+        "toSymbol": "getOpenApiOperation",
+        "callExpression": "getOpenApiOperation",
+        "sourcePath": "src/openapi/endpoints.ts"
       },
       {
         "fromSymbol": "importOpenApiDocument",
@@ -5539,187 +5334,199 @@
         "sourcePath": "src/openapi/index.ts"
       },
       {
-        "fromSymbol": "normalizeOpenApiSchema",
-        "toSymbol": "normalizeOpenApiSchemaRef",
-        "callExpression": "normalizeOpenApiSchemaRef",
-        "sourcePath": "src/openapi/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeOpenApiSchema",
-        "toSymbol": "normalizeSchemaType",
-        "callExpression": "normalizeSchemaType",
-        "sourcePath": "src/openapi/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeOpenApiSchema",
-        "toSymbol": "normalizeSchemaRecord",
-        "callExpression": "normalizeSchemaRecord",
-        "sourcePath": "src/openapi/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeOpenApiSchema",
-        "toSymbol": "normalizeAdditionalProperties",
-        "callExpression": "normalizeAdditionalProperties",
-        "sourcePath": "src/openapi/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeOpenApiSchema",
-        "toSymbol": "normalizeOpenApiSchema",
-        "callExpression": "normalizeOpenApiSchema",
-        "sourcePath": "src/openapi/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeOpenApiSchema",
-        "toSymbol": "normalizeSchemaList",
-        "callExpression": "normalizeSchemaList",
-        "sourcePath": "src/openapi/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeOpenApiSchemas",
-        "toSymbol": "normalizeOpenApiSchema",
-        "callExpression": "normalizeOpenApiSchema",
-        "sourcePath": "src/openapi/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeOpenApiSchemas",
-        "toSymbol": "collectUnsupportedSchemaDiagnostics",
-        "callExpression": "collectUnsupportedSchemaDiagnostics",
-        "sourcePath": "src/openapi/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeOpenApiEndpoints",
-        "toSymbol": "normalizeOpenApiEndpointId",
-        "callExpression": "normalizeOpenApiEndpointId",
-        "sourcePath": "src/openapi/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeOpenApiEndpoints",
+        "fromSymbol": "normalizeOpenApiOperation",
         "toSymbol": "resolveUniqueOperationId",
         "callExpression": "resolveUniqueOperationId",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/operation.ts"
       },
       {
-        "fromSymbol": "normalizeOpenApiEndpoints",
+        "fromSymbol": "normalizeOpenApiOperation",
         "toSymbol": "normalizeOpenApiParameters",
         "callExpression": "normalizeOpenApiParameters",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/operation.ts"
       },
       {
-        "fromSymbol": "normalizeOpenApiEndpoints",
+        "fromSymbol": "normalizeOpenApiOperation",
         "toSymbol": "mapOpenApiMethodToIntent",
         "callExpression": "mapOpenApiMethodToIntent",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/operation.ts"
       },
       {
-        "fromSymbol": "normalizeOpenApiEndpoints",
+        "fromSymbol": "normalizeOpenApiOperation",
         "toSymbol": "normalizeOpenApiRequest",
         "callExpression": "normalizeOpenApiRequest",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/operation.ts"
       },
       {
-        "fromSymbol": "normalizeOpenApiEndpoints",
+        "fromSymbol": "normalizeOpenApiOperation",
         "toSymbol": "normalizeOpenApiResponse",
         "callExpression": "normalizeOpenApiResponse",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/operation.ts"
       },
       {
         "fromSymbol": "resolveUniqueOperationId",
         "toSymbol": "normalizeOpenApiOperationId",
         "callExpression": "normalizeOpenApiOperationId",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/operation.ts"
       },
       {
-        "fromSymbol": "normalizeOpenApiParameters",
+        "fromSymbol": "resolveUniqueOperationId",
+        "toSymbol": "findUniqueOperationId",
+        "callExpression": "findUniqueOperationId",
+        "sourcePath": "src/openapi/operation.ts"
+      },
+      {
+        "fromSymbol": "src/openapi/operation.ts",
+        "toSymbol": "normalizeOpenApiParameter",
+        "callExpression": "normalizeOpenApiParameter",
+        "sourcePath": "src/openapi/operation.ts"
+      },
+      {
+        "fromSymbol": "normalizeOpenApiParameter",
         "toSymbol": "normalizeParameterLocation",
         "callExpression": "normalizeParameterLocation",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/operation.ts"
       },
       {
-        "fromSymbol": "normalizeOpenApiParameters",
+        "fromSymbol": "normalizeOpenApiParameter",
         "toSymbol": "normalizeOpenApiSchema",
         "callExpression": "normalizeOpenApiSchema",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/operation.ts"
       },
       {
         "fromSymbol": "normalizeOpenApiRequest",
         "toSymbol": "firstContentEntry",
         "callExpression": "firstContentEntry",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/operation.ts"
       },
       {
         "fromSymbol": "normalizeOpenApiRequest",
         "toSymbol": "normalizeOpenApiSchema",
         "callExpression": "normalizeOpenApiSchema",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/operation.ts"
       },
       {
         "fromSymbol": "normalizeOpenApiResponse",
-        "toSymbol": "chooseResponseStatus",
-        "callExpression": "chooseResponseStatus",
-        "sourcePath": "src/openapi/index.ts"
+        "toSymbol": "chooseResponseEntry",
+        "callExpression": "chooseResponseEntry",
+        "sourcePath": "src/openapi/operation.ts"
       },
       {
         "fromSymbol": "normalizeOpenApiResponse",
         "toSymbol": "firstContentEntry",
         "callExpression": "firstContentEntry",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/operation.ts"
       },
       {
         "fromSymbol": "normalizeOpenApiResponse",
         "toSymbol": "normalizeOpenApiSchema",
         "callExpression": "normalizeOpenApiSchema",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/operation.ts"
       },
       {
-        "fromSymbol": "src/openapi/index.ts",
+        "fromSymbol": "normalizeOpenApiSchema",
+        "toSymbol": "normalizeOpenApiSchemaRef",
+        "callExpression": "normalizeOpenApiSchemaRef",
+        "sourcePath": "src/openapi/schema.ts"
+      },
+      {
+        "fromSymbol": "normalizeOpenApiSchema",
+        "toSymbol": "normalizeSchemaType",
+        "callExpression": "normalizeSchemaType",
+        "sourcePath": "src/openapi/schema.ts"
+      },
+      {
+        "fromSymbol": "normalizeOpenApiSchema",
+        "toSymbol": "normalizeSchemaRecord",
+        "callExpression": "normalizeSchemaRecord",
+        "sourcePath": "src/openapi/schema.ts"
+      },
+      {
+        "fromSymbol": "normalizeOpenApiSchema",
+        "toSymbol": "normalizeAdditionalProperties",
+        "callExpression": "normalizeAdditionalProperties",
+        "sourcePath": "src/openapi/schema.ts"
+      },
+      {
+        "fromSymbol": "normalizeOpenApiSchema",
         "toSymbol": "normalizeOpenApiSchema",
         "callExpression": "normalizeOpenApiSchema",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/schema.ts"
+      },
+      {
+        "fromSymbol": "normalizeOpenApiSchema",
+        "toSymbol": "normalizeSchemaList",
+        "callExpression": "normalizeSchemaList",
+        "sourcePath": "src/openapi/schema.ts"
+      },
+      {
+        "fromSymbol": "src/openapi/schema.ts",
+        "toSymbol": "collectUnsupportedSchemaDiagnostics",
+        "callExpression": "collectUnsupportedSchemaDiagnostics",
+        "sourcePath": "src/openapi/schema.ts"
+      },
+      {
+        "fromSymbol": "src/openapi/schema.ts",
+        "toSymbol": "normalizeOpenApiSchema",
+        "callExpression": "normalizeOpenApiSchema",
+        "sourcePath": "src/openapi/schema.ts"
       },
       {
         "fromSymbol": "normalizeAdditionalProperties",
         "toSymbol": "normalizeOpenApiSchema",
         "callExpression": "normalizeOpenApiSchema",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/schema.ts"
       },
       {
         "fromSymbol": "normalizeSchemaType",
         "toSymbol": "isDataSchemaPrimitive",
         "callExpression": "isDataSchemaPrimitive",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/schema.ts"
       },
       {
         "fromSymbol": "collectUnsupportedSchemaDiagnostics",
         "toSymbol": "isDataSchemaPrimitive",
         "callExpression": "isDataSchemaPrimitive",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/schema.ts"
       },
       {
         "fromSymbol": "collectUnsupportedSchemaDiagnostics",
         "toSymbol": "collectUnsupportedSchemaDiagnostics",
         "callExpression": "collectUnsupportedSchemaDiagnostics",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/schema.ts"
       },
       {
-        "fromSymbol": "validateManualRestDataSource",
+        "fromSymbol": "validateManualRestApi",
         "toSymbol": "validateManualRestOperation",
         "callExpression": "validateManualRestOperation",
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "createManualRestDataSource",
-        "toSymbol": "validateManualRestDataSource",
-        "callExpression": "validateManualRestDataSource",
+        "fromSymbol": "createManualRestApi",
+        "toSymbol": "validateManualRestApi",
+        "callExpression": "validateManualRestApi",
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "createManualRestDataSource",
-        "toSymbol": "normalizeManualRestDataSource",
-        "callExpression": "normalizeManualRestDataSource",
+        "fromSymbol": "createManualRestApi",
+        "toSymbol": "normalizeManualRestApi",
+        "callExpression": "normalizeManualRestApi",
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "normalizeManualRestDataSource",
+        "fromSymbol": "src/rest/index.ts",
+        "toSymbol": "normalizeManualRestEndpoint",
+        "callExpression": "normalizeManualRestEndpoint",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "src/rest/index.ts",
+        "toSymbol": "normalizeManualRestOperation",
+        "callExpression": "normalizeManualRestOperation",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeManualRestOperation",
         "toSymbol": "normalizeManualRestMethod",
         "callExpression": "normalizeManualRestMethod",
         "sourcePath": "src/rest/index.ts"
@@ -5768,6 +5575,12 @@
       },
       {
         "fromSymbol": "testEndpoint",
+        "toSymbol": "createEndpointTestResult",
+        "callExpression": "createEndpointTestResult",
+        "sourcePath": "src/test-runner/index.ts"
+      },
+      {
+        "fromSymbol": "testEndpoint",
         "toSymbol": "createResponseDiagnostic",
         "callExpression": "createResponseDiagnostic",
         "sourcePath": "src/test-runner/index.ts"
@@ -5776,12 +5589,6 @@
         "fromSymbol": "testEndpoint",
         "toSymbol": "createNetworkErrorMessage",
         "callExpression": "createNetworkErrorMessage",
-        "sourcePath": "src/test-runner/index.ts"
-      },
-      {
-        "fromSymbol": "buildEndpointTestRequest",
-        "toSymbol": "selectEndpointOperation",
-        "callExpression": "selectEndpointOperation",
         "sourcePath": "src/test-runner/index.ts"
       },
       {
@@ -5798,20 +5605,32 @@
       },
       {
         "fromSymbol": "buildEndpointTestRequest",
+        "toSymbol": "selectEndpointOperation",
+        "callExpression": "selectEndpointOperation",
+        "sourcePath": "src/test-runner/index.ts"
+      },
+      {
+        "fromSymbol": "buildEndpointTestRequest",
         "toSymbol": "resolveEndpointCredential",
         "callExpression": "resolveEndpointCredential",
         "sourcePath": "src/test-runner/index.ts"
       },
       {
         "fromSymbol": "buildEndpointTestRequest",
-        "toSymbol": "buildGraphQlRequest",
-        "callExpression": "buildGraphQlRequest",
+        "toSymbol": "buildProtocolRequest",
+        "callExpression": "buildProtocolRequest",
         "sourcePath": "src/test-runner/index.ts"
       },
       {
-        "fromSymbol": "buildEndpointTestRequest",
-        "toSymbol": "buildHttpRequest",
-        "callExpression": "buildHttpRequest",
+        "fromSymbol": "createEndpointTestResult",
+        "toSymbol": "createDiagnostic",
+        "callExpression": "createDiagnostic",
+        "sourcePath": "src/test-runner/index.ts"
+      },
+      {
+        "fromSymbol": "createEndpointTestResult",
+        "toSymbol": "failure",
+        "callExpression": "failure",
         "sourcePath": "src/test-runner/index.ts"
       },
       {
@@ -5827,9 +5646,21 @@
         "sourcePath": "src/test-runner/index.ts"
       },
       {
+        "fromSymbol": "buildProtocolRequest",
+        "toSymbol": "buildGraphQlRequest",
+        "callExpression": "buildGraphQlRequest",
+        "sourcePath": "src/test-runner/index.ts"
+      },
+      {
+        "fromSymbol": "buildProtocolRequest",
+        "toSymbol": "buildHttpRequest",
+        "callExpression": "buildHttpRequest",
+        "sourcePath": "src/test-runner/index.ts"
+      },
+      {
         "fromSymbol": "buildHttpRequest",
-        "toSymbol": "getDataSourceBaseUrl",
-        "callExpression": "getDataSourceBaseUrl",
+        "toSymbol": "getRestBaseUrl",
+        "callExpression": "getRestBaseUrl",
         "sourcePath": "src/test-runner/index.ts"
       },
       {
@@ -5848,6 +5679,12 @@
         "fromSymbol": "buildHttpRequest",
         "toSymbol": "collectQuery",
         "callExpression": "collectQuery",
+        "sourcePath": "src/test-runner/index.ts"
+      },
+      {
+        "fromSymbol": "buildHttpRequest",
+        "toSymbol": "collectHeaders",
+        "callExpression": "collectHeaders",
         "sourcePath": "src/test-runner/index.ts"
       },
       {
@@ -5905,88 +5742,109 @@
         "sourcePath": "src/test-runner/index.ts"
       },
       {
-        "fromSymbol": "interpolatePath",
-        "toSymbol": "createDiagnostic",
-        "callExpression": "createDiagnostic",
-        "sourcePath": "src/test-runner/index.ts"
-      },
-      {
-        "fromSymbol": "interpolatePath",
-        "toSymbol": "serializeEndpointUrlValue",
-        "callExpression": "serializeEndpointUrlValue",
-        "sourcePath": "src/test-runner/index.ts"
-      },
-      {
         "fromSymbol": "createResponseDiagnostic",
         "toSymbol": "text",
         "callExpression": "response.text",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/response.ts"
       },
       {
         "fromSymbol": "createResponseDiagnostic",
         "toSymbol": "parseResponseBody",
         "callExpression": "parseResponseBody",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/response.ts"
       },
       {
         "fromSymbol": "parseResponseBody",
         "toSymbol": "isDataContractValue",
         "callExpression": "isDataContractValue",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/response.ts"
       },
       {
-        "fromSymbol": "src/test-runner/index.ts",
+        "fromSymbol": "interpolatePath",
+        "toSymbol": "readValue",
+        "callExpression": "readValue",
+        "sourcePath": "src/test-runner/serialization.ts"
+      },
+      {
+        "fromSymbol": "interpolatePath",
+        "toSymbol": "createDiagnostic",
+        "callExpression": "createDiagnostic",
+        "sourcePath": "src/test-runner/serialization.ts"
+      },
+      {
+        "fromSymbol": "interpolatePath",
         "toSymbol": "serializeEndpointUrlValue",
         "callExpression": "serializeEndpointUrlValue",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/serialization.ts"
+      },
+      {
+        "fromSymbol": "src/test-runner/serialization.ts",
+        "toSymbol": "readValue",
+        "callExpression": "readValue",
+        "sourcePath": "src/test-runner/serialization.ts"
+      },
+      {
+        "fromSymbol": "src/test-runner/serialization.ts",
+        "toSymbol": "serializeEndpointUrlValue",
+        "callExpression": "serializeEndpointUrlValue",
+        "sourcePath": "src/test-runner/serialization.ts"
+      },
+      {
+        "fromSymbol": "createHttpBody",
+        "toSymbol": "readValue",
+        "callExpression": "readValue",
+        "sourcePath": "src/test-runner/serialization.ts"
+      },
+      {
+        "fromSymbol": "getStringValue",
+        "toSymbol": "readValue",
+        "callExpression": "readValue",
+        "sourcePath": "src/test-runner/serialization.ts"
+      },
+      {
+        "fromSymbol": "getRecordValue",
+        "toSymbol": "readValue",
+        "callExpression": "readValue",
+        "sourcePath": "src/test-runner/serialization.ts"
       },
       {
         "fromSymbol": "getRecordValue",
         "toSymbol": "isDataContractValue",
         "callExpression": "isDataContractValue",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/serialization.ts"
       },
       {
         "fromSymbol": "getStringMetadataValue",
         "toSymbol": "isDataContractRecord",
         "callExpression": "isDataContractRecord",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/serialization.ts"
+      },
+      {
+        "fromSymbol": "getStringMetadataValue",
+        "toSymbol": "readValue",
+        "callExpression": "readValue",
+        "sourcePath": "src/test-runner/serialization.ts"
       }
     ],
     "typeReferences": [
       {
-        "fromSymbol": "getDataSourcesPackageInfo",
-        "toType": "DataSourcesPackageInfo",
-        "sourcePath": "src/index.ts"
-      },
-      {
-        "fromSymbol": "getDataSourceKind",
-        "toType": "DataSourceConfig",
-        "sourcePath": "src/index.ts"
-      },
-      {
-        "fromSymbol": "getDataSourceKind",
-        "toType": "DataSourceKind",
-        "sourcePath": "src/index.ts"
-      },
-      {
-        "fromSymbol": "discoverOpenApiDataSource",
-        "toType": "DiscoverOpenApiDataSourceInput",
+        "fromSymbol": "discoverOpenApi",
+        "toType": "DiscoverOpenApiInput",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "discoverOpenApiDataSource",
-        "toType": "DiscoverOpenApiDataSourceResult",
+        "fromSymbol": "discoverOpenApi",
+        "toType": "DiscoverOpenApiResult",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "introspectGraphQlDataSource",
-        "toType": "IntrospectGraphQlDataSourceInput",
+        "fromSymbol": "introspectGraphQlApi",
+        "toType": "IntrospectGraphQlApiInput",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "introspectGraphQlDataSource",
-        "toType": "IntrospectGraphQlDataSourceResult",
+        "fromSymbol": "introspectGraphQlApi",
+        "toType": "IntrospectGraphQlApiResult",
         "sourcePath": "src/discovery/index.ts"
       },
       {
@@ -6010,114 +5868,39 @@
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "DiscoverOpenApiDataSourceInput",
+        "fromSymbol": "DiscoverOpenApiInput",
         "toType": "CredentialRef",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "DiscoverOpenApiDataSourceInput",
+        "fromSymbol": "DiscoverOpenApiInput",
         "toType": "DataContractValue",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "DiscoverOpenApiDataSourceInput",
+        "fromSymbol": "DiscoverOpenApiInput",
         "toType": "ExternalApiFetch",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "IntrospectGraphQlDataSourceInput",
+        "fromSymbol": "IntrospectGraphQlApiInput",
         "toType": "CredentialRef",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "IntrospectGraphQlDataSourceInput",
+        "fromSymbol": "IntrospectGraphQlApiInput",
         "toType": "DataContractValue",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "IntrospectGraphQlDataSourceInput",
+        "fromSymbol": "IntrospectGraphQlApiInput",
         "toType": "ExternalApiFetch",
         "sourcePath": "src/discovery/index.ts"
       },
       {
-        "fromSymbol": "IntrospectGraphQlDataSourceInput",
+        "fromSymbol": "IntrospectGraphQlApiInput",
         "toType": "Readonly",
         "sourcePath": "src/discovery/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiDataSource",
-        "toType": "DataSourceDiagnosticResult",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiDataSource",
-        "toType": "GeneratedApiDefinition",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiDataSource",
-        "toType": "GeneratedRestApiDataSourceConfig",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "validateGeneratedApiDefinition",
-        "toType": "DataSourceDiagnostic",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "validateGeneratedApiDefinition",
-        "toType": "GeneratedApiDefinition",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeGeneratedApiDataSource",
-        "toType": "GeneratedApiDefinition",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeGeneratedApiDataSource",
-        "toType": "GeneratedRestApiDataSourceConfig",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiEndpoint",
-        "toType": "DataEndpointConfig",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiEndpoint",
-        "toType": "GeneratedApiDefinition",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiEndpoint",
-        "toType": "GeneratedApiResourceDefinition",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiOperation",
-        "toType": "DataOperationConfig",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiOperation",
-        "toType": "GeneratedApiDefinition",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiOperation",
-        "toType": "GeneratedApiResourceDefinition",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiResourceSchema",
-        "toType": "DataSchema",
-        "sourcePath": "src/generated-api/index.ts"
-      },
-      {
-        "fromSymbol": "createGeneratedApiResourceSchema",
-        "toType": "DbCollectionDefinition",
-        "sourcePath": "src/generated-api/index.ts"
       },
       {
         "fromSymbol": "createGraphQlIntrospectionRequest",
@@ -6125,154 +5908,154 @@
         "sourcePath": "src/graphql/index.ts"
       },
       {
-        "fromSymbol": "normalizeGraphQlOperationId",
-        "toType": "GraphQlOperationKind",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "createGraphQlDataSource",
+        "fromSymbol": "createGraphQlApi",
         "toType": "DataSourceDiagnosticResult",
         "sourcePath": "src/graphql/index.ts"
       },
       {
-        "fromSymbol": "createGraphQlDataSource",
-        "toType": "ExternalGraphQlApiDataSourceConfig",
+        "fromSymbol": "createGraphQlApi",
+        "toType": "ExternalGraphQlApiDefinition",
         "sourcePath": "src/graphql/index.ts"
       },
       {
-        "fromSymbol": "createGraphQlDataSource",
-        "toType": "GraphQlDataSourceDefinition",
+        "fromSymbol": "createGraphQlApi",
+        "toType": "GraphQlApiDefinition",
         "sourcePath": "src/graphql/index.ts"
       },
       {
-        "fromSymbol": "validateGraphQlDataSource",
+        "fromSymbol": "validateGraphQlApi",
         "toType": "DataSourceDiagnostic",
         "sourcePath": "src/graphql/index.ts"
       },
       {
-        "fromSymbol": "validateGraphQlDataSource",
-        "toType": "GraphQlDataSourceDefinition",
+        "fromSymbol": "validateGraphQlApi",
+        "toType": "GraphQlApiDefinition",
         "sourcePath": "src/graphql/index.ts"
       },
       {
-        "fromSymbol": "normalizeGraphQlDataSource",
-        "toType": "ExternalGraphQlApiDataSourceConfig",
+        "fromSymbol": "normalizeGraphQlApi",
+        "toType": "ExternalGraphQlApiDefinition",
         "sourcePath": "src/graphql/index.ts"
       },
       {
-        "fromSymbol": "normalizeGraphQlDataSource",
-        "toType": "GraphQlDataSourceDefinition",
+        "fromSymbol": "normalizeGraphQlApi",
+        "toType": "GraphQlApiDefinition",
         "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlIntrospectionOperations",
+        "toType": "GraphQlIntrospectionResult",
+        "sourcePath": "src/graphql/introspection.ts"
+      },
+      {
+        "fromSymbol": "normalizeGraphQlIntrospectionOperations",
+        "toType": "GraphQlOperationDefinition",
+        "sourcePath": "src/graphql/introspection.ts"
       },
       {
         "fromSymbol": "normalizeGraphQlIntrospectionSchemas",
         "toType": "DataSchema",
-        "sourcePath": "src/graphql/index.ts"
+        "sourcePath": "src/graphql/introspection.ts"
       },
       {
         "fromSymbol": "normalizeGraphQlIntrospectionSchemas",
         "toType": "GraphQlIntrospectionResult",
-        "sourcePath": "src/graphql/index.ts"
+        "sourcePath": "src/graphql/introspection.ts"
       },
       {
         "fromSymbol": "normalizeGraphQlIntrospectionSchemas",
         "toType": "Readonly",
-        "sourcePath": "src/graphql/index.ts"
+        "sourcePath": "src/graphql/introspection.ts"
       },
       {
-        "fromSymbol": "normalizeGraphQlIntrospectionOperations",
-        "toType": "GraphQlIntrospectionResult",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "normalizeGraphQlIntrospectionOperations",
-        "toType": "GraphQlOperationDefinition",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlIntrospectionInputValue",
-        "toType": "GraphQlIntrospectionTypeRef",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlIntrospectionField",
-        "toType": "GraphQlIntrospectionInputValue",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlIntrospectionField",
-        "toType": "GraphQlIntrospectionTypeRef",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlIntrospectionType",
-        "toType": "GraphQlIntrospectionEnumValue",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlIntrospectionType",
-        "toType": "GraphQlIntrospectionField",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlIntrospectionType",
-        "toType": "GraphQlIntrospectionInputValue",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlIntrospectionType",
-        "toType": "GraphQlIntrospectionTypeRef",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlIntrospectionSchema",
-        "toType": "GraphQlIntrospectionType",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlIntrospectionResult",
-        "toType": "GraphQlIntrospectionSchema",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlOperationDefinition",
-        "toType": "DataContractValue",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlOperationDefinition",
-        "toType": "DataSchema",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlOperationDefinition",
+        "fromSymbol": "normalizeGraphQlOperationId",
         "toType": "GraphQlOperationKind",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlDataSourceDefinition",
-        "toType": "CredentialRef",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlDataSourceDefinition",
-        "toType": "DataContractValue",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlDataSourceDefinition",
-        "toType": "GraphQlIntrospectionResult",
-        "sourcePath": "src/graphql/index.ts"
-      },
-      {
-        "fromSymbol": "GraphQlDataSourceDefinition",
-        "toType": "GraphQlOperationDefinition",
-        "sourcePath": "src/graphql/index.ts"
+        "sourcePath": "src/graphql/operation.ts"
       },
       {
         "fromSymbol": "GraphQlIntrospectionRequest",
         "toType": "AnkhorageGraphQlIntrospection",
         "sourcePath": "src/graphql/index.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionInputValue",
+        "toType": "GraphQlIntrospectionTypeRef",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionField",
+        "toType": "GraphQlIntrospectionInputValue",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionField",
+        "toType": "GraphQlIntrospectionTypeRef",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionType",
+        "toType": "GraphQlIntrospectionEnumValue",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionType",
+        "toType": "GraphQlIntrospectionField",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionType",
+        "toType": "GraphQlIntrospectionInputValue",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionType",
+        "toType": "GraphQlIntrospectionTypeRef",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionSchema",
+        "toType": "GraphQlIntrospectionType",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlIntrospectionResult",
+        "toType": "GraphQlIntrospectionSchema",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlOperationDefinition",
+        "toType": "DataContractValue",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlOperationDefinition",
+        "toType": "DataSchema",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlOperationDefinition",
+        "toType": "GraphQlOperationKind",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlApiDefinition",
+        "toType": "CredentialRef",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlApiDefinition",
+        "toType": "DataContractValue",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlApiDefinition",
+        "toType": "GraphQlIntrospectionResult",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlApiDefinition",
+        "toType": "GraphQlOperationDefinition",
+        "sourcePath": "src/graphql/types.ts"
       },
       {
         "fromSymbol": "importOpenApiDocument",
@@ -6285,124 +6068,139 @@
         "sourcePath": "src/openapi/index.ts"
       },
       {
+        "fromSymbol": "normalizeOpenApiOperationId",
+        "toType": "OpenApiHttpMethod",
+        "sourcePath": "src/openapi/operation.ts"
+      },
+      {
         "fromSymbol": "normalizeOpenApiSchema",
         "toType": "DataSchema",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/schema.ts"
       },
       {
         "fromSymbol": "normalizeOpenApiSchema",
         "toType": "OpenApiSchemaObject",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/schema.ts"
       },
       {
         "fromSymbol": "OpenApiSchemaObject",
         "toType": "DataContractValue",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiSchemaObject",
         "toType": "Readonly",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiMediaTypeObject",
         "toType": "OpenApiSchemaObject",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiRequestBodyObject",
         "toType": "OpenApiMediaTypeObject",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiRequestBodyObject",
         "toType": "Readonly",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiResponseObject",
         "toType": "OpenApiMediaTypeObject",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiResponseObject",
         "toType": "Readonly",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiParameterObject",
         "toType": "OpenApiSchemaObject",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiOperationObject",
         "toType": "OpenApiParameterObject",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiOperationObject",
         "toType": "OpenApiRequestBodyObject",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiOperationObject",
         "toType": "OpenApiResponseObject",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiOperationObject",
         "toType": "Readonly",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiComponentsObject",
         "toType": "DataContractValue",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiComponentsObject",
         "toType": "OpenApiSchemaObject",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiComponentsObject",
         "toType": "Readonly",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiDocumentObject",
         "toType": "OpenApiComponentsObject",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiDocumentObject",
         "toType": "OpenApiPathItemObject",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiDocumentObject",
         "toType": "OpenApiServerObject",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiDocumentObject",
         "toType": "Readonly",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiImportInput",
         "toType": "CredentialRef",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiImportInput",
         "toType": "DataContractValue",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiImportInput",
         "toType": "OpenApiDocumentObject",
-        "sourcePath": "src/openapi/index.ts"
+        "sourcePath": "src/openapi/types.ts"
+      },
+      {
+        "fromSymbol": "getDataSourcesPackageInfo",
+        "toType": "DataSourcesPackageInfo",
+        "sourcePath": "src/packageInfo.ts"
+      },
+      {
+        "fromSymbol": "getDataSourceKind",
+        "toType": "DatabaseDataSourceConfig",
+        "sourcePath": "src/packageInfo.ts"
       },
       {
         "fromSymbol": "normalizeManualRestMethod",
@@ -6410,38 +6208,38 @@
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "validateManualRestDataSource",
+        "fromSymbol": "validateManualRestApi",
         "toType": "DataSourceDiagnostic",
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "validateManualRestDataSource",
-        "toType": "ManualRestDataSourceDefinition",
+        "fromSymbol": "validateManualRestApi",
+        "toType": "ManualRestApiDefinition",
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "createManualRestDataSource",
+        "fromSymbol": "createManualRestApi",
         "toType": "DataSourceDiagnosticResult",
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "createManualRestDataSource",
-        "toType": "ExternalRestApiDataSourceConfig",
+        "fromSymbol": "createManualRestApi",
+        "toType": "ExternalRestApiDefinition",
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "createManualRestDataSource",
-        "toType": "ManualRestDataSourceDefinition",
+        "fromSymbol": "createManualRestApi",
+        "toType": "ManualRestApiDefinition",
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "normalizeManualRestDataSource",
-        "toType": "ExternalRestApiDataSourceConfig",
+        "fromSymbol": "normalizeManualRestApi",
+        "toType": "ExternalRestApiDefinition",
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "normalizeManualRestDataSource",
-        "toType": "ManualRestDataSourceDefinition",
+        "fromSymbol": "normalizeManualRestApi",
+        "toType": "ManualRestApiDefinition",
         "sourcePath": "src/rest/index.ts"
       },
       {
@@ -6495,33 +6293,28 @@
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "ManualRestDataSourceDefinition",
+        "fromSymbol": "ManualRestApiDefinition",
         "toType": "CredentialRef",
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "ManualRestDataSourceDefinition",
+        "fromSymbol": "ManualRestApiDefinition",
         "toType": "DataContractValue",
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "ManualRestDataSourceDefinition",
+        "fromSymbol": "ManualRestApiDefinition",
         "toType": "DataSchema",
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "ManualRestDataSourceDefinition",
+        "fromSymbol": "ManualRestApiDefinition",
         "toType": "ManualRestEndpointDefinition",
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "ManualRestDataSourceDefinition",
+        "fromSymbol": "ManualRestApiDefinition",
         "toType": "Readonly",
-        "sourcePath": "src/rest/index.ts"
-      },
-      {
-        "fromSymbol": "ManualRestDataSourceDefinition",
-        "toType": "Users",
         "sourcePath": "src/rest/index.ts"
       },
       {
@@ -6547,62 +6340,62 @@
       {
         "fromSymbol": "EndpointTestCredential",
         "toType": "DataContractValue",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/types.ts"
       },
       {
         "fromSymbol": "EndpointTestCredential",
         "toType": "Readonly",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/types.ts"
       },
       {
         "fromSymbol": "EndpointTestFetchInit",
         "toType": "Readonly",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/types.ts"
       },
       {
         "fromSymbol": "EndpointTestFetchResponse",
         "toType": "Readonly",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/types.ts"
+      },
+      {
+        "fromSymbol": "EndpointTestInput",
+        "toType": "ApiDefinition",
+        "sourcePath": "src/test-runner/types.ts"
       },
       {
         "fromSymbol": "EndpointTestInput",
         "toType": "DataContractValue",
-        "sourcePath": "src/test-runner/index.ts"
-      },
-      {
-        "fromSymbol": "EndpointTestInput",
-        "toType": "DataSourceConfig",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/types.ts"
       },
       {
         "fromSymbol": "EndpointTestInput",
         "toType": "EndpointTestCredentialResolver",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/types.ts"
       },
       {
         "fromSymbol": "EndpointTestInput",
         "toType": "EndpointTestFetch",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/types.ts"
       },
       {
         "fromSymbol": "EndpointTestInput",
         "toType": "Readonly",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/types.ts"
       },
       {
         "fromSymbol": "EndpointTestRequestDiagnostic",
         "toType": "Readonly",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/types.ts"
       },
       {
         "fromSymbol": "EndpointTestResponseDiagnostic",
         "toType": "DataContractValue",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/types.ts"
       },
       {
         "fromSymbol": "EndpointTestResponseDiagnostic",
         "toType": "Readonly",
-        "sourcePath": "src/test-runner/index.ts"
+        "sourcePath": "src/test-runner/types.ts"
       }
     ],
     "componentComposition": []

@@ -8,7 +8,7 @@
     "modulePath": "src/test-runner/index.ts",
     "sourceLocation": {
       "filePath": "src/test-runner/index.ts",
-      "line": 140,
+      "line": 65,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -32,191 +32,7 @@
     "structuredRows": []
   },
   {
-    "name": "createGeneratedApiDataSource",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "function",
-    "modulePath": "src/generated-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/generated-api/index.ts",
-      "line": 24,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [
-      {
-        "label": "(definition: GeneratedApiDefinition) => DataSourceDiagnosticResult<GeneratedRestApiDataSourceConfig>",
-        "parameters": [
-          {
-            "name": "definition",
-            "type": "GeneratedApiDefinition",
-            "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "DataSourceDiagnosticResult<GeneratedRestApiDataSourceConfig>",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "createGeneratedApiEndpoint",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "function",
-    "modulePath": "src/generated-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/generated-api/index.ts",
-      "line": 98,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [
-      {
-        "label": "(definition: GeneratedApiDefinition, resource: GeneratedApiResourceDefinition) => DataEndpointConfig",
-        "parameters": [
-          {
-            "name": "definition",
-            "type": "GeneratedApiDefinition",
-            "required": true,
-            "description": null
-          },
-          {
-            "name": "resource",
-            "type": "GeneratedApiResourceDefinition",
-            "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "DataEndpointConfig",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "createGeneratedApiOperation",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "function",
-    "modulePath": "src/generated-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/generated-api/index.ts",
-      "line": 120,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [
-      {
-        "label": "(definition: GeneratedApiDefinition, resource: GeneratedApiResourceDefinition, operation: \"list\" | \"read\" | \"create\" | \"update\" | \"delete\") => DataOperationConfig",
-        "parameters": [
-          {
-            "name": "definition",
-            "type": "GeneratedApiDefinition",
-            "required": true,
-            "description": null
-          },
-          {
-            "name": "operation",
-            "type": "\"list\" | \"read\" | \"create\" | \"update\" | \"delete\"",
-            "required": true,
-            "description": null
-          },
-          {
-            "name": "resource",
-            "type": "GeneratedApiResourceDefinition",
-            "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "DataOperationConfig",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "createGeneratedApiOperationId",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "function",
-    "modulePath": "src/generated-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/generated-api/index.ts",
-      "line": 147,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [
-      {
-        "label": "(resourceId: string, operation: \"list\" | \"read\" | \"create\" | \"update\" | \"delete\") => string",
-        "parameters": [
-          {
-            "name": "operation",
-            "type": "\"list\" | \"read\" | \"create\" | \"update\" | \"delete\"",
-            "required": true,
-            "description": null
-          },
-          {
-            "name": "resourceId",
-            "type": "string",
-            "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "string",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "createGeneratedApiResourceSchema",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "function",
-    "modulePath": "src/generated-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/generated-api/index.ts",
-      "line": 154,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [
-      {
-        "label": "(collection: DbCollectionDefinition) => DataSchema",
-        "parameters": [
-          {
-            "name": "collection",
-            "type": "DbCollectionDefinition",
-            "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "DataSchema",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "createGraphQlDataSource",
+    "name": "createGraphQlApi",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -224,23 +40,23 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 142,
+      "line": 66,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlDataSourceDefinition"],
+    "relatedSymbols": ["GraphQlApiDefinition"],
     "signatures": [
       {
-        "label": "(definition: GraphQlDataSourceDefinition) => DataSourceDiagnosticResult<ExternalGraphQlApiDataSourceConfig>",
+        "label": "(definition: GraphQlApiDefinition) => DataSourceDiagnosticResult<ExternalGraphQlApiDefinition>",
         "parameters": [
           {
             "name": "definition",
-            "type": "GraphQlDataSourceDefinition",
+            "type": "GraphQlApiDefinition",
             "required": true,
             "description": null
           }
         ],
-        "returnType": "DataSourceDiagnosticResult<ExternalGraphQlApiDataSourceConfig>",
+        "returnType": "DataSourceDiagnosticResult<ExternalGraphQlApiDefinition>",
         "returnDescription": null
       }
     ],
@@ -256,7 +72,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 127,
+      "line": 59,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -273,7 +89,7 @@
     "structuredRows": []
   },
   {
-    "name": "createManualRestDataSource",
+    "name": "createManualRestApi",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -285,19 +101,19 @@
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManualRestDataSourceDefinition"],
+    "relatedSymbols": ["ManualRestApiDefinition"],
     "signatures": [
       {
-        "label": "(definition: ManualRestDataSourceDefinition) => DataSourceDiagnosticResult<ExternalRestApiDataSourceConfig>",
+        "label": "(definition: ManualRestApiDefinition) => DataSourceDiagnosticResult<ExternalRestApiDefinition>",
         "parameters": [
           {
             "name": "definition",
-            "type": "ManualRestDataSourceDefinition",
+            "type": "ManualRestApiDefinition",
             "required": true,
             "description": null
           }
         ],
-        "returnType": "DataSourceDiagnosticResult<ExternalRestApiDataSourceConfig>",
+        "returnType": "DataSourceDiagnosticResult<ExternalRestApiDefinition>",
         "returnDescription": null
       }
     ],
@@ -313,7 +129,7 @@
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 103,
+      "line": 110,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -348,10 +164,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "value",
-    "modulePath": "src/index.ts",
+    "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
-      "filePath": "src/index.ts",
-      "line": 15,
+      "filePath": "src/packageInfo.ts",
+      "line": 8,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -366,10 +182,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/index.ts",
+    "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
-      "filePath": "src/index.ts",
-      "line": 29,
+      "filePath": "src/packageInfo.ts",
+      "line": 20,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -386,7 +202,7 @@
       {
         "name": "supportedApiOrigins",
         "kind": "property",
-        "type": "readonly [\"external\", \"generated\"]",
+        "type": "readonly [\"external\"]",
         "required": true,
         "description": null
       },
@@ -400,7 +216,7 @@
       {
         "name": "supportedKinds",
         "kind": "property",
-        "type": "readonly [\"api\", \"database\"]",
+        "type": "readonly [\"database\"]",
         "required": true,
         "description": null
       }
@@ -416,7 +232,7 @@
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 16,
+      "line": 23,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -426,7 +242,7 @@
     "structuredRows": []
   },
   {
-    "name": "discoverOpenApiDataSource",
+    "name": "discoverOpenApi",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -434,23 +250,23 @@
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 124,
+      "line": 131,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["DiscoverOpenApiDataSourceInput", "DiscoverOpenApiDataSourceResult"],
+    "relatedSymbols": ["DiscoverOpenApiInput", "DiscoverOpenApiResult"],
     "signatures": [
       {
-        "label": "(input: DiscoverOpenApiDataSourceInput) => Promise<DiscoverOpenApiDataSourceResult>",
+        "label": "(input: DiscoverOpenApiInput) => Promise<DiscoverOpenApiResult>",
         "parameters": [
           {
             "name": "input",
-            "type": "DiscoverOpenApiDataSourceInput",
+            "type": "DiscoverOpenApiInput",
             "required": true,
             "description": null
           }
         ],
-        "returnType": "Promise<DiscoverOpenApiDataSourceResult>",
+        "returnType": "Promise<DiscoverOpenApiResult>",
         "returnDescription": null
       }
     ],
@@ -458,7 +274,7 @@
     "structuredRows": []
   },
   {
-    "name": "DiscoverOpenApiDataSourceInput",
+    "name": "DiscoverOpenApiInput",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -466,7 +282,7 @@
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 53,
+      "line": 60,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -540,7 +356,7 @@
     "structuredRows": []
   },
   {
-    "name": "DiscoverOpenApiDataSourceResult",
+    "name": "DiscoverOpenApiResult",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -548,7 +364,7 @@
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 65,
+      "line": 72,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -563,10 +379,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/test-runner/index.ts",
+    "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
-      "filePath": "src/test-runner/index.ts",
-      "line": 16,
+      "filePath": "src/test-runner/types.ts",
+      "line": 13,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -596,10 +412,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/test-runner/index.ts",
+    "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
-      "filePath": "src/test-runner/index.ts",
-      "line": 21,
+      "filePath": "src/test-runner/types.ts",
+      "line": 18,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -614,10 +430,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/test-runner/index.ts",
+    "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
-      "filePath": "src/test-runner/index.ts",
-      "line": 37,
+      "filePath": "src/test-runner/types.ts",
+      "line": 34,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -632,10 +448,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/test-runner/index.ts",
+    "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
-      "filePath": "src/test-runner/index.ts",
-      "line": 25,
+      "filePath": "src/test-runner/types.ts",
+      "line": 22,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -672,10 +488,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/test-runner/index.ts",
+    "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
-      "filePath": "src/test-runner/index.ts",
-      "line": 31,
+      "filePath": "src/test-runner/types.ts",
+      "line": 28,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -712,10 +528,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/test-runner/index.ts",
+    "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
-      "filePath": "src/test-runner/index.ts",
-      "line": 14,
+      "filePath": "src/test-runner/types.ts",
+      "line": 11,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -730,10 +546,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/test-runner/index.ts",
+    "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
-      "filePath": "src/test-runner/index.ts",
-      "line": 42,
+      "filePath": "src/test-runner/types.ts",
+      "line": 39,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -741,17 +557,17 @@
     "signatures": [],
     "members": [
       {
+        "name": "api",
+        "kind": "property",
+        "type": "ApiDefinition",
+        "required": true,
+        "description": null
+      },
+      {
         "name": "credentialResolver",
         "kind": "property",
         "type": "EndpointTestCredentialResolver | undefined",
         "required": false,
-        "description": null
-      },
-      {
-        "name": "dataSource",
-        "kind": "property",
-        "type": "DataSourceConfig",
-        "required": true,
         "description": null
       },
       {
@@ -798,10 +614,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/test-runner/index.ts",
+    "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
-      "filePath": "src/test-runner/index.ts",
-      "line": 13,
+      "filePath": "src/test-runner/types.ts",
+      "line": 10,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -816,10 +632,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/test-runner/index.ts",
+    "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
-      "filePath": "src/test-runner/index.ts",
-      "line": 52,
+      "filePath": "src/test-runner/types.ts",
+      "line": 49,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -827,17 +643,17 @@
     "signatures": [],
     "members": [
       {
+        "name": "apiId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
         "name": "body",
         "kind": "property",
         "type": "string | undefined",
         "required": false,
-        "description": null
-      },
-      {
-        "name": "dataSourceId",
-        "kind": "property",
-        "type": "string",
-        "required": true,
         "description": null
       },
       {
@@ -891,10 +707,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/test-runner/index.ts",
+    "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
-      "filePath": "src/test-runner/index.ts",
-      "line": 63,
+      "filePath": "src/test-runner/types.ts",
+      "line": 60,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -945,10 +761,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/test-runner/index.ts",
+    "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
-      "filePath": "src/test-runner/index.ts",
-      "line": 71,
+      "filePath": "src/test-runner/types.ts",
+      "line": 68,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -966,7 +782,7 @@
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 34,
+      "line": 41,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -984,7 +800,7 @@
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 23,
+      "line": 30,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1024,7 +840,7 @@
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 29,
+      "line": 36,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1086,26 +902,26 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/index.ts",
+    "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
-      "filePath": "src/index.ts",
-      "line": 57,
+      "filePath": "src/packageInfo.ts",
+      "line": 48,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
     "signatures": [
       {
-        "label": "(source: DataSourceConfig) => DataSourceKind",
+        "label": "(source: import(\"@ankhorage/contracts/dist/data/sources\").DatabaseDataSourceConfig) => \"database\"",
         "parameters": [
           {
             "name": "source",
-            "type": "DataSourceConfig",
+            "type": "import(\"@ankhorage/contracts/dist/data/sources\").DatabaseDataSourceConfig",
             "required": true,
             "description": null
           }
         ],
-        "returnType": "DataSourceKind",
+        "returnType": "\"database\"",
         "returnDescription": null
       }
     ],
@@ -1118,10 +934,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/index.ts",
+    "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
-      "filePath": "src/index.ts",
-      "line": 36,
+      "filePath": "src/packageInfo.ts",
+      "line": 27,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1146,7 +962,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 16,
+      "line": 22,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -1156,15 +972,15 @@
     "structuredRows": []
   },
   {
-    "name": "GraphQlDataSourceDefinition",
+    "name": "GraphQlApiDefinition",
     "description": null,
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 109,
+      "filePath": "src/graphql/types.ts",
+      "line": 68,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1250,10 +1066,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 71,
+      "filePath": "src/graphql/types.ts",
+      "line": 30,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1283,10 +1099,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 64,
+      "filePath": "src/graphql/types.ts",
+      "line": 23,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1330,10 +1146,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 57,
+      "filePath": "src/graphql/types.ts",
+      "line": 16,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1380,7 +1196,7 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 122,
+      "line": 54,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1410,10 +1226,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 93,
+      "filePath": "src/graphql/types.ts",
+      "line": 52,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1436,10 +1252,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 86,
+      "filePath": "src/graphql/types.ts",
+      "line": 45,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1483,10 +1299,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 76,
+      "filePath": "src/graphql/types.ts",
+      "line": 35,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1556,10 +1372,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 51,
+      "filePath": "src/graphql/types.ts",
+      "line": 10,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1596,10 +1412,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 97,
+      "filePath": "src/graphql/types.ts",
+      "line": 56,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1678,10 +1494,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 48,
+      "filePath": "src/graphql/types.ts",
+      "line": 8,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1699,7 +1515,7 @@
     "modulePath": "src/openapi/index.ts",
     "sourceLocation": {
       "filePath": "src/openapi/index.ts",
-      "line": 126,
+      "line": 18,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1723,7 +1539,7 @@
     "structuredRows": []
   },
   {
-    "name": "introspectGraphQlDataSource",
+    "name": "introspectGraphQlApi",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -1731,23 +1547,23 @@
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 155,
+      "line": 160,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["IntrospectGraphQlDataSourceInput", "IntrospectGraphQlDataSourceResult"],
+    "relatedSymbols": ["IntrospectGraphQlApiInput", "IntrospectGraphQlApiResult"],
     "signatures": [
       {
-        "label": "(input: IntrospectGraphQlDataSourceInput) => Promise<IntrospectGraphQlDataSourceResult>",
+        "label": "(input: IntrospectGraphQlApiInput) => Promise<IntrospectGraphQlApiResult>",
         "parameters": [
           {
             "name": "input",
-            "type": "IntrospectGraphQlDataSourceInput",
+            "type": "IntrospectGraphQlApiInput",
             "required": true,
             "description": null
           }
         ],
-        "returnType": "Promise<IntrospectGraphQlDataSourceResult>",
+        "returnType": "Promise<IntrospectGraphQlApiResult>",
         "returnDescription": null
       }
     ],
@@ -1755,7 +1571,7 @@
     "structuredRows": []
   },
   {
-    "name": "IntrospectGraphQlDataSourceInput",
+    "name": "IntrospectGraphQlApiInput",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -1763,7 +1579,7 @@
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 79,
+      "line": 86,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1837,7 +1653,7 @@
     "structuredRows": []
   },
   {
-    "name": "IntrospectGraphQlDataSourceResult",
+    "name": "IntrospectGraphQlApiResult",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -1845,7 +1661,7 @@
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 91,
+      "line": 98,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1892,10 +1708,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/index.ts",
+    "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
-      "filePath": "src/index.ts",
-      "line": 49,
+      "filePath": "src/packageInfo.ts",
+      "line": 40,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1924,10 +1740,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/index.ts",
+    "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
-      "filePath": "src/index.ts",
-      "line": 53,
+      "filePath": "src/packageInfo.ts",
+      "line": 44,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1956,10 +1772,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/index.ts",
+    "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
-      "filePath": "src/index.ts",
-      "line": 45,
+      "filePath": "src/packageInfo.ts",
+      "line": 36,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1983,7 +1799,7 @@
     "structuredRows": []
   },
   {
-    "name": "ManualRestDataSourceDefinition",
+    "name": "ManualRestApiDefinition",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -2050,7 +1866,7 @@
       {
         "name": "schemas",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"/Users/a_rtiphishl_e/git/data-sources/node_modules/@ankhorage/contracts/dist/data/schemas\").DataSchema>> | undefined",
+        "type": "Readonly<Record<string, import(\"@ankhorage/contracts/dist/data/schemas\").DataSchema>> | undefined",
         "required": false,
         "description": null
       }
@@ -2247,39 +2063,7 @@
     "structuredRows": []
   },
   {
-    "name": "normalizeGeneratedApiDataSource",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "function",
-    "modulePath": "src/generated-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/generated-api/index.ts",
-      "line": 72,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [
-      {
-        "label": "(definition: GeneratedApiDefinition) => GeneratedRestApiDataSourceConfig",
-        "parameters": [
-          {
-            "name": "definition",
-            "type": "GeneratedApiDefinition",
-            "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "GeneratedRestApiDataSourceConfig",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "normalizeGraphQlDataSource",
+    "name": "normalizeGraphQlApi",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -2287,23 +2071,23 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 196,
+      "line": 112,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlDataSourceDefinition"],
+    "relatedSymbols": ["GraphQlApiDefinition"],
     "signatures": [
       {
-        "label": "(definition: GraphQlDataSourceDefinition) => ExternalGraphQlApiDataSourceConfig",
+        "label": "(definition: GraphQlApiDefinition) => ExternalGraphQlApiDefinition",
         "parameters": [
           {
             "name": "definition",
-            "type": "GraphQlDataSourceDefinition",
+            "type": "GraphQlApiDefinition",
             "required": true,
             "description": null
           }
         ],
-        "returnType": "ExternalGraphQlApiDataSourceConfig",
+        "returnType": "ExternalGraphQlApiDefinition",
         "returnDescription": null
       }
     ],
@@ -2316,10 +2100,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/graphql/introspection.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 249,
+      "filePath": "src/graphql/introspection.ts",
+      "line": 27,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2348,10 +2132,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/graphql/introspection.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 235,
+      "filePath": "src/graphql/introspection.ts",
+      "line": 15,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2380,10 +2164,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/graphql/index.ts",
+    "modulePath": "src/graphql/operation.ts",
     "sourceLocation": {
-      "filePath": "src/graphql/index.ts",
-      "line": 134,
+      "filePath": "src/graphql/operation.ts",
+      "line": 13,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2413,7 +2197,7 @@
     "structuredRows": []
   },
   {
-    "name": "normalizeManualRestDataSource",
+    "name": "normalizeManualRestApi",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -2425,19 +2209,19 @@
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManualRestDataSourceDefinition"],
+    "relatedSymbols": ["ManualRestApiDefinition"],
     "signatures": [
       {
-        "label": "(definition: ManualRestDataSourceDefinition) => ExternalRestApiDataSourceConfig",
+        "label": "(definition: ManualRestApiDefinition) => ExternalRestApiDefinition",
         "parameters": [
           {
             "name": "definition",
-            "type": "ManualRestDataSourceDefinition",
+            "type": "ManualRestApiDefinition",
             "required": true,
             "description": null
           }
         ],
-        "returnType": "ExternalRestApiDataSourceConfig",
+        "returnType": "ExternalRestApiDefinition",
         "returnDescription": null
       }
     ],
@@ -2482,10 +2266,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/openapi/index.ts",
+    "modulePath": "src/openapi/endpoints.ts",
     "sourceLocation": {
-      "filePath": "src/openapi/index.ts",
-      "line": 178,
+      "filePath": "src/openapi/endpoints.ts",
+      "line": 26,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2514,21 +2298,21 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/openapi/index.ts",
+    "modulePath": "src/openapi/operation.ts",
     "sourceLocation": {
-      "filePath": "src/openapi/index.ts",
-      "line": 164,
+      "filePath": "src/openapi/operation.ts",
+      "line": 26,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
+    "relatedSymbols": ["OpenApiHttpMethod"],
     "signatures": [
       {
-        "label": "(method: \"delete\" | \"get\" | \"head\" | \"options\" | \"patch\" | \"post\" | \"put\", path: string, operationId?: string | undefined) => string",
+        "label": "(method: OpenApiHttpMethod, path: string, operationId?: string | undefined) => string",
         "parameters": [
           {
             "name": "method",
-            "type": "\"delete\" | \"get\" | \"head\" | \"options\" | \"patch\" | \"post\" | \"put\"",
+            "type": "OpenApiHttpMethod",
             "required": true,
             "description": null
           },
@@ -2558,10 +2342,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "function",
-    "modulePath": "src/openapi/index.ts",
+    "modulePath": "src/openapi/schema.ts",
     "sourceLocation": {
-      "filePath": "src/openapi/index.ts",
-      "line": 187,
+      "filePath": "src/openapi/schema.ts",
+      "line": 20,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2590,10 +2374,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/openapi/index.ts",
+    "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
-      "filePath": "src/openapi/index.ts",
-      "line": 95,
+      "filePath": "src/openapi/types.ts",
+      "line": 66,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2626,7 +2410,7 @@
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 47,
+      "line": 54,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2666,7 +2450,7 @@
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 39,
+      "line": 46,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2681,10 +2465,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/openapi/index.ts",
+    "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
-      "filePath": "src/openapi/index.ts",
-      "line": 100,
+      "filePath": "src/openapi/types.ts",
+      "line": 71,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2735,10 +2519,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/openapi/index.ts",
+    "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
-      "filePath": "src/openapi/index.ts",
-      "line": 32,
+      "filePath": "src/openapi/types.ts",
+      "line": 3,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2753,10 +2537,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/openapi/index.ts",
+    "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
-      "filePath": "src/openapi/index.ts",
-      "line": 112,
+      "filePath": "src/openapi/types.ts",
+      "line": 83,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2838,7 +2622,7 @@
     "modulePath": "src/openapi/index.ts",
     "sourceLocation": {
       "filePath": "src/openapi/index.ts",
-      "line": 124,
+      "line": 16,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2853,10 +2637,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/openapi/index.ts",
+    "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
-      "filePath": "src/openapi/index.ts",
-      "line": 58,
+      "filePath": "src/openapi/types.ts",
+      "line": 29,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2879,10 +2663,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/openapi/index.ts",
+    "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
-      "filePath": "src/openapi/index.ts",
-      "line": 81,
+      "filePath": "src/openapi/types.ts",
+      "line": 52,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -2951,10 +2735,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/openapi/index.ts",
+    "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
-      "filePath": "src/openapi/index.ts",
-      "line": 73,
+      "filePath": "src/openapi/types.ts",
+      "line": 44,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3005,10 +2789,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/openapi/index.ts",
+    "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
-      "filePath": "src/openapi/index.ts",
-      "line": 91,
+      "filePath": "src/openapi/types.ts",
+      "line": 62,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3023,10 +2807,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/openapi/index.ts",
+    "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
-      "filePath": "src/openapi/index.ts",
-      "line": 62,
+      "filePath": "src/openapi/types.ts",
+      "line": 33,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3063,10 +2847,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/openapi/index.ts",
+    "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
-      "filePath": "src/openapi/index.ts",
-      "line": 68,
+      "filePath": "src/openapi/types.ts",
+      "line": 39,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3096,10 +2880,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/openapi/index.ts",
+    "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
-      "filePath": "src/openapi/index.ts",
-      "line": 39,
+      "filePath": "src/openapi/types.ts",
+      "line": 10,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3227,10 +3011,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "type",
-    "modulePath": "src/openapi/index.ts",
+    "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
-      "filePath": "src/openapi/index.ts",
-      "line": 34,
+      "filePath": "src/openapi/types.ts",
+      "line": 5,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3260,10 +3044,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "value",
-    "modulePath": "src/index.ts",
+    "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
-      "filePath": "src/index.ts",
-      "line": 20,
+      "filePath": "src/packageInfo.ts",
+      "line": 12,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -3278,10 +3062,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "value",
-    "modulePath": "src/index.ts",
+    "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
-      "filePath": "src/index.ts",
-      "line": 24,
+      "filePath": "src/packageInfo.ts",
+      "line": 13,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -3296,11 +3080,29 @@
     "isReadme": false,
     "examples": [],
     "kind": "value",
-    "modulePath": "src/index.ts",
+    "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
-      "filePath": "src/index.ts",
-      "line": 16,
+      "filePath": "src/packageInfo.ts",
+      "line": 9,
       "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "SupportedApiOrigin",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/packageInfo.ts",
+    "sourceLocation": {
+      "filePath": "src/packageInfo.ts",
+      "line": 18,
+      "column": 1
     },
     "exportPaths": ["src/index.ts"],
     "relatedSymbols": [],
@@ -3317,7 +3119,7 @@
     "modulePath": "src/test-runner/index.ts",
     "sourceLocation": {
       "filePath": "src/test-runner/index.ts",
-      "line": 91,
+      "line": 35,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -3341,39 +3143,7 @@
     "structuredRows": []
   },
   {
-    "name": "validateGeneratedApiDefinition",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "function",
-    "modulePath": "src/generated-api/index.ts",
-    "sourceLocation": {
-      "filePath": "src/generated-api/index.ts",
-      "line": 39,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
-    "signatures": [
-      {
-        "label": "(definition: GeneratedApiDefinition) => readonly DataSourceDiagnostic[]",
-        "parameters": [
-          {
-            "name": "definition",
-            "type": "GeneratedApiDefinition",
-            "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "readonly DataSourceDiagnostic[]",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "validateGraphQlDataSource",
+    "name": "validateGraphQlApi",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -3381,18 +3151,18 @@
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
       "filePath": "src/graphql/index.ts",
-      "line": 157,
+      "line": 76,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlDataSourceDefinition"],
+    "relatedSymbols": ["GraphQlApiDefinition"],
     "signatures": [
       {
-        "label": "(definition: GraphQlDataSourceDefinition) => readonly DataSourceDiagnostic[]",
+        "label": "(definition: GraphQlApiDefinition) => readonly DataSourceDiagnostic[]",
         "parameters": [
           {
             "name": "definition",
-            "type": "GraphQlDataSourceDefinition",
+            "type": "GraphQlApiDefinition",
             "required": true,
             "description": null
           }
@@ -3405,7 +3175,7 @@
     "structuredRows": []
   },
   {
-    "name": "validateManualRestDataSource",
+    "name": "validateManualRestApi",
     "description": null,
     "isReadme": false,
     "examples": [],
@@ -3417,14 +3187,14 @@
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManualRestDataSourceDefinition"],
+    "relatedSymbols": ["ManualRestApiDefinition"],
     "signatures": [
       {
-        "label": "(definition: ManualRestDataSourceDefinition) => readonly DataSourceDiagnostic[]",
+        "label": "(definition: ManualRestApiDefinition) => readonly DataSourceDiagnostic[]",
         "parameters": [
           {
             "name": "definition",
-            "type": "ManualRestDataSourceDefinition",
+            "type": "ManualRestApiDefinition",
             "required": true,
             "description": null
           }
