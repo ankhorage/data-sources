@@ -40,7 +40,7 @@ describe('OpenAPI normalization', () => {
     );
   });
 
-  it('imports OpenAPI as an external REST source with OpenAPI metadata', () => {
+  it('imports OpenAPI as a canonical external REST API', () => {
     const result = importOpenApiDocument({
       id: 'pet-store',
       document: document(),
@@ -48,8 +48,10 @@ describe('OpenAPI normalization', () => {
     });
     expect(result.ok).toBe(true);
     if (result.ok) {
-      expect(result.data).toMatchObject({ kind: 'api', origin: 'external', protocol: 'rest' });
+      expect(result.data).toMatchObject({ origin: 'external', protocol: 'rest' });
+      expect('kind' in result.data).toBe(false);
       expect(result.data.openApi?.version).toBe('2026-08-06');
+      expect(result.data.endpoints.pets?.baseUrl).toBeUndefined();
       expect(result.data.endpoints.pets?.operations.listpets?.intent).toBe('read');
       expect(result.data.endpoints.pets?.operations.createpet?.intent).toBe('create');
     }
@@ -69,18 +71,19 @@ describe('OpenAPI normalization', () => {
   });
 
   it('requires a resolvable base URL and paths', () => {
-    expect(
-      importOpenApiDocument({
-        id: 'no-server',
-        document: { openapi: '3.1.0', paths: { '/x': { get: {} } } },
-      }).ok,
-    ).toBe(false);
-    expect(
-      importOpenApiDocument({
-        id: 'no-paths',
-        baseUrl: 'https://example.com',
-        document: { openapi: '3.1.0' },
-      }).ok,
-    ).toBe(false);
+    const noServer = importOpenApiDocument({
+      id: 'no-server',
+      document: { openapi: '3.1.0', paths: { '/x': { get: {} } } },
+    });
+    const noPaths = importOpenApiDocument({
+      id: 'no-paths',
+      baseUrl: 'https://example.com',
+      document: { openapi: '3.1.0' },
+    });
+
+    expect(noServer.ok).toBe(false);
+    if (!noServer.ok) expect(noServer.diagnostics[0]?.apiId).toBe('no-server');
+    expect(noPaths.ok).toBe(false);
+    if (!noPaths.ok) expect(noPaths.diagnostics[0]?.apiId).toBe('no-paths');
   });
 });
