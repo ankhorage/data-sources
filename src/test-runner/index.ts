@@ -1,10 +1,10 @@
 import type {
+  ApiDefinition,
   CredentialRef,
   DataContractValue,
   DataEndpointConfig,
   DataOperationConfig,
   DataOperationParameter,
-  DataSourceConfig,
   DataSourceDiagnostic,
   EndpointId,
   OperationId,
@@ -40,7 +40,7 @@ export type EndpointTestFetch = (
 ) => Promise<EndpointTestFetchResponse>;
 
 export interface EndpointTestInput {
-  readonly dataSource: DataSourceConfig;
+  readonly api: ApiDefinition;
   readonly endpointId: EndpointId;
   readonly operationId: OperationId;
   readonly values?: EndpointTestInputValues;
@@ -50,7 +50,7 @@ export interface EndpointTestInput {
 }
 
 export interface EndpointTestRequestDiagnostic {
-  readonly dataSourceId: string;
+  readonly apiId: string;
   readonly endpointId: EndpointId;
   readonly operationId: OperationId;
   readonly url: string;
@@ -95,11 +95,7 @@ export async function testEndpoint(input: EndpointTestInput): Promise<EndpointTe
   if (input.fetch === undefined) {
     return failure(built.request, [
       ...built.diagnostics,
-      createDiagnostic(
-        input,
-        'invalid-config',
-        'Endpoint test runner requires an injected fetch function.',
-      ),
+      createDiagnostic(input, 'invalid-config', 'Endpoint test runner requires an injected fetch function.'),
     ]);
   }
 
@@ -140,6 +136,16 @@ export async function testEndpoint(input: EndpointTestInput): Promise<EndpointTe
 export async function buildEndpointTestRequest(
   input: EndpointTestInput,
 ): Promise<EndpointTestResult> {
+  if (input.api.origin === 'internal') {
+    return failure(undefined, [
+      createDiagnostic(
+        input,
+        'invalid-config',
+        'Internal APIs are not executable in API phase 1.',
+      ),
+    ]);
+  }
+
   const selection = selectEndpointOperation(input);
   if (selection === undefined) {
     return failure(undefined, [
@@ -147,12 +153,12 @@ export async function buildEndpointTestRequest(
     ]);
   }
 
-  if (selection.operation.protocol === 'database') {
+  if (selection.operation.protocol !== 'http' && selection.operation.protocol !== 'graphql') {
     return failure(undefined, [
       createDiagnostic(
         input,
         'invalid-config',
-        'Database-backed generated API operations require an adapter executor and cannot be tested through the HTTP endpoint runner.',
+        `API operation protocol '${selection.operation.protocol}' is not supported.`,
       ),
     ]);
   }
@@ -171,7 +177,7 @@ export async function buildEndpointTestRequest(
 }
 
 function selectEndpointOperation(input: EndpointTestInput): EndpointOperationSelection | undefined {
-  const endpoint = input.dataSource.endpoints[input.endpointId];
+  const endpoint = input.api.endpoints[input.endpointId];
   const operation = endpoint?.operations[input.operationId];
   return endpoint === undefined || operation === undefined ? undefined : { endpoint, operation };
 }
@@ -181,8 +187,7 @@ async function resolveEndpointCredential(
   selection: EndpointOperationSelection,
   diagnostics: DataSourceDiagnostic[],
 ): Promise<EndpointTestCredential | undefined> {
-  const ref =
-    selection.operation.credential ?? selection.endpoint.credential ?? input.dataSource.credential;
+  const ref = selection.operation.credential ?? selection.endpoint.credential ?? input.api.credential;
   if (ref === undefined) return undefined;
   if (input.credentialResolver === undefined) {
     diagnostics.push(
@@ -193,11 +198,7 @@ async function resolveEndpointCredential(
   const credential = await input.credentialResolver(ref);
   if (credential === undefined) {
     diagnostics.push(
-      createDiagnostic(
-        input,
-        'missing-credential',
-        `Credential '${ref.id}' could not be resolved.`,
-      ),
+      createDiagnostic(input, 'missing-credential', `Credential '${ref.id}' could not be resolved.`),
     );
   }
   return credential;
@@ -209,12 +210,10 @@ function buildHttpRequest(
   credential: EndpointTestCredential | undefined,
   diagnostics: DataSourceDiagnostic[],
 ): EndpointTestRequestDiagnostic | undefined {
-  const baseUrl = getDataSourceBaseUrl(input.dataSource, selection.endpoint);
+  const baseUrl = getRestBaseUrl(input.api, selection.endpoint);
   const path = selection.operation.path ?? selection.endpoint.path;
-  if (!baseUrl) {
-    diagnostics.push(
-      createDiagnostic(input, 'invalid-config', 'HTTP endpoint requires a base URL.'),
-    );
+  if (baseUrl === undefined) {
+    diagnostics.push(createDiagnostic(input, 'invalid-config', 'HTTP endpoint requires a base URL.'));
     return undefined;
   }
   if (path === undefined) {
@@ -226,12 +225,15 @@ function buildHttpRequest(
   const parameters = selection.operation.request?.parameters ?? [];
   const resolvedPath = interpolatePath(path, parameters, values, input, diagnostics);
   const query = collectQuery(parameters, values, credential?.query);
-  const body = createHttpBody(selection.operation, values);
-  const headers: Record<string, string> = { ...(credential?.headers ?? {}) };
-  if (body !== undefined) headers['content-type'] = headers['content-type'] ?? 'application/json';
+  const headers = collectHeaders(parameters, values, credential?.headers);
+  const body = createHttpBody(selection.operation, parameters, values);
+  if (body !== undefined) {
+    headers['content-type'] =
+      headers['content-type'] ?? selection.operation.request?.contentType ?? 'application/json';
+  }
 
   return {
-    dataSourceId: input.dataSource.id,
+    apiId: input.api.id,
     endpointId: input.endpointId,
     operationId: input.operationId,
     url: appendQuery(joinUrl(baseUrl, resolvedPath), query),
@@ -248,11 +250,9 @@ function buildGraphQlRequest(
   credential: EndpointTestCredential | undefined,
   diagnostics: DataSourceDiagnostic[],
 ): EndpointTestRequestDiagnostic | undefined {
-  const endpointUrl = getGraphQlEndpointUrl(input.dataSource, selection.endpoint);
-  if (!endpointUrl) {
-    diagnostics.push(
-      createDiagnostic(input, 'invalid-config', 'GraphQL endpoint requires an endpoint URL.'),
-    );
+  const endpointUrl = getGraphQlEndpointUrl(input.api, selection.endpoint);
+  if (endpointUrl === undefined) {
+    diagnostics.push(createDiagnostic(input, 'invalid-config', 'GraphQL endpoint requires an endpoint URL.'));
     return undefined;
   }
 
@@ -260,15 +260,13 @@ function buildGraphQlRequest(
     getStringMetadataValue(selection.operation.metadata, 'document') ??
     getStringValue(input.values, 'query');
   if (query === undefined) {
-    diagnostics.push(
-      createDiagnostic(input, 'invalid-config', 'GraphQL operation requires a query document.'),
-    );
+    diagnostics.push(createDiagnostic(input, 'invalid-config', 'GraphQL operation requires a query document.'));
     return undefined;
   }
 
   const variables = getRecordValue(input.values, 'variables');
   return {
-    dataSourceId: input.dataSource.id,
+    apiId: input.api.id,
     endpointId: input.endpointId,
     operationId: input.operationId,
     url: appendQuery(endpointUrl, credential?.query ?? {}),
@@ -279,23 +277,14 @@ function buildGraphQlRequest(
   };
 }
 
-function getDataSourceBaseUrl(
-  source: DataSourceConfig,
-  endpoint: DataEndpointConfig,
-): string | undefined {
+function getRestBaseUrl(api: ApiDefinition, endpoint: DataEndpointConfig): string | undefined {
   if (endpoint.baseUrl !== undefined) return endpoint.baseUrl;
-  if (source.kind !== 'api' || source.origin !== 'external') return undefined;
-  return source.protocol === 'rest' ? source.baseUrl : source.endpointUrl;
+  return api.origin === 'external' && api.protocol === 'rest' ? api.baseUrl : undefined;
 }
 
-function getGraphQlEndpointUrl(
-  source: DataSourceConfig,
-  endpoint: DataEndpointConfig,
-): string | undefined {
+function getGraphQlEndpointUrl(api: ApiDefinition, endpoint: DataEndpointConfig): string | undefined {
   if (endpoint.baseUrl !== undefined) return endpoint.baseUrl;
-  return source.kind === 'api' && source.origin === 'external' && source.protocol === 'graphql'
-    ? source.endpointUrl
-    : undefined;
+  return api.origin === 'external' && api.protocol === 'graphql' ? api.endpointUrl : undefined;
 }
 
 function interpolatePath(
@@ -310,18 +299,12 @@ function interpolatePath(
     const value = values[parameter.name] ?? parameter.default;
     if (value === undefined) {
       diagnostics.push(
-        createDiagnostic(
-          input,
-          'invalid-config',
-          `Missing required path parameter '${parameter.name}'.`,
-        ),
+        createDiagnostic(input, 'invalid-config', `Missing required path parameter '${parameter.name}'.`),
       );
       continue;
     }
     const encoded = encodeURIComponent(serializeEndpointUrlValue(value));
-    next = next
-      .replaceAll(`{${parameter.name}}`, encoded)
-      .replaceAll(`:${parameter.name}`, encoded);
+    next = next.replaceAll(`{${parameter.name}}`, encoded).replaceAll(`:${parameter.name}`, encoded);
   }
   return next;
 }
@@ -340,12 +323,35 @@ function collectQuery(
   return query;
 }
 
+function collectHeaders(
+  parameters: readonly DataOperationParameter[],
+  values: EndpointTestInputValues,
+  credentialHeaders: EndpointTestHeaders | undefined,
+): Record<string, string> {
+  const headers: Record<string, string> = { ...(credentialHeaders ?? {}) };
+  for (const parameter of parameters) {
+    if (parameter.location !== 'header') continue;
+    const value = values[parameter.name] ?? parameter.default;
+    if (value !== undefined) headers[parameter.name] = serializeEndpointUrlValue(value);
+  }
+  return headers;
+}
+
 function createHttpBody(
   operation: DataOperationConfig,
+  parameters: readonly DataOperationParameter[],
   values: EndpointTestInputValues,
 ): string | undefined {
   if (operation.method === 'GET' || operation.method === 'HEAD') return undefined;
-  return values.body === undefined ? undefined : JSON.stringify(values.body);
+  if (values.body !== undefined) return JSON.stringify(values.body);
+
+  const body: Record<string, DataContractValue> = {};
+  for (const parameter of parameters) {
+    if (parameter.location !== 'body') continue;
+    const value = values[parameter.name] ?? parameter.default;
+    if (value !== undefined) body[parameter.name] = value;
+  }
+  return Object.keys(body).length === 0 ? undefined : JSON.stringify(body);
 }
 
 async function createResponseDiagnostic(
@@ -375,10 +381,7 @@ function appendQuery(url: string, query: EndpointTestInputValues): string {
   const entries = Object.entries(query);
   if (entries.length === 0) return url;
   const search = entries
-    .map(
-      ([key, value]) =>
-        `${encodeURIComponent(key)}=${encodeURIComponent(serializeEndpointUrlValue(value))}`,
-    )
+    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(serializeEndpointUrlValue(value))}`)
     .join('&');
   return `${url}${url.includes('?') ? '&' : '?'}${search}`;
 }
@@ -428,7 +431,7 @@ function createDiagnostic(
 ): DataSourceDiagnostic {
   return {
     code,
-    dataSourceId: input.dataSource.id,
+    apiId: input.api.id,
     endpointId: input.endpointId,
     operationId: input.operationId,
     message,
@@ -451,13 +454,11 @@ function createNetworkErrorMessage(error: unknown): string {
 function isDataContractValue(value: unknown): value is DataContractValue {
   if (value === null || ['string', 'number', 'boolean'].includes(typeof value)) return true;
   if (Array.isArray(value)) return value.every(isDataContractValue);
-  return typeof value === 'object' && Object.values(value).every(isDataContractValue);
+  return typeof value === 'object' && value !== null && Object.values(value).every(isDataContractValue);
 }
 
 function isDataContractRecord(
   value: DataContractValue | undefined,
 ): value is Record<string, DataContractValue> {
-  return (
-    value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value)
-  );
+  return value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value);
 }

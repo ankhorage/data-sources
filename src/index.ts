@@ -6,25 +6,17 @@ import type {
 } from '@ankhorage/contracts/data';
 
 export * from './discovery';
-export * from './generated-api';
 export * from './graphql';
 export * from './openapi';
 export * from './rest';
 export * from './test-runner';
 
 export const DATA_SOURCES_PACKAGE_NAME = '@ankhorage/data-sources' as const;
-export const SUPPORTED_DATA_SOURCE_KINDS = [
-  'api',
-  'database',
-] as const satisfies readonly DataSourceKind[];
-export const SUPPORTED_API_ORIGINS = [
-  'external',
-  'generated',
-] as const satisfies readonly ApiOrigin[];
-export const SUPPORTED_API_PROTOCOLS = [
-  'graphql',
-  'rest',
-] as const satisfies readonly ApiProtocol[];
+export const SUPPORTED_DATA_SOURCE_KINDS = ['database'] as const satisfies readonly DataSourceKind[];
+export const SUPPORTED_API_ORIGINS = ['external'] as const satisfies readonly ApiOrigin[];
+export const SUPPORTED_API_PROTOCOLS = ['graphql', 'rest'] as const satisfies readonly ApiProtocol[];
+
+export type SupportedApiOrigin = (typeof SUPPORTED_API_ORIGINS)[number];
 
 export interface DataSourcesPackageInfo {
   readonly packageName: typeof DATA_SOURCES_PACKAGE_NAME;
@@ -46,7 +38,7 @@ export function isSupportedDataSourceKind(kind: string): kind is DataSourceKind 
   return SUPPORTED_DATA_SOURCE_KINDS.some((supported) => supported === kind);
 }
 
-export function isSupportedApiOrigin(origin: string): origin is ApiOrigin {
+export function isSupportedApiOrigin(origin: string): origin is SupportedApiOrigin {
   return SUPPORTED_API_ORIGINS.some((supported) => supported === origin);
 }
 
