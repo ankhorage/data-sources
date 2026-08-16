@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 2.0.0
+
+### Major Changes
+
+- 5be6ff8: Consume canonical Contracts v8 API definitions directly, execute external REST and GraphQL APIs without database projection, and remove the generated-API data-source surface.
+
 ## 1.0.1
 
 ### Patch Changes
