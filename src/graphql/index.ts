@@ -9,12 +9,15 @@ import {
   normalizeGraphQlIntrospectionOperations,
   normalizeGraphQlIntrospectionSchemas,
 } from './introspection';
-import { normalizeGraphQlOperation, normalizeGraphQlOperationId } from './operation';
+import { normalizeGraphQlOperation } from './operation';
 import type { GraphQlApiDefinition } from './types';
 
+export {
+  normalizeGraphQlIntrospectionOperations,
+  normalizeGraphQlIntrospectionSchemas,
+} from './introspection';
+export { normalizeGraphQlOperationId } from './operation';
 export type * from './types';
-export { normalizeGraphQlIntrospectionOperations, normalizeGraphQlIntrospectionSchemas };
-export { normalizeGraphQlOperationId };
 
 export const GRAPHQL_INTROSPECTION_QUERY = `query AnkhorageGraphQlIntrospection {
   __schema {
