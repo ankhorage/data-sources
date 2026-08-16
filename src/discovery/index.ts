@@ -158,21 +158,10 @@ export async function introspectGraphQlApi(
     return graphqlFailure(input.id, 'GraphQL introspection requires a valid HTTP or HTTPS URL.');
   }
 
-  let response: ExternalApiFetchResponse;
-  try {
-    response = await input.fetch(normalizeCandidateUrl(endpoint), {
-      method: 'POST',
-      headers: {
-        accept: 'application/json',
-        'content-type': 'application/json',
-        ...(input.headers ?? {}),
-      },
-      body: JSON.stringify(createGraphQlIntrospectionRequest()),
-    });
-  } catch {
+  const response = await fetchGraphQlIntrospection(input, endpoint);
+  if (response === undefined) {
     return graphqlFailure(input.id, 'GraphQL introspection request failed.', 'network-error');
   }
-
   if (!isSuccessfulStatus(response.status)) {
     return {
       ...graphqlFailure(
@@ -204,10 +193,28 @@ export async function introspectGraphQlApi(
     schemaVersion: input.schemaVersion,
     metadata: input.metadata,
   });
-
   return result.ok
     ? { ok: true, data: result.data, diagnostics: result.diagnostics ?? [] }
     : { ok: false, diagnostics: result.diagnostics };
+}
+
+async function fetchGraphQlIntrospection(
+  input: IntrospectGraphQlApiInput,
+  endpoint: URL,
+): Promise<ExternalApiFetchResponse | undefined> {
+  try {
+    return await input.fetch(normalizeCandidateUrl(endpoint), {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+        ...(input.headers ?? {}),
+      },
+      body: JSON.stringify(createGraphQlIntrospectionRequest()),
+    });
+  } catch {
+    return undefined;
+  }
 }
 
 interface OpenApiProbeResult {
