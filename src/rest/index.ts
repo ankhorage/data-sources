@@ -136,46 +136,9 @@ export function createManualRestApi(
 export function normalizeManualRestApi(
   definition: ManualRestApiDefinition,
 ): ExternalRestApiDefinition {
-  const endpoints: Record<EndpointId, DataEndpointConfig> = {};
-
-  for (const endpoint of definition.endpoints) {
-    const operations: Record<OperationId, DataOperationConfig> = {};
-
-    for (const operation of endpoint.operations) {
-      const { parameters } = operation;
-      const request: DataOperationRequest | undefined =
-        operation.request === undefined && parameters === undefined
-          ? undefined
-          : { ...operation.request, parameters };
-
-      operations[operation.id] = {
-        id: operation.id,
-        endpointId: endpoint.id,
-        name: operation.name,
-        description: operation.description,
-        protocol: 'http',
-        intent: operation.intent,
-        method: normalizeManualRestMethod(operation.method),
-        path: operation.path ?? endpoint.path,
-        request,
-        response: operation.response,
-        pagination: operation.pagination,
-        credential: operation.credential,
-        metadata: operation.metadata,
-      };
-    }
-
-    endpoints[endpoint.id] = {
-      id: endpoint.id,
-      kind: 'http',
-      name: endpoint.name,
-      description: endpoint.description,
-      path: endpoint.path,
-      credential: endpoint.credential,
-      operations,
-      metadata: endpoint.metadata,
-    };
-  }
+  const endpoints = Object.fromEntries(
+    definition.endpoints.map((endpoint) => [endpoint.id, normalizeManualRestEndpoint(endpoint)]),
+  );
 
   return {
     id: definition.id,
@@ -188,6 +151,51 @@ export function normalizeManualRestApi(
     endpoints,
     schemas: definition.schemas,
     metadata: definition.metadata,
+  };
+}
+
+function normalizeManualRestEndpoint(endpoint: ManualRestEndpointDefinition): DataEndpointConfig {
+  const operations = Object.fromEntries(
+    endpoint.operations.map((operation) => [
+      operation.id,
+      normalizeManualRestOperation(endpoint, operation),
+    ]),
+  );
+  return {
+    id: endpoint.id,
+    kind: 'http',
+    name: endpoint.name,
+    description: endpoint.description,
+    path: endpoint.path,
+    credential: endpoint.credential,
+    operations,
+    metadata: endpoint.metadata,
+  };
+}
+
+function normalizeManualRestOperation(
+  endpoint: ManualRestEndpointDefinition,
+  operation: ManualRestOperationDefinition,
+): DataOperationConfig {
+  const { parameters } = operation;
+  const request: DataOperationRequest | undefined =
+    operation.request === undefined && parameters === undefined
+      ? undefined
+      : { ...operation.request, parameters };
+  return {
+    id: operation.id,
+    endpointId: endpoint.id,
+    name: operation.name,
+    description: operation.description,
+    protocol: 'http',
+    intent: operation.intent,
+    method: normalizeManualRestMethod(operation.method),
+    path: operation.path ?? endpoint.path,
+    request,
+    response: operation.response,
+    pagination: operation.pagination,
+    credential: operation.credential,
+    metadata: operation.metadata,
   };
 }
 
