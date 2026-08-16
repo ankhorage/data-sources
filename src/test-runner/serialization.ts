@@ -6,11 +6,7 @@ import type {
 } from '@ankhorage/contracts/data';
 
 import { createDiagnostic } from './result';
-import type {
-  EndpointTestHeaders,
-  EndpointTestInput,
-  EndpointTestInputValues,
-} from './types';
+import type { EndpointTestHeaders, EndpointTestInput, EndpointTestInputValues } from './types';
 
 export function interpolatePath(
   path: string,
@@ -24,12 +20,18 @@ export function interpolatePath(
     const value = readValue(values, parameter.name) ?? parameter.default;
     if (value === undefined) {
       diagnostics.push(
-        createDiagnostic(input, 'invalid-config', `Missing required path parameter '${parameter.name}'.`),
+        createDiagnostic(
+          input,
+          'invalid-config',
+          `Missing required path parameter '${parameter.name}'.`,
+        ),
       );
       continue;
     }
     const encoded = encodeURIComponent(serializeEndpointUrlValue(value));
-    next = next.replaceAll(`{${parameter.name}}`, encoded).replaceAll(`:${parameter.name}`, encoded);
+    next = next
+      .replaceAll(`{${parameter.name}}`, encoded)
+      .replaceAll(`:${parameter.name}`, encoded);
   }
   return next;
 }
@@ -55,9 +57,7 @@ export function collectHeaders(
   const parameterEntries = parameters.flatMap((parameter) => {
     if (parameter.location !== 'header') return [];
     const value = readValue(values, parameter.name) ?? parameter.default;
-    return value === undefined
-      ? []
-      : [[parameter.name, serializeEndpointUrlValue(value)] as const];
+    return value === undefined ? [] : [[parameter.name, serializeEndpointUrlValue(value)] as const];
   });
   return Object.fromEntries([...Object.entries(credentialHeaders ?? {}), ...parameterEntries]);
 }
@@ -83,7 +83,10 @@ export function appendQuery(url: string, query: EndpointTestInputValues): string
   const entries = Object.entries(query);
   if (entries.length === 0) return url;
   const search = entries
-    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(serializeEndpointUrlValue(value))}`)
+    .map(
+      ([key, value]) =>
+        `${encodeURIComponent(key)}=${encodeURIComponent(serializeEndpointUrlValue(value))}`,
+    )
     .join('&');
   return `${url}${url.includes('?') ? '&' : '?'}${search}`;
 }
@@ -142,5 +145,7 @@ function isDataContractValue(value: unknown): value is DataContractValue {
 function isDataContractRecord(
   value: DataContractValue | undefined,
 ): value is Record<string, DataContractValue> {
-  return value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value);
+  return (
+    value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value)
+  );
 }
