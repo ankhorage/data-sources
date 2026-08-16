@@ -5,7 +5,7 @@ import type {
   OperationId,
 } from '@ankhorage/contracts/data';
 
-import { normalizeOpenApiOperation, normalizeOpenApiOperationId } from './operation';
+import { normalizeOpenApiOperation } from './operation';
 import type {
   OpenApiHttpMethod,
   OpenApiImportInput,
@@ -22,8 +22,6 @@ const OPENAPI_HTTP_METHODS = [
   'post',
   'put',
 ] as const satisfies readonly OpenApiHttpMethod[];
-
-export { normalizeOpenApiOperationId };
 
 export function normalizeOpenApiEndpointId(path: string): EndpointId {
   const normalized = path
