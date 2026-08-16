@@ -12,6 +12,13 @@ import {
   type GraphQlIntrospectionResult,
 } from '../graphql';
 import { importOpenApiDocument, type OpenApiDocumentObject } from '../openapi';
+import {
+  isSuccessfulStatus,
+  normalizeCandidateUrl,
+  parseHttpUrl,
+  parseJsonResponse,
+  readRecord,
+} from './http';
 
 export const DEFAULT_OPENAPI_DISCOVERY_PATHS = [
   'openapi.json',
@@ -270,35 +277,6 @@ async function probeOpenApiCandidate(
   };
 }
 
-function parseHttpUrl(rawUrl: string): URL | undefined {
-  try {
-    const parsed = new URL(rawUrl.trim());
-    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return undefined;
-    if (parsed.username.length > 0 || parsed.password.length > 0) return undefined;
-    return parsed;
-  } catch {
-    return undefined;
-  }
-}
-
-function normalizeCandidateUrl(url: URL): string {
-  const normalized = new URL(url.toString());
-  normalized.hash = '';
-  return normalized.toString();
-}
-
-function isSuccessfulStatus(status: number): boolean {
-  return status >= 200 && status < 300;
-}
-
-async function parseJsonResponse(response: ExternalApiFetchResponse): Promise<unknown> {
-  try {
-    return JSON.parse(await response.text()) as unknown;
-  } catch {
-    return undefined;
-  }
-}
-
 function isOpenApiDocument(value: unknown): value is OpenApiDocumentObject {
   const record = readRecord(value);
   return (
@@ -313,12 +291,6 @@ function readGraphQlIntrospection(value: unknown): GraphQlIntrospectionResult | 
   const data = readRecord(payload?.data);
   if (readRecord(data?.__schema) === undefined) return undefined;
   return data;
-}
-
-function readRecord(value: unknown): Readonly<Record<string, unknown>> | undefined {
-  return typeof value === 'object' && value !== null && !Array.isArray(value)
-    ? (value as Readonly<Record<string, unknown>>)
-    : undefined;
 }
 
 function discoveryFailure(
