@@ -13,7 +13,7 @@ import type {
   OpenApiPathItemObject,
 } from './types';
 
-const OPENAPI_HTTP_METHODS = new Set<OpenApiHttpMethod>([
+const OPENAPI_HTTP_METHODS = [
   'delete',
   'get',
   'head',
@@ -21,7 +21,7 @@ const OPENAPI_HTTP_METHODS = new Set<OpenApiHttpMethod>([
   'patch',
   'post',
   'put',
-]);
+] as const satisfies readonly OpenApiHttpMethod[];
 
 export { normalizeOpenApiOperationId };
 
@@ -97,11 +97,30 @@ function normalizeOpenApiEndpoint(
 function getOpenApiOperations(
   pathItem: OpenApiPathItemObject,
 ): readonly [OpenApiHttpMethod, OpenApiOperationObject][] {
-  return Object.entries(pathItem).flatMap(([key, value]) =>
-    isOpenApiHttpMethod(key) ? [[key, value]] : [],
-  );
+  return OPENAPI_HTTP_METHODS.flatMap((method) => {
+    const operation = getOpenApiOperation(pathItem, method);
+    return operation === undefined ? [] : [[method, operation]];
+  });
 }
 
-function isOpenApiHttpMethod(value: string): value is OpenApiHttpMethod {
-  return OPENAPI_HTTP_METHODS.has(value as OpenApiHttpMethod);
+function getOpenApiOperation(
+  pathItem: OpenApiPathItemObject,
+  method: OpenApiHttpMethod,
+): OpenApiOperationObject | undefined {
+  switch (method) {
+    case 'delete':
+      return pathItem.delete;
+    case 'get':
+      return pathItem.get;
+    case 'head':
+      return pathItem.head;
+    case 'options':
+      return pathItem.options;
+    case 'patch':
+      return pathItem.patch;
+    case 'post':
+      return pathItem.post;
+    case 'put':
+      return pathItem.put;
+  }
 }
