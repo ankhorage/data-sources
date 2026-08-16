@@ -97,7 +97,8 @@ export function validateGraphQlApi(
     diagnostics.push({
       code: 'missing-schema',
       apiId: definition.id,
-      message: 'GraphQL introspection result was not provided. Manual operations can still be used.',
+      message:
+        'GraphQL introspection result was not provided. Manual operations can still be used.',
       path: 'introspection',
       severity: 'info',
     });

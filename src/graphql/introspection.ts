@@ -17,7 +17,7 @@ export function normalizeGraphQlIntrospectionSchemas(
 ): DataSchemaRegistry | undefined {
   const types = introspection?.__schema?.types?.filter(isNamedGraphQlType) ?? [];
   const entries = types.flatMap((type) => {
-    const name = type.name;
+    const { name } = type;
     if (name === undefined || name === null || name.startsWith('__')) return [];
     return [[name, normalizeGraphQlType(type)] as const];
   });
@@ -113,13 +113,16 @@ function normalizeGraphQlUnionType(type: GraphQlIntrospectionType): DataSchema {
 
 function normalizeGraphQlObjectType(type: GraphQlIntrospectionType): DataSchema {
   const fields = type.kind === 'INPUT_OBJECT' ? type.inputFields : type.fields;
-  const entries = (fields ?? []).map((field) => [
-    field.name,
-    {
-      ...normalizeGraphQlTypeRef(field.type),
-      description: field.description ?? undefined,
-    },
-  ] as const);
+  const entries = (fields ?? []).map(
+    (field) =>
+      [
+        field.name,
+        {
+          ...normalizeGraphQlTypeRef(field.type),
+          description: field.description ?? undefined,
+        },
+      ] as const,
+  );
   const required = (fields ?? [])
     .filter((field) => isGraphQlNonNull(field.type))
     .map((field) => field.name);

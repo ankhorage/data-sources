@@ -1,5 +1,4 @@
 import type {
-  DataContractValue,
   DataSchema,
   DataSchemaPrimitiveType,
   DataSchemaRegistry,

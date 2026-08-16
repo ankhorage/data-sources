@@ -107,7 +107,10 @@ function resolveUniqueOperationId(
   return uniqueId;
 }
 
-function findUniqueOperationId(normalized: OperationId, operationIds: Set<OperationId>): OperationId {
+function findUniqueOperationId(
+  normalized: OperationId,
+  operationIds: Set<OperationId>,
+): OperationId {
   let suffix = 2;
   let candidate: OperationId = `${normalized}-${suffix}`;
   while (operationIds.has(candidate)) {
@@ -145,7 +148,8 @@ function normalizeOpenApiParameter(
         location,
         required: parameter.required,
         description: parameter.description,
-        schema: parameter.schema === undefined ? undefined : normalizeOpenApiSchema(parameter.schema),
+        schema:
+          parameter.schema === undefined ? undefined : normalizeOpenApiSchema(parameter.schema),
       },
     ];
   }

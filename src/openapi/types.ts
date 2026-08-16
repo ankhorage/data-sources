@@ -1,13 +1,6 @@
 import type { CredentialRef, DataContractValue } from '@ankhorage/contracts/data';
 
-export type OpenApiHttpMethod =
-  | 'delete'
-  | 'get'
-  | 'head'
-  | 'options'
-  | 'patch'
-  | 'post'
-  | 'put';
+export type OpenApiHttpMethod = 'delete' | 'get' | 'head' | 'options' | 'patch' | 'post' | 'put';
 
 export interface OpenApiServerObject {
   readonly url: string;

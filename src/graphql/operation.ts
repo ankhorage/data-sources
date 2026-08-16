@@ -10,10 +10,7 @@ import type { GraphQlOperationDefinition, GraphQlOperationKind } from './types';
 
 type DataContractRecord = Record<string, DataContractValue>;
 
-export function normalizeGraphQlOperationId(
-  kind: GraphQlOperationKind,
-  name: string,
-): OperationId {
+export function normalizeGraphQlOperationId(kind: GraphQlOperationKind, name: string): OperationId {
   const normalizedName = name
     .replace(/[^A-Za-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
@@ -57,5 +54,7 @@ function toMetadataRecord(value: DataContractValue | undefined): DataContractRec
 }
 
 function isDataContractRecord(value: DataContractValue | undefined): value is DataContractRecord {
-  return value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value);
+  return (
+    value !== undefined && typeof value === 'object' && value !== null && !Array.isArray(value)
+  );
 }
