@@ -688,8 +688,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(rawUrl: string, conventionalPaths?: readonly string[]) =&gt; readonly string[]</pre
-                  >
+(rawUrl: string, conventionalPaths?: readonly string[]) =&gt; readonly string[]</pre>
                   <table>
                     <thead>
                       <tr>
@@ -747,8 +746,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(input: DiscoverOpenApiInput) =&gt; Promise&lt;DiscoverOpenApiResult&gt;</pre
-                  >
+(input: DiscoverOpenApiInput) =&gt; Promise&lt;DiscoverOpenApiResult&gt;</pre>
                   <table>
                     <thead>
                       <tr>
@@ -989,8 +987,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(input: IntrospectGraphQlApiInput) =&gt; Promise&lt;IntrospectGraphQlApiResult&gt;</pre
-                  >
+(input: IntrospectGraphQlApiInput) =&gt; Promise&lt;IntrospectGraphQlApiResult&gt;</pre>
                   <table>
                     <thead>
                       <tr>
@@ -1201,8 +1198,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(definition: GraphQlApiDefinition) =&gt; DataSourceDiagnosticResult&lt;ExternalGraphQlApiDefinition&gt;</pre
-                  >
+(definition: GraphQlApiDefinition) =&gt; DataSourceDiagnosticResult&lt;ExternalGraphQlApiDefinition&gt;</pre>
                   <table>
                     <thead>
                       <tr>
@@ -1369,8 +1365,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(definition: GraphQlApiDefinition) =&gt; readonly DataSourceDiagnostic[]</pre
-                  >
+(definition: GraphQlApiDefinition) =&gt; readonly DataSourceDiagnostic[]</pre>
                   <table>
                     <thead>
                       <tr>
@@ -1414,8 +1409,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(introspection: GraphQlIntrospectionResult | undefined) =&gt; readonly GraphQlOperationDefinition[]</pre
-                  >
+(introspection: GraphQlIntrospectionResult | undefined) =&gt; readonly GraphQlOperationDefinition[]</pre>
                   <table>
                     <thead>
                       <tr>
@@ -1457,8 +1451,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(introspection: GraphQlIntrospectionResult | undefined) =&gt; Readonly&lt;Record&lt;string, DataSchema&gt;&gt; | undefined</pre
-                  >
+(introspection: GraphQlIntrospectionResult | undefined) =&gt; Readonly&lt;Record&lt;string, DataSchema&gt;&gt; | undefined</pre>
                   <table>
                     <thead>
                       <tr>
@@ -2238,8 +2231,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(method: OpenApiHttpMethod, path: string, operationId?: string | undefined) =&gt; string</pre
-                  >
+(method: OpenApiHttpMethod, path: string, operationId?: string | undefined) =&gt; string</pre>
                   <table>
                     <thead>
                       <tr>
@@ -3117,8 +3109,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(source: import(&quot;@ankhorage/contracts/dist/data/sources&quot;).DatabaseDataSourceConfig) =&gt; &quot;database&quot;</pre
-                  >
+(source: import(&quot;@ankhorage/contracts/dist/data/sources&quot;).DatabaseDataSourceConfig) =&gt; &quot;database&quot;</pre>
                   <table>
                     <thead>
                       <tr>
@@ -3333,8 +3324,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(definition: ManualRestApiDefinition) =&gt; DataSourceDiagnosticResult&lt;ExternalRestApiDefinition&gt;</pre
-                  >
+(definition: ManualRestApiDefinition) =&gt; DataSourceDiagnosticResult&lt;ExternalRestApiDefinition&gt;</pre>
                   <table>
                     <thead>
                       <tr>
@@ -3809,8 +3799,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(definition: ManualRestApiDefinition) =&gt; readonly DataSourceDiagnostic[]</pre
-                  >
+(definition: ManualRestApiDefinition) =&gt; readonly DataSourceDiagnostic[]</pre>
                   <table>
                     <thead>
                       <tr>
@@ -4493,8 +4482,7 @@ graph TD
   module_src_test_runner_serialization_ts --&gt; module_src_test_runner_types_ts
   module_src_test_runner_types_ts[&quot;src/test-runner/types.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_test_runner_types_ts
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -4603,8 +4591,7 @@ graph LR
   module_src_test_runner_result_ts --&gt; module_src_test_runner_types_ts
   module_src_test_runner_serialization_ts --&gt; module_src_test_runner_result_ts
   module_src_test_runner_serialization_ts --&gt; module_src_test_runner_types_ts
-</pre
-                >
+</pre>
               </details>
             </article>
             <article class="item" data-search="Export graph diagrams/export-graph.mmd">
@@ -5102,8 +5089,7 @@ graph LR
   export_validateManualRestApi[&quot;validateManualRestApi&quot;]
   module_src_rest_index_ts --&gt; export_validateManualRestApi
   export_validateManualRestApi -.-&gt; export_ManualRestApiDefinition
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -5159,8 +5145,7 @@ sequenceDiagram
   participant_normalizeRootOperations--&gt;&gt;participant_normalizeGraphQlIntrospectionOperations: return
   participant_normalizeGraphQlIntrospectionOperations--&gt;&gt;participant_normalizeGraphQlApi: return
   participant_normalizeGraphQlApi--&gt;&gt;participant_createGraphQlApi: return
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -5222,8 +5207,7 @@ sequenceDiagram
   participant_validateManualRestApi--&gt;&gt;participant_createManualRestApi: return
   participant_createManualRestApi-&gt;&gt;participant_normalizeManualRestApi: normalizeManualRestApi()
   participant_normalizeManualRestApi--&gt;&gt;participant_createManualRestApi: return
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -5258,8 +5242,7 @@ sequenceDiagram
   participant_parseHttpUrl--&gt;&gt;participant_createOpenApiDiscoveryCandidates: return
   participant_createOpenApiDiscoveryCandidates-&gt;&gt;participant_normalizeCandidateUrl: normalizeCandidateUrl()
   participant_normalizeCandidateUrl--&gt;&gt;participant_createOpenApiDiscoveryCandidates: return
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -5300,8 +5283,7 @@ sequenceDiagram
   participant_normalizeOpenApiSchemas--&gt;&gt;participant_importOpenApiDocument: return
   participant_importOpenApiDocument-&gt;&gt;participant_normalizeOpenApiEndpoints: normalizeOpenApiEndpoints()
   participant_normalizeOpenApiEndpoints--&gt;&gt;participant_importOpenApiDocument: return
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -5344,8 +5326,7 @@ sequenceDiagram
   participant_normalizeGraphQlIntrospectionOperations-&gt;&gt;participant_normalizeRootOperations: normalizeRootOperations()
   participant_normalizeRootOperations--&gt;&gt;participant_normalizeGraphQlIntrospectionOperations: return
   participant_normalizeGraphQlIntrospectionOperations--&gt;&gt;participant_normalizeGraphQlApi: return
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -5373,8 +5354,7 @@ sequenceDiagram
   participant participant_normalizeRootOperations as normalizeRootOperations
   participant_normalizeGraphQlIntrospectionOperations-&gt;&gt;participant_normalizeRootOperations: normalizeRootOperations()
   participant_normalizeRootOperations--&gt;&gt;participant_normalizeGraphQlIntrospectionOperations: return
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -5448,8 +5428,7 @@ sequenceDiagram
   participant_normalizeOpenApiSchema--&gt;&gt;participant_normalizeOpenApiSchema: return
   participant_normalizeOpenApiSchema--&gt;&gt;participant_normalizeAdditionalProperties: return
   participant_normalizeAdditionalProperties--&gt;&gt;participant_normalizeOpenApiSchema: return
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -5499,8 +5478,7 @@ sequenceDiagram
   participant_validateManualRestOperation-&gt;&gt;participant_isManualRestMethod: isManualRestMethod()
   participant_isManualRestMethod--&gt;&gt;participant_validateManualRestOperation: return
   participant_validateManualRestOperation--&gt;&gt;participant_validateManualRestApi: return
-</pre
-                >
+</pre>
               </details>
             </article>
           </section>
