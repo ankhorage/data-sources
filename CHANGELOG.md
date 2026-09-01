@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 2.0.1
+
+### Patch Changes
+
+- 1a59139: Update Ankhorage dependencies: `@ankhorage/contracts`, `@ankhorage/paradox`.
+
 ## 2.0.0
 
 ### Major Changes
