@@ -1,55 +1,28 @@
-# Agent Instructions
+# AGENTS.md
 
-## Scope
+<!-- This file is managed by @ankhorage/devtools. -->
 
-`@ankhorage/data-sources` is a headless toolkit for importing, generating, normalizing, and testing Ankhorage data-source configurations.
+## Repository
 
-This package consumes canonical serializable contracts from `@ankhorage/contracts`.
+Package: `@ankhorage/data-sources`
 
-It must not own or redefine canonical app contracts.
+Headless toolkit for importing, normalizing, and executing canonical Ankhorage API and data-source configs.
 
-## Boundaries
+## Current architecture only
 
-- Do not import Studio.
-- Do not import ZORA.
-- Do not render UI.
-- Do not own app manifest contracts.
-- Do not own runtime binding lifecycle or cache state.
-- Keep helpers provider-neutral unless a later issue explicitly adds provider-specific support behind a clean boundary.
+Only the current Ankhorage architecture is valid. Do not add or retain deprecated APIs,
+compatibility aliases, shims, dual old/new paths, historical-state fallbacks, or migrations whose
+sole purpose is supporting obsolete states. Remove superseded implementations instead.
 
-## Module ownership
+When a canonical change affects another repository, update that repository to the latest released
+public API instead of preserving compatibility locally. Cross-package usage must go through
+published public APIs and declared dependencies, never sibling source files.
 
-- An implementation file exports symbols it owns and defines itself.
-- Do not import a symbol into an implementation file merely to re-export it.
-- Re-exporting belongs only in explicit barrel/public-entry files such as `index.ts`.
-- Barrels should re-export directly from the owning module (`export { x } from './owner'`) instead of importing `x` only to export it again.
-- Leaf/implementation modules must not import from a parent or sibling barrel when a concrete owner module exists. Import the owner directly to avoid reverse dependencies and cycles.
-- Put shared constants, types, and helpers in a clearly named owner module rather than making `index.ts` their implementation owner.
+Current-runtime error handling and canonical database or infrastructure migrations remain valid
+when they support states that the current architecture can intentionally produce.
 
-## TypeScript rules
+## Project structure
 
-- Do not use `any`.
-- Do not use `as any` or broad casts to silence errors.
-- Do not use `@ts-ignore` or `@ts-expect-error` unless explicitly requested.
-- Do not disable ESLint rules inline.
-- Do not weaken TypeScript strictness.
-- Build output must go to `dist/` only.
-
-## Verification
-
-Run before completing changes:
-
-```bash
-bun run build
-bun run lint:fix
-bun run test
-```
-
-Use `bun run typecheck` when changing types or public exports.
-
-## No legacy / no deprecation
-
-There is no existing production consumer for this package API.
-
-Do not add compatibility shims, deprecated aliases, migration helpers, or temporary public names.
-Choose the clean final API shape for each issue.
+For directory ownership, package boundaries, architectural profiles, ports and adapters, public
+entrypoints, or cross-repository structural work, load and follow
+`.agents/skills/ankhorage-project-structure/SKILL.md`.
