@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 2.0.5
+
+### Patch Changes
+
+- 43264ba: Scope OpenAPI documents discovered at a shared origin root to the service path requested by the caller.
+
 ## 2.0.4
 
 ### Patch Changes
