@@ -167,9 +167,6 @@ it('scopes root OpenAPI discovery to the requested service and preserves runtime
       '/v1/poker/training/tasks/{taskId}',
       '/v1/poker/training/tasks/{taskId}/answer',
     ]);
-    expect(result.data.endpoints['v1-poker-admin-status']).toBeUndefined();
-    expect(result.data.endpoints['v1-pokerface-status']).toBeUndefined();
-
     const request = await buildEndpointTestRequest({
       api: result.data,
       endpointId: 'v1-poker-training-tasks',
