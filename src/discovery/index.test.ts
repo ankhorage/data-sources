@@ -1,5 +1,6 @@
 import { expect, it } from 'bun:test';
 
+import { buildEndpointTestRequest } from '../test-runner';
 import {
   createOpenApiDiscoveryCandidates,
   discoverOpenApi,
@@ -22,6 +23,34 @@ function openApiDocument() {
         get: { operationId: 'listItems', responses: { '200': { description: 'Items' } } },
       },
     },
+  } as const;
+}
+
+function gatewayOpenApiDocument() {
+  return {
+    openapi: '3.1.0',
+    info: { title: 'Shared Gateway', version: '1.0.0' },
+    servers: [{ url: 'https://api.example.com' }],
+    paths: {
+      '/health': { get: {} },
+      '/v1/chess/openings': { get: {} },
+      '/v1/poker/health': { get: {} },
+      '/v1/poker/training/tasks': { get: {} },
+      '/v1/poker/training/tasks/{taskId}': { get: {} },
+      '/v1/poker/training/tasks/{taskId}/answer': { post: {} },
+      '/v1/poker/training/tasks/by-slug/{slug}': { get: {} },
+      '/v1/poker-admin/status': { get: {} },
+      '/v1/pokerface/status': { get: {} },
+    },
+  } as const;
+}
+
+function serviceLocalOpenApiDocument() {
+  return {
+    openapi: '3.1.0',
+    info: { title: 'Poker API', version: '1.0.0' },
+    servers: [{ url: 'https://api.example.com/v1/poker' }],
+    paths: { '/health': { get: {} } },
   } as const;
 }
 
@@ -98,6 +127,124 @@ it('falls back to OpenAPI conventional locations without leaking response data',
     'https://api.example.com/service/openapi.json',
   ]);
   expect(JSON.stringify(result)).not.toContain('hidden');
+});
+
+it('scopes root OpenAPI discovery to the requested service and preserves runtime URLs', async () => {
+  const calls: string[] = [];
+  const fetch: ExternalApiFetch = (url) => {
+    calls.push(url);
+    return Promise.resolve(
+      url === 'https://api.example.com/openapi.json'
+        ? jsonResponse(gatewayOpenApiDocument())
+        : jsonResponse({ private: 'hidden' }, 404),
+    );
+  };
+  const result = await discoverOpenApi({
+    id: 'poker',
+    url: 'https://api.example.com/v1/poker/?tenant=private#fragment',
+    conventionalPaths: ['openapi.json'],
+    fetch,
+  });
+
+  expect(calls).toEqual([
+    'https://api.example.com/v1/poker/?tenant=private',
+    'https://api.example.com/v1/poker/openapi.json',
+    'https://api.example.com/openapi.json',
+  ]);
+  expect(result.ok).toBe(true);
+  if (result.ok) {
+    expect(result.documentUrl).toBe('https://api.example.com/openapi.json');
+    expect(result.data.baseUrl).toBe('https://api.example.com');
+    expect(result.data.openApi?.url).toBe('https://api.example.com/openapi.json');
+    expect(
+      Object.values(result.data.endpoints)
+        .map((endpoint) => endpoint.path)
+        .sort(),
+    ).toEqual([
+      '/v1/poker/health',
+      '/v1/poker/training/tasks',
+      '/v1/poker/training/tasks/by-slug/{slug}',
+      '/v1/poker/training/tasks/{taskId}',
+      '/v1/poker/training/tasks/{taskId}/answer',
+    ]);
+    const request = await buildEndpointTestRequest({
+      api: result.data,
+      endpointId: 'v1-poker-training-tasks',
+      operationId: 'get-v1-poker-training-tasks',
+      dryRun: true,
+    });
+    expect(request.ok).toBe(true);
+    if (request.ok) {
+      expect(request.request.url).toBe('https://api.example.com/v1/poker/training/tasks');
+    }
+  }
+});
+
+it('keeps service-local OpenAPI documents unscoped', async () => {
+  const fetch: ExternalApiFetch = (url) =>
+    Promise.resolve(
+      url === 'https://api.example.com/v1/poker/openapi.json'
+        ? jsonResponse(serviceLocalOpenApiDocument())
+        : jsonResponse({}, 404),
+    );
+  const result = await discoverOpenApi({
+    id: 'poker',
+    url: 'https://api.example.com/v1/poker/',
+    conventionalPaths: ['openapi.json'],
+    fetch,
+  });
+
+  expect(result.ok).toBe(true);
+  if (result.ok) {
+    expect(result.documentUrl).toBe('https://api.example.com/v1/poker/openapi.json');
+    expect(result.data.baseUrl).toBe('https://api.example.com/v1/poker');
+    expect(result.data.endpoints.health?.path).toBe('/health');
+  }
+});
+
+it('keeps root host and explicit root-document discovery unscoped', async () => {
+  for (const url of ['https://api.example.com/', 'https://api.example.com/openapi.json']) {
+    const result = await discoverOpenApi({
+      id: 'gateway',
+      url,
+      conventionalPaths: ['openapi.json'],
+      fetch: (candidate) =>
+        Promise.resolve(
+          candidate === 'https://api.example.com/openapi.json'
+            ? jsonResponse(gatewayOpenApiDocument())
+            : jsonResponse({}, 404),
+        ),
+    });
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(Object.keys(result.data.endpoints)).toHaveLength(9);
+  }
+});
+
+it('fails safely when a root document has no paths in the requested scope', async () => {
+  const result = await discoverOpenApi({
+    id: 'missing',
+    url: 'https://api.example.com/v1/missing',
+    conventionalPaths: ['openapi.json'],
+    fetch: (url) =>
+      Promise.resolve(
+        url === 'https://api.example.com/openapi.json'
+          ? jsonResponse(gatewayOpenApiDocument())
+          : jsonResponse({ private: 'hidden' }, 404),
+      ),
+  });
+
+  expect(result.ok).toBe(false);
+  if (!result.ok) {
+    expect(result.attempts.at(-1)).toEqual({
+      url: 'https://api.example.com/openapi.json',
+      outcome: 'invalid-document',
+      status: 200,
+    });
+    expect(result.diagnostics[0]).toMatchObject({ code: 'missing-schema', path: 'paths' });
+    expect(result.diagnostics[0]?.message).toContain("requested service scope '/v1/missing'");
+    expect(result.diagnostics[0]?.message).toContain('https://api.example.com/openapi.json');
+    expect(JSON.stringify(result)).not.toContain('hidden');
+  }
 });
 
 it('introspects GraphQL without echoing trusted headers', async () => {

@@ -19,6 +19,8 @@ import {
   parseJsonResponse,
   readRecord,
 } from './http';
+import { createOpenApiDiscoveryPlan } from './openapiDiscoveryPlan';
+import { scopeOpenApiDocument } from './scopeOpenApiDocument';
 
 export const DEFAULT_OPENAPI_DISCOVERY_PATHS = [
   'openapi.json',
@@ -107,43 +109,35 @@ export type IntrospectGraphQlApiResult =
       readonly status?: number;
     };
 
+/*** Creates the ordered, deduplicated URLs probed during OpenAPI discovery. */
 export function createOpenApiDiscoveryCandidates(
   rawUrl: string,
   conventionalPaths: readonly string[] = DEFAULT_OPENAPI_DISCOVERY_PATHS,
 ): readonly string[] {
-  const parsed = parseHttpUrl(rawUrl);
-  if (parsed === undefined) return [];
-
-  const exact = normalizeCandidateUrl(parsed);
-  const serviceBase = new URL(exact);
-  if (!serviceBase.pathname.endsWith('/')) serviceBase.pathname = `${serviceBase.pathname}/`;
-
-  const candidates = [exact];
-  for (const path of conventionalPaths) {
-    const normalizedPath = path.replace(/^\/+/, '');
-    candidates.push(normalizeCandidateUrl(new URL(normalizedPath, serviceBase)));
-    candidates.push(normalizeCandidateUrl(new URL(normalizedPath, `${parsed.origin}/`)));
-  }
-
-  return [...new Set(candidates)];
+  return createOpenApiDiscoveryPlan(rawUrl, conventionalPaths).candidates.map(
+    (candidate) => candidate.url,
+  );
 }
 
+/*** Discovers and imports an OpenAPI document while preserving the requested service boundary. */
 export async function discoverOpenApi(input: DiscoverOpenApiInput): Promise<DiscoverOpenApiResult> {
-  const candidates = createOpenApiDiscoveryCandidates(input.url, input.conventionalPaths);
-  if (candidates.length === 0) {
+  const conventionalPaths = input.conventionalPaths ?? DEFAULT_OPENAPI_DISCOVERY_PATHS;
+  const plan = createOpenApiDiscoveryPlan(input.url, conventionalPaths);
+  if (plan.candidates.length === 0) {
     return discoveryFailure(input.id, [], 'OpenAPI discovery requires a valid HTTP or HTTPS URL.');
   }
 
   const attempts: OpenApiDiscoveryAttempt[] = [];
-  for (const candidate of candidates) {
-    const probed = await probeOpenApiCandidate(input, candidate);
+  for (const candidate of plan.candidates) {
+    const requestedScope = candidate.scopeToRequestedService ? plan.requestedScope : undefined;
+    const probed = await probeOpenApiCandidate(input, candidate.url, requestedScope);
     attempts.push(probed.attempt);
     if (probed.result === undefined) continue;
     return probed.result.ok
       ? {
           ok: true,
           data: probed.result.data,
-          documentUrl: candidate,
+          documentUrl: candidate.url,
           attempts,
           diagnostics: probed.result.diagnostics ?? [],
         }
@@ -157,6 +151,7 @@ export async function discoverOpenApi(input: DiscoverOpenApiInput): Promise<Disc
   );
 }
 
+/*** Introspects a GraphQL endpoint and normalizes its schema into the canonical API definition. */
 export async function introspectGraphQlApi(
   input: IntrospectGraphQlApiInput,
 ): Promise<IntrospectGraphQlApiResult> {
@@ -205,6 +200,7 @@ export async function introspectGraphQlApi(
     : { ok: false, diagnostics: result.diagnostics };
 }
 
+/*** Fetches GraphQL introspection without exposing transport failures beyond the discovery boundary. */
 async function fetchGraphQlIntrospection(
   input: IntrospectGraphQlApiInput,
   endpoint: URL,
@@ -229,9 +225,11 @@ interface OpenApiProbeResult {
   readonly result?: ReturnType<typeof importOpenApiDocument>;
 }
 
+/*** Probes one OpenAPI candidate and scopes origin-root documents before canonical import. */
 async function probeOpenApiCandidate(
   input: DiscoverOpenApiInput,
   candidate: string,
+  requestedScope: string | undefined,
 ): Promise<OpenApiProbeResult> {
   let response: ExternalApiFetchResponse;
   try {
@@ -257,16 +255,7 @@ async function probeOpenApiCandidate(
     };
   }
 
-  const result = importOpenApiDocument({
-    id: input.id,
-    document: parsed,
-    baseUrl: input.baseUrl,
-    credential: input.credential,
-    documentUrl: candidate,
-    name: input.name,
-    description: input.description,
-    metadata: input.metadata,
-  });
+  const result = importOpenApiCandidate(input, candidate, parsed, requestedScope);
   return {
     attempt: {
       url: candidate,
@@ -277,6 +266,33 @@ async function probeOpenApiCandidate(
   };
 }
 
+/*** Applies service scoping and imports one validated OpenAPI candidate. */
+function importOpenApiCandidate(
+  input: DiscoverOpenApiInput,
+  candidate: string,
+  parsed: OpenApiDocumentObject,
+  requestedScope: string | undefined,
+): ReturnType<typeof importOpenApiDocument> {
+  let document = parsed;
+  if (requestedScope !== undefined) {
+    const scoped = scopeOpenApiDocument(parsed, input.id, requestedScope, candidate);
+    if (!scoped.ok) return { ok: false, diagnostics: [scoped.diagnostic] };
+    const { document: scopedDocument } = scoped;
+    document = scopedDocument;
+  }
+  return importOpenApiDocument({
+    id: input.id,
+    document,
+    baseUrl: input.baseUrl,
+    credential: input.credential,
+    documentUrl: candidate,
+    name: input.name,
+    description: input.description,
+    metadata: input.metadata,
+  });
+}
+
+/*** Checks whether parsed JSON has the minimal OpenAPI document shape required for import. */
 function isOpenApiDocument(value: unknown): value is OpenApiDocumentObject {
   const record = readRecord(value);
   return (
@@ -286,6 +302,7 @@ function isOpenApiDocument(value: unknown): value is OpenApiDocumentObject {
   );
 }
 
+/*** Reads a GraphQL introspection schema from a parsed response payload. */
 function readGraphQlIntrospection(value: unknown): GraphQlIntrospectionResult | undefined {
   const payload = readRecord(value);
   const data = readRecord(payload?.data);
@@ -293,6 +310,7 @@ function readGraphQlIntrospection(value: unknown): GraphQlIntrospectionResult | 
   return data;
 }
 
+/*** Builds a canonical OpenAPI discovery failure with safe diagnostics. */
 function discoveryFailure(
   apiId: string,
   attempts: readonly OpenApiDiscoveryAttempt[],
@@ -305,6 +323,7 @@ function discoveryFailure(
   };
 }
 
+/*** Builds a canonical GraphQL introspection failure with API identity. */
 function graphqlFailure(
   apiId: string,
   message: string,
