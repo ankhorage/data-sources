@@ -41,15 +41,15 @@ export function createOpenApiDiscoveryPlan(
   };
 }
 
-type OpenApiDiscoveryPlan = {
+interface OpenApiDiscoveryPlan {
   readonly candidates: readonly OpenApiDiscoveryCandidate[];
   readonly requestedScope: string | undefined;
-};
+}
 
-type OpenApiDiscoveryCandidate = {
+interface OpenApiDiscoveryCandidate {
   readonly url: string;
   readonly scopeToRequestedService: boolean;
-};
+}
 
 /*** Normalizes trailing slashes for segment-safe service-path comparisons. */
 function normalizeServicePath(pathname: string): string {

@@ -255,19 +255,32 @@ async function probeOpenApiCandidate(
     };
   }
 
+  const result = importOpenApiCandidate(input, candidate, parsed, requestedScope);
+  return {
+    attempt: {
+      url: candidate,
+      outcome: result.ok ? 'matched' : 'invalid-document',
+      status: response.status,
+    },
+    result,
+  };
+}
+
+/*** Applies service scoping and imports one validated OpenAPI candidate. */
+function importOpenApiCandidate(
+  input: DiscoverOpenApiInput,
+  candidate: string,
+  parsed: OpenApiDocumentObject,
+  requestedScope: string | undefined,
+): ReturnType<typeof importOpenApiDocument> {
   let document = parsed;
   if (requestedScope !== undefined) {
     const scoped = scopeOpenApiDocument(parsed, input.id, requestedScope, candidate);
-    if (!scoped.ok) {
-      return {
-        attempt: { url: candidate, outcome: 'invalid-document', status: response.status },
-        result: { ok: false, diagnostics: [scoped.diagnostic] },
-      };
-    }
-    document = scoped.document;
+    if (!scoped.ok) return { ok: false, diagnostics: [scoped.diagnostic] };
+    const { document: scopedDocument } = scoped;
+    document = scopedDocument;
   }
-
-  const result = importOpenApiDocument({
+  return importOpenApiDocument({
     id: input.id,
     document,
     baseUrl: input.baseUrl,
@@ -277,14 +290,6 @@ async function probeOpenApiCandidate(
     description: input.description,
     metadata: input.metadata,
   });
-  return {
-    attempt: {
-      url: candidate,
-      outcome: result.ok ? 'matched' : 'invalid-document',
-      status: response.status,
-    },
-    result,
-  };
 }
 
 /*** Checks whether parsed JSON has the minimal OpenAPI document shape required for import. */
