@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 2.0.7
+
+### Patch Changes
+
+- cdde140: Update Ankhorage dependencies: `@ankhorage/contracts`.
+
 ## 2.0.6
 
 ### Patch Changes
