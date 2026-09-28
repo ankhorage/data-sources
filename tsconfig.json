@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "ES2022",
     "inlineSources": true,
-    "lib": ["ES2022"],
+    "lib": ["ES2022", "DOM"],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "jsx": "react-native",
