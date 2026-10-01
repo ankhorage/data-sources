@@ -79,7 +79,7 @@
   },
   "devDependencies": {
     "@ankhorage/devtools": "^2.0.49",
-    "@ankhorage/paradox": "^0.2.11",
+    "@ankhorage/paradox": "^0.2.12",
     "@types/bun": "^1.4.2",
     "@types/node": "^26.6.3",
     "typescript": "^6.0.3"
