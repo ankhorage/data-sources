@@ -25,7 +25,7 @@
     "typescript"
   ],
   "dependencies": {
-    "@ankhorage/contracts": "^22.8.31"
+    "@ankhorage/contracts": "^22.8.32"
   },
   "ankh": {
     "category": "data-sources",
@@ -79,7 +79,7 @@
   },
   "devDependencies": {
     "@ankhorage/devtools": "^2.0.45",
-    "@ankhorage/paradox": "^0.2.9",
+    "@ankhorage/paradox": "^0.2.10",
     "@types/bun": "^1.4.2",
     "@types/node": "^26.6.3",
     "typescript": "^6.0.3"
