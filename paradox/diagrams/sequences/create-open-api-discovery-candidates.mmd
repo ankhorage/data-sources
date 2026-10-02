@@ -1,8 +1,14 @@
 sequenceDiagram
   participant participant_createOpenApiDiscoveryCandidates as createOpenApiDiscoveryCandidates
+  participant participant_createOpenApiDiscoveryPlan as createOpenApiDiscoveryPlan
   participant participant_normalizeCandidateUrl as normalizeCandidateUrl
+  participant participant_normalizeServicePath as normalizeServicePath
   participant participant_parseHttpUrl as parseHttpUrl
-  participant_createOpenApiDiscoveryCandidates->>participant_parseHttpUrl: parseHttpUrl()
-  participant_parseHttpUrl-->>participant_createOpenApiDiscoveryCandidates: return
-  participant_createOpenApiDiscoveryCandidates->>participant_normalizeCandidateUrl: normalizeCandidateUrl()
-  participant_normalizeCandidateUrl-->>participant_createOpenApiDiscoveryCandidates: return
+  participant_createOpenApiDiscoveryCandidates->>participant_createOpenApiDiscoveryPlan: createOpenApiDiscoveryPlan()
+  participant_createOpenApiDiscoveryPlan->>participant_parseHttpUrl: parseHttpUrl()
+  participant_parseHttpUrl-->>participant_createOpenApiDiscoveryPlan: return
+  participant_createOpenApiDiscoveryPlan->>participant_normalizeCandidateUrl: normalizeCandidateUrl()
+  participant_normalizeCandidateUrl-->>participant_createOpenApiDiscoveryPlan: return
+  participant_createOpenApiDiscoveryPlan->>participant_normalizeServicePath: normalizeServicePath()
+  participant_normalizeServicePath-->>participant_createOpenApiDiscoveryPlan: return
+  participant_createOpenApiDiscoveryPlan-->>participant_createOpenApiDiscoveryCandidates: return

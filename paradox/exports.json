@@ -1,9 +1,11 @@
 [
   {
     "name": "buildEndpointTestRequest",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/test-runner/index.ts",
     "sourceLocation": {
@@ -11,8 +13,13 @@
       "line": 65,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["EndpointTestInput", "EndpointTestResult"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "EndpointTestInput",
+      "EndpointTestResult"
+    ],
     "signatures": [
       {
         "label": "(input: EndpointTestInput) => Promise<EndpointTestResult>",
@@ -33,9 +40,11 @@
   },
   {
     "name": "createGraphQlApi",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
@@ -43,8 +52,12 @@
       "line": 66,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlApiDefinition"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "GraphQlApiDefinition"
+    ],
     "signatures": [
       {
         "label": "(definition: GraphQlApiDefinition) => DataSourceDiagnosticResult<ExternalGraphQlApiDefinition>",
@@ -65,9 +78,11 @@
   },
   {
     "name": "createGraphQlIntrospectionRequest",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
@@ -75,8 +90,12 @@
       "line": 59,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlIntrospectionRequest"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "GraphQlIntrospectionRequest"
+    ],
     "signatures": [
       {
         "label": "() => GraphQlIntrospectionRequest",
@@ -90,9 +109,11 @@
   },
   {
     "name": "createManualRestApi",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/rest/index.ts",
     "sourceLocation": {
@@ -100,8 +121,12 @@
       "line": 121,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManualRestApiDefinition"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ManualRestApiDefinition"
+    ],
     "signatures": [
       {
         "label": "(definition: ManualRestApiDefinition) => DataSourceDiagnosticResult<ExternalRestApiDefinition>",
@@ -122,17 +147,21 @@
   },
   {
     "name": "createOpenApiDiscoveryCandidates",
-    "description": null,
+    "title": null,
+    "description": "Creates the ordered, deduplicated URLs probed during OpenAPI discovery.",
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 110,
+      "line": 113,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -160,9 +189,11 @@
   },
   {
     "name": "DATA_SOURCES_PACKAGE_NAME",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "value",
     "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
@@ -170,7 +201,9 @@
       "line": 8,
       "column": 14
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -178,9 +211,11 @@
   },
   {
     "name": "DataSourcesPackageInfo",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
@@ -188,7 +223,9 @@
       "line": 20,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -225,17 +262,21 @@
   },
   {
     "name": "DEFAULT_OPENAPI_DISCOVERY_PATHS",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "value",
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 23,
+      "line": 25,
       "column": 14
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -243,18 +284,25 @@
   },
   {
     "name": "discoverOpenApi",
-    "description": null,
+    "title": null,
+    "description": "Discovers and imports an OpenAPI document while preserving the requested service boundary.",
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 131,
+      "line": 123,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["DiscoverOpenApiInput", "DiscoverOpenApiResult"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "DiscoverOpenApiInput",
+      "DiscoverOpenApiResult"
+    ],
     "signatures": [
       {
         "label": "(input: DiscoverOpenApiInput) => Promise<DiscoverOpenApiResult>",
@@ -275,18 +323,24 @@
   },
   {
     "name": "DiscoverOpenApiInput",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 60,
+      "line": 62,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExternalApiFetch"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExternalApiFetch"
+    ],
     "signatures": [],
     "members": [
       {
@@ -334,7 +388,7 @@
       {
         "name": "metadata",
         "kind": "property",
-        "type": "DataContractValue | undefined",
+        "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
         "required": false,
         "description": null
       },
@@ -357,17 +411,21 @@
   },
   {
     "name": "DiscoverOpenApiResult",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 72,
+      "line": 74,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -375,9 +433,11 @@
   },
   {
     "name": "EndpointTestCredential",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
@@ -385,7 +445,9 @@
       "line": 13,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -399,7 +461,7 @@
       {
         "name": "query",
         "kind": "property",
-        "type": "Readonly<Record<string, DataContractValue>> | undefined",
+        "type": "Readonly<Record<string, import(\"@ankhorage/contracts/dist/serializable\").SerializableValue>> | undefined",
         "required": false,
         "description": null
       }
@@ -408,9 +470,11 @@
   },
   {
     "name": "EndpointTestCredentialResolver",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
@@ -418,7 +482,9 @@
       "line": 18,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -426,9 +492,11 @@
   },
   {
     "name": "EndpointTestFetch",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
@@ -436,7 +504,9 @@
       "line": 34,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -444,9 +514,11 @@
   },
   {
     "name": "EndpointTestFetchInit",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
@@ -454,7 +526,9 @@
       "line": 22,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -484,9 +558,11 @@
   },
   {
     "name": "EndpointTestFetchResponse",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
@@ -494,7 +570,9 @@
       "line": 28,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -524,9 +602,11 @@
   },
   {
     "name": "EndpointTestHeaders",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
@@ -534,7 +614,9 @@
       "line": 11,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -542,9 +624,11 @@
   },
   {
     "name": "EndpointTestInput",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
@@ -552,8 +636,13 @@
       "line": 39,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["EndpointTestCredentialResolver", "EndpointTestFetch"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "EndpointTestCredentialResolver",
+      "EndpointTestFetch"
+    ],
     "signatures": [],
     "members": [
       {
@@ -601,7 +690,7 @@
       {
         "name": "values",
         "kind": "property",
-        "type": "Readonly<Record<string, DataContractValue>> | undefined",
+        "type": "Readonly<Record<string, import(\"@ankhorage/contracts/dist/serializable\").SerializableValue>> | undefined",
         "required": false,
         "description": null
       }
@@ -610,9 +699,11 @@
   },
   {
     "name": "EndpointTestInputValues",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
@@ -620,7 +711,9 @@
       "line": 10,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -628,9 +721,11 @@
   },
   {
     "name": "EndpointTestRequestDiagnostic",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
@@ -638,7 +733,9 @@
       "line": 49,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -703,9 +800,11 @@
   },
   {
     "name": "EndpointTestResponseDiagnostic",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
@@ -713,7 +812,9 @@
       "line": 60,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -741,7 +842,7 @@
       {
         "name": "parsedBody",
         "kind": "property",
-        "type": "DataContractValue | undefined",
+        "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
         "required": false,
         "description": null
       },
@@ -757,9 +858,11 @@
   },
   {
     "name": "EndpointTestResult",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/test-runner/types.ts",
     "sourceLocation": {
@@ -767,7 +870,9 @@
       "line": 68,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -775,17 +880,21 @@
   },
   {
     "name": "ExternalApiFetch",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 41,
+      "line": 43,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -793,17 +902,21 @@
   },
   {
     "name": "ExternalApiFetchInit",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 30,
+      "line": 32,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -833,17 +946,21 @@
   },
   {
     "name": "ExternalApiFetchResponse",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 36,
+      "line": 38,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -866,9 +983,11 @@
   },
   {
     "name": "extractRestPathParams",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/rest/index.ts",
     "sourceLocation": {
@@ -876,7 +995,9 @@
       "line": 68,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -898,9 +1019,11 @@
   },
   {
     "name": "getDataSourceKind",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
@@ -908,15 +1031,17 @@
       "line": 48,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [
       {
-        "label": "(source: import(\"@ankhorage/contracts/dist/data/sources\").DatabaseDataSourceConfig) => \"database\"",
+        "label": "(source: import(\"@ankhorage/contracts/data\").DatabaseDataSourceConfig) => \"database\"",
         "parameters": [
           {
             "name": "source",
-            "type": "import(\"@ankhorage/contracts/dist/data/sources\").DatabaseDataSourceConfig",
+            "type": "import(\"@ankhorage/contracts/data\").DatabaseDataSourceConfig",
             "required": true,
             "description": null
           }
@@ -930,9 +1055,11 @@
   },
   {
     "name": "getDataSourcesPackageInfo",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
@@ -940,8 +1067,12 @@
       "line": 27,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["DataSourcesPackageInfo"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "DataSourcesPackageInfo"
+    ],
     "signatures": [
       {
         "label": "() => DataSourcesPackageInfo",
@@ -955,9 +1086,11 @@
   },
   {
     "name": "GRAPHQL_INTROSPECTION_QUERY",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "value",
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
@@ -965,7 +1098,9 @@
       "line": 22,
       "column": 14
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -973,9 +1108,11 @@
   },
   {
     "name": "GraphQlApiDefinition",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
@@ -983,8 +1120,13 @@
       "line": 68,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlIntrospectionResult", "GraphQlOperationDefinition"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "GraphQlIntrospectionResult",
+      "GraphQlOperationDefinition"
+    ],
     "signatures": [],
     "members": [
       {
@@ -1032,7 +1174,7 @@
       {
         "name": "metadata",
         "kind": "property",
-        "type": "DataContractValue | undefined",
+        "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
         "required": false,
         "description": null
       },
@@ -1062,9 +1204,11 @@
   },
   {
     "name": "GraphQlIntrospectionEnumValue",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
@@ -1072,7 +1216,9 @@
       "line": 30,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -1095,9 +1241,11 @@
   },
   {
     "name": "GraphQlIntrospectionField",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
@@ -1105,8 +1253,13 @@
       "line": 23,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlIntrospectionInputValue", "GraphQlIntrospectionTypeRef"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "GraphQlIntrospectionInputValue",
+      "GraphQlIntrospectionTypeRef"
+    ],
     "signatures": [],
     "members": [
       {
@@ -1142,9 +1295,11 @@
   },
   {
     "name": "GraphQlIntrospectionInputValue",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
@@ -1152,8 +1307,12 @@
       "line": 16,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlIntrospectionTypeRef"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "GraphQlIntrospectionTypeRef"
+    ],
     "signatures": [],
     "members": [
       {
@@ -1189,9 +1348,11 @@
   },
   {
     "name": "GraphQlIntrospectionRequest",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
@@ -1199,7 +1360,9 @@
       "line": 54,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -1222,9 +1385,11 @@
   },
   {
     "name": "GraphQlIntrospectionResult",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
@@ -1232,8 +1397,12 @@
       "line": 52,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlIntrospectionSchema"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "GraphQlIntrospectionSchema"
+    ],
     "signatures": [],
     "members": [
       {
@@ -1248,9 +1417,11 @@
   },
   {
     "name": "GraphQlIntrospectionSchema",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
@@ -1258,8 +1429,12 @@
       "line": 45,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlIntrospectionType"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "GraphQlIntrospectionType"
+    ],
     "signatures": [],
     "members": [
       {
@@ -1295,9 +1470,11 @@
   },
   {
     "name": "GraphQlIntrospectionType",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
@@ -1305,7 +1482,9 @@
       "line": 35,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [
       "GraphQlIntrospectionEnumValue",
       "GraphQlIntrospectionField",
@@ -1368,9 +1547,11 @@
   },
   {
     "name": "GraphQlIntrospectionTypeRef",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
@@ -1378,7 +1559,9 @@
       "line": 10,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -1408,9 +1591,11 @@
   },
   {
     "name": "GraphQlOperationDefinition",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
@@ -1418,8 +1603,12 @@
       "line": 56,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlOperationKind"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "GraphQlOperationKind"
+    ],
     "signatures": [],
     "members": [
       {
@@ -1453,7 +1642,7 @@
       {
         "name": "metadata",
         "kind": "property",
-        "type": "DataContractValue | undefined",
+        "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
         "required": false,
         "description": null
       },
@@ -1490,9 +1679,11 @@
   },
   {
     "name": "GraphQlOperationKind",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/graphql/types.ts",
     "sourceLocation": {
@@ -1500,7 +1691,9 @@
       "line": 8,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -1508,9 +1701,11 @@
   },
   {
     "name": "importOpenApiDocument",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/openapi/index.ts",
     "sourceLocation": {
@@ -1518,8 +1713,13 @@
       "line": 18,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["OpenApiImportInput", "OpenApiImportResult"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "OpenApiImportInput",
+      "OpenApiImportResult"
+    ],
     "signatures": [
       {
         "label": "(input: OpenApiImportInput) => OpenApiImportResult",
@@ -1540,18 +1740,25 @@
   },
   {
     "name": "introspectGraphQlApi",
-    "description": null,
+    "title": null,
+    "description": "Introspects a GraphQL endpoint and normalizes its schema into the canonical API definition.",
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 160,
+      "line": 155,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["IntrospectGraphQlApiInput", "IntrospectGraphQlApiResult"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "IntrospectGraphQlApiInput",
+      "IntrospectGraphQlApiResult"
+    ],
     "signatures": [
       {
         "label": "(input: IntrospectGraphQlApiInput) => Promise<IntrospectGraphQlApiResult>",
@@ -1572,18 +1779,24 @@
   },
   {
     "name": "IntrospectGraphQlApiInput",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 86,
+      "line": 88,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExternalApiFetch"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExternalApiFetch"
+    ],
     "signatures": [],
     "members": [
       {
@@ -1631,7 +1844,7 @@
       {
         "name": "metadata",
         "kind": "property",
-        "type": "DataContractValue | undefined",
+        "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
         "required": false,
         "description": null
       },
@@ -1654,17 +1867,21 @@
   },
   {
     "name": "IntrospectGraphQlApiResult",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 98,
+      "line": 100,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -1672,9 +1889,11 @@
   },
   {
     "name": "isManualRestMethod",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/rest/index.ts",
     "sourceLocation": {
@@ -1682,7 +1901,9 @@
       "line": 60,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -1704,9 +1925,11 @@
   },
   {
     "name": "isSupportedApiOrigin",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
@@ -1714,7 +1937,9 @@
       "line": 40,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -1736,9 +1961,11 @@
   },
   {
     "name": "isSupportedApiProtocol",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
@@ -1746,7 +1973,9 @@
       "line": 44,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -1768,9 +1997,11 @@
   },
   {
     "name": "isSupportedDataSourceKind",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
@@ -1778,7 +2009,9 @@
       "line": 36,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -1800,9 +2033,11 @@
   },
   {
     "name": "ManualRestApiDefinition",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/rest/index.ts",
     "sourceLocation": {
@@ -1810,8 +2045,12 @@
       "line": 49,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManualRestEndpointDefinition"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ManualRestEndpointDefinition"
+    ],
     "signatures": [],
     "members": [
       {
@@ -1852,7 +2091,7 @@
       {
         "name": "metadata",
         "kind": "property",
-        "type": "DataContractValue | undefined",
+        "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
         "required": false,
         "description": null
       },
@@ -1866,7 +2105,7 @@
       {
         "name": "schemas",
         "kind": "property",
-        "type": "Readonly<Record<string, import(\"@ankhorage/contracts/dist/data/schemas\").DataSchema>> | undefined",
+        "type": "Readonly<Record<string, import(\"@ankhorage/contracts/data\").DataSchema>> | undefined",
         "required": false,
         "description": null
       }
@@ -1875,9 +2114,11 @@
   },
   {
     "name": "ManualRestEndpointDefinition",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/rest/index.ts",
     "sourceLocation": {
@@ -1885,8 +2126,12 @@
       "line": 39,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManualRestOperationDefinition"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ManualRestOperationDefinition"
+    ],
     "signatures": [],
     "members": [
       {
@@ -1913,7 +2158,7 @@
       {
         "name": "metadata",
         "kind": "property",
-        "type": "DataContractValue | undefined",
+        "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
         "required": false,
         "description": null
       },
@@ -1943,9 +2188,11 @@
   },
   {
     "name": "ManualRestMethod",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/rest/index.ts",
     "sourceLocation": {
@@ -1953,7 +2200,9 @@
       "line": 22,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -1961,9 +2210,11 @@
   },
   {
     "name": "ManualRestOperationDefinition",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/rest/index.ts",
     "sourceLocation": {
@@ -1971,7 +2222,9 @@
       "line": 24,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -2006,7 +2259,7 @@
       {
         "name": "metadata",
         "kind": "property",
-        "type": "DataContractValue | undefined",
+        "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
         "required": false,
         "description": null
       },
@@ -2064,9 +2317,11 @@
   },
   {
     "name": "normalizeGraphQlApi",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
@@ -2074,8 +2329,12 @@
       "line": 112,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlApiDefinition"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "GraphQlApiDefinition"
+    ],
     "signatures": [
       {
         "label": "(definition: GraphQlApiDefinition) => ExternalGraphQlApiDefinition",
@@ -2096,9 +2355,11 @@
   },
   {
     "name": "normalizeGraphQlIntrospectionOperations",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/graphql/introspection.ts",
     "sourceLocation": {
@@ -2106,8 +2367,13 @@
       "line": 27,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlIntrospectionResult", "GraphQlOperationDefinition"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "GraphQlIntrospectionResult",
+      "GraphQlOperationDefinition"
+    ],
     "signatures": [
       {
         "label": "(introspection: GraphQlIntrospectionResult | undefined) => readonly GraphQlOperationDefinition[]",
@@ -2128,9 +2394,11 @@
   },
   {
     "name": "normalizeGraphQlIntrospectionSchemas",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/graphql/introspection.ts",
     "sourceLocation": {
@@ -2138,8 +2406,12 @@
       "line": 15,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlIntrospectionResult"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "GraphQlIntrospectionResult"
+    ],
     "signatures": [
       {
         "label": "(introspection: GraphQlIntrospectionResult | undefined) => Readonly<Record<string, DataSchema>> | undefined",
@@ -2160,9 +2432,11 @@
   },
   {
     "name": "normalizeGraphQlOperationId",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/graphql/operation.ts",
     "sourceLocation": {
@@ -2170,8 +2444,12 @@
       "line": 13,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlOperationKind"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "GraphQlOperationKind"
+    ],
     "signatures": [
       {
         "label": "(kind: GraphQlOperationKind, name: string) => string",
@@ -2198,9 +2476,11 @@
   },
   {
     "name": "normalizeManualRestApi",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/rest/index.ts",
     "sourceLocation": {
@@ -2208,8 +2488,12 @@
       "line": 136,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManualRestApiDefinition"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ManualRestApiDefinition"
+    ],
     "signatures": [
       {
         "label": "(definition: ManualRestApiDefinition) => ExternalRestApiDefinition",
@@ -2230,9 +2514,11 @@
   },
   {
     "name": "normalizeManualRestMethod",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/rest/index.ts",
     "sourceLocation": {
@@ -2240,7 +2526,9 @@
       "line": 64,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -2262,9 +2550,11 @@
   },
   {
     "name": "normalizeOpenApiEndpointId",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/openapi/endpoints.ts",
     "sourceLocation": {
@@ -2272,7 +2562,9 @@
       "line": 26,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -2294,9 +2586,11 @@
   },
   {
     "name": "normalizeOpenApiOperationId",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/openapi/operation.ts",
     "sourceLocation": {
@@ -2304,8 +2598,12 @@
       "line": 26,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["OpenApiHttpMethod"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "OpenApiHttpMethod"
+    ],
     "signatures": [
       {
         "label": "(method: OpenApiHttpMethod, path: string, operationId?: string | undefined) => string",
@@ -2338,9 +2636,11 @@
   },
   {
     "name": "normalizeOpenApiSchema",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/openapi/schema.ts",
     "sourceLocation": {
@@ -2348,8 +2648,12 @@
       "line": 20,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["OpenApiSchemaObject"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "OpenApiSchemaObject"
+    ],
     "signatures": [
       {
         "label": "(schema: OpenApiSchemaObject) => DataSchema",
@@ -2370,9 +2674,11 @@
   },
   {
     "name": "OpenApiComponentsObject",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
@@ -2380,8 +2686,12 @@
       "line": 66,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["OpenApiSchemaObject"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "OpenApiSchemaObject"
+    ],
     "signatures": [],
     "members": [
       {
@@ -2394,7 +2704,7 @@
       {
         "name": "securitySchemes",
         "kind": "property",
-        "type": "Readonly<Record<string, DataContractValue>> | undefined",
+        "type": "Readonly<Record<string, import(\"@ankhorage/contracts/dist/serializable\").SerializableValue>> | undefined",
         "required": false,
         "description": null
       }
@@ -2403,18 +2713,24 @@
   },
   {
     "name": "OpenApiDiscoveryAttempt",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 54,
+      "line": 56,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["OpenApiDiscoveryAttemptOutcome"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "OpenApiDiscoveryAttemptOutcome"
+    ],
     "signatures": [],
     "members": [
       {
@@ -2443,17 +2759,21 @@
   },
   {
     "name": "OpenApiDiscoveryAttemptOutcome",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/discovery/index.ts",
     "sourceLocation": {
       "filePath": "src/discovery/index.ts",
-      "line": 46,
+      "line": 48,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -2461,9 +2781,11 @@
   },
   {
     "name": "OpenApiDocumentObject",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
@@ -2471,8 +2793,14 @@
       "line": 71,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["OpenApiComponentsObject", "OpenApiPathItemObject", "OpenApiServerObject"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "OpenApiComponentsObject",
+      "OpenApiPathItemObject",
+      "OpenApiServerObject"
+    ],
     "signatures": [],
     "members": [
       {
@@ -2515,9 +2843,11 @@
   },
   {
     "name": "OpenApiHttpMethod",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
@@ -2525,7 +2855,9 @@
       "line": 3,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -2533,9 +2865,11 @@
   },
   {
     "name": "OpenApiImportInput",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
@@ -2543,8 +2877,12 @@
       "line": 83,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["OpenApiDocumentObject"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "OpenApiDocumentObject"
+    ],
     "signatures": [],
     "members": [
       {
@@ -2599,7 +2937,7 @@
       {
         "name": "metadata",
         "kind": "property",
-        "type": "DataContractValue | undefined",
+        "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
         "required": false,
         "description": null
       },
@@ -2615,9 +2953,11 @@
   },
   {
     "name": "OpenApiImportResult",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/openapi/index.ts",
     "sourceLocation": {
@@ -2625,7 +2965,9 @@
       "line": 16,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -2633,9 +2975,11 @@
   },
   {
     "name": "OpenApiMediaTypeObject",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
@@ -2643,8 +2987,12 @@
       "line": 29,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["OpenApiSchemaObject"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "OpenApiSchemaObject"
+    ],
     "signatures": [],
     "members": [
       {
@@ -2659,9 +3007,11 @@
   },
   {
     "name": "OpenApiOperationObject",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
@@ -2669,7 +3019,9 @@
       "line": 52,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [
       "OpenApiParameterObject",
       "OpenApiRequestBodyObject",
@@ -2731,9 +3083,11 @@
   },
   {
     "name": "OpenApiParameterObject",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
@@ -2741,8 +3095,12 @@
       "line": 44,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["OpenApiSchemaObject"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "OpenApiSchemaObject"
+    ],
     "signatures": [],
     "members": [
       {
@@ -2785,9 +3143,11 @@
   },
   {
     "name": "OpenApiPathItemObject",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
@@ -2795,7 +3155,9 @@
       "line": 62,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -2803,9 +3165,11 @@
   },
   {
     "name": "OpenApiRequestBodyObject",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
@@ -2813,8 +3177,12 @@
       "line": 33,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["OpenApiMediaTypeObject"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "OpenApiMediaTypeObject"
+    ],
     "signatures": [],
     "members": [
       {
@@ -2843,9 +3211,11 @@
   },
   {
     "name": "OpenApiResponseObject",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
@@ -2853,8 +3223,12 @@
       "line": 39,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["OpenApiMediaTypeObject"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "OpenApiMediaTypeObject"
+    ],
     "signatures": [],
     "members": [
       {
@@ -2876,9 +3250,11 @@
   },
   {
     "name": "OpenApiSchemaObject",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
@@ -2886,7 +3262,9 @@
       "line": 10,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -2921,14 +3299,14 @@
       {
         "name": "const",
         "kind": "property",
-        "type": "DataContractValue | undefined",
+        "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
         "required": false,
         "description": null
       },
       {
         "name": "default",
         "kind": "property",
-        "type": "DataContractValue | undefined",
+        "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
         "required": false,
         "description": null
       },
@@ -2942,7 +3320,7 @@
       {
         "name": "enum",
         "kind": "property",
-        "type": "readonly DataContractValue[] | undefined",
+        "type": "readonly import(\"@ankhorage/contracts/dist/serializable\").SerializableValue[] | undefined",
         "required": false,
         "description": null
       },
@@ -3007,9 +3385,11 @@
   },
   {
     "name": "OpenApiServerObject",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/openapi/types.ts",
     "sourceLocation": {
@@ -3017,7 +3397,9 @@
       "line": 5,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -3040,9 +3422,11 @@
   },
   {
     "name": "SUPPORTED_API_ORIGINS",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "value",
     "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
@@ -3050,7 +3434,9 @@
       "line": 12,
       "column": 14
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -3058,9 +3444,11 @@
   },
   {
     "name": "SUPPORTED_API_PROTOCOLS",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "value",
     "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
@@ -3068,7 +3456,9 @@
       "line": 13,
       "column": 14
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -3076,9 +3466,11 @@
   },
   {
     "name": "SUPPORTED_DATA_SOURCE_KINDS",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "value",
     "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
@@ -3086,7 +3478,9 @@
       "line": 9,
       "column": 14
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -3094,9 +3488,11 @@
   },
   {
     "name": "SupportedApiOrigin",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/packageInfo.ts",
     "sourceLocation": {
@@ -3104,7 +3500,9 @@
       "line": 18,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -3112,9 +3510,11 @@
   },
   {
     "name": "testEndpoint",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/test-runner/index.ts",
     "sourceLocation": {
@@ -3122,8 +3522,13 @@
       "line": 35,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["EndpointTestInput", "EndpointTestResult"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "EndpointTestInput",
+      "EndpointTestResult"
+    ],
     "signatures": [
       {
         "label": "(input: EndpointTestInput) => Promise<EndpointTestResult>",
@@ -3144,9 +3549,11 @@
   },
   {
     "name": "validateGraphQlApi",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/graphql/index.ts",
     "sourceLocation": {
@@ -3154,8 +3561,12 @@
       "line": 76,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["GraphQlApiDefinition"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "GraphQlApiDefinition"
+    ],
     "signatures": [
       {
         "label": "(definition: GraphQlApiDefinition) => readonly DataSourceDiagnostic[]",
@@ -3176,9 +3587,11 @@
   },
   {
     "name": "validateManualRestApi",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/rest/index.ts",
     "sourceLocation": {
@@ -3186,8 +3599,12 @@
       "line": 86,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ManualRestApiDefinition"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ManualRestApiDefinition"
+    ],
     "signatures": [
       {
         "label": "(definition: ManualRestApiDefinition) => readonly DataSourceDiagnostic[]",

@@ -2,6 +2,8 @@
   "packageName": "@ankhorage/data-sources",
   "packageId": "@ankhorage/data-sources",
   "description": "Provider-neutral data source and endpoint system for APIs, databases, and runtime bindings.",
+  "collaborators": null,
+  "donation": null,
   "badges": [
     {
       "id": "license",
@@ -12,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.0.1",
+      "value": "v2.0.17",
       "color": "cb3837"
     },
     {
@@ -53,30 +55,209 @@
     },
     {
       "id": "docs",
-      "label": "docs",
-      "value": "paradox",
-      "color": "0f766e"
+      "label": "paradox",
+      "value": "warnings",
+      "color": "ca8a04"
     }
   ],
-  "usage": null,
-  "readmeUsageDescription": null,
-  "readmeUsage": [],
-  "readmeCli": null,
-  "readmeConfig": null,
+  "usage": {
+    "packageName": "@ankhorage/data-sources",
+    "command": "ankh data-sources --help"
+  },
+  "usageEntries": [],
+  "exampleCount": 0,
+  "findings": [
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function createGraphQlIntrospectionRequest has no Paradox description.",
+      "sourcePath": "src/graphql/index.ts",
+      "line": 59
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function createGraphQlApi has no Paradox description.",
+      "sourcePath": "src/graphql/index.ts",
+      "line": 66
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function validateGraphQlApi has no Paradox description.",
+      "sourcePath": "src/graphql/index.ts",
+      "line": 76
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function normalizeGraphQlApi has no Paradox description.",
+      "sourcePath": "src/graphql/index.ts",
+      "line": 112
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function normalizeGraphQlIntrospectionOperations has no Paradox description.",
+      "sourcePath": "src/graphql/introspection.ts",
+      "line": 27
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function normalizeGraphQlIntrospectionSchemas has no Paradox description.",
+      "sourcePath": "src/graphql/introspection.ts",
+      "line": 15
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function normalizeGraphQlOperationId has no Paradox description.",
+      "sourcePath": "src/graphql/operation.ts",
+      "line": 13
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function importOpenApiDocument has no Paradox description.",
+      "sourcePath": "src/openapi/index.ts",
+      "line": 18
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function normalizeOpenApiEndpointId has no Paradox description.",
+      "sourcePath": "src/openapi/endpoints.ts",
+      "line": 26
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function normalizeOpenApiOperationId has no Paradox description.",
+      "sourcePath": "src/openapi/operation.ts",
+      "line": 26
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function normalizeOpenApiSchema has no Paradox description.",
+      "sourcePath": "src/openapi/schema.ts",
+      "line": 20
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function getDataSourcesPackageInfo has no Paradox description.",
+      "sourcePath": "src/packageInfo.ts",
+      "line": 27
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function isSupportedDataSourceKind has no Paradox description.",
+      "sourcePath": "src/packageInfo.ts",
+      "line": 36
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function isSupportedApiOrigin has no Paradox description.",
+      "sourcePath": "src/packageInfo.ts",
+      "line": 40
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function isSupportedApiProtocol has no Paradox description.",
+      "sourcePath": "src/packageInfo.ts",
+      "line": 44
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function getDataSourceKind has no Paradox description.",
+      "sourcePath": "src/packageInfo.ts",
+      "line": 48
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function isManualRestMethod has no Paradox description.",
+      "sourcePath": "src/rest/index.ts",
+      "line": 60
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function normalizeManualRestMethod has no Paradox description.",
+      "sourcePath": "src/rest/index.ts",
+      "line": 64
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function extractRestPathParams has no Paradox description.",
+      "sourcePath": "src/rest/index.ts",
+      "line": 68
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function validateManualRestApi has no Paradox description.",
+      "sourcePath": "src/rest/index.ts",
+      "line": 86
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function createManualRestApi has no Paradox description.",
+      "sourcePath": "src/rest/index.ts",
+      "line": 121
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function normalizeManualRestApi has no Paradox description.",
+      "sourcePath": "src/rest/index.ts",
+      "line": 136
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function testEndpoint has no Paradox description.",
+      "sourcePath": "src/test-runner/index.ts",
+      "line": 35
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function buildEndpointTestRequest has no Paradox description.",
+      "sourcePath": "src/test-runner/index.ts",
+      "line": 65
+    }
+  ],
   "config": null,
-  "entrypoints": ["src/index.ts"],
+  "entrypoints": [
+    "src/index.ts"
+  ],
   "modules": [
     {
       "path": "src/ankh.provider.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/packageInfo.ts"],
-      "exports": ["default"]
+      "dependencies": [
+        "src/packageInfo.ts"
+      ],
+      "exports": [
+        "default"
+      ]
     },
     {
       "path": "src/cli/index.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": ["default"]
+      "exports": [
+        "default"
+      ]
     },
     {
       "path": "src/discovery/http.ts",
@@ -93,7 +274,13 @@
     {
       "path": "src/discovery/index.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/discovery/http.ts", "src/graphql/index.ts", "src/openapi/index.ts"],
+      "dependencies": [
+        "src/discovery/http.ts",
+        "src/discovery/openapiDiscoveryPlan.ts",
+        "src/discovery/scopeOpenApiDocument.ts",
+        "src/graphql/index.ts",
+        "src/openapi/index.ts"
+      ],
       "exports": [
         "createOpenApiDiscoveryCandidates",
         "DEFAULT_OPENAPI_DISCOVERY_PATHS",
@@ -108,6 +295,26 @@
         "IntrospectGraphQlApiResult",
         "OpenApiDiscoveryAttempt",
         "OpenApiDiscoveryAttemptOutcome"
+      ]
+    },
+    {
+      "path": "src/discovery/openapiDiscoveryPlan.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/discovery/http.ts"
+      ],
+      "exports": [
+        "createOpenApiDiscoveryPlan"
+      ]
+    },
+    {
+      "path": "src/discovery/scopeOpenApiDocument.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/openapi/index.ts"
+      ],
+      "exports": [
+        "scopeOpenApiDocument"
       ]
     },
     {
@@ -143,14 +350,25 @@
     {
       "path": "src/graphql/introspection.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/graphql/operation.ts", "src/graphql/types.ts"],
-      "exports": ["normalizeGraphQlIntrospectionOperations", "normalizeGraphQlIntrospectionSchemas"]
+      "dependencies": [
+        "src/graphql/operation.ts",
+        "src/graphql/types.ts"
+      ],
+      "exports": [
+        "normalizeGraphQlIntrospectionOperations",
+        "normalizeGraphQlIntrospectionSchemas"
+      ]
     },
     {
       "path": "src/graphql/operation.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/graphql/types.ts"],
-      "exports": ["normalizeGraphQlOperation", "normalizeGraphQlOperationId"]
+      "dependencies": [
+        "src/graphql/types.ts"
+      ],
+      "exports": [
+        "normalizeGraphQlOperation",
+        "normalizeGraphQlOperationId"
+      ]
     },
     {
       "path": "src/graphql/types.ts",
@@ -262,13 +480,23 @@
     {
       "path": "src/openapi/endpoints.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/openapi/operation.ts", "src/openapi/types.ts"],
-      "exports": ["normalizeOpenApiEndpointId", "normalizeOpenApiEndpoints"]
+      "dependencies": [
+        "src/openapi/operation.ts",
+        "src/openapi/types.ts"
+      ],
+      "exports": [
+        "normalizeOpenApiEndpointId",
+        "normalizeOpenApiEndpoints"
+      ]
     },
     {
       "path": "src/openapi/index.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/openapi/endpoints.ts", "src/openapi/schema.ts", "src/openapi/types.ts"],
+      "dependencies": [
+        "src/openapi/endpoints.ts",
+        "src/openapi/schema.ts",
+        "src/openapi/types.ts"
+      ],
       "exports": [
         "importOpenApiDocument",
         "normalizeOpenApiEndpointId",
@@ -292,14 +520,25 @@
     {
       "path": "src/openapi/operation.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/openapi/schema.ts", "src/openapi/types.ts"],
-      "exports": ["normalizeOpenApiOperation", "normalizeOpenApiOperationId"]
+      "dependencies": [
+        "src/openapi/schema.ts",
+        "src/openapi/types.ts"
+      ],
+      "exports": [
+        "normalizeOpenApiOperation",
+        "normalizeOpenApiOperationId"
+      ]
     },
     {
       "path": "src/openapi/schema.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/openapi/types.ts"],
-      "exports": ["normalizeOpenApiSchema", "normalizeOpenApiSchemas"]
+      "dependencies": [
+        "src/openapi/types.ts"
+      ],
+      "exports": [
+        "normalizeOpenApiSchema",
+        "normalizeOpenApiSchemas"
+      ]
     },
     {
       "path": "src/openapi/types.ts",
@@ -383,19 +622,32 @@
     {
       "path": "src/test-runner/response.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/test-runner/types.ts"],
-      "exports": ["createResponseDiagnostic"]
+      "dependencies": [
+        "src/test-runner/types.ts"
+      ],
+      "exports": [
+        "createResponseDiagnostic"
+      ]
     },
     {
       "path": "src/test-runner/result.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/test-runner/types.ts"],
-      "exports": ["createDiagnostic", "createNetworkErrorMessage", "failure"]
+      "dependencies": [
+        "src/test-runner/types.ts"
+      ],
+      "exports": [
+        "createDiagnostic",
+        "createNetworkErrorMessage",
+        "failure"
+      ]
     },
     {
       "path": "src/test-runner/serialization.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/test-runner/result.ts", "src/test-runner/types.ts"],
+      "dependencies": [
+        "src/test-runner/result.ts",
+        "src/test-runner/types.ts"
+      ],
       "exports": [
         "appendQuery",
         "collectHeaders",
@@ -430,9 +682,11 @@
   "exports": [
     {
       "name": "buildEndpointTestRequest",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/test-runner/index.ts",
       "sourceLocation": {
@@ -440,8 +694,13 @@
         "line": 65,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["EndpointTestInput", "EndpointTestResult"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "EndpointTestInput",
+        "EndpointTestResult"
+      ],
       "signatures": [
         {
           "label": "(input: EndpointTestInput) => Promise<EndpointTestResult>",
@@ -462,9 +721,11 @@
     },
     {
       "name": "createGraphQlApi",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/graphql/index.ts",
       "sourceLocation": {
@@ -472,8 +733,12 @@
         "line": 66,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlApiDefinition"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "GraphQlApiDefinition"
+      ],
       "signatures": [
         {
           "label": "(definition: GraphQlApiDefinition) => DataSourceDiagnosticResult<ExternalGraphQlApiDefinition>",
@@ -494,9 +759,11 @@
     },
     {
       "name": "createGraphQlIntrospectionRequest",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/graphql/index.ts",
       "sourceLocation": {
@@ -504,8 +771,12 @@
         "line": 59,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlIntrospectionRequest"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "GraphQlIntrospectionRequest"
+      ],
       "signatures": [
         {
           "label": "() => GraphQlIntrospectionRequest",
@@ -519,9 +790,11 @@
     },
     {
       "name": "createManualRestApi",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/rest/index.ts",
       "sourceLocation": {
@@ -529,8 +802,12 @@
         "line": 121,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ManualRestApiDefinition"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ManualRestApiDefinition"
+      ],
       "signatures": [
         {
           "label": "(definition: ManualRestApiDefinition) => DataSourceDiagnosticResult<ExternalRestApiDefinition>",
@@ -551,17 +828,21 @@
     },
     {
       "name": "createOpenApiDiscoveryCandidates",
-      "description": null,
+      "title": null,
+      "description": "Creates the ordered, deduplicated URLs probed during OpenAPI discovery.",
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 110,
+        "line": 113,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -589,9 +870,11 @@
     },
     {
       "name": "DATA_SOURCES_PACKAGE_NAME",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "value",
       "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
@@ -599,7 +882,9 @@
         "line": 8,
         "column": 14
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -607,9 +892,11 @@
     },
     {
       "name": "DataSourcesPackageInfo",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
@@ -617,7 +904,9 @@
         "line": 20,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -654,17 +943,21 @@
     },
     {
       "name": "DEFAULT_OPENAPI_DISCOVERY_PATHS",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "value",
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 23,
+        "line": 25,
         "column": 14
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -672,18 +965,25 @@
     },
     {
       "name": "discoverOpenApi",
-      "description": null,
+      "title": null,
+      "description": "Discovers and imports an OpenAPI document while preserving the requested service boundary.",
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 131,
+        "line": 123,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["DiscoverOpenApiInput", "DiscoverOpenApiResult"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "DiscoverOpenApiInput",
+        "DiscoverOpenApiResult"
+      ],
       "signatures": [
         {
           "label": "(input: DiscoverOpenApiInput) => Promise<DiscoverOpenApiResult>",
@@ -704,18 +1004,24 @@
     },
     {
       "name": "DiscoverOpenApiInput",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 60,
+        "line": 62,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ExternalApiFetch"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ExternalApiFetch"
+      ],
       "signatures": [],
       "members": [
         {
@@ -763,7 +1069,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -786,17 +1092,21 @@
     },
     {
       "name": "DiscoverOpenApiResult",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 72,
+        "line": 74,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -804,9 +1114,11 @@
     },
     {
       "name": "EndpointTestCredential",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
@@ -814,7 +1126,9 @@
         "line": 13,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -828,7 +1142,7 @@
         {
           "name": "query",
           "kind": "property",
-          "type": "Readonly<Record<string, DataContractValue>> | undefined",
+          "type": "Readonly<Record<string, import(\"@ankhorage/contracts/dist/serializable\").SerializableValue>> | undefined",
           "required": false,
           "description": null
         }
@@ -837,9 +1151,11 @@
     },
     {
       "name": "EndpointTestCredentialResolver",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
@@ -847,7 +1163,9 @@
         "line": 18,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -855,9 +1173,11 @@
     },
     {
       "name": "EndpointTestFetch",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
@@ -865,7 +1185,9 @@
         "line": 34,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -873,9 +1195,11 @@
     },
     {
       "name": "EndpointTestFetchInit",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
@@ -883,7 +1207,9 @@
         "line": 22,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -913,9 +1239,11 @@
     },
     {
       "name": "EndpointTestFetchResponse",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
@@ -923,7 +1251,9 @@
         "line": 28,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -953,9 +1283,11 @@
     },
     {
       "name": "EndpointTestHeaders",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
@@ -963,7 +1295,9 @@
         "line": 11,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -971,9 +1305,11 @@
     },
     {
       "name": "EndpointTestInput",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
@@ -981,8 +1317,13 @@
         "line": 39,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["EndpointTestCredentialResolver", "EndpointTestFetch"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "EndpointTestCredentialResolver",
+        "EndpointTestFetch"
+      ],
       "signatures": [],
       "members": [
         {
@@ -1030,7 +1371,7 @@
         {
           "name": "values",
           "kind": "property",
-          "type": "Readonly<Record<string, DataContractValue>> | undefined",
+          "type": "Readonly<Record<string, import(\"@ankhorage/contracts/dist/serializable\").SerializableValue>> | undefined",
           "required": false,
           "description": null
         }
@@ -1039,9 +1380,11 @@
     },
     {
       "name": "EndpointTestInputValues",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
@@ -1049,7 +1392,9 @@
         "line": 10,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -1057,9 +1402,11 @@
     },
     {
       "name": "EndpointTestRequestDiagnostic",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
@@ -1067,7 +1414,9 @@
         "line": 49,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -1132,9 +1481,11 @@
     },
     {
       "name": "EndpointTestResponseDiagnostic",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
@@ -1142,7 +1493,9 @@
         "line": 60,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -1170,7 +1523,7 @@
         {
           "name": "parsedBody",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -1186,9 +1539,11 @@
     },
     {
       "name": "EndpointTestResult",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/test-runner/types.ts",
       "sourceLocation": {
@@ -1196,7 +1551,9 @@
         "line": 68,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -1204,17 +1561,21 @@
     },
     {
       "name": "ExternalApiFetch",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 41,
+        "line": 43,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -1222,17 +1583,21 @@
     },
     {
       "name": "ExternalApiFetchInit",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 30,
+        "line": 32,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -1262,17 +1627,21 @@
     },
     {
       "name": "ExternalApiFetchResponse",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 36,
+        "line": 38,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -1295,9 +1664,11 @@
     },
     {
       "name": "extractRestPathParams",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/rest/index.ts",
       "sourceLocation": {
@@ -1305,7 +1676,9 @@
         "line": 68,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -1327,9 +1700,11 @@
     },
     {
       "name": "getDataSourceKind",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
@@ -1337,15 +1712,17 @@
         "line": 48,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [
         {
-          "label": "(source: import(\"@ankhorage/contracts/dist/data/sources\").DatabaseDataSourceConfig) => \"database\"",
+          "label": "(source: import(\"@ankhorage/contracts/data\").DatabaseDataSourceConfig) => \"database\"",
           "parameters": [
             {
               "name": "source",
-              "type": "import(\"@ankhorage/contracts/dist/data/sources\").DatabaseDataSourceConfig",
+              "type": "import(\"@ankhorage/contracts/data\").DatabaseDataSourceConfig",
               "required": true,
               "description": null
             }
@@ -1359,9 +1736,11 @@
     },
     {
       "name": "getDataSourcesPackageInfo",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
@@ -1369,8 +1748,12 @@
         "line": 27,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["DataSourcesPackageInfo"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "DataSourcesPackageInfo"
+      ],
       "signatures": [
         {
           "label": "() => DataSourcesPackageInfo",
@@ -1384,9 +1767,11 @@
     },
     {
       "name": "GRAPHQL_INTROSPECTION_QUERY",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "value",
       "modulePath": "src/graphql/index.ts",
       "sourceLocation": {
@@ -1394,7 +1779,9 @@
         "line": 22,
         "column": 14
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -1402,9 +1789,11 @@
     },
     {
       "name": "GraphQlApiDefinition",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
@@ -1412,8 +1801,13 @@
         "line": 68,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlIntrospectionResult", "GraphQlOperationDefinition"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "GraphQlIntrospectionResult",
+        "GraphQlOperationDefinition"
+      ],
       "signatures": [],
       "members": [
         {
@@ -1461,7 +1855,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -1491,9 +1885,11 @@
     },
     {
       "name": "GraphQlIntrospectionEnumValue",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
@@ -1501,7 +1897,9 @@
         "line": 30,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -1524,9 +1922,11 @@
     },
     {
       "name": "GraphQlIntrospectionField",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
@@ -1534,8 +1934,13 @@
         "line": 23,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlIntrospectionInputValue", "GraphQlIntrospectionTypeRef"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "GraphQlIntrospectionInputValue",
+        "GraphQlIntrospectionTypeRef"
+      ],
       "signatures": [],
       "members": [
         {
@@ -1571,9 +1976,11 @@
     },
     {
       "name": "GraphQlIntrospectionInputValue",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
@@ -1581,8 +1988,12 @@
         "line": 16,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlIntrospectionTypeRef"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "GraphQlIntrospectionTypeRef"
+      ],
       "signatures": [],
       "members": [
         {
@@ -1618,9 +2029,11 @@
     },
     {
       "name": "GraphQlIntrospectionRequest",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/graphql/index.ts",
       "sourceLocation": {
@@ -1628,7 +2041,9 @@
         "line": 54,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -1651,9 +2066,11 @@
     },
     {
       "name": "GraphQlIntrospectionResult",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
@@ -1661,8 +2078,12 @@
         "line": 52,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlIntrospectionSchema"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "GraphQlIntrospectionSchema"
+      ],
       "signatures": [],
       "members": [
         {
@@ -1677,9 +2098,11 @@
     },
     {
       "name": "GraphQlIntrospectionSchema",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
@@ -1687,8 +2110,12 @@
         "line": 45,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlIntrospectionType"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "GraphQlIntrospectionType"
+      ],
       "signatures": [],
       "members": [
         {
@@ -1724,9 +2151,11 @@
     },
     {
       "name": "GraphQlIntrospectionType",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
@@ -1734,7 +2163,9 @@
         "line": 35,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [
         "GraphQlIntrospectionEnumValue",
         "GraphQlIntrospectionField",
@@ -1797,9 +2228,11 @@
     },
     {
       "name": "GraphQlIntrospectionTypeRef",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
@@ -1807,7 +2240,9 @@
         "line": 10,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -1837,9 +2272,11 @@
     },
     {
       "name": "GraphQlOperationDefinition",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
@@ -1847,8 +2284,12 @@
         "line": 56,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlOperationKind"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "GraphQlOperationKind"
+      ],
       "signatures": [],
       "members": [
         {
@@ -1882,7 +2323,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -1919,9 +2360,11 @@
     },
     {
       "name": "GraphQlOperationKind",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/graphql/types.ts",
       "sourceLocation": {
@@ -1929,7 +2372,9 @@
         "line": 8,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -1937,9 +2382,11 @@
     },
     {
       "name": "importOpenApiDocument",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/openapi/index.ts",
       "sourceLocation": {
@@ -1947,8 +2394,13 @@
         "line": 18,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["OpenApiImportInput", "OpenApiImportResult"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "OpenApiImportInput",
+        "OpenApiImportResult"
+      ],
       "signatures": [
         {
           "label": "(input: OpenApiImportInput) => OpenApiImportResult",
@@ -1969,18 +2421,25 @@
     },
     {
       "name": "introspectGraphQlApi",
-      "description": null,
+      "title": null,
+      "description": "Introspects a GraphQL endpoint and normalizes its schema into the canonical API definition.",
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 160,
+        "line": 155,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["IntrospectGraphQlApiInput", "IntrospectGraphQlApiResult"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "IntrospectGraphQlApiInput",
+        "IntrospectGraphQlApiResult"
+      ],
       "signatures": [
         {
           "label": "(input: IntrospectGraphQlApiInput) => Promise<IntrospectGraphQlApiResult>",
@@ -2001,18 +2460,24 @@
     },
     {
       "name": "IntrospectGraphQlApiInput",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 86,
+        "line": 88,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ExternalApiFetch"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ExternalApiFetch"
+      ],
       "signatures": [],
       "members": [
         {
@@ -2060,7 +2525,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -2083,17 +2548,21 @@
     },
     {
       "name": "IntrospectGraphQlApiResult",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 98,
+        "line": 100,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -2101,9 +2570,11 @@
     },
     {
       "name": "isManualRestMethod",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/rest/index.ts",
       "sourceLocation": {
@@ -2111,7 +2582,9 @@
         "line": 60,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -2133,9 +2606,11 @@
     },
     {
       "name": "isSupportedApiOrigin",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
@@ -2143,7 +2618,9 @@
         "line": 40,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -2165,9 +2642,11 @@
     },
     {
       "name": "isSupportedApiProtocol",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
@@ -2175,7 +2654,9 @@
         "line": 44,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -2197,9 +2678,11 @@
     },
     {
       "name": "isSupportedDataSourceKind",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
@@ -2207,7 +2690,9 @@
         "line": 36,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -2229,9 +2714,11 @@
     },
     {
       "name": "ManualRestApiDefinition",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/rest/index.ts",
       "sourceLocation": {
@@ -2239,8 +2726,12 @@
         "line": 49,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ManualRestEndpointDefinition"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ManualRestEndpointDefinition"
+      ],
       "signatures": [],
       "members": [
         {
@@ -2281,7 +2772,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -2295,7 +2786,7 @@
         {
           "name": "schemas",
           "kind": "property",
-          "type": "Readonly<Record<string, import(\"@ankhorage/contracts/dist/data/schemas\").DataSchema>> | undefined",
+          "type": "Readonly<Record<string, import(\"@ankhorage/contracts/data\").DataSchema>> | undefined",
           "required": false,
           "description": null
         }
@@ -2304,9 +2795,11 @@
     },
     {
       "name": "ManualRestEndpointDefinition",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/rest/index.ts",
       "sourceLocation": {
@@ -2314,8 +2807,12 @@
         "line": 39,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ManualRestOperationDefinition"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ManualRestOperationDefinition"
+      ],
       "signatures": [],
       "members": [
         {
@@ -2342,7 +2839,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -2372,9 +2869,11 @@
     },
     {
       "name": "ManualRestMethod",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/rest/index.ts",
       "sourceLocation": {
@@ -2382,7 +2881,9 @@
         "line": 22,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -2390,9 +2891,11 @@
     },
     {
       "name": "ManualRestOperationDefinition",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/rest/index.ts",
       "sourceLocation": {
@@ -2400,7 +2903,9 @@
         "line": 24,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -2435,7 +2940,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -2493,9 +2998,11 @@
     },
     {
       "name": "normalizeGraphQlApi",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/graphql/index.ts",
       "sourceLocation": {
@@ -2503,8 +3010,12 @@
         "line": 112,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlApiDefinition"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "GraphQlApiDefinition"
+      ],
       "signatures": [
         {
           "label": "(definition: GraphQlApiDefinition) => ExternalGraphQlApiDefinition",
@@ -2525,9 +3036,11 @@
     },
     {
       "name": "normalizeGraphQlIntrospectionOperations",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/graphql/introspection.ts",
       "sourceLocation": {
@@ -2535,8 +3048,13 @@
         "line": 27,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlIntrospectionResult", "GraphQlOperationDefinition"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "GraphQlIntrospectionResult",
+        "GraphQlOperationDefinition"
+      ],
       "signatures": [
         {
           "label": "(introspection: GraphQlIntrospectionResult | undefined) => readonly GraphQlOperationDefinition[]",
@@ -2557,9 +3075,11 @@
     },
     {
       "name": "normalizeGraphQlIntrospectionSchemas",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/graphql/introspection.ts",
       "sourceLocation": {
@@ -2567,8 +3087,12 @@
         "line": 15,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlIntrospectionResult"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "GraphQlIntrospectionResult"
+      ],
       "signatures": [
         {
           "label": "(introspection: GraphQlIntrospectionResult | undefined) => Readonly<Record<string, DataSchema>> | undefined",
@@ -2589,9 +3113,11 @@
     },
     {
       "name": "normalizeGraphQlOperationId",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/graphql/operation.ts",
       "sourceLocation": {
@@ -2599,8 +3125,12 @@
         "line": 13,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlOperationKind"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "GraphQlOperationKind"
+      ],
       "signatures": [
         {
           "label": "(kind: GraphQlOperationKind, name: string) => string",
@@ -2627,9 +3157,11 @@
     },
     {
       "name": "normalizeManualRestApi",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/rest/index.ts",
       "sourceLocation": {
@@ -2637,8 +3169,12 @@
         "line": 136,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ManualRestApiDefinition"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ManualRestApiDefinition"
+      ],
       "signatures": [
         {
           "label": "(definition: ManualRestApiDefinition) => ExternalRestApiDefinition",
@@ -2659,9 +3195,11 @@
     },
     {
       "name": "normalizeManualRestMethod",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/rest/index.ts",
       "sourceLocation": {
@@ -2669,7 +3207,9 @@
         "line": 64,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -2691,9 +3231,11 @@
     },
     {
       "name": "normalizeOpenApiEndpointId",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/openapi/endpoints.ts",
       "sourceLocation": {
@@ -2701,7 +3243,9 @@
         "line": 26,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [
         {
@@ -2723,9 +3267,11 @@
     },
     {
       "name": "normalizeOpenApiOperationId",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/openapi/operation.ts",
       "sourceLocation": {
@@ -2733,8 +3279,12 @@
         "line": 26,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["OpenApiHttpMethod"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "OpenApiHttpMethod"
+      ],
       "signatures": [
         {
           "label": "(method: OpenApiHttpMethod, path: string, operationId?: string | undefined) => string",
@@ -2767,9 +3317,11 @@
     },
     {
       "name": "normalizeOpenApiSchema",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/openapi/schema.ts",
       "sourceLocation": {
@@ -2777,8 +3329,12 @@
         "line": 20,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["OpenApiSchemaObject"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "OpenApiSchemaObject"
+      ],
       "signatures": [
         {
           "label": "(schema: OpenApiSchemaObject) => DataSchema",
@@ -2799,9 +3355,11 @@
     },
     {
       "name": "OpenApiComponentsObject",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
@@ -2809,8 +3367,12 @@
         "line": 66,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["OpenApiSchemaObject"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "OpenApiSchemaObject"
+      ],
       "signatures": [],
       "members": [
         {
@@ -2823,7 +3385,7 @@
         {
           "name": "securitySchemes",
           "kind": "property",
-          "type": "Readonly<Record<string, DataContractValue>> | undefined",
+          "type": "Readonly<Record<string, import(\"@ankhorage/contracts/dist/serializable\").SerializableValue>> | undefined",
           "required": false,
           "description": null
         }
@@ -2832,18 +3394,24 @@
     },
     {
       "name": "OpenApiDiscoveryAttempt",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 54,
+        "line": 56,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["OpenApiDiscoveryAttemptOutcome"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "OpenApiDiscoveryAttemptOutcome"
+      ],
       "signatures": [],
       "members": [
         {
@@ -2872,17 +3440,21 @@
     },
     {
       "name": "OpenApiDiscoveryAttemptOutcome",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/discovery/index.ts",
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 46,
+        "line": 48,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -2890,9 +3462,11 @@
     },
     {
       "name": "OpenApiDocumentObject",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
@@ -2900,8 +3474,14 @@
         "line": 71,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["OpenApiComponentsObject", "OpenApiPathItemObject", "OpenApiServerObject"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "OpenApiComponentsObject",
+        "OpenApiPathItemObject",
+        "OpenApiServerObject"
+      ],
       "signatures": [],
       "members": [
         {
@@ -2944,9 +3524,11 @@
     },
     {
       "name": "OpenApiHttpMethod",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
@@ -2954,7 +3536,9 @@
         "line": 3,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -2962,9 +3546,11 @@
     },
     {
       "name": "OpenApiImportInput",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
@@ -2972,8 +3558,12 @@
         "line": 83,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["OpenApiDocumentObject"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "OpenApiDocumentObject"
+      ],
       "signatures": [],
       "members": [
         {
@@ -3028,7 +3618,7 @@
         {
           "name": "metadata",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -3044,9 +3634,11 @@
     },
     {
       "name": "OpenApiImportResult",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/openapi/index.ts",
       "sourceLocation": {
@@ -3054,7 +3646,9 @@
         "line": 16,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3062,9 +3656,11 @@
     },
     {
       "name": "OpenApiMediaTypeObject",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
@@ -3072,8 +3668,12 @@
         "line": 29,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["OpenApiSchemaObject"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "OpenApiSchemaObject"
+      ],
       "signatures": [],
       "members": [
         {
@@ -3088,9 +3688,11 @@
     },
     {
       "name": "OpenApiOperationObject",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
@@ -3098,7 +3700,9 @@
         "line": 52,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [
         "OpenApiParameterObject",
         "OpenApiRequestBodyObject",
@@ -3160,9 +3764,11 @@
     },
     {
       "name": "OpenApiParameterObject",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
@@ -3170,8 +3776,12 @@
         "line": 44,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["OpenApiSchemaObject"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "OpenApiSchemaObject"
+      ],
       "signatures": [],
       "members": [
         {
@@ -3214,9 +3824,11 @@
     },
     {
       "name": "OpenApiPathItemObject",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
@@ -3224,7 +3836,9 @@
         "line": 62,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3232,9 +3846,11 @@
     },
     {
       "name": "OpenApiRequestBodyObject",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
@@ -3242,8 +3858,12 @@
         "line": 33,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["OpenApiMediaTypeObject"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "OpenApiMediaTypeObject"
+      ],
       "signatures": [],
       "members": [
         {
@@ -3272,9 +3892,11 @@
     },
     {
       "name": "OpenApiResponseObject",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
@@ -3282,8 +3904,12 @@
         "line": 39,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["OpenApiMediaTypeObject"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "OpenApiMediaTypeObject"
+      ],
       "signatures": [],
       "members": [
         {
@@ -3305,9 +3931,11 @@
     },
     {
       "name": "OpenApiSchemaObject",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
@@ -3315,7 +3943,9 @@
         "line": 10,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -3350,14 +3980,14 @@
         {
           "name": "const",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
         {
           "name": "default",
           "kind": "property",
-          "type": "DataContractValue | undefined",
+          "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
           "required": false,
           "description": null
         },
@@ -3371,7 +4001,7 @@
         {
           "name": "enum",
           "kind": "property",
-          "type": "readonly DataContractValue[] | undefined",
+          "type": "readonly import(\"@ankhorage/contracts/dist/serializable\").SerializableValue[] | undefined",
           "required": false,
           "description": null
         },
@@ -3436,9 +4066,11 @@
     },
     {
       "name": "OpenApiServerObject",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/openapi/types.ts",
       "sourceLocation": {
@@ -3446,7 +4078,9 @@
         "line": 5,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -3469,9 +4103,11 @@
     },
     {
       "name": "SUPPORTED_API_ORIGINS",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "value",
       "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
@@ -3479,7 +4115,9 @@
         "line": 12,
         "column": 14
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3487,9 +4125,11 @@
     },
     {
       "name": "SUPPORTED_API_PROTOCOLS",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "value",
       "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
@@ -3497,7 +4137,9 @@
         "line": 13,
         "column": 14
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3505,9 +4147,11 @@
     },
     {
       "name": "SUPPORTED_DATA_SOURCE_KINDS",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "value",
       "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
@@ -3515,7 +4159,9 @@
         "line": 9,
         "column": 14
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3523,9 +4169,11 @@
     },
     {
       "name": "SupportedApiOrigin",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/packageInfo.ts",
       "sourceLocation": {
@@ -3533,7 +4181,9 @@
         "line": 18,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -3541,9 +4191,11 @@
     },
     {
       "name": "testEndpoint",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/test-runner/index.ts",
       "sourceLocation": {
@@ -3551,8 +4203,13 @@
         "line": 35,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["EndpointTestInput", "EndpointTestResult"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "EndpointTestInput",
+        "EndpointTestResult"
+      ],
       "signatures": [
         {
           "label": "(input: EndpointTestInput) => Promise<EndpointTestResult>",
@@ -3573,9 +4230,11 @@
     },
     {
       "name": "validateGraphQlApi",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/graphql/index.ts",
       "sourceLocation": {
@@ -3583,8 +4242,12 @@
         "line": 76,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["GraphQlApiDefinition"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "GraphQlApiDefinition"
+      ],
       "signatures": [
         {
           "label": "(definition: GraphQlApiDefinition) => readonly DataSourceDiagnostic[]",
@@ -3605,9 +4268,11 @@
     },
     {
       "name": "validateManualRestApi",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/rest/index.ts",
       "sourceLocation": {
@@ -3615,8 +4280,12 @@
         "line": 86,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["ManualRestApiDefinition"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ManualRestApiDefinition"
+      ],
       "signatures": [
         {
           "label": "(definition: ManualRestApiDefinition) => readonly DataSourceDiagnostic[]",
@@ -3641,6 +4310,8 @@
     {
       "name": "parseHttpUrl",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/discovery/http.ts",
         "line": 5,
@@ -3650,6 +4321,8 @@
     {
       "name": "normalizeCandidateUrl",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/discovery/http.ts",
         "line": 16,
@@ -3659,6 +4332,8 @@
     {
       "name": "isSuccessfulStatus",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/discovery/http.ts",
         "line": 22,
@@ -3668,6 +4343,8 @@
     {
       "name": "parseJsonResponse",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/discovery/http.ts",
         "line": 26,
@@ -3677,6 +4354,8 @@
     {
       "name": "readRecord",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/discovery/http.ts",
         "line": 34,
@@ -3685,70 +4364,75 @@
     },
     {
       "name": "createOpenApiDiscoveryCandidates",
-      "description": null,
+      "description": "Creates the ordered, deduplicated URLs probed during OpenAPI discovery.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 110,
+        "line": 113,
         "column": 1
       }
     },
     {
       "name": "discoverOpenApi",
-      "description": null,
+      "description": "Discovers and imports an OpenAPI document while preserving the requested service boundary.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 131,
+        "line": 123,
         "column": 1
       }
     },
     {
       "name": "introspectGraphQlApi",
-      "description": null,
+      "description": "Introspects a GraphQL endpoint and normalizes its schema into the canonical API definition.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 160,
+        "line": 155,
         "column": 1
       }
     },
     {
       "name": "fetchGraphQlIntrospection",
-      "description": null,
+      "description": "Fetches GraphQL introspection without exposing transport failures beyond the discovery boundary.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 208,
+        "line": 204,
         "column": 1
       }
     },
     {
       "name": "probeOpenApiCandidate",
-      "description": null,
+      "description": "Probes one OpenAPI candidate and scopes origin-root documents before canonical import.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 232,
+        "line": 229,
+        "column": 1
+      }
+    },
+    {
+      "name": "importOpenApiCandidate",
+      "description": "Applies service scoping and imports one validated OpenAPI candidate.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 270,
         "column": 1
       }
     },
     {
       "name": "isOpenApiDocument",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/discovery/index.ts",
-        "line": 280,
-        "column": 1
-      }
-    },
-    {
-      "name": "readGraphQlIntrospection",
-      "description": null,
-      "sourceLocation": {
-        "filePath": "src/discovery/index.ts",
-        "line": 289,
-        "column": 1
-      }
-    },
-    {
-      "name": "discoveryFailure",
-      "description": null,
+      "description": "Checks whether parsed JSON has the minimal OpenAPI document shape required for import.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
         "line": 296,
@@ -3756,17 +4440,87 @@
       }
     },
     {
-      "name": "graphqlFailure",
-      "description": null,
+      "name": "readGraphQlIntrospection",
+      "description": "Reads a GraphQL introspection schema from a parsed response payload.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/discovery/index.ts",
-        "line": 308,
+        "line": 306,
+        "column": 1
+      }
+    },
+    {
+      "name": "discoveryFailure",
+      "description": "Builds a canonical OpenAPI discovery failure with safe diagnostics.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 314,
+        "column": 1
+      }
+    },
+    {
+      "name": "graphqlFailure",
+      "description": "Builds a canonical GraphQL introspection failure with API identity.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/discovery/index.ts",
+        "line": 327,
+        "column": 1
+      }
+    },
+    {
+      "name": "createOpenApiDiscoveryPlan",
+      "description": "Builds the ordered OpenAPI probe plan and the normalized service scope requested by the caller.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/discovery/openapiDiscoveryPlan.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeServicePath",
+      "description": "Normalizes trailing slashes for segment-safe service-path comparisons.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/discovery/openapiDiscoveryPlan.ts",
+        "line": 55,
+        "column": 1
+      }
+    },
+    {
+      "name": "scopeOpenApiDocument",
+      "description": "Filters an origin-root OpenAPI document to the requested service path without rewriting paths.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/discovery/scopeOpenApiDocument.ts",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "name": "redactDiagnosticUrl",
+      "description": "Removes credentials, query parameters, and fragments from a URL included in diagnostics.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/discovery/scopeOpenApiDocument.ts",
+        "line": 38,
         "column": 1
       }
     },
     {
       "name": "createGraphQlIntrospectionRequest",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/index.ts",
         "line": 59,
@@ -3776,6 +4530,8 @@
     {
       "name": "createGraphQlApi",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/index.ts",
         "line": 66,
@@ -3785,6 +4541,8 @@
     {
       "name": "validateGraphQlApi",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/index.ts",
         "line": 76,
@@ -3794,6 +4552,8 @@
     {
       "name": "normalizeGraphQlApi",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/index.ts",
         "line": 112,
@@ -3803,6 +4563,8 @@
     {
       "name": "normalizeGraphQlIntrospectionSchemas",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/introspection.ts",
         "line": 15,
@@ -3812,6 +4574,8 @@
     {
       "name": "normalizeGraphQlIntrospectionOperations",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/introspection.ts",
         "line": 27,
@@ -3821,6 +4585,8 @@
     {
       "name": "normalizeRootOperations",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/introspection.ts",
         "line": 41,
@@ -3830,6 +4596,8 @@
     {
       "name": "normalizeGraphQlVariablesSchema",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/introspection.ts",
         "line": 60,
@@ -3839,6 +4607,8 @@
     {
       "name": "normalizeGraphQlType",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/introspection.ts",
         "line": 81,
@@ -3848,6 +4618,8 @@
     {
       "name": "normalizeGraphQlEnumType",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/introspection.ts",
         "line": 89,
@@ -3857,6 +4629,8 @@
     {
       "name": "normalizeGraphQlScalarType",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/introspection.ts",
         "line": 98,
@@ -3866,6 +4640,8 @@
     {
       "name": "normalizeGraphQlUnionType",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/introspection.ts",
         "line": 106,
@@ -3875,6 +4651,8 @@
     {
       "name": "normalizeGraphQlObjectType",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/introspection.ts",
         "line": 114,
@@ -3884,6 +4662,8 @@
     {
       "name": "normalizeGraphQlTypeRef",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/introspection.ts",
         "line": 138,
@@ -3893,6 +4673,8 @@
     {
       "name": "normalizeGraphQlNamedScalar",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/introspection.ts",
         "line": 149,
@@ -3902,6 +4684,8 @@
     {
       "name": "isGraphQlNonNull",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/introspection.ts",
         "line": 157,
@@ -3911,6 +4695,8 @@
     {
       "name": "isNamedGraphQlType",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/introspection.ts",
         "line": 161,
@@ -3920,6 +4706,8 @@
     {
       "name": "normalizeGraphQlOperationId",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/operation.ts",
         "line": 13,
@@ -3929,6 +4717,8 @@
     {
       "name": "normalizeGraphQlOperation",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/operation.ts",
         "line": 21,
@@ -3938,6 +4728,8 @@
     {
       "name": "mapGraphQlOperationKindToIntent",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/operation.ts",
         "line": 39,
@@ -3947,6 +4739,8 @@
     {
       "name": "createGraphQlOperationMetadata",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/operation.ts",
         "line": 43,
@@ -3956,6 +4750,8 @@
     {
       "name": "toMetadataRecord",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/operation.ts",
         "line": 52,
@@ -3965,6 +4761,8 @@
     {
       "name": "isDataContractRecord",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/graphql/operation.ts",
         "line": 56,
@@ -3974,6 +4772,8 @@
     {
       "name": "normalizeOpenApiEndpointId",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/endpoints.ts",
         "line": 26,
@@ -3983,6 +4783,8 @@
     {
       "name": "normalizeOpenApiEndpoints",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/endpoints.ts",
         "line": 35,
@@ -3992,6 +4794,8 @@
     {
       "name": "normalizeOpenApiEndpoint",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/endpoints.ts",
         "line": 63,
@@ -4001,6 +4805,8 @@
     {
       "name": "getOpenApiOperations",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/endpoints.ts",
         "line": 95,
@@ -4010,6 +4816,8 @@
     {
       "name": "getOpenApiOperation",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/endpoints.ts",
         "line": 104,
@@ -4019,6 +4827,8 @@
     {
       "name": "importOpenApiDocument",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/index.ts",
         "line": 18,
@@ -4028,6 +4838,8 @@
     {
       "name": "resolveOpenApiBaseUrl",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/index.ts",
         "line": 55,
@@ -4037,6 +4849,8 @@
     {
       "name": "normalizeOpenApiOperationId",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/operation.ts",
         "line": 26,
@@ -4046,6 +4860,8 @@
     {
       "name": "normalizeOpenApiOperation",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/operation.ts",
         "line": 40,
@@ -4055,6 +4871,8 @@
     {
       "name": "resolveUniqueOperationId",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/operation.ts",
         "line": 81,
@@ -4064,6 +4882,8 @@
     {
       "name": "findUniqueOperationId",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/operation.ts",
         "line": 110,
@@ -4073,6 +4893,8 @@
     {
       "name": "normalizeOpenApiParameters",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/operation.ts",
         "line": 123,
@@ -4082,6 +4904,8 @@
     {
       "name": "normalizeOpenApiParameter",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/operation.ts",
         "line": 136,
@@ -4091,6 +4915,8 @@
     {
       "name": "normalizeParameterLocation",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/operation.ts",
         "line": 168,
@@ -4100,6 +4926,8 @@
     {
       "name": "normalizeOpenApiRequest",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/operation.ts",
         "line": 180,
@@ -4109,6 +4937,8 @@
     {
       "name": "normalizeOpenApiResponse",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/operation.ts",
         "line": 193,
@@ -4118,6 +4948,8 @@
     {
       "name": "chooseResponseEntry",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/operation.ts",
         "line": 208,
@@ -4127,6 +4959,8 @@
     {
       "name": "firstContentEntry",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/operation.ts",
         "line": 216,
@@ -4136,6 +4970,8 @@
     {
       "name": "mapOpenApiMethodToIntent",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/operation.ts",
         "line": 225,
@@ -4145,6 +4981,8 @@
     {
       "name": "normalizeOpenApiSchema",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/schema.ts",
         "line": 20,
@@ -4154,6 +4992,8 @@
     {
       "name": "normalizeOpenApiSchemas",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/schema.ts",
         "line": 41,
@@ -4163,6 +5003,8 @@
     {
       "name": "normalizeOpenApiSchemaRef",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/schema.ts",
         "line": 60,
@@ -4172,6 +5014,8 @@
     {
       "name": "normalizeSchemaRecord",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/schema.ts",
         "line": 66,
@@ -4181,6 +5025,8 @@
     {
       "name": "normalizeSchemaList",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/schema.ts",
         "line": 75,
@@ -4190,6 +5036,8 @@
     {
       "name": "normalizeAdditionalProperties",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/schema.ts",
         "line": 81,
@@ -4199,6 +5047,8 @@
     {
       "name": "normalizeSchemaType",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/schema.ts",
         "line": 88,
@@ -4208,6 +5058,8 @@
     {
       "name": "isDataSchemaPrimitive",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/schema.ts",
         "line": 96,
@@ -4217,6 +5069,8 @@
     {
       "name": "collectUnsupportedSchemaDiagnostics",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/openapi/schema.ts",
         "line": 100,
@@ -4226,6 +5080,8 @@
     {
       "name": "getDataSourcesPackageInfo",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/packageInfo.ts",
         "line": 27,
@@ -4235,6 +5091,8 @@
     {
       "name": "isSupportedDataSourceKind",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/packageInfo.ts",
         "line": 36,
@@ -4244,6 +5102,8 @@
     {
       "name": "isSupportedApiOrigin",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/packageInfo.ts",
         "line": 40,
@@ -4253,6 +5113,8 @@
     {
       "name": "isSupportedApiProtocol",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/packageInfo.ts",
         "line": 44,
@@ -4262,6 +5124,8 @@
     {
       "name": "getDataSourceKind",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/packageInfo.ts",
         "line": 48,
@@ -4271,6 +5135,8 @@
     {
       "name": "isManualRestMethod",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/rest/index.ts",
         "line": 60,
@@ -4280,6 +5146,8 @@
     {
       "name": "normalizeManualRestMethod",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/rest/index.ts",
         "line": 64,
@@ -4289,6 +5157,8 @@
     {
       "name": "extractRestPathParams",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/rest/index.ts",
         "line": 68,
@@ -4298,6 +5168,8 @@
     {
       "name": "validateManualRestApi",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/rest/index.ts",
         "line": 86,
@@ -4307,6 +5179,8 @@
     {
       "name": "createManualRestApi",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/rest/index.ts",
         "line": 121,
@@ -4316,6 +5190,8 @@
     {
       "name": "normalizeManualRestApi",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/rest/index.ts",
         "line": 136,
@@ -4325,6 +5201,8 @@
     {
       "name": "normalizeManualRestEndpoint",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/rest/index.ts",
         "line": 157,
@@ -4334,6 +5212,8 @@
     {
       "name": "normalizeManualRestOperation",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/rest/index.ts",
         "line": 176,
@@ -4343,6 +5223,8 @@
     {
       "name": "validateManualRestOperation",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/rest/index.ts",
         "line": 202,
@@ -4352,6 +5234,8 @@
     {
       "name": "testEndpoint",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
         "line": 35,
@@ -4361,6 +5245,8 @@
     {
       "name": "buildEndpointTestRequest",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
         "line": 65,
@@ -4370,6 +5256,8 @@
     {
       "name": "createEndpointTestResult",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
         "line": 99,
@@ -4379,6 +5267,8 @@
     {
       "name": "selectEndpointOperation",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
         "line": 124,
@@ -4388,6 +5278,8 @@
     {
       "name": "resolveEndpointCredential",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
         "line": 130,
@@ -4397,6 +5289,8 @@
     {
       "name": "buildProtocolRequest",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
         "line": 157,
@@ -4406,6 +5300,8 @@
     {
       "name": "buildHttpRequest",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
         "line": 168,
@@ -4415,6 +5311,8 @@
     {
       "name": "buildGraphQlRequest",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
         "line": 213,
@@ -4424,6 +5322,8 @@
     {
       "name": "getRestBaseUrl",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
         "line": 250,
@@ -4433,6 +5333,8 @@
     {
       "name": "getGraphQlEndpointUrl",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/index.ts",
         "line": 255,
@@ -4442,6 +5344,8 @@
     {
       "name": "createResponseDiagnostic",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/response.ts",
         "line": 5,
@@ -4451,6 +5355,8 @@
     {
       "name": "parseResponseBody",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/response.ts",
         "line": 18,
@@ -4460,6 +5366,8 @@
     {
       "name": "isDataContractValue",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/response.ts",
         "line": 28,
@@ -4469,6 +5377,8 @@
     {
       "name": "createDiagnostic",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/result.ts",
         "line": 10,
@@ -4478,6 +5388,8 @@
     {
       "name": "failure",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/result.ts",
         "line": 25,
@@ -4487,6 +5399,8 @@
     {
       "name": "createNetworkErrorMessage",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/result.ts",
         "line": 33,
@@ -4496,6 +5410,8 @@
     {
       "name": "interpolatePath",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/serialization.ts",
         "line": 11,
@@ -4505,6 +5421,8 @@
     {
       "name": "collectQuery",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/serialization.ts",
         "line": 39,
@@ -4514,6 +5432,8 @@
     {
       "name": "collectHeaders",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/serialization.ts",
         "line": 52,
@@ -4523,6 +5443,8 @@
     {
       "name": "createHttpBody",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/serialization.ts",
         "line": 65,
@@ -4532,6 +5454,8 @@
     {
       "name": "appendQuery",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/serialization.ts",
         "line": 82,
@@ -4541,6 +5465,8 @@
     {
       "name": "joinUrl",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/serialization.ts",
         "line": 94,
@@ -4550,6 +5476,8 @@
     {
       "name": "getStringValue",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/serialization.ts",
         "line": 100,
@@ -4559,6 +5487,8 @@
     {
       "name": "getRecordValue",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/serialization.ts",
         "line": 108,
@@ -4568,6 +5498,8 @@
     {
       "name": "getStringMetadataValue",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/serialization.ts",
         "line": 116,
@@ -4577,6 +5509,8 @@
     {
       "name": "serializeEndpointUrlValue",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/serialization.ts",
         "line": 125,
@@ -4586,6 +5520,8 @@
     {
       "name": "readValue",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/serialization.ts",
         "line": 132,
@@ -4595,6 +5531,8 @@
     {
       "name": "isDataContractValue",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/serialization.ts",
         "line": 139,
@@ -4604,6 +5542,8 @@
     {
       "name": "isDataContractRecord",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/test-runner/serialization.ts",
         "line": 145,
@@ -4649,7 +5589,7 @@
       "name": "createOpenApiDiscoveryCandidates",
       "sourcePath": "src/discovery/index.ts",
       "symbolName": "createOpenApiDiscoveryCandidates",
-      "description": null,
+      "description": "Creates the ordered, deduplicated URLs probed during OpenAPI discovery.",
       "isReadme": false
     },
     {
@@ -4657,7 +5597,7 @@
       "name": "discoverOpenApi",
       "sourcePath": "src/discovery/index.ts",
       "symbolName": "discoverOpenApi",
-      "description": null,
+      "description": "Discovers and imports an OpenAPI document while preserving the requested service boundary.",
       "isReadme": false
     },
     {
@@ -4697,7 +5637,7 @@
       "name": "introspectGraphQlApi",
       "sourcePath": "src/discovery/index.ts",
       "symbolName": "introspectGraphQlApi",
-      "description": null,
+      "description": "Introspects a GraphQL endpoint and normalizes its schema into the canonical API definition.",
       "isReadme": false
     },
     {
@@ -4887,6 +5827,26 @@
         "sourcePath": "src/discovery/index.ts"
       },
       {
+        "fromPath": "src/discovery/index.ts",
+        "toPath": "src/discovery/openapiDiscoveryPlan.ts",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromPath": "src/discovery/index.ts",
+        "toPath": "src/discovery/scopeOpenApiDocument.ts",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromPath": "src/discovery/openapiDiscoveryPlan.ts",
+        "toPath": "src/discovery/http.ts",
+        "sourcePath": "src/discovery/openapiDiscoveryPlan.ts"
+      },
+      {
+        "fromPath": "src/discovery/scopeOpenApiDocument.ts",
+        "toPath": "src/openapi/index.ts",
+        "sourcePath": "src/discovery/scopeOpenApiDocument.ts"
+      },
+      {
         "fromPath": "src/graphql/index.ts",
         "toPath": "src/graphql/introspection.ts",
         "sourcePath": "src/graphql/index.ts"
@@ -5017,20 +5977,14 @@
       },
       {
         "fromSymbol": "createOpenApiDiscoveryCandidates",
-        "toSymbol": "parseHttpUrl",
-        "callExpression": "parseHttpUrl",
-        "sourcePath": "src/discovery/index.ts"
-      },
-      {
-        "fromSymbol": "createOpenApiDiscoveryCandidates",
-        "toSymbol": "normalizeCandidateUrl",
-        "callExpression": "normalizeCandidateUrl",
+        "toSymbol": "createOpenApiDiscoveryPlan",
+        "callExpression": "createOpenApiDiscoveryPlan",
         "sourcePath": "src/discovery/index.ts"
       },
       {
         "fromSymbol": "discoverOpenApi",
-        "toSymbol": "createOpenApiDiscoveryCandidates",
-        "callExpression": "createOpenApiDiscoveryCandidates",
+        "toSymbol": "createOpenApiDiscoveryPlan",
+        "callExpression": "createOpenApiDiscoveryPlan",
         "sourcePath": "src/discovery/index.ts"
       },
       {
@@ -5137,6 +6091,18 @@
       },
       {
         "fromSymbol": "probeOpenApiCandidate",
+        "toSymbol": "importOpenApiCandidate",
+        "callExpression": "importOpenApiCandidate",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "importOpenApiCandidate",
+        "toSymbol": "scopeOpenApiDocument",
+        "callExpression": "scopeOpenApiDocument",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "importOpenApiCandidate",
         "toSymbol": "importOpenApiDocument",
         "callExpression": "importOpenApiDocument",
         "sourcePath": "src/discovery/index.ts"
@@ -5152,6 +6118,36 @@
         "toSymbol": "readRecord",
         "callExpression": "readRecord",
         "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "createOpenApiDiscoveryPlan",
+        "toSymbol": "parseHttpUrl",
+        "callExpression": "parseHttpUrl",
+        "sourcePath": "src/discovery/openapiDiscoveryPlan.ts"
+      },
+      {
+        "fromSymbol": "createOpenApiDiscoveryPlan",
+        "toSymbol": "normalizeCandidateUrl",
+        "callExpression": "normalizeCandidateUrl",
+        "sourcePath": "src/discovery/openapiDiscoveryPlan.ts"
+      },
+      {
+        "fromSymbol": "createOpenApiDiscoveryPlan",
+        "toSymbol": "normalizeServicePath",
+        "callExpression": "normalizeServicePath",
+        "sourcePath": "src/discovery/openapiDiscoveryPlan.ts"
+      },
+      {
+        "fromSymbol": "src/discovery/openapiDiscoveryPlan.ts",
+        "toSymbol": "normalizeServicePath",
+        "callExpression": "normalizeServicePath",
+        "sourcePath": "src/discovery/openapiDiscoveryPlan.ts"
+      },
+      {
+        "fromSymbol": "scopeOpenApiDocument",
+        "toSymbol": "redactDiagnosticUrl",
+        "callExpression": "redactDiagnosticUrl",
+        "sourcePath": "src/discovery/scopeOpenApiDocument.ts"
       },
       {
         "fromSymbol": "createGraphQlApi",
@@ -5874,22 +6870,17 @@
       },
       {
         "fromSymbol": "DiscoverOpenApiInput",
-        "toType": "DataContractValue",
+        "toType": "ExternalApiFetch",
         "sourcePath": "src/discovery/index.ts"
       },
       {
         "fromSymbol": "DiscoverOpenApiInput",
-        "toType": "ExternalApiFetch",
+        "toType": "SerializableValue",
         "sourcePath": "src/discovery/index.ts"
       },
       {
         "fromSymbol": "IntrospectGraphQlApiInput",
         "toType": "CredentialRef",
-        "sourcePath": "src/discovery/index.ts"
-      },
-      {
-        "fromSymbol": "IntrospectGraphQlApiInput",
-        "toType": "DataContractValue",
         "sourcePath": "src/discovery/index.ts"
       },
       {
@@ -5900,6 +6891,11 @@
       {
         "fromSymbol": "IntrospectGraphQlApiInput",
         "toType": "Readonly",
+        "sourcePath": "src/discovery/index.ts"
+      },
+      {
+        "fromSymbol": "IntrospectGraphQlApiInput",
+        "toType": "SerializableValue",
         "sourcePath": "src/discovery/index.ts"
       },
       {
@@ -6024,11 +7020,6 @@
       },
       {
         "fromSymbol": "GraphQlOperationDefinition",
-        "toType": "DataContractValue",
-        "sourcePath": "src/graphql/types.ts"
-      },
-      {
-        "fromSymbol": "GraphQlOperationDefinition",
         "toType": "DataSchema",
         "sourcePath": "src/graphql/types.ts"
       },
@@ -6038,13 +7029,13 @@
         "sourcePath": "src/graphql/types.ts"
       },
       {
-        "fromSymbol": "GraphQlApiDefinition",
-        "toType": "CredentialRef",
+        "fromSymbol": "GraphQlOperationDefinition",
+        "toType": "SerializableValue",
         "sourcePath": "src/graphql/types.ts"
       },
       {
         "fromSymbol": "GraphQlApiDefinition",
-        "toType": "DataContractValue",
+        "toType": "CredentialRef",
         "sourcePath": "src/graphql/types.ts"
       },
       {
@@ -6055,6 +7046,11 @@
       {
         "fromSymbol": "GraphQlApiDefinition",
         "toType": "GraphQlOperationDefinition",
+        "sourcePath": "src/graphql/types.ts"
+      },
+      {
+        "fromSymbol": "GraphQlApiDefinition",
+        "toType": "SerializableValue",
         "sourcePath": "src/graphql/types.ts"
       },
       {
@@ -6084,12 +7080,12 @@
       },
       {
         "fromSymbol": "OpenApiSchemaObject",
-        "toType": "DataContractValue",
+        "toType": "Readonly",
         "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiSchemaObject",
-        "toType": "Readonly",
+        "toType": "SerializableValue",
         "sourcePath": "src/openapi/types.ts"
       },
       {
@@ -6144,17 +7140,17 @@
       },
       {
         "fromSymbol": "OpenApiComponentsObject",
-        "toType": "DataContractValue",
-        "sourcePath": "src/openapi/types.ts"
-      },
-      {
-        "fromSymbol": "OpenApiComponentsObject",
         "toType": "OpenApiSchemaObject",
         "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiComponentsObject",
         "toType": "Readonly",
+        "sourcePath": "src/openapi/types.ts"
+      },
+      {
+        "fromSymbol": "OpenApiComponentsObject",
+        "toType": "SerializableValue",
         "sourcePath": "src/openapi/types.ts"
       },
       {
@@ -6184,12 +7180,12 @@
       },
       {
         "fromSymbol": "OpenApiImportInput",
-        "toType": "DataContractValue",
+        "toType": "OpenApiDocumentObject",
         "sourcePath": "src/openapi/types.ts"
       },
       {
         "fromSymbol": "OpenApiImportInput",
-        "toType": "OpenApiDocumentObject",
+        "toType": "SerializableValue",
         "sourcePath": "src/openapi/types.ts"
       },
       {
@@ -6249,11 +7245,6 @@
       },
       {
         "fromSymbol": "ManualRestOperationDefinition",
-        "toType": "DataContractValue",
-        "sourcePath": "src/rest/index.ts"
-      },
-      {
-        "fromSymbol": "ManualRestOperationDefinition",
         "toType": "DataOperationIntent",
         "sourcePath": "src/rest/index.ts"
       },
@@ -6278,13 +7269,13 @@
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "ManualRestEndpointDefinition",
-        "toType": "CredentialRef",
+        "fromSymbol": "ManualRestOperationDefinition",
+        "toType": "SerializableValue",
         "sourcePath": "src/rest/index.ts"
       },
       {
         "fromSymbol": "ManualRestEndpointDefinition",
-        "toType": "DataContractValue",
+        "toType": "CredentialRef",
         "sourcePath": "src/rest/index.ts"
       },
       {
@@ -6293,13 +7284,13 @@
         "sourcePath": "src/rest/index.ts"
       },
       {
-        "fromSymbol": "ManualRestApiDefinition",
-        "toType": "CredentialRef",
+        "fromSymbol": "ManualRestEndpointDefinition",
+        "toType": "SerializableValue",
         "sourcePath": "src/rest/index.ts"
       },
       {
         "fromSymbol": "ManualRestApiDefinition",
-        "toType": "DataContractValue",
+        "toType": "CredentialRef",
         "sourcePath": "src/rest/index.ts"
       },
       {
@@ -6318,6 +7309,11 @@
         "sourcePath": "src/rest/index.ts"
       },
       {
+        "fromSymbol": "ManualRestApiDefinition",
+        "toType": "SerializableValue",
+        "sourcePath": "src/rest/index.ts"
+      },
+      {
         "fromSymbol": "testEndpoint",
         "toType": "EndpointTestInput",
         "sourcePath": "src/test-runner/index.ts"
@@ -6336,15 +7332,15 @@
         "fromSymbol": "buildEndpointTestRequest",
         "toType": "EndpointTestResult",
         "sourcePath": "src/test-runner/index.ts"
-      },
-      {
-        "fromSymbol": "EndpointTestCredential",
-        "toType": "DataContractValue",
-        "sourcePath": "src/test-runner/types.ts"
       },
       {
         "fromSymbol": "EndpointTestCredential",
         "toType": "Readonly",
+        "sourcePath": "src/test-runner/types.ts"
+      },
+      {
+        "fromSymbol": "EndpointTestCredential",
+        "toType": "SerializableValue",
         "sourcePath": "src/test-runner/types.ts"
       },
       {
@@ -6364,11 +7360,6 @@
       },
       {
         "fromSymbol": "EndpointTestInput",
-        "toType": "DataContractValue",
-        "sourcePath": "src/test-runner/types.ts"
-      },
-      {
-        "fromSymbol": "EndpointTestInput",
         "toType": "EndpointTestCredentialResolver",
         "sourcePath": "src/test-runner/types.ts"
       },
@@ -6383,18 +7374,23 @@
         "sourcePath": "src/test-runner/types.ts"
       },
       {
+        "fromSymbol": "EndpointTestInput",
+        "toType": "SerializableValue",
+        "sourcePath": "src/test-runner/types.ts"
+      },
+      {
         "fromSymbol": "EndpointTestRequestDiagnostic",
         "toType": "Readonly",
         "sourcePath": "src/test-runner/types.ts"
       },
       {
         "fromSymbol": "EndpointTestResponseDiagnostic",
-        "toType": "DataContractValue",
+        "toType": "Readonly",
         "sourcePath": "src/test-runner/types.ts"
       },
       {
         "fromSymbol": "EndpointTestResponseDiagnostic",
-        "toType": "Readonly",
+        "toType": "SerializableValue",
         "sourcePath": "src/test-runner/types.ts"
       }
     ],

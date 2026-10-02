@@ -1,5 +1,49 @@
 # @ankhorage/data-sources
 
+## 2.0.17
+
+### Patch Changes
+
+- d40f0a6: Keep repository-only Renovate configuration out of published documentation.
+- 8e78e7d: Update Ankhorage dependencies: `@ankhorage/contracts`, `@ankhorage/paradox`.
+- fe618ba: Update dependencies from Renovate pull request #109.
+- 41f38bd: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 0e30b33: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 0695721: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 81c6842: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- e251cc0: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- ef1c445: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- aae5f77: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- c2b8e7d: Update Ankhorage dependencies: `@ankhorage/contracts`, `@ankhorage/devtools`.
+- d716558: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 0fc3a60: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 7f900d2: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 0caeb5a: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- e0cf4f7: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 2550002: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- daa480d: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 32b9b98: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 8d981f3: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- edcf768: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 1c83ad1: Update Ankhorage dependencies: `@ankhorage/contracts`, `@ankhorage/paradox`.
+- 163ff48: Update Ankhorage dependencies: `@ankhorage/contracts`, `@ankhorage/paradox`.
+- 19749b7: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- e800aae: Update Ankhorage dependencies: `@ankhorage/contracts`, `@ankhorage/paradox`.
+- ed130e6: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 11d3b01: Update Ankhorage dependencies: `@ankhorage/contracts`, `@ankhorage/paradox`.
+- c6bd412: Update Ankhorage dependencies: `@ankhorage/contracts`, `@ankhorage/paradox`.
+- 40fdb8c: Update Ankhorage dependencies: `@ankhorage/contracts`, `@ankhorage/paradox`.
+- c73ec9b: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 253b379: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 99901bc: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 353bcad: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- b7c73f8: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 5386976: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- a3088c3: Update Ankhorage dependencies: `@ankhorage/contracts`, `@ankhorage/paradox`.
+- 7990a17: Update Ankhorage dependencies: `@ankhorage/contracts`, `@ankhorage/paradox`.
+- 4d83a3a: Update Ankhorage dependencies: `@ankhorage/contracts`, `@ankhorage/paradox`.
+- 15c5973: Update Ankhorage dependencies: `@ankhorage/contracts`.
+
 ## 2.0.16
 
 ### Patch Changes
