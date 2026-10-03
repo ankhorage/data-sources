@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 2.0.31
+
+### Patch Changes
+
+- 9bb2965: Update Ankhorage dependencies: `@ankhorage/contracts`.
+
 ## 2.0.30
 
 ### Patch Changes
