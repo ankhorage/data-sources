@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v2.0.28",
+      "value": "v2.0.29",
       "color": "cb3837"
     },
     {
@@ -70,168 +70,168 @@
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function createGraphQlIntrospectionRequest has no Paradox description.",
+      "message": "Exported function createGraphQlIntrospectionRequest has no documentation description.",
       "sourcePath": "src/graphql/index.ts",
       "line": 59
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function createGraphQlApi has no Paradox description.",
+      "message": "Exported function createGraphQlApi has no documentation description.",
       "sourcePath": "src/graphql/index.ts",
       "line": 66
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function validateGraphQlApi has no Paradox description.",
+      "message": "Exported function validateGraphQlApi has no documentation description.",
       "sourcePath": "src/graphql/index.ts",
       "line": 76
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function normalizeGraphQlApi has no Paradox description.",
+      "message": "Exported function normalizeGraphQlApi has no documentation description.",
       "sourcePath": "src/graphql/index.ts",
       "line": 112
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function normalizeGraphQlIntrospectionOperations has no Paradox description.",
+      "message": "Exported function normalizeGraphQlIntrospectionOperations has no documentation description.",
       "sourcePath": "src/graphql/introspection.ts",
       "line": 27
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function normalizeGraphQlIntrospectionSchemas has no Paradox description.",
+      "message": "Exported function normalizeGraphQlIntrospectionSchemas has no documentation description.",
       "sourcePath": "src/graphql/introspection.ts",
       "line": 15
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function normalizeGraphQlOperationId has no Paradox description.",
+      "message": "Exported function normalizeGraphQlOperationId has no documentation description.",
       "sourcePath": "src/graphql/operation.ts",
       "line": 13
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function importOpenApiDocument has no Paradox description.",
+      "message": "Exported function importOpenApiDocument has no documentation description.",
       "sourcePath": "src/openapi/index.ts",
       "line": 18
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function normalizeOpenApiEndpointId has no Paradox description.",
+      "message": "Exported function normalizeOpenApiEndpointId has no documentation description.",
       "sourcePath": "src/openapi/endpoints.ts",
       "line": 26
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function normalizeOpenApiOperationId has no Paradox description.",
+      "message": "Exported function normalizeOpenApiOperationId has no documentation description.",
       "sourcePath": "src/openapi/operation.ts",
       "line": 26
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function normalizeOpenApiSchema has no Paradox description.",
+      "message": "Exported function normalizeOpenApiSchema has no documentation description.",
       "sourcePath": "src/openapi/schema.ts",
       "line": 20
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function getDataSourcesPackageInfo has no Paradox description.",
+      "message": "Exported function getDataSourcesPackageInfo has no documentation description.",
       "sourcePath": "src/packageInfo.ts",
       "line": 27
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function isSupportedDataSourceKind has no Paradox description.",
+      "message": "Exported function isSupportedDataSourceKind has no documentation description.",
       "sourcePath": "src/packageInfo.ts",
       "line": 36
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function isSupportedApiOrigin has no Paradox description.",
+      "message": "Exported function isSupportedApiOrigin has no documentation description.",
       "sourcePath": "src/packageInfo.ts",
       "line": 40
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function isSupportedApiProtocol has no Paradox description.",
+      "message": "Exported function isSupportedApiProtocol has no documentation description.",
       "sourcePath": "src/packageInfo.ts",
       "line": 44
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function getDataSourceKind has no Paradox description.",
+      "message": "Exported function getDataSourceKind has no documentation description.",
       "sourcePath": "src/packageInfo.ts",
       "line": 48
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function isManualRestMethod has no Paradox description.",
+      "message": "Exported function isManualRestMethod has no documentation description.",
       "sourcePath": "src/rest/index.ts",
       "line": 60
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function normalizeManualRestMethod has no Paradox description.",
+      "message": "Exported function normalizeManualRestMethod has no documentation description.",
       "sourcePath": "src/rest/index.ts",
       "line": 64
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function extractRestPathParams has no Paradox description.",
+      "message": "Exported function extractRestPathParams has no documentation description.",
       "sourcePath": "src/rest/index.ts",
       "line": 68
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function validateManualRestApi has no Paradox description.",
+      "message": "Exported function validateManualRestApi has no documentation description.",
       "sourcePath": "src/rest/index.ts",
       "line": 86
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function createManualRestApi has no Paradox description.",
+      "message": "Exported function createManualRestApi has no documentation description.",
       "sourcePath": "src/rest/index.ts",
       "line": 121
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function normalizeManualRestApi has no Paradox description.",
+      "message": "Exported function normalizeManualRestApi has no documentation description.",
       "sourcePath": "src/rest/index.ts",
       "line": 136
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function testEndpoint has no Paradox description.",
+      "message": "Exported function testEndpoint has no documentation description.",
       "sourcePath": "src/test-runner/index.ts",
       "line": 35
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function buildEndpointTestRequest has no Paradox description.",
+      "message": "Exported function buildEndpointTestRequest has no documentation description.",
       "sourcePath": "src/test-runner/index.ts",
       "line": 65
     }
