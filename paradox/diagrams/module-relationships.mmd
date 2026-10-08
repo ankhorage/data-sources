@@ -1,5 +1,6 @@
 graph LR
   module_src_ankh_provider_ts["src/ankh.provider.ts"]
+  module_src_capabilities_index_ts["src/capabilities/index.ts"]
   module_src_cli_index_ts["src/cli/index.ts"]
   module_src_discovery_http_ts["src/discovery/http.ts"]
   module_src_discovery_index_ts["src/discovery/index.ts"]
@@ -22,6 +23,7 @@ graph LR
   module_src_test_runner_result_ts["src/test-runner/result.ts"]
   module_src_test_runner_serialization_ts["src/test-runner/serialization.ts"]
   module_src_test_runner_types_ts["src/test-runner/types.ts"]
+  module_src_ankh_provider_ts --> module_src_capabilities_index_ts
   module_src_ankh_provider_ts --> module_src_packageInfo_ts
   module_src_discovery_index_ts --> module_src_discovery_http_ts
   module_src_discovery_index_ts --> module_src_discovery_openapiDiscoveryPlan_ts

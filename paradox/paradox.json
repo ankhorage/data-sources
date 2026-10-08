@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v2.0.40",
+      "value": "v2.1.0",
       "color": "cb3837"
     },
     {
@@ -245,10 +245,19 @@
       "path": "src/ankh.provider.ts",
       "isEntrypoint": false,
       "dependencies": [
+        "src/capabilities/index.ts",
         "src/packageInfo.ts"
       ],
       "exports": [
         "default"
+      ]
+    },
+    {
+      "path": "src/capabilities/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "CAPABILITIES"
       ]
     },
     {
@@ -5771,6 +5780,11 @@
   ],
   "graphs": {
     "imports": [
+      {
+        "fromPath": "src/ankh.provider.ts",
+        "toPath": "src/capabilities/index.ts",
+        "sourcePath": "src/ankh.provider.ts"
+      },
       {
         "fromPath": "src/ankh.provider.ts",
         "toPath": "src/packageInfo.ts",

@@ -223,7 +223,7 @@
       <div class="summary">
         <div><strong>83</strong><span class="muted">public exports</span></div>
         <div><strong>0</strong><span class="muted">components</span></div>
-        <div><strong>23</strong><span class="muted">modules</span></div>
+        <div><strong>24</strong><span class="muted">modules</span></div>
         <div><strong>1</strong><span class="muted">entrypoints</span></div>
       </div>
       <h3>Entrypoints</h3>
@@ -334,11 +334,16 @@
   </section>
     <section class="panel">
       <h2>Modules</h2>
-      <article class="item" data-search="src/ankh.provider.ts src/packageInfo.ts default">
+      <article class="item" data-search="src/ankh.provider.ts src/capabilities/index.ts src/packageInfo.ts default">
     <h3>src/ankh.provider.ts</h3>
     <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/packageInfo.ts</code></p>
+    <p><strong>Dependencies:</strong> <code>src/capabilities/index.ts</code>, <code>src/packageInfo.ts</code></p>
     <p><strong>Exports:</strong> <code>default</code></p>
+  </article><article class="item" data-search="src/capabilities/index.ts CAPABILITIES">
+    <h3>src/capabilities/index.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <code>CAPABILITIES</code></p>
   </article><article class="item" data-search="src/cli/index.ts default">
     <h3>src/cli/index.ts</h3>
     <p class="muted">Referenced module</p>
@@ -3034,7 +3039,10 @@
   package__ankhorage_data_sources --&gt; entrypoint_src_index_ts
   module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_ankh_provider_ts
+  module_src_ankh_provider_ts --&gt; module_src_capabilities_index_ts
   module_src_ankh_provider_ts --&gt; module_src_packageInfo_ts
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_capabilities_index_ts
   module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_cli_index_ts
   module_src_discovery_http_ts[&quot;src/discovery/http.ts&quot;]
@@ -3116,7 +3124,10 @@
   package__ankhorage_data_sources --&gt; entrypoint_src_index_ts
   module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_ankh_provider_ts
+  module_src_ankh_provider_ts --&gt; module_src_capabilities_index_ts
   module_src_ankh_provider_ts --&gt; module_src_packageInfo_ts
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_capabilities_index_ts
   module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_cli_index_ts
   module_src_discovery_http_ts[&quot;src/discovery/http.ts&quot;]
@@ -3196,6 +3207,7 @@
     <p class="muted"><code>diagrams/module-relationships.mmd</code></p>
     <div class="mermaid">graph LR
   module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
   module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
   module_src_discovery_http_ts[&quot;src/discovery/http.ts&quot;]
   module_src_discovery_index_ts[&quot;src/discovery/index.ts&quot;]
@@ -3218,6 +3230,7 @@
   module_src_test_runner_result_ts[&quot;src/test-runner/result.ts&quot;]
   module_src_test_runner_serialization_ts[&quot;src/test-runner/serialization.ts&quot;]
   module_src_test_runner_types_ts[&quot;src/test-runner/types.ts&quot;]
+  module_src_ankh_provider_ts --&gt; module_src_capabilities_index_ts
   module_src_ankh_provider_ts --&gt; module_src_packageInfo_ts
   module_src_discovery_index_ts --&gt; module_src_discovery_http_ts
   module_src_discovery_index_ts --&gt; module_src_discovery_openapiDiscoveryPlan_ts
@@ -3253,6 +3266,7 @@
       <summary>View Mermaid source</summary>
       <pre>graph LR
   module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
   module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
   module_src_discovery_http_ts[&quot;src/discovery/http.ts&quot;]
   module_src_discovery_index_ts[&quot;src/discovery/index.ts&quot;]
@@ -3275,6 +3289,7 @@
   module_src_test_runner_result_ts[&quot;src/test-runner/result.ts&quot;]
   module_src_test_runner_serialization_ts[&quot;src/test-runner/serialization.ts&quot;]
   module_src_test_runner_types_ts[&quot;src/test-runner/types.ts&quot;]
+  module_src_ankh_provider_ts --&gt; module_src_capabilities_index_ts
   module_src_ankh_provider_ts --&gt; module_src_packageInfo_ts
   module_src_discovery_index_ts --&gt; module_src_discovery_http_ts
   module_src_discovery_index_ts --&gt; module_src_discovery_openapiDiscoveryPlan_ts
@@ -3312,6 +3327,7 @@
     <p class="muted"><code>diagrams/export-graph.mmd</code></p>
     <div class="mermaid">graph LR
   module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
   module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
   module_src_discovery_http_ts[&quot;src/discovery/http.ts&quot;]
   module_src_discovery_index_ts[&quot;src/discovery/index.ts&quot;]
@@ -3560,6 +3576,7 @@
       <summary>View Mermaid source</summary>
       <pre>graph LR
   module_src_ankh_provider_ts[&quot;src/ankh.provider.ts&quot;]
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
   module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
   module_src_discovery_http_ts[&quot;src/discovery/http.ts&quot;]
   module_src_discovery_index_ts[&quot;src/discovery/index.ts&quot;]

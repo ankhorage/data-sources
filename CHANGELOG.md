@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 2.1.0
+
+### Minor Changes
+
+- 0c89a77: Publish the canonical Data Sources capability catalog and public capabilities entrypoint.
+
 ## 2.0.40
 
 ### Patch Changes
