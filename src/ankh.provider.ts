@@ -1,14 +1,10 @@
+import type { AnkhCommandDescriptor } from '@ankhorage/contracts/cli';
+
+import { CAPABILITIES } from './capabilities';
 import { DATA_SOURCES_PACKAGE_NAME, SUPPORTED_DATA_SOURCE_KINDS } from './packageInfo';
 
 const DATA_SOURCES_PACKAGE_VERSION = '0.5.1';
 const DATA_SOURCES_COMMAND_CATEGORY = 'data-sources';
-
-const DATA_SOURCES_CAPABILITIES = [
-  'data-sources.inspect',
-  'data-sources.validate',
-  'data-sources.test',
-  'data-sources.normalize',
-] as const;
 
 const commands = [
   {
@@ -36,7 +32,7 @@ const commands = [
     capability: 'data-sources.normalize',
     examples: ['ankh data-sources config normalize ./openapi.json'],
   },
-] as const;
+] as const satisfies readonly AnkhCommandDescriptor[];
 
 const handlers = commands.map((command) => ({
   path: command.path,
@@ -58,7 +54,7 @@ const provider = {
   id: DATA_SOURCES_PACKAGE_NAME,
   category: DATA_SOURCES_COMMAND_CATEGORY,
   version: DATA_SOURCES_PACKAGE_VERSION,
-  capabilities: DATA_SOURCES_CAPABILITIES,
+  capabilities: CAPABILITIES,
   commands,
   handlers,
 };
