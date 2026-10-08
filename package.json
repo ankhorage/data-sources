@@ -31,10 +31,66 @@
     "category": "data-sources",
     "provider": "./dist/cli/index.js",
     "capabilities": [
-      "data-sources.inspect",
-      "data-sources.validate",
-      "data-sources.test",
-      "data-sources.normalize"
+      {
+        "id": "data-sources.inspect",
+        "owner": "@ankhorage/data-sources",
+        "access": [
+          "invoke"
+        ],
+        "binding": {
+          "kind": "action",
+          "bindableAs": [
+            "target"
+          ]
+        },
+        "label": "Inspect data sources",
+        "description": "List supported data-source kinds."
+      },
+      {
+        "id": "data-sources.validate",
+        "owner": "@ankhorage/data-sources",
+        "access": [
+          "invoke"
+        ],
+        "binding": {
+          "kind": "action",
+          "bindableAs": [
+            "target"
+          ]
+        },
+        "label": "Validate data-source config",
+        "description": "Validate a data-source config with the data-sources package."
+      },
+      {
+        "id": "data-sources.test",
+        "owner": "@ankhorage/data-sources",
+        "access": [
+          "invoke"
+        ],
+        "binding": {
+          "kind": "action",
+          "bindableAs": [
+            "target"
+          ]
+        },
+        "label": "Test data-source endpoint",
+        "description": "Build or execute a data-source endpoint test request."
+      },
+      {
+        "id": "data-sources.normalize",
+        "owner": "@ankhorage/data-sources",
+        "access": [
+          "invoke"
+        ],
+        "binding": {
+          "kind": "action",
+          "bindableAs": [
+            "target"
+          ]
+        },
+        "label": "Normalize data-source config",
+        "description": "Normalize imported data-source config output."
+      }
     ]
   },
   "files": [
@@ -57,7 +113,12 @@
       "import": "./dist/cli/index.js",
       "default": "./dist/cli/index.js"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./capabilities": {
+      "types": "./dist/capabilities/index.d.ts",
+      "import": "./dist/capabilities/index.js",
+      "default": "./dist/capabilities/index.js"
+    }
   },
   "publishConfig": {
     "access": "public"
