@@ -1,4 +1,4 @@
-import type { Capability } from '@ankhorage/contracts/capabilities';
+import type { Capability } from '@ankhorage/contracts/capability';
 
 /*** Publish the canonical catalog for Data Sources CLI capabilities. */
 export const CAPABILITIES = [
