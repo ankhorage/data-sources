@@ -3,9 +3,23 @@
 
 # @ankhorage/data-sources
 
-![license: MIT](././paradox/badges/license.svg) ![npm: v2.1.10](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![paradox: warnings](././paradox/badges/docs.svg)
+![license: MIT](././paradox/badges/license.svg) ![npm: v2.1.11](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![paradox: warnings](././paradox/badges/docs.svg)
 
 Provider-neutral data source and endpoint system for APIs, databases, and runtime bindings.
+
+## Usage
+
+### CLI
+
+Ankhorage packages expose their command-line interface through `ankh`. Use `ankh --help` to discover available package commands, or run a package command with `--help` for package-specific usage.
+
+```zsh
+# Install the Ankhorage CLI
+bun add --global @ankhorage/ankh
+
+# Show usage information for data-sources
+ankh data-sources --help
+```
 
 ## Generated documentation
 
