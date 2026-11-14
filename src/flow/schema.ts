@@ -5,7 +5,7 @@ export function projectFlowDataSchema(
   schema: DataSchema,
   diagnostics: DataSourceDiagnostic[],
   path: string,
-  createFieldHandle: (name: string) => string,
+  createFieldHandle: (name: string, identity: string) => string,
 ): DataSchema | undefined {
   if (schema.default !== undefined || schema.const !== undefined) {
     diagnostics.push(
@@ -56,7 +56,7 @@ function projectChildren(
   schema: DataSchema,
   diagnostics: DataSourceDiagnostic[],
   path: string,
-  createFieldHandle: (name: string) => string,
+  createFieldHandle: (name: string, identity: string) => string,
 ):
   | {
       readonly items?: DataSchema;
@@ -92,7 +92,7 @@ function projectProperties(
   schema: DataSchema,
   diagnostics: DataSourceDiagnostic[],
   path: string,
-  createFieldHandle: (name: string) => string,
+  createFieldHandle: (name: string, identity: string) => string,
 ): Pick<DataSchema, 'properties' | 'required'> | undefined {
   if (schema.properties === undefined) {
     if (schema.required === undefined || schema.required.length === 0) return {};
@@ -106,7 +106,7 @@ function projectProperties(
   const handles = new Map<string, string>();
   const properties = Object.fromEntries(
     Object.entries(schema.properties).flatMap(([name, child]) => {
-      const handle = createFieldHandle(name);
+      const handle = createFieldHandle(name, `${path}.${name}`);
       handles.set(name, handle);
       const projected = projectFlowDataSchema(
         child,
@@ -155,7 +155,7 @@ function projectOptionalSchema(
   value: DataSchema['additionalProperties'],
   diagnostics: DataSourceDiagnostic[],
   path: string,
-  createFieldHandle: (name: string) => string,
+  createFieldHandle: (name: string, identity: string) => string,
 ): boolean | DataSchema | undefined {
   if (value === undefined || typeof value === 'boolean') return value;
   return projectFlowDataSchema(value, diagnostics, path, createFieldHandle);
@@ -166,7 +166,7 @@ function projectOptional(
   schema: DataSchema | undefined,
   diagnostics: DataSourceDiagnostic[],
   path: string,
-  createFieldHandle: (name: string) => string,
+  createFieldHandle: (name: string, identity: string) => string,
 ): DataSchema | undefined {
   return schema === undefined
     ? undefined
@@ -178,7 +178,7 @@ function projectList(
   schemas: readonly DataSchema[] | undefined,
   diagnostics: DataSourceDiagnostic[],
   path: string,
-  createFieldHandle: (name: string) => string,
+  createFieldHandle: (name: string, identity: string) => string,
 ): readonly DataSchema[] | undefined {
   if (schemas === undefined) return undefined;
   const projected = schemas.map((schema, index) =>

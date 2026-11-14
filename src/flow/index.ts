@@ -8,6 +8,7 @@ import type {
 } from '@ankhorage/contracts/data';
 
 import { createFlowApiOperationHandle } from './createFlowApiOperationHandle';
+import { projectFlowApiOperationResult } from './projectFlowApiOperationResult';
 import { projectFlowOperationOutput } from './projectFlowOperationOutput';
 import { projectFlowTransport } from './projectFlowTransport';
 import { redactFlowDiagnostics } from './redactFlowDiagnostics';
@@ -26,6 +27,13 @@ export type * from './types';
 
 const FLOW_PROVIDER_ID = '@ankhorage/data-sources';
 
+interface FlowApiOperationOwnerEntry {
+  readonly api: ApiDefinition;
+  readonly operation: DataOperationConfig;
+  readonly fieldNames: ReadonlyMap<string, string>;
+  readonly descriptor: FlowApiOperationDescriptor;
+}
+
 /*** Projects one server-resolved API operation into a credential-free Flow capability descriptor.
  *
  * @security The projection keeps only typed, public structural declarations. It never copies
@@ -35,15 +43,7 @@ export function createFlowApiOperationOwner(
   options: FlowApiOperationOwnerOptions,
 ): FlowApiOperationOwner {
   const handleKey = copyFlowHandleKey(options);
-  const entries = new Map<
-    string,
-    {
-      readonly api: ApiDefinition;
-      readonly operation: DataOperationConfig;
-      readonly parameterNames: ReadonlyMap<string, string>;
-      readonly descriptor: FlowApiOperationDescriptor;
-    }
-  >();
+  const entries = new Map<string, FlowApiOperationOwnerEntry>();
   const descriptors = new WeakMap<ApiDefinition, Map<string, FlowApiOperationDescriptor>>();
   return {
     project: (api, endpointId, operationId) => {
@@ -57,20 +57,20 @@ export function createFlowApiOperationOwner(
         operationId,
         operation,
       );
-      const parameterNames = new Map<string, string>();
+      const fieldNames = new Map<string, string>();
       const result = projectFlowApiOperation(
         api,
         endpointId,
         operationId,
         operationHandle,
-        (name) => {
-          const handle = createFieldHandle(name);
-          parameterNames.set(handle, name);
+        (name, identity) => {
+          const handle = createFieldHandle(identity);
+          fieldNames.set(handle, name);
           return handle;
         },
       );
       if (result.ok && operation !== undefined) {
-        entries.set(operationHandle, { api, operation, parameterNames, descriptor: result.data });
+        entries.set(operationHandle, { api, operation, fieldNames, descriptor: result.data });
         const descriptorsForApi =
           descriptors.get(api) ?? new Map<string, FlowApiOperationDescriptor>();
         descriptorsForApi.set(`${endpointId}\u0000${operationId}`, result.data);
@@ -79,6 +79,7 @@ export function createFlowApiOperationOwner(
       return result;
     },
     resolve: (descriptor, bindings) => resolveFlowApiOperation(entries, descriptor, bindings),
+    projectResult: (descriptor, value) => projectFlowApiOperationResult(entries, descriptor, value),
   };
 }
 
@@ -96,7 +97,7 @@ function projectFlowApiOperation(
   endpointId: string,
   operationId: string,
   operationHandle: string,
-  createFieldHandle: (name: string) => string,
+  createFieldHandle: (name: string, identity: string) => string,
 ): DataSourceDiagnosticResult<FlowApiOperationDescriptor> {
   const { endpoint, operation } = selectOperation(api, endpointId, operationId);
   const diagnostics = validateProjection(api, endpointId, operationId, endpoint, operation);
@@ -112,7 +113,7 @@ function projectFlowApiOperation(
     operation.credential ?? endpoint.credential ?? api.credential,
     diagnostics,
   );
-  const output = projectFlowOperationOutput(operation, diagnostics);
+  const output = projectFlowOperationOutput(operation, diagnostics, createFieldHandle);
   if (diagnostics.length > 0 || input === undefined || auth === undefined || output === undefined) {
     return {
       ok: false,
@@ -200,7 +201,7 @@ function projectProtocol(operation: DataOperationConfig): FlowApiOperationDescri
 function projectInput(
   operation: DataOperationConfig,
   diagnostics: DataSourceDiagnostic[],
-  createFieldHandle: (name: string) => string,
+  createFieldHandle: (name: string, identity: string) => string,
 ): FlowApiOperationInput | undefined {
   const parameters = operation.request?.parameters ?? [];
   const projectedParameters = parameters.map((parameter) =>
@@ -236,7 +237,7 @@ function projectInput(
 function projectParameter(
   parameter: DataOperationParameter,
   diagnostics: DataSourceDiagnostic[],
-  createFieldHandle: (name: string) => string,
+  createFieldHandle: (name: string, identity: string) => string,
 ): FlowApiOperationParameter | undefined {
   if (parameter.location === 'header' || parameter.location === 'cookie') {
     diagnostics.push(
@@ -251,10 +252,15 @@ function projectParameter(
   const schema =
     parameter.schema === undefined
       ? undefined
-      : projectFlowDataSchema(parameter.schema, diagnostics, 'parameter', createFieldHandle);
+      : projectFlowDataSchema(
+          parameter.schema,
+          diagnostics,
+          `parameter.${parameter.name}`,
+          createFieldHandle,
+        );
   if (parameter.schema !== undefined && schema === undefined) return undefined;
   return {
-    handle: createFieldHandle(parameter.name),
+    handle: createFieldHandle(parameter.name, `parameter.${parameter.name}`),
     location: parameter.location,
     required: parameter.required ?? false,
     ...(schema === undefined ? {} : { schema }),

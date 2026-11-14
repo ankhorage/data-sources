@@ -17,7 +17,7 @@ import type {
 interface OwnerEntry {
   readonly api: ApiDefinition;
   readonly operation: DataOperationConfig;
-  readonly parameterNames: ReadonlyMap<string, string>;
+  readonly fieldNames: ReadonlyMap<string, string>;
   readonly descriptor: FlowApiOperationDescriptor;
 }
 
@@ -66,12 +66,12 @@ function resolveFlowParameters(
     return undefined;
   const resolved = Object.entries(values).flatMap(([handle, value]) => {
     const parameter = parameterByHandle.get(handle);
-    const name = entry.parameterNames.get(handle);
+    const name = entry.fieldNames.get(handle);
     if (parameter === undefined || name === undefined) return [];
     const resolvedValue =
       parameter.schema === undefined
         ? value
-        : resolveFlowValue(value, parameter.schema, entry.parameterNames);
+        : resolveFlowValue(value, parameter.schema, entry.fieldNames);
     return resolvedValue === undefined ? [] : [{ name, value: resolvedValue }];
   });
   return resolved.length === Object.keys(values).length ? resolved : undefined;
@@ -85,7 +85,7 @@ function resolveFlowBody(
   if (body === undefined) return { value: undefined };
   const schema = entry.descriptor.input.body?.schema;
   if (schema === undefined) return undefined;
-  const value = resolveFlowValue(body, schema, entry.parameterNames);
+  const value = resolveFlowValue(body, schema, entry.fieldNames);
   return value === undefined ? undefined : { value };
 }
 

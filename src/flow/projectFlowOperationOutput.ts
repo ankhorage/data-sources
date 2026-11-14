@@ -11,6 +11,7 @@ import type { FlowApiOperationDescriptor, FlowApiOperationResult } from './types
 export function projectFlowOperationOutput(
   operation: DataOperationConfig,
   diagnostics: DataSourceDiagnostic[],
+  createFieldHandle: (name: string, identity: string) => string,
 ):
   | {
       readonly result: FlowApiOperationResult;
@@ -21,7 +22,7 @@ export function projectFlowOperationOutput(
   const schema =
     response?.schema === undefined
       ? undefined
-      : projectFlowDataSchema(response.schema, diagnostics, 'response', () => 'result-field');
+      : projectFlowDataSchema(response.schema, diagnostics, 'response', createFieldHandle);
   if (response?.schema !== undefined && schema === undefined) return undefined;
   return {
     result: {

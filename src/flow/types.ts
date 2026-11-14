@@ -85,6 +85,10 @@ export interface FlowApiOperationOwner {
     descriptor: FlowApiOperationDescriptor,
     bindings: FlowApiOperationBindings,
   ): DataSourceDiagnosticResult<ResolvedFlowApiOperation>;
+  projectResult(
+    descriptor: FlowApiOperationDescriptor,
+    value: DataContractValue,
+  ): DataSourceDiagnosticResult<DataContractValue>;
 }
 
 /** Public HTTP methods recognized by the Flow descriptor protocol. */
