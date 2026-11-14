@@ -8,6 +8,7 @@ import type {
   DataSourceDiagnosticResult,
 } from '@ankhorage/contracts/data';
 
+import { createFlowApiOperationHandle } from './createFlowApiOperationHandle';
 import { projectFlowTransport } from './projectFlowTransport';
 import { redactFlowDiagnostics } from './redactFlowDiagnostics';
 import { resolveFlowApiOperation } from './resolveFlowApiOperation';
@@ -37,17 +38,22 @@ export function createFlowApiOperationOwner(): FlowApiOperationOwner {
       readonly api: ApiDefinition;
       readonly operation: DataOperationConfig;
       readonly parameterNames: ReadonlyMap<string, string>;
+      readonly descriptor: FlowApiOperationDescriptor;
     }
   >();
   const descriptors = new WeakMap<ApiDefinition, Map<string, FlowApiOperationDescriptor>>();
-  let nextHandle = 0;
-  const createHandle = (kind: string): string => `flow-${kind}-${String(nextHandle++)}`;
   return {
     project: (api, endpointId, operationId) => {
       const sourceKey = `${endpointId}\u0000${operationId}`;
       const existing = descriptors.get(api)?.get(sourceKey);
       if (existing !== undefined) return { ok: true, data: existing };
-      const operationHandle = createHandle('operation');
+      const { operation } = selectOperation(api, endpointId, operationId);
+      const { operation: operationHandle, field: createFieldHandle } = createFlowApiOperationHandle(
+        api,
+        endpointId,
+        operationId,
+        operation,
+      );
       const parameterNames = new Map<string, string>();
       const result = projectFlowApiOperation(
         api,
@@ -55,15 +61,14 @@ export function createFlowApiOperationOwner(): FlowApiOperationOwner {
         operationId,
         operationHandle,
         (name) => {
-          const handle = createHandle('field');
+          const handle = createFieldHandle(name);
           parameterNames.set(handle, name);
           return handle;
         },
       );
       if (result.ok) {
-        const { operation } = selectOperation(api, endpointId, operationId);
         if (operation !== undefined) {
-          entries.set(operationHandle, { api, operation, parameterNames });
+          entries.set(operationHandle, { api, operation, parameterNames, descriptor: result.data });
           const descriptorsForApi =
             descriptors.get(api) ?? new Map<string, FlowApiOperationDescriptor>();
           descriptorsForApi.set(sourceKey, result.data);

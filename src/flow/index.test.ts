@@ -126,7 +126,6 @@ it('projects REST operations as stable, typed, secret-free Flow descriptors', ()
   expect(JSON.stringify(result.data)).not.toContain(secret);
   expect(JSON.stringify(result.data)).not.toContain('credential-secret');
 });
-
 it('projects GraphQL and OpenAPI discoveries without exposing documents or server URLs', () => {
   const graphql = createGraphQlApi({
     id: 'content',
@@ -168,7 +167,6 @@ it('projects GraphQL and OpenAPI discoveries without exposing documents or serve
   expect(JSON.stringify(graphDescriptor.data)).not.toContain(secret);
   expect(JSON.stringify(openApiDescriptor.data)).not.toContain('api_key=hidden');
 });
-
 it('resolves distinct REST parameters through opaque handles', () => {
   const owner = createFlowApiOperationOwner();
   const rest = owner.project(restApi(), 'orders', 'orders.get');
