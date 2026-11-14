@@ -6,7 +6,7 @@ import { expect, it } from 'bun:test';
 
 const repositoryRoot = resolve(import.meta.dir, '../..');
 
-it('supports a packed consumer using the published Flow capability contract', () => {
+it('supports Node and Bun consumers across every published runtime entrypoint', () => {
   const temporaryRoot = mkdtempSync(join(tmpdir(), 'data-sources-flow-consumer-'));
   try {
     const archive = packDataSources(temporaryRoot);
@@ -17,6 +17,12 @@ it('supports a packed consumer using the published Flow capability contract', ()
       JSON.stringify({ name: 'flow-consumer', private: true, version: '0.0.0' }),
     );
     run('bun', ['add', archive, '--ignore-scripts'], consumerDirectory, temporaryRoot);
+    run(
+      'node',
+      ['--input-type=module', '--eval', nodeConsumerSource],
+      consumerDirectory,
+      temporaryRoot,
+    );
     writeFileSync(join(consumerDirectory, 'consumer.ts'), consumerSource);
     run('bun', ['run', 'consumer.ts'], consumerDirectory, temporaryRoot);
   } finally {
@@ -73,4 +79,12 @@ const descriptor = createFlowApiOperationOwner({
 if (!descriptor.ok) throw new Error('Flow projection was rejected.');
 const capability: FlowProviderCapabilityRef = descriptor.data.capability;
 if (capability.providerId !== '@ankhorage/data-sources') throw new Error('Unexpected provider.');
+`;
+
+const nodeConsumerSource = `
+await Promise.all([
+  import('@ankhorage/data-sources'),
+  import('@ankhorage/data-sources/cli'),
+  import('@ankhorage/data-sources/capabilities'),
+]);
 `;

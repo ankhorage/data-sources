@@ -1,6 +1,6 @@
 import type { DataContractValue } from '@ankhorage/contracts/data';
 
-import type { EndpointTestFetchResponse, EndpointTestResponseDiagnostic } from './types';
+import type { EndpointTestFetchResponse, EndpointTestResponseDiagnostic } from './types.js';
 
 export async function createResponseDiagnostic(
   response: EndpointTestFetchResponse,

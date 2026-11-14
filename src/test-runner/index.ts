@@ -5,8 +5,8 @@ import type {
   DataSourceDiagnostic,
 } from '@ankhorage/contracts/data';
 
-import { createResponseDiagnostic } from './response';
-import { createDiagnostic, createNetworkErrorMessage, failure } from './result';
+import { createResponseDiagnostic } from './response.js';
+import { createDiagnostic, createNetworkErrorMessage, failure } from './result.js';
 import {
   appendQuery,
   collectHeaders,
@@ -17,15 +17,15 @@ import {
   getStringValue,
   interpolatePath,
   joinUrl,
-} from './serialization';
+} from './serialization.js';
 import type {
   EndpointTestCredential,
   EndpointTestInput,
   EndpointTestRequestDiagnostic,
   EndpointTestResult,
-} from './types';
+} from './types.js';
 
-export type * from './types';
+export type * from './types.js';
 
 interface EndpointOperationSelection {
   readonly endpoint: DataEndpointConfig;

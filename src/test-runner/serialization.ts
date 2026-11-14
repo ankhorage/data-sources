@@ -5,8 +5,8 @@ import type {
   DataSourceDiagnostic,
 } from '@ankhorage/contracts/data';
 
-import { createDiagnostic } from './result';
-import type { EndpointTestHeaders, EndpointTestInput, EndpointTestInputValues } from './types';
+import { createDiagnostic } from './result.js';
+import type { EndpointTestHeaders, EndpointTestInput, EndpointTestInputValues } from './types.js';
 
 export function interpolatePath(
   path: string,

@@ -5,7 +5,7 @@ import type {
   DataSourceDiagnostic,
 } from '@ankhorage/contracts/data';
 
-import type { OpenApiSchemaObject } from './types';
+import type { OpenApiSchemaObject } from './types.js';
 
 const DATA_SCHEMA_PRIMITIVES = [
   'array',

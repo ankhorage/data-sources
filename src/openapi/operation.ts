@@ -10,7 +10,7 @@ import type {
   OperationId,
 } from '@ankhorage/contracts/data';
 
-import { normalizeOpenApiSchema } from './schema';
+import { normalizeOpenApiSchema } from './schema.js';
 import type {
   OpenApiHttpMethod,
   OpenApiImportInput,
@@ -21,7 +21,7 @@ import type {
   OpenApiRequestBodyObject,
   OpenApiResponseObject,
   OpenApiSchemaObject,
-} from './types';
+} from './types.js';
 
 export function normalizeOpenApiOperationId(
   method: OpenApiHttpMethod,

@@ -8,16 +8,16 @@ import type {
 import {
   normalizeGraphQlIntrospectionOperations,
   normalizeGraphQlIntrospectionSchemas,
-} from './introspection';
-import { normalizeGraphQlOperation } from './operation';
-import type { GraphQlApiDefinition } from './types';
+} from './introspection.js';
+import { normalizeGraphQlOperation } from './operation.js';
+import type { GraphQlApiDefinition } from './types.js';
 
 export {
   normalizeGraphQlIntrospectionOperations,
   normalizeGraphQlIntrospectionSchemas,
-} from './introspection';
-export { normalizeGraphQlOperationId } from './operation';
-export type * from './types';
+} from './introspection.js';
+export { normalizeGraphQlOperationId } from './operation.js';
+export type * from './types.js';
 
 export const GRAPHQL_INTROSPECTION_QUERY = `query AnkhorageGraphQlIntrospection {
   __schema {

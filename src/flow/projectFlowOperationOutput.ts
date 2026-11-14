@@ -4,8 +4,8 @@ import type {
   DataSourceDiagnostic,
 } from '@ankhorage/contracts/data';
 
-import { projectFlowDataSchema } from './schema';
-import type { FlowApiOperationDescriptor, FlowApiOperationResult } from './types';
+import { projectFlowDataSchema } from './schema.js';
+import type { FlowApiOperationDescriptor, FlowApiOperationResult } from './types.js';
 
 /*** Projects the credential-free response and pagination output for one Flow operation. */
 export function projectFlowOperationOutput(

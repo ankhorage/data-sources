@@ -4,14 +4,14 @@ import type {
   ExternalRestApiDefinition,
 } from '@ankhorage/contracts/data';
 
-import { normalizeOpenApiEndpoints } from './endpoints';
-import { normalizeOpenApiSchemas } from './schema';
-import type { OpenApiImportInput } from './types';
+import { normalizeOpenApiEndpoints } from './endpoints.js';
+import { normalizeOpenApiSchemas } from './schema.js';
+import type { OpenApiImportInput } from './types.js';
 
-export { normalizeOpenApiEndpointId } from './endpoints';
-export { normalizeOpenApiOperationId } from './operation';
-export { normalizeOpenApiSchema } from './schema';
-export type * from './types';
+export { normalizeOpenApiEndpointId } from './endpoints.js';
+export { normalizeOpenApiOperationId } from './operation.js';
+export { normalizeOpenApiSchema } from './schema.js';
+export type * from './types.js';
 
 export type OpenApiImportResult = DataSourceDiagnosticResult<ExternalRestApiDefinition>;
 
