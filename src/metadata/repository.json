@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "kind": "library",
+  "title": "Ankhorage Data Sources",
+  "summary": "Provides provider-neutral discovery, normalization, validation, and execution building blocks for REST, GraphQL, and OpenAPI data sources.",
+  "purpose": "Give independently deployable consumers a canonical way to describe and operate API data sources without coupling their application logic to one transport or provider.",
+  "domain": "API and data-source integration",
+  "responsibilities": [
+    "Discover and normalize REST, GraphQL, and OpenAPI operations into canonical data-source representations.",
+    "Validate manual and discovered API definitions before execution.",
+    "Expose headless package and CLI capabilities for inspecting and testing data-source configurations."
+  ],
+  "boundaries": [
+    "Does not own application-specific workflows, credentials, persistence, or user interfaces.",
+    "Does not replace transport providers or execute unrelated application capabilities.",
+    "Does not depend on a particular hosting platform or consuming application."
+  ],
+  "audience": [
+    "Application and tooling authors integrating external APIs through portable data-source definitions.",
+    "Provider authors and operators validating data-source configurations."
+  ],
+  "useCases": [
+    "Import an OpenAPI document and inspect the operations it exposes.",
+    "Normalize GraphQL introspection into executable operation descriptors.",
+    "Define, validate, and test a manual REST API configuration."
+  ],
+  "architecture": {
+    "role": "Reusable headless data-source library with explicit discovery, normalization, execution, and CLI delivery boundaries.",
+    "invariants": [
+      "Portable data-source descriptions remain independent of provider credentials and application-specific state.",
+      "Consumers use published entrypoints and declared dependencies rather than repository-local source coupling.",
+      "Transport-specific parsing remains behind the package's canonical public operations."
+    ]
+  },
+  "constraints": {
+    "limitations": [
+      "Live discovery and execution require the caller to provide access to the target API.",
+      "Only the REST, GraphQL, and OpenAPI shapes explicitly supported by the package are normalized."
+    ]
+  }
+}
