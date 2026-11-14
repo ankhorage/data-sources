@@ -5,6 +5,12 @@ import { createManualRestApi } from '../rest';
 import { createFlowApiOperationOwner } from './index';
 import type { FlowApiOperationDescriptor } from './types';
 
+const flowHandleKey = new TextEncoder().encode('01234567890123456789012345678901');
+
+function createOwner() {
+  return createFlowApiOperationOwner({ handleKey: flowHandleKey });
+}
+
 function deserializeFlowDescriptor(value: FlowApiOperationDescriptor): FlowApiOperationDescriptor {
   const persisted: unknown = JSON.parse(JSON.stringify(value));
   if (!isFlowDescriptorHandle(persisted))
@@ -56,7 +62,7 @@ function twoOperationApi(revision = 'v1'): ApiDefinition {
 
 it('resolves a persisted descriptor after owner restart and reordered discovery', () => {
   const api = twoOperationApi();
-  const firstOwner = createFlowApiOperationOwner();
+  const firstOwner = createOwner();
   const persisted = firstOwner.project(api, 'orders', 'orders.list');
   const other = firstOwner.project(api, 'orders', 'orders.create');
   expect(persisted.ok).toBe(true);
@@ -65,7 +71,7 @@ it('resolves a persisted descriptor after owner restart and reordered discovery'
 
   const serialized = deserializeFlowDescriptor(persisted.data);
   expect(serialized).toEqual(persisted.data);
-  const restartedOwner = createFlowApiOperationOwner();
+  const restartedOwner = createOwner();
   const reconstructedOther = restartedOwner.project(api, 'orders', 'orders.create');
   const reconstructedPersisted = restartedOwner.project(api, 'orders', 'orders.list');
   expect(reconstructedOther).toMatchObject({ ok: true, data: { id: other.data.id } });
@@ -78,12 +84,12 @@ it('resolves a persisted descriptor after owner restart and reordered discovery'
 });
 
 it('rejects persisted handles when their registered operation revision changed', () => {
-  const originalOwner = createFlowApiOperationOwner();
+  const originalOwner = createOwner();
   const persisted = originalOwner.project(twoOperationApi('v1'), 'orders', 'orders.list');
   expect(persisted.ok).toBe(true);
   if (!persisted.ok) return;
 
-  const restartedOwner = createFlowApiOperationOwner();
+  const restartedOwner = createOwner();
   const revised = restartedOwner.project(twoOperationApi('v2'), 'orders', 'orders.list');
   expect(revised.ok).toBe(true);
   if (!revised.ok) return;

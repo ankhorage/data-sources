@@ -1,15 +1,18 @@
-import { createHash } from 'node:crypto';
+import { createHmac } from 'node:crypto';
 
 import type { ApiDefinition, DataOperationConfig } from '@ankhorage/contracts/data';
 
 /*** Creates stable, opaque handles for one server-resolved API operation revision. */
 export function createFlowApiOperationHandle(
+  handleKey: Uint8Array,
   api: ApiDefinition,
   endpointId: string,
   operationId: string,
   operation: DataOperationConfig | undefined,
 ): { readonly operation: string; readonly field: (name: string) => string } {
-  const operationHandle = `flow:v1:operation:${hashFlowHandlePart(
+  assertFlowHandleKey(handleKey);
+  const operationHandle = `flow:v2:operation:${hmacFlowHandlePart(
+    handleKey,
     JSON.stringify({
       apiId: api.id,
       api: projectApiRevision(api),
@@ -21,8 +24,15 @@ export function createFlowApiOperationHandle(
   )}`;
   return {
     operation: operationHandle,
-    field: (name) => `flow:v1:field:${hashFlowHandlePart(`${operationHandle}\u0000${name}`)}`,
+    field: (name) =>
+      `flow:v2:field:${hmacFlowHandlePart(handleKey, `${operationHandle}\u0000${name}`)}`,
   };
+}
+
+/*** Rejects insufficient HMAC material before any public descriptor can be projected. */
+function assertFlowHandleKey(handleKey: Uint8Array): void {
+  if (handleKey.byteLength < 32)
+    throw new TypeError('A Flow operation handle key must contain at least 32 bytes.');
 }
 
 /*** Selects endpoint fields that alter the operation's server-side meaning without credentials. */
@@ -36,9 +46,9 @@ function projectEndpointRevision(
     : { id: endpoint.id, path: endpoint.path, credentialKind: endpoint.credential?.kind };
 }
 
-/*** Derives a fixed-length opaque identifier without persisting its source material. */
-function hashFlowHandlePart(value: string): string {
-  return createHash('sha256').update(value).digest('base64url');
+/*** Derives a versioned HMAC identifier that cannot be dictionary-matched without the owner key. */
+function hmacFlowHandlePart(handleKey: Uint8Array, value: string): string {
+  return createHmac('sha256', handleKey).update(value).digest('base64url');
 }
 
 /*** Selects API transport fields that can change the resolved execution target without credentials. */

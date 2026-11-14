@@ -7,12 +7,12 @@ import { createManualRestApi, type ManualRestOperationDefinition } from '../rest
 import { createFlowApiOperationOwner } from './index';
 
 const secret = 'do-not-persist';
+const flowHandleKey = new TextEncoder().encode('01234567890123456789012345678901');
 const unclassifiedSchema: DataSchema = {
   title: secret,
   description: secret,
   enum: [secret],
   format: secret,
-  required: [secret],
   ref: { id: secret },
 };
 const unclassifiedOperation: Partial<ManualRestOperationDefinition> = {
@@ -97,7 +97,11 @@ function restApi(operation: Partial<ManualRestOperationDefinition> = {}): ApiDef
 }
 
 function project(api: ApiDefinition, endpointId: string, operationId: string) {
-  return createFlowApiOperationOwner().project(api, endpointId, operationId);
+  return createOwner().project(api, endpointId, operationId);
+}
+
+function createOwner() {
+  return createFlowApiOperationOwner({ handleKey: flowHandleKey });
 }
 
 it('projects REST operations as stable, typed, secret-free Flow descriptors', () => {
@@ -168,7 +172,7 @@ it('projects GraphQL and OpenAPI discoveries without exposing documents or serve
   expect(JSON.stringify(openApiDescriptor.data)).not.toContain('api_key=hidden');
 });
 it('resolves distinct REST parameters through opaque handles', () => {
-  const owner = createFlowApiOperationOwner();
+  const owner = createOwner();
   const rest = owner.project(restApi(), 'orders', 'orders.get');
   expect(rest.ok).toBe(true);
   if (!rest.ok) return;
@@ -227,7 +231,7 @@ it('never persists or diagnoses unclassified source identities', () => {
     ],
   });
   if (!api.ok) throw new Error('sentinel fixture must be valid');
-  const owner = createFlowApiOperationOwner();
+  const owner = createOwner();
   const descriptor = owner.project(api.data, endpointId, operationId);
   expect(descriptor.ok).toBe(true);
   if (!descriptor.ok) return;
@@ -261,7 +265,7 @@ it('omits unclassified metadata while retaining REST descriptor shape', () => {
 
 it('is reproducibly serializable and ignores unknown runtime fields instead of copying them', () => {
   const api = restApi() as ApiDefinition & { metadata: { unsafe: () => string } };
-  const owner = createFlowApiOperationOwner();
+  const owner = createOwner();
   const first = owner.project(api, 'orders', 'orders.get');
   const second = owner.project(api, 'orders', 'orders.get');
 
@@ -271,4 +275,41 @@ it('is reproducibly serializable and ignores unknown runtime fields instead of c
   expect(JSON.stringify(first.data)).toBe(JSON.stringify(second.data));
   expect(JSON.stringify(first.data)).not.toContain('unsafe');
   expect(first.data.id).not.toContain('commerce');
+});
+
+it('rejects inconsistent and incomplete required schema projections', () => {
+  const inconsistent = project(
+    restApi({
+      request: {
+        schema: {
+          type: 'object',
+          properties: { public: { type: 'string' } },
+          required: ['missing'],
+        },
+      },
+    }),
+    'orders',
+    'orders.get',
+  );
+  const incomplete = project(
+    restApi({
+      request: {
+        schema: {
+          type: 'object',
+          properties: { public: { type: 'string', default: secret } },
+          required: ['public'],
+        },
+      },
+    }),
+    'orders',
+    'orders.get',
+  );
+
+  for (const result of [inconsistent, incomplete]) {
+    expect(result).toMatchObject({
+      ok: false,
+      diagnostics: [{ code: 'unsafe-flow-projection' }],
+    });
+    expect(JSON.stringify(result)).not.toContain(secret);
+  }
 });

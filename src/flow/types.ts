@@ -57,6 +57,15 @@ export interface FlowApiOperationBindings {
   readonly body?: DataContractValue;
 }
 
+/** Server-owned 32-byte key material that makes persisted Flow handles opaque and restart-stable.
+ *
+ * Retain the same key across owner restarts. Replacing it intentionally invalidates old descriptors,
+ * which must be reprojected before use.
+ */
+export interface FlowApiOperationOwnerOptions {
+  readonly handleKey: Uint8Array;
+}
+
 /** The private owner-side resolution of a descriptor and its Flow bindings. */
 export interface ResolvedFlowApiOperation {
   readonly api: ApiDefinition;

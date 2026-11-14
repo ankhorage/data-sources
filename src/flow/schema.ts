@@ -15,9 +15,12 @@ export function projectFlowDataSchema(
   }
   const children = projectChildren(schema, diagnostics, path, createFieldHandle);
   if (children === undefined) return undefined;
+  const properties = projectProperties(schema, diagnostics, path, createFieldHandle);
+  if (properties === undefined) return undefined;
   return {
     ...projectSchemaIdentity(schema),
-    ...projectSchemaComposition(schema, children, diagnostics, path, createFieldHandle),
+    ...projectSchemaComposition(children),
+    ...properties,
   };
 }
 
@@ -30,19 +33,13 @@ function projectSchemaIdentity(schema: DataSchema): DataSchema {
 }
 
 /** Copies validated recursive schema composition fields. */
-function projectSchemaComposition(
-  schema: DataSchema,
-  children: {
-    readonly items?: DataSchema;
-    readonly allOf?: readonly DataSchema[];
-    readonly anyOf?: readonly DataSchema[];
-    readonly oneOf?: readonly DataSchema[];
-    readonly additionalProperties?: boolean | DataSchema;
-  },
-  diagnostics: DataSourceDiagnostic[],
-  path: string,
-  createFieldHandle: (name: string) => string,
-): DataSchema {
+function projectSchemaComposition(children: {
+  readonly items?: DataSchema;
+  readonly allOf?: readonly DataSchema[];
+  readonly anyOf?: readonly DataSchema[];
+  readonly oneOf?: readonly DataSchema[];
+  readonly additionalProperties?: boolean | DataSchema;
+}): DataSchema {
   return {
     ...(children.additionalProperties === undefined
       ? {}
@@ -51,7 +48,6 @@ function projectSchemaComposition(
     ...(children.allOf === undefined ? {} : { allOf: children.allOf }),
     ...(children.anyOf === undefined ? {} : { anyOf: children.anyOf }),
     ...(children.oneOf === undefined ? {} : { oneOf: children.oneOf }),
-    ...projectProperties(schema, diagnostics, path, createFieldHandle),
   };
 }
 
@@ -97,8 +93,16 @@ function projectProperties(
   diagnostics: DataSourceDiagnostic[],
   path: string,
   createFieldHandle: (name: string) => string,
-): Pick<DataSchema, 'properties' | 'required'> {
-  if (schema.properties === undefined) return {};
+): Pick<DataSchema, 'properties' | 'required'> | undefined {
+  if (schema.properties === undefined) {
+    if (schema.required === undefined || schema.required.length === 0) return {};
+    diagnostics.push(unsafeSchemaDiagnostic(`Schema '${path}' requires an unprojectable field.`));
+    return undefined;
+  }
+  if (schema.required?.some((name) => !Object.hasOwn(schema.properties ?? {}, name))) {
+    diagnostics.push(unsafeSchemaDiagnostic(`Schema '${path}' requires an unprojectable field.`));
+    return undefined;
+  }
   const handles = new Map<string, string>();
   const properties = Object.fromEntries(
     Object.entries(schema.properties).flatMap(([name, child]) => {
@@ -113,11 +117,16 @@ function projectProperties(
       return projected === undefined ? [] : [[handle, projected]];
     }),
   );
+  if (Object.keys(properties).length !== Object.keys(schema.properties).length) return undefined;
+  const required = schema.required?.map((name) => handles.get(name));
+  if (required?.some((handle) => handle === undefined)) {
+    diagnostics.push(unsafeSchemaDiagnostic(`Schema '${path}' requires an unprojectable field.`));
+    return undefined;
+  }
+  const projectedRequired = required?.filter((handle): handle is string => handle !== undefined);
   return {
     properties,
-    ...(schema.required === undefined
-      ? {}
-      : { required: schema.required.flatMap((name) => handles.get(name) ?? []) }),
+    ...(projectedRequired === undefined ? {} : { required: projectedRequired }),
   };
 }
 

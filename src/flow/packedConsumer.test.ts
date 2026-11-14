@@ -67,7 +67,9 @@ const api = createManualRestApi({
   endpoints: [{ id: 'items', path: '/items', operations: [{ id: 'items.list', intent: 'read', method: 'GET' }] }],
 });
 if (!api.ok) throw new Error('API fixture was rejected.');
-const descriptor = createFlowApiOperationOwner().project(api.data, 'items', 'items.list');
+const descriptor = createFlowApiOperationOwner({
+  handleKey: new TextEncoder().encode('01234567890123456789012345678901'),
+}).project(api.data, 'items', 'items.list');
 if (!descriptor.ok) throw new Error('Flow projection was rejected.');
 const capability: FlowProviderCapabilityRef = descriptor.data.capability;
 if (capability.providerId !== '@ankhorage/data-sources') throw new Error('Unexpected provider.');

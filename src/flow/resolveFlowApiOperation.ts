@@ -112,7 +112,7 @@ function resolveFlowValue(
   if (!matchesFlowSchema(value, schema)) return undefined;
   if (isDataContractList(value)) {
     const { items } = schema;
-    if (items === undefined) return value;
+    if (items === undefined) return undefined;
     const children = value.map((child) => resolveFlowValue(child, items, names));
     const resolvedChildren = children.flatMap((child) => (child === undefined ? [] : [child]));
     return resolvedChildren.length === children.length ? resolvedChildren : undefined;
@@ -144,12 +144,13 @@ function findFlowProperty(
 
 /** Validates a binding value against the projected schema before it reaches provider-owned data. */
 function matchesFlowSchema(value: DataContractValue, schema: DataSchema | undefined): boolean {
-  if (schema === undefined) return true;
+  if (schema === undefined) return !isDataContractList(value) && !isDataContractRecord(value);
   if (value === null) return acceptsNull(schema);
   return (
     matchesFlowTypes(value, schema) &&
     matchesFlowCompositions(value, schema) &&
-    matchesFlowObject(value, schema)
+    matchesFlowObject(value, schema) &&
+    matchesFlowArray(value, schema)
   );
 }
 
@@ -195,6 +196,11 @@ function matchesFlowObject(value: DataContractValue, schema: DataSchema): boolea
     Object.keys(value).every((handle) => Object.hasOwn(properties, handle)) &&
     (schema.required ?? []).every((handle) => Object.hasOwn(value, handle))
   );
+}
+
+/*** Requires an item schema before a list can cross the owner boundary. */
+function matchesFlowArray(value: DataContractValue, schema: DataSchema): boolean {
+  return !isDataContractList(value) || schema.items !== undefined;
 }
 
 /** Matches one serializable value against one closed public primitive type. */

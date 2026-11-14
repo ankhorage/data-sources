@@ -2,13 +2,13 @@ import type {
   ApiDefinition,
   CredentialRef,
   DataOperationConfig,
-  DataOperationPagination,
   DataOperationParameter,
   DataSourceDiagnostic,
   DataSourceDiagnosticResult,
 } from '@ankhorage/contracts/data';
 
 import { createFlowApiOperationHandle } from './createFlowApiOperationHandle';
+import { projectFlowOperationOutput } from './projectFlowOperationOutput';
 import { projectFlowTransport } from './projectFlowTransport';
 import { redactFlowDiagnostics } from './redactFlowDiagnostics';
 import { resolveFlowApiOperation } from './resolveFlowApiOperation';
@@ -18,8 +18,8 @@ import type {
   FlowApiOperationDescriptor,
   FlowApiOperationInput,
   FlowApiOperationOwner,
+  FlowApiOperationOwnerOptions,
   FlowApiOperationParameter,
-  FlowApiOperationResult,
 } from './types';
 
 export type * from './types';
@@ -31,7 +31,10 @@ const FLOW_PROVIDER_ID = '@ankhorage/data-sources';
  * @security The projection keeps only typed, public structural declarations. It never copies
  * unclassified metadata, URLs, credentials, defaults, headers, cookies, or executable values.
  */
-export function createFlowApiOperationOwner(): FlowApiOperationOwner {
+export function createFlowApiOperationOwner(
+  options: FlowApiOperationOwnerOptions,
+): FlowApiOperationOwner {
+  const handleKey = copyFlowHandleKey(options);
   const entries = new Map<
     string,
     {
@@ -44,11 +47,11 @@ export function createFlowApiOperationOwner(): FlowApiOperationOwner {
   const descriptors = new WeakMap<ApiDefinition, Map<string, FlowApiOperationDescriptor>>();
   return {
     project: (api, endpointId, operationId) => {
-      const sourceKey = `${endpointId}\u0000${operationId}`;
-      const existing = descriptors.get(api)?.get(sourceKey);
+      const existing = descriptors.get(api)?.get(`${endpointId}\u0000${operationId}`);
       if (existing !== undefined) return { ok: true, data: existing };
       const { operation } = selectOperation(api, endpointId, operationId);
       const { operation: operationHandle, field: createFieldHandle } = createFlowApiOperationHandle(
+        handleKey,
         api,
         endpointId,
         operationId,
@@ -66,19 +69,22 @@ export function createFlowApiOperationOwner(): FlowApiOperationOwner {
           return handle;
         },
       );
-      if (result.ok) {
-        if (operation !== undefined) {
-          entries.set(operationHandle, { api, operation, parameterNames, descriptor: result.data });
-          const descriptorsForApi =
-            descriptors.get(api) ?? new Map<string, FlowApiOperationDescriptor>();
-          descriptorsForApi.set(sourceKey, result.data);
-          descriptors.set(api, descriptorsForApi);
-        }
+      if (result.ok && operation !== undefined) {
+        entries.set(operationHandle, { api, operation, parameterNames, descriptor: result.data });
+        const descriptorsForApi =
+          descriptors.get(api) ?? new Map<string, FlowApiOperationDescriptor>();
+        descriptorsForApi.set(`${endpointId}\u0000${operationId}`, result.data);
+        descriptors.set(api, descriptorsForApi);
       }
       return result;
     },
     resolve: (descriptor, bindings) => resolveFlowApiOperation(entries, descriptor, bindings),
   };
+}
+
+/*** Copies caller-owned mutable key material before creating the owner registry. */
+function copyFlowHandleKey(options: FlowApiOperationOwnerOptions): Uint8Array {
+  return Uint8Array.from(options.handleKey);
 }
 
 /** Projects an owner-resolved operation using handles that reveal no source identities. */
@@ -103,8 +109,8 @@ function projectFlowApiOperation(
     operation.credential ?? endpoint.credential ?? api.credential,
     diagnostics,
   );
-  const result = projectResult(operation, diagnostics);
-  if (diagnostics.length > 0 || input === undefined || auth === undefined || result === undefined) {
+  const output = projectFlowOperationOutput(operation, diagnostics);
+  if (diagnostics.length > 0 || input === undefined || auth === undefined || output === undefined) {
     return {
       ok: false,
       diagnostics: redactFlowDiagnostics(diagnostics),
@@ -123,9 +129,9 @@ function projectFlowApiOperation(
       ...projectFlowTransport(operation.method),
       endpoint: projectEndpoint(operation),
       input,
-      result,
+      result: output.result,
       errors: ['authentication', 'authorization', 'network', 'rate-limit', 'response-validation'],
-      ...(operation.pagination === undefined ? {} : { pagination: projectPagination(operation) }),
+      ...(output.pagination === undefined ? {} : { pagination: output.pagination }),
       rateLimit: { kind: 'unknown' },
       auth,
     },
@@ -250,49 +256,6 @@ function projectParameter(
     required: parameter.required ?? false,
     ...(schema === undefined ? {} : { schema }),
   };
-}
-
-/** Projects typed response shape without copying free-form response metadata. */
-function projectResult(
-  operation: DataOperationConfig,
-  diagnostics: DataSourceDiagnostic[],
-): FlowApiOperationResult | undefined {
-  const { response } = operation;
-  const schema =
-    response?.schema === undefined
-      ? undefined
-      : projectFlowDataSchema(response.schema, diagnostics, 'response', () => 'result-field');
-  if (response?.schema !== undefined && schema === undefined) return undefined;
-  return {
-    ...(response === undefined
-      ? {}
-      : {
-          response: {
-            ...(typeof response.status === 'number' ? { status: response.status } : {}),
-            ...(schema === undefined ? {} : { schema }),
-          },
-        }),
-    artifact: {
-      kind: 'artifact',
-    },
-  };
-}
-
-/** Retains the fixed pagination category without unclassified field names. */
-function projectPagination(
-  operation: DataOperationConfig,
-): NonNullable<FlowApiOperationDescriptor['pagination']> {
-  const { pagination } = operation;
-  return {
-    kind: isFlowPaginationKind(pagination?.kind) ? pagination.kind : 'unknown',
-  };
-}
-
-/** Narrows open provider pagination categories to Flow's public vocabulary. */
-function isFlowPaginationKind(
-  kind: DataOperationPagination['kind'] | undefined,
-): kind is NonNullable<FlowApiOperationDescriptor['pagination']>['kind'] {
-  return kind === 'cursor' || kind === 'limit-offset' || kind === 'page' || kind === 'unknown';
 }
 
 /** Emits only a credential kind after rejecting unclassified credential mechanisms. */
