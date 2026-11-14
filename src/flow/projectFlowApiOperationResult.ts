@@ -6,6 +6,7 @@ import type {
 } from '@ankhorage/contracts/data';
 import { isDataSchema } from '@ankhorage/contracts/data';
 
+import { matchesFlowSchema } from './matchesFlowSchema';
 import type { FlowApiOperationDescriptor } from './types';
 
 interface FlowResultOwnerEntry {
@@ -30,8 +31,9 @@ export function projectFlowApiOperationResult(
   const sourceSchema = entry.operation.response?.schema;
   const projectedSchema = entry.descriptor.result.response?.schema;
   if (sourceSchema === undefined || projectedSchema === undefined) return resultNotFound();
+  if (!matchesFlowSchema(value, sourceSchema)) return resultNotFound();
   const projected = projectFlowResultValue(value, sourceSchema, projectedSchema, entry.fieldNames);
-  return projected === undefined
+  return projected === undefined || !matchesFlowSchema(projected, projectedSchema)
     ? resultNotFound()
     : {
         ok: true,
@@ -46,6 +48,7 @@ function projectFlowResultValue(
   projectedSchema: DataSchema,
   fieldNames: ReadonlyMap<string, string>,
 ): DataContractValue | undefined {
+  if (!matchesFlowSchema(value, sourceSchema)) return undefined;
   if (isDataContractList(value)) {
     if (sourceSchema.items === undefined || projectedSchema.items === undefined) return undefined;
     const sourceItems = sourceSchema.items;

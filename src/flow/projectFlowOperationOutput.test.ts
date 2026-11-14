@@ -110,6 +110,52 @@ it('projects and owner-maps every opaque REST response field without source iden
   expect(JSON.stringify(projected)).not.toContain('"id"');
 });
 
+it('rejects invalid provider output values without leaking provider secrets', () => {
+  const api = createManualRestApi({
+    id: 'commerce',
+    baseUrl: 'https://api.example.test',
+    endpoints: [
+      {
+        id: 'orders',
+        path: '/orders',
+        operations: [
+          {
+            id: 'orders.get',
+            intent: 'read',
+            method: 'GET',
+            response: { schema: restResponseSchema() },
+          },
+        ],
+      },
+    ],
+  });
+  expect(api.ok).toBe(true);
+  if (!api.ok) return;
+  const owner = createOwner();
+  const descriptor = owner.project(api.data, 'orders', 'orders.get');
+  expect(descriptor.ok).toBe(true);
+  if (!descriptor.ok) return;
+  const sentinel = 'provider-output-sentinel-secret';
+  const invalidValues: readonly DataContractValue[] = [
+    { id: 42, count: 2 },
+    { id: sentinel, count: 'wrong-integer' },
+    { id: { value: sentinel }, count: 2 },
+    { id: sentinel, count: 2, detail: { id: 'wrong-boolean' } },
+    { id: sentinel, count: 2, items: [{ price: 'wrong-number' }] },
+    { count: 2 },
+    { id: null, count: 2 },
+  ];
+
+  for (const value of invalidValues) {
+    const result = owner.projectResult(descriptor.data, value);
+    expect(result).toMatchObject({
+      ok: false,
+      diagnostics: [{ code: 'unsafe-flow-projection' }],
+    });
+    expect(JSON.stringify(result)).not.toContain(sentinel);
+  }
+});
+
 function restResult() {
   return { id: 'order-7', count: 2, detail: { id: true }, items: [{ price: 19.5 }] };
 }
