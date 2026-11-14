@@ -1,4 +1,5 @@
 export * from './discovery';
+export * from './flow';
 export * from './graphql';
 export * from './openapi';
 export * from './packageInfo';
