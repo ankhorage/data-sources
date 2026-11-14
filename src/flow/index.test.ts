@@ -1,4 +1,4 @@
-import type { ApiDefinition } from '@ankhorage/contracts/data';
+import type { ApiDefinition, DataSchema } from '@ankhorage/contracts/data';
 import { expect, it } from 'bun:test';
 
 import { createGraphQlApi } from '../graphql';
@@ -7,6 +7,54 @@ import { createManualRestApi, type ManualRestOperationDefinition } from '../rest
 import { createFlowApiOperationDescriptorId, projectFlowApiOperation } from './index';
 
 const secret = 'do-not-persist';
+const unclassifiedSchema: DataSchema = {
+  title: secret,
+  description: secret,
+  enum: [secret],
+  format: secret,
+  required: [secret],
+  ref: { id: secret },
+};
+const unclassifiedOperation: Partial<ManualRestOperationDefinition> = {
+  name: secret,
+  description: secret,
+  path: `/orders/{orderId}?access_token=${secret}`,
+  parameters: [
+    { name: 'orderId', location: 'path' },
+    {
+      name: secret,
+      location: 'query',
+      required: true,
+      description: secret,
+      schema: {
+        ...unclassifiedSchema,
+        additionalProperties: unclassifiedSchema,
+      },
+    },
+  ],
+  request: {
+    contentType: secret,
+    schema: {
+      type: 'object',
+      ...unclassifiedSchema,
+      properties: { [secret]: unclassifiedSchema },
+    },
+  },
+  response: {
+    status: 200,
+    contentType: secret,
+    description: secret,
+    schema: unclassifiedSchema,
+  },
+  pagination: {
+    kind: secret,
+    cursorPath: secret,
+    limitParameter: secret,
+    offsetParameter: secret,
+    pageParameter: secret,
+    pageSizeParameter: secret,
+  },
+};
 
 function restApi(operation: Partial<ManualRestOperationDefinition> = {}): ApiDefinition {
   const result = createManualRestApi({
@@ -60,15 +108,15 @@ it('projects REST operations as stable, typed, secret-free Flow descriptors', ()
       capabilityId: 'data-sources.api/commerce%2Fapi/orders/orders.get',
     },
     source: { apiId: 'commerce/api', endpointId: 'orders', operationId: 'orders.get' },
-    endpoint: { kind: 'http', path: '/orders/{orderId}' },
+    endpoint: { kind: 'http' },
     input: {
       parameters: [
-        { name: 'orderId', location: 'path', schema: { type: 'string' } },
-        { name: 'page', location: 'query', schema: { type: 'integer' } },
+        { location: 'path', schema: { type: 'string' } },
+        { location: 'query', schema: { type: 'integer' } },
       ],
     },
-    result: { artifact: { kind: 'artifact', mediaType: 'application/json' } },
-    pagination: { kind: 'page', pageParameter: 'page', pageSizeParameter: 'limit' },
+    result: { artifact: { kind: 'artifact' } },
+    pagination: { kind: 'page' },
     rateLimit: { kind: 'unknown' },
     auth: { required: true, kind: 'oauth2' },
   });
@@ -118,7 +166,7 @@ it('projects GraphQL and OpenAPI discoveries without exposing documents or serve
   expect(JSON.stringify(openApiDescriptor.data)).not.toContain('api_key=hidden');
 });
 
-it('fails closed for missing operations and secret-prone parameters or nested schemas', () => {
+it('fails closed without echoing rejected parameter values', () => {
   const missing = projectFlowApiOperation(restApi(), 'orders', 'missing');
   const header = projectFlowApiOperation(
     restApi({
@@ -140,28 +188,32 @@ it('fails closed for missing operations and secret-prone parameters or nested sc
     'orders',
     'orders.get',
   );
-  const nested = projectFlowApiOperation(
-    restApi({
-      request: { schema: { type: 'object', properties: { password: { type: 'string' } } } },
-    }),
-    'orders',
-    'orders.get',
-  );
-  const defaultValue = projectFlowApiOperation(
-    restApi({
-      request: { schema: { type: 'object', properties: { value: { default: secret } } } },
-    }),
-    'orders',
-    'orders.get',
-  );
-
-  for (const result of [missing, header, query, nested, defaultValue]) {
+  for (const result of [missing, header, query]) {
     expect(result.ok).toBe(false);
     if (!result.ok) {
       expect(result.diagnostics[0]?.code).toBe('unsafe-flow-projection');
       expect(result.diagnostics[0]?.apiId).toBe('commerce/api');
+      expect(JSON.stringify(result.diagnostics)).not.toContain(secret);
     }
   }
+});
+
+it('omits unclassified metadata while retaining REST descriptor shape', () => {
+  const result = projectFlowApiOperation(restApi(unclassifiedOperation), 'orders', 'orders.get');
+
+  expect(result.ok).toBe(true);
+  if (!result.ok) return;
+  expect(result.data).toMatchObject({
+    endpoint: { kind: 'http' },
+    input: {
+      parameters: [{ location: 'path' }, { location: 'query', schema: {} }],
+      body: { schema: { type: 'object' } },
+    },
+    result: { response: { status: 200, schema: {} }, artifact: { kind: 'artifact' } },
+    pagination: { kind: 'unknown' },
+  });
+  expect(JSON.stringify(result.data)).not.toContain(secret);
+  expect(JSON.stringify(result.diagnostics)).not.toContain(secret);
 });
 
 it('is reproducibly serializable and ignores unknown runtime fields instead of copying them', () => {

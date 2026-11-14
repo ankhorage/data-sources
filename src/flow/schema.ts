@@ -1,7 +1,5 @@
 import type { DataSchema, DataSourceDiagnostic } from '@ankhorage/contracts/data';
 
-const SENSITIVE_NAME = /(?:api[_-]?key|authorization|credential|cookie|password|secret|token)/iu;
-
 /** Projects a Data Sources schema using a secret-safe field allowlist. */
 export function projectFlowDataSchema(
   schema: DataSchema,
@@ -22,17 +20,11 @@ export function projectFlowDataSchema(
   };
 }
 
-/** Copies primitive schema identity fields that carry no fixed request values. */
+/** Copies only schema shape fields whose values are closed, typed declarations. */
 function projectSchemaIdentity(schema: DataSchema): DataSchema {
   return {
     ...(schema.type === undefined ? {} : { type: schema.type }),
-    ...(schema.title === undefined ? {} : { title: schema.title }),
-    ...(schema.description === undefined ? {} : { description: schema.description }),
-    ...(schema.enum === undefined ? {} : { enum: schema.enum }),
-    ...(schema.format === undefined ? {} : { format: schema.format }),
     ...(schema.nullable === undefined ? {} : { nullable: schema.nullable }),
-    ...(schema.required === undefined ? {} : { required: schema.required }),
-    ...(schema.ref === undefined ? {} : { ref: { id: schema.ref.id } }),
   };
 }
 
@@ -40,18 +32,17 @@ function projectSchemaIdentity(schema: DataSchema): DataSchema {
 function projectSchemaComposition(
   schema: DataSchema,
   children: {
-    readonly properties?: Readonly<Record<string, DataSchema>>;
     readonly items?: DataSchema;
     readonly allOf?: readonly DataSchema[];
     readonly anyOf?: readonly DataSchema[];
     readonly oneOf?: readonly DataSchema[];
+    readonly additionalProperties?: boolean | DataSchema;
   },
 ): DataSchema {
   return {
-    ...(children.properties === undefined ? {} : { properties: children.properties }),
-    ...(schema.additionalProperties === undefined || schema.additionalProperties === true
+    ...(children.additionalProperties === undefined
       ? {}
-      : { additionalProperties: schema.additionalProperties }),
+      : { additionalProperties: children.additionalProperties }),
     ...(children.items === undefined ? {} : { items: children.items }),
     ...(children.allOf === undefined ? {} : { allOf: children.allOf }),
     ...(children.anyOf === undefined ? {} : { anyOf: children.anyOf }),
@@ -66,29 +57,30 @@ function projectChildren(
   path: string,
 ):
   | {
-      readonly properties?: Readonly<Record<string, DataSchema>>;
       readonly items?: DataSchema;
       readonly allOf?: readonly DataSchema[];
       readonly anyOf?: readonly DataSchema[];
       readonly oneOf?: readonly DataSchema[];
+      readonly additionalProperties?: boolean | DataSchema;
     }
   | undefined {
-  const properties = projectProperties(schema.properties, diagnostics, path);
   const items = projectOptional(schema.items, diagnostics, `${path}[]`);
   const allOf = projectList(schema.allOf, diagnostics, `${path}.allOf`);
   const anyOf = projectList(schema.anyOf, diagnostics, `${path}.anyOf`);
   const oneOf = projectList(schema.oneOf, diagnostics, `${path}.oneOf`);
-  if (
-    properties === undefined ||
-    !isOptionalProjectionValid(schema, { items, allOf, anyOf, oneOf })
-  )
+  const additionalProperties = projectOptionalSchema(
+    schema.additionalProperties,
+    diagnostics,
+    `${path}.*`,
+  );
+  if (!isOptionalProjectionValid(schema, { items, allOf, anyOf, oneOf, additionalProperties }))
     return undefined;
   return {
-    properties,
     ...(items === undefined ? {} : { items }),
     ...(allOf === undefined ? {} : { allOf }),
     ...(anyOf === undefined ? {} : { anyOf }),
     ...(oneOf === undefined ? {} : { oneOf }),
+    ...(additionalProperties === undefined ? {} : { additionalProperties }),
   };
 }
 
@@ -100,35 +92,26 @@ function isOptionalProjectionValid(
     readonly allOf?: readonly DataSchema[];
     readonly anyOf?: readonly DataSchema[];
     readonly oneOf?: readonly DataSchema[];
+    readonly additionalProperties?: boolean | DataSchema;
   },
 ): boolean {
   return !(
     (schema.items !== undefined && projections.items === undefined) ||
     (schema.allOf !== undefined && projections.allOf === undefined) ||
     (schema.anyOf !== undefined && projections.anyOf === undefined) ||
-    (schema.oneOf !== undefined && projections.oneOf === undefined)
+    (schema.oneOf !== undefined && projections.oneOf === undefined) ||
+    (schema.additionalProperties !== undefined && projections.additionalProperties === undefined)
   );
 }
 
-/** Projects object properties while rejecting names that imply secret-bearing input. */
-function projectProperties(
-  properties: DataSchema['properties'],
+/** Recursively projects schema-valued additional properties without copying arbitrary values. */
+function projectOptionalSchema(
+  value: DataSchema['additionalProperties'],
   diagnostics: DataSourceDiagnostic[],
   path: string,
-): Readonly<Record<string, DataSchema>> | undefined {
-  if (properties === undefined) return {};
-  const entries = Object.entries(properties).map(([name, schema]) => {
-    if (SENSITIVE_NAME.test(name)) {
-      diagnostics.push(
-        unsafeSchemaDiagnostic(`Schema '${path}.${name}' has an unsafe public name.`),
-      );
-      return undefined;
-    }
-    const projected = projectFlowDataSchema(schema, diagnostics, `${path}.${name}`);
-    return projected === undefined ? undefined : ([name, projected] as const);
-  });
-  const publicEntries = entries.flatMap((entry) => (entry === undefined ? [] : [entry]));
-  return publicEntries.length === entries.length ? Object.fromEntries(publicEntries) : undefined;
+): boolean | DataSchema | undefined {
+  if (value === undefined || typeof value === 'boolean') return value;
+  return projectFlowDataSchema(value, diagnostics, path);
 }
 
 /** Projects one optional nested schema. */

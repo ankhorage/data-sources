@@ -1,11 +1,4 @@
-import type {
-  DataOperationIntent,
-  DataOperationMethod,
-  DataOperationPagination,
-  DataOperationProtocol,
-  DataSchema,
-  OperationId,
-} from '@ankhorage/contracts/data';
+import type { DataOperationIntent, DataSchema, OperationId } from '@ankhorage/contracts/data';
 import type { FlowProviderCapabilityRef } from '@ankhorage/contracts/flow';
 
 /** A credential-free, serializable description of one Data Sources operation. */
@@ -13,16 +6,14 @@ export interface FlowApiOperationDescriptor {
   readonly id: string;
   readonly capability: FlowProviderCapabilityRef;
   readonly source: FlowApiOperationSource;
-  readonly protocol: DataOperationProtocol;
+  readonly protocol: 'graphql' | 'http';
   readonly intent: DataOperationIntent;
-  readonly method?: DataOperationMethod;
+  readonly method?: FlowApiOperationMethod;
   readonly endpoint: FlowApiOperationEndpoint;
-  readonly name?: string;
-  readonly description?: string;
   readonly input: FlowApiOperationInput;
   readonly result: FlowApiOperationResult;
   readonly errors: readonly FlowApiOperationErrorCategory[];
-  readonly pagination?: DataOperationPagination;
+  readonly pagination?: FlowApiOperationPagination;
   readonly rateLimit: FlowApiOperationRateLimit;
   readonly auth: FlowApiOperationAuthRequirement;
 }
@@ -37,38 +28,39 @@ export interface FlowApiOperationSource {
 /** Transport information that is safe to persist in a graph. */
 export interface FlowApiOperationEndpoint {
   readonly kind: 'graphql' | 'http';
-  readonly path?: string;
 }
 
 /** Explicitly allowlisted public operation inputs. */
 export interface FlowApiOperationInput {
   readonly parameters: readonly FlowApiOperationParameter[];
   readonly body?: {
-    readonly contentType?: string;
     readonly schema?: DataSchema;
   };
 }
 
 /** A public input parameter after secret-bearing transport positions are rejected. */
 export interface FlowApiOperationParameter {
-  readonly name: string;
   readonly location: 'body' | 'path' | 'query';
-  readonly required?: boolean;
-  readonly description?: string;
   readonly schema?: DataSchema;
+}
+
+/** Public HTTP methods recognized by the Flow descriptor protocol. */
+export type FlowApiOperationMethod =
+  'DELETE' | 'GET' | 'HEAD' | 'OPTIONS' | 'PATCH' | 'POST' | 'PUT';
+
+/** Pagination category without unclassified provider field names. */
+export interface FlowApiOperationPagination {
+  readonly kind: 'cursor' | 'limit-offset' | 'page' | 'unknown';
 }
 
 /** The response contract and artifact shape available to a Flow node. */
 export interface FlowApiOperationResult {
   readonly response?: {
-    readonly status?: number | string;
-    readonly contentType?: string;
-    readonly description?: string;
+    readonly status?: number;
     readonly schema?: DataSchema;
   };
   readonly artifact: {
     readonly kind: 'artifact';
-    readonly mediaType?: string;
   };
 }
 

@@ -2,6 +2,8 @@ import type {
   ApiDefinition,
   CredentialRef,
   DataOperationConfig,
+  DataOperationMethod,
+  DataOperationPagination,
   DataOperationParameter,
   DataSourceDiagnostic,
   DataSourceDiagnosticResult,
@@ -12,6 +14,7 @@ import type {
   FlowApiOperationAuthRequirement,
   FlowApiOperationDescriptor,
   FlowApiOperationInput,
+  FlowApiOperationMethod,
   FlowApiOperationParameter,
   FlowApiOperationResult,
 } from './types';
@@ -20,11 +23,12 @@ export type * from './types';
 
 const SENSITIVE_NAME = /(?:api[_-]?key|authorization|credential|cookie|password|secret|token)/iu;
 const FLOW_PROVIDER_ID = '@ankhorage/data-sources';
+const FLOW_HTTP_METHODS = ['DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT'] as const;
 
 /*** Projects one server-resolved API operation into a credential-free Flow capability descriptor.
  *
- * @security The projection is an allowlist: it never copies metadata, URLs, credentials, defaults,
- * headers, cookies, executable values, or unknown fields into graph-persistable data.
+ * @security The projection keeps only typed, public structural declarations. It never copies
+ * unclassified metadata, URLs, credentials, defaults, headers, cookies, or executable values.
  */
 export function projectFlowApiOperation(
   api: ApiDefinition,
@@ -60,12 +64,10 @@ export function projectFlowApiOperation(
       id,
       capability: { providerId: FLOW_PROVIDER_ID, capabilityId: id },
       source: { apiId: api.id, endpointId, operationId },
-      protocol: operation.protocol,
+      protocol: projectProtocol(operation),
       intent: operation.intent,
-      ...(operation.method === undefined ? {} : { method: operation.method }),
+      ...projectMethod(operation.method),
       endpoint: projectEndpoint(operation),
-      ...(operation.name === undefined ? {} : { name: operation.name }),
-      ...(operation.description === undefined ? {} : { description: operation.description }),
       input,
       result,
       errors: ['authentication', 'authorization', 'network', 'rate-limit', 'response-validation'],
@@ -129,11 +131,26 @@ function validateProjection(
   return [];
 }
 
-/** Reduces the transport to metadata that cannot disclose a service URL or query values. */
+/** Reduces transport to its fixed protocol kind; paths are unclassified provider metadata. */
 function projectEndpoint(operation: DataOperationConfig): FlowApiOperationDescriptor['endpoint'] {
-  return operation.protocol === 'http'
-    ? { kind: 'http', ...(operation.path === undefined ? {} : { path: operation.path }) }
-    : { kind: 'graphql' };
+  return operation.protocol === 'http' ? { kind: 'http' } : { kind: 'graphql' };
+}
+
+/** Converts the validated source protocol to Flow's closed transport vocabulary. */
+function projectProtocol(operation: DataOperationConfig): FlowApiOperationDescriptor['protocol'] {
+  return operation.protocol === 'http' ? 'http' : 'graphql';
+}
+
+/** Preserves a method only when it is one of Flow's closed HTTP method declarations. */
+function projectMethod(
+  method: DataOperationMethod | undefined,
+): Pick<FlowApiOperationDescriptor, 'method'> {
+  return method !== undefined && isFlowHttpMethod(method) ? { method } : {};
+}
+
+/** Narrows open Data Sources methods to Flow's public transport vocabulary. */
+function isFlowHttpMethod(method: DataOperationMethod): method is FlowApiOperationMethod {
+  return FLOW_HTTP_METHODS.some((candidate) => candidate === method);
 }
 
 /** Projects request fields only after recursively validating their public schema. */
@@ -165,56 +182,43 @@ function projectInput(
       ? {}
       : {
           body: {
-            ...(request.contentType === undefined ? {} : { contentType: request.contentType }),
             schema: bodySchema,
           },
         }),
   };
 }
 
-/** Rejects secret-prone parameter locations, names, and defaults before projection. */
+/** Preserves only parameter location and schema shape, never free-form parameter metadata. */
 function projectParameter(
   parameter: DataOperationParameter,
   diagnostics: DataSourceDiagnostic[],
 ): FlowApiOperationParameter | undefined {
   if (parameter.location === 'header' || parameter.location === 'cookie') {
     diagnostics.push(
-      projectionDiagnostic(
-        '',
-        '',
-        '',
-        `Parameter '${parameter.name}' uses a secret-prone transport location.`,
-      ),
+      projectionDiagnostic('', '', '', 'Parameter uses a secret-prone transport location.'),
     );
     return undefined;
   }
   if (SENSITIVE_NAME.test(parameter.name)) {
-    diagnostics.push(
-      projectionDiagnostic('', '', '', `Parameter '${parameter.name}' has an unsafe public name.`),
-    );
+    diagnostics.push(projectionDiagnostic('', '', '', 'Parameter has an unsafe public name.'));
     return undefined;
   }
   if (parameter.default !== undefined) {
-    diagnostics.push(
-      projectionDiagnostic('', '', '', `Parameter '${parameter.name}' has a default value.`),
-    );
+    diagnostics.push(projectionDiagnostic('', '', '', 'Parameter has a default value.'));
     return undefined;
   }
   const schema =
     parameter.schema === undefined
       ? undefined
-      : projectFlowDataSchema(parameter.schema, diagnostics, parameter.name);
+      : projectFlowDataSchema(parameter.schema, diagnostics, 'parameter');
   if (parameter.schema !== undefined && schema === undefined) return undefined;
   return {
-    name: parameter.name,
     location: parameter.location,
-    ...(parameter.required === undefined ? {} : { required: parameter.required }),
-    ...(parameter.description === undefined ? {} : { description: parameter.description }),
     ...(schema === undefined ? {} : { schema }),
   };
 }
 
-/** Projects a response and its artifact eligibility without copying arbitrary operation metadata. */
+/** Projects typed response shape without copying free-form response metadata. */
 function projectResult(
   operation: DataOperationConfig,
   diagnostics: DataSourceDiagnostic[],
@@ -230,38 +234,31 @@ function projectResult(
       ? {}
       : {
           response: {
-            ...(response.status === undefined ? {} : { status: response.status }),
-            ...(response.contentType === undefined ? {} : { contentType: response.contentType }),
-            ...(response.description === undefined ? {} : { description: response.description }),
+            ...(typeof response.status === 'number' ? { status: response.status } : {}),
             ...(schema === undefined ? {} : { schema }),
           },
         }),
     artifact: {
       kind: 'artifact',
-      ...(response?.contentType === undefined ? {} : { mediaType: response.contentType }),
     },
   };
 }
 
-/** Copies pagination fields without interpreting provider-specific pagination execution. */
+/** Retains the fixed pagination category without unclassified field names. */
 function projectPagination(
   operation: DataOperationConfig,
 ): NonNullable<FlowApiOperationDescriptor['pagination']> {
   const { pagination } = operation;
   return {
-    kind: pagination?.kind ?? 'unknown',
-    ...(pagination?.cursorPath === undefined ? {} : { cursorPath: pagination.cursorPath }),
-    ...(pagination?.limitParameter === undefined
-      ? {}
-      : { limitParameter: pagination.limitParameter }),
-    ...(pagination?.offsetParameter === undefined
-      ? {}
-      : { offsetParameter: pagination.offsetParameter }),
-    ...(pagination?.pageParameter === undefined ? {} : { pageParameter: pagination.pageParameter }),
-    ...(pagination?.pageSizeParameter === undefined
-      ? {}
-      : { pageSizeParameter: pagination.pageSizeParameter }),
+    kind: isFlowPaginationKind(pagination?.kind) ? pagination.kind : 'unknown',
   };
+}
+
+/** Narrows open provider pagination categories to Flow's public vocabulary. */
+function isFlowPaginationKind(
+  kind: DataOperationPagination['kind'] | undefined,
+): kind is NonNullable<FlowApiOperationDescriptor['pagination']>['kind'] {
+  return kind === 'cursor' || kind === 'limit-offset' || kind === 'page' || kind === 'unknown';
 }
 
 /** Emits only a credential kind after rejecting unclassified credential mechanisms. */
@@ -272,12 +269,7 @@ function projectAuth(
   if (credential === undefined) return { required: false };
   if (!isFlowAuthKind(credential.kind)) {
     diagnostics.push(
-      projectionDiagnostic(
-        '',
-        '',
-        '',
-        `Credential kind '${credential.kind}' is not safely describable.`,
-      ),
+      projectionDiagnostic('', '', '', 'Credential kind is not safely describable.'),
     );
     return undefined;
   }
