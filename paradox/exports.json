@@ -39,6 +39,47 @@
     "structuredRows": []
   },
   {
+    "name": "createFlowApiOperationOwner",
+    "title": null,
+    "description": "Projects one server-resolved API operation into a credential-free Flow capability descriptor.\n\nThe projection retains only typed public declarations. It never copies unclassified metadata,\nURLs, credentials, defaults, headers, cookies, or executable values.",
+    "isReadme": false,
+    "see": [],
+    "security": [
+      "index.test.ts#never persists or diagnoses unclassified source identities"
+    ],
+    "kind": "function",
+    "modulePath": "src/flow/index.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/index.ts",
+      "line": 44,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "FlowApiOperationOwner",
+      "FlowApiOperationOwnerOptions"
+    ],
+    "signatures": [
+      {
+        "label": "(options: FlowApiOperationOwnerOptions) => FlowApiOperationOwner",
+        "parameters": [
+          {
+            "name": "options",
+            "type": "FlowApiOperationOwnerOptions",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "FlowApiOperationOwner",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "createGraphQlApi",
     "title": null,
     "description": null,
@@ -1015,6 +1056,573 @@
       }
     ],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowApiOperationAuthRequirement",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow/types.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/types.ts",
+      "line": 124,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "\"apiKey\" | \"basic\" | \"bearer\" | \"oauth2\" | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "required",
+        "kind": "property",
+        "type": "boolean",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowApiOperationBindings",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow/types.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/types.ts",
+      "line": 55,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "body",
+        "kind": "property",
+        "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "parameters",
+        "kind": "property",
+        "type": "Readonly<Record<string, import(\"@ankhorage/contracts/dist/serializable\").SerializableValue>> | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowApiOperationDescriptor",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow/types.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/types.ts",
+      "line": 12,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "FlowApiOperationAuthRequirement",
+      "FlowApiOperationEndpoint",
+      "FlowApiOperationErrorCategory",
+      "FlowApiOperationInput",
+      "FlowApiOperationMethod",
+      "FlowApiOperationPagination",
+      "FlowApiOperationRateLimit",
+      "FlowApiOperationResult",
+      "FlowApiOperationSource"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "auth",
+        "kind": "property",
+        "type": "FlowApiOperationAuthRequirement",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "capability",
+        "kind": "property",
+        "type": "FlowProviderCapabilityRef",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "endpoint",
+        "kind": "property",
+        "type": "FlowApiOperationEndpoint",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "errors",
+        "kind": "property",
+        "type": "readonly FlowApiOperationErrorCategory[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "input",
+        "kind": "property",
+        "type": "FlowApiOperationInput",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "intent",
+        "kind": "property",
+        "type": "DataOperationIntent",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "method",
+        "kind": "property",
+        "type": "FlowApiOperationMethod | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "pagination",
+        "kind": "property",
+        "type": "FlowApiOperationPagination | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "protocol",
+        "kind": "property",
+        "type": "\"graphql\" | \"http\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "rateLimit",
+        "kind": "property",
+        "type": "FlowApiOperationRateLimit",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "result",
+        "kind": "property",
+        "type": "FlowApiOperationResult",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "FlowApiOperationSource",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowApiOperationEndpoint",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow/types.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/types.ts",
+      "line": 34,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "\"graphql\" | \"http\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowApiOperationErrorCategory",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow/types.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/types.ts",
+      "line": 115,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowApiOperationInput",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow/types.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/types.ts",
+      "line": 39,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "FlowApiOperationParameter"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "body",
+        "kind": "property",
+        "type": "{ readonly schema?: DataSchema; } | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "parameters",
+        "kind": "property",
+        "type": "readonly FlowApiOperationParameter[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowApiOperationMethod",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/flow/types.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/types.ts",
+      "line": 95,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowApiOperationOwner",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow/types.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/types.ts",
+      "line": 78,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "FlowApiOperationBindings",
+      "FlowApiOperationDescriptor",
+      "ResolvedFlowApiOperation"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "project",
+        "kind": "method",
+        "type": "(api: ApiDefinition, endpointId: string, operationId: string) => DataSourceDiagnosticResult<FlowApiOperationDescriptor>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectResult",
+        "kind": "method",
+        "type": "(descriptor: FlowApiOperationDescriptor, value: DataContractValue) => DataSourceDiagnosticResult<DataContractValue>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "resolve",
+        "kind": "method",
+        "type": "(descriptor: FlowApiOperationDescriptor, bindings: FlowApiOperationBindings) => DataSourceDiagnosticResult<ResolvedFlowApiOperation>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowApiOperationOwnerOptions",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow/types.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/types.ts",
+      "line": 65,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "handleKey",
+        "kind": "property",
+        "type": "Uint8Array<ArrayBufferLike>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowApiOperationPagination",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow/types.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/types.ts",
+      "line": 99,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "\"cursor\" | \"limit-offset\" | \"page\" | \"unknown\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowApiOperationParameter",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow/types.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/types.ts",
+      "line": 47,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "handle",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "location",
+        "kind": "property",
+        "type": "\"body\" | \"path\" | \"query\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "required",
+        "kind": "property",
+        "type": "boolean",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "schema",
+        "kind": "property",
+        "type": "DataSchema | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowApiOperationRateLimit",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow/types.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/types.ts",
+      "line": 119,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "\"unknown\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowApiOperationResult",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow/types.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/types.ts",
+      "line": 104,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "artifact",
+        "kind": "property",
+        "type": "{ readonly kind: \"artifact\"; }",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "response",
+        "kind": "property",
+        "type": "{ readonly status?: number; readonly schema?: DataSchema; } | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "FlowApiOperationSource",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow/types.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/types.ts",
+      "line": 29,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "handle",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {
@@ -3414,6 +4022,57 @@
         "name": "url",
         "kind": "property",
         "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ResolvedFlowApiOperation",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/flow/types.ts",
+    "sourceLocation": {
+      "filePath": "src/flow/types.ts",
+      "line": 70,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "api",
+        "kind": "property",
+        "type": "ApiDefinition",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "body",
+        "kind": "property",
+        "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "operation",
+        "kind": "property",
+        "type": "DataOperationConfig",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "parameters",
+        "kind": "property",
+        "type": "readonly { readonly name: string; readonly value: DataContractValue; }[]",
         "required": true,
         "description": null
       }

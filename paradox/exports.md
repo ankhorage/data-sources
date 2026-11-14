@@ -12,6 +12,25 @@ Source: `src/test-runner/index.ts:65:1`
   - input: `EndpointTestInput`
   - returns: `Promise<EndpointTestResult>`
 
+## createFlowApiOperationOwner
+
+Kind: `function`
+Module: `src/flow/index.ts`
+Source: `src/flow/index.ts:44:1`
+
+Projects one server-resolved API operation into a credential-free Flow capability descriptor.
+
+The projection retains only typed public declarations. It never copies unclassified metadata,
+URLs, credentials, defaults, headers, cookies, or executable values.
+
+Security tests: `index.test.ts#never persists or diagnoses unclassified source identities`
+
+### Signatures
+
+- `(options: FlowApiOperationOwnerOptions) => FlowApiOperationOwner`
+  - options: `FlowApiOperationOwnerOptions`
+  - returns: `FlowApiOperationOwner`
+
 ## createGraphQlApi
 
 Kind: `function`
@@ -297,6 +316,183 @@ Source: `src/rest/index.ts:68:1`
 - `(path: string) => readonly string[]`
   - path: `string`
   - returns: `readonly string[]`
+
+## FlowApiOperationAuthRequirement
+
+Kind: `type`
+Module: `src/flow/types.ts`
+Source: `src/flow/types.ts:124:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| kind | property | `"apiKey" \| "basic" \| "bearer" \| "oauth2" \| undefined` | no |  |
+| required | property | `boolean` | yes |  |
+
+## FlowApiOperationBindings
+
+Kind: `type`
+Module: `src/flow/types.ts`
+Source: `src/flow/types.ts:55:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| body | property | `import("@ankhorage/contracts/dist/serializable").SerializableValue \| undefined` | no |  |
+| parameters | property | `Readonly<Record<string, import("@ankhorage/contracts/dist/serializable").SerializableValue>> \| undefined` | no |  |
+
+## FlowApiOperationDescriptor
+
+Kind: `type`
+Module: `src/flow/types.ts`
+Source: `src/flow/types.ts:12:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| auth | property | `FlowApiOperationAuthRequirement` | yes |  |
+| capability | property | `FlowProviderCapabilityRef` | yes |  |
+| endpoint | property | `FlowApiOperationEndpoint` | yes |  |
+| errors | property | `readonly FlowApiOperationErrorCategory[]` | yes |  |
+| id | property | `string` | yes |  |
+| input | property | `FlowApiOperationInput` | yes |  |
+| intent | property | `DataOperationIntent` | yes |  |
+| method | property | `FlowApiOperationMethod \| undefined` | no |  |
+| pagination | property | `FlowApiOperationPagination \| undefined` | no |  |
+| protocol | property | `"graphql" \| "http"` | yes |  |
+| rateLimit | property | `FlowApiOperationRateLimit` | yes |  |
+| result | property | `FlowApiOperationResult` | yes |  |
+| source | property | `FlowApiOperationSource` | yes |  |
+
+## FlowApiOperationEndpoint
+
+Kind: `type`
+Module: `src/flow/types.ts`
+Source: `src/flow/types.ts:34:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| kind | property | `"graphql" \| "http"` | yes |  |
+
+## FlowApiOperationErrorCategory
+
+Kind: `unknown`
+Module: `src/flow/types.ts`
+Source: `src/flow/types.ts:115:1`
+
+## FlowApiOperationInput
+
+Kind: `type`
+Module: `src/flow/types.ts`
+Source: `src/flow/types.ts:39:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| body | property | `{ readonly schema?: DataSchema; } \| undefined` | no |  |
+| parameters | property | `readonly FlowApiOperationParameter[]` | yes |  |
+
+## FlowApiOperationMethod
+
+Kind: `unknown`
+Module: `src/flow/types.ts`
+Source: `src/flow/types.ts:95:1`
+
+## FlowApiOperationOwner
+
+Kind: `type`
+Module: `src/flow/types.ts`
+Source: `src/flow/types.ts:78:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| project | method | `(api: ApiDefinition, endpointId: string, operationId: string) => DataSourceDiagnosticResult<FlowApiOperationDescriptor>` | yes |  |
+| projectResult | method | `(descriptor: FlowApiOperationDescriptor, value: DataContractValue) => DataSourceDiagnosticResult<DataContractValue>` | yes |  |
+| resolve | method | `(descriptor: FlowApiOperationDescriptor, bindings: FlowApiOperationBindings) => DataSourceDiagnosticResult<ResolvedFlowApiOperation>` | yes |  |
+
+## FlowApiOperationOwnerOptions
+
+Kind: `type`
+Module: `src/flow/types.ts`
+Source: `src/flow/types.ts:65:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| handleKey | property | `Uint8Array<ArrayBufferLike>` | yes |  |
+
+## FlowApiOperationPagination
+
+Kind: `type`
+Module: `src/flow/types.ts`
+Source: `src/flow/types.ts:99:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| kind | property | `"cursor" \| "limit-offset" \| "page" \| "unknown"` | yes |  |
+
+## FlowApiOperationParameter
+
+Kind: `type`
+Module: `src/flow/types.ts`
+Source: `src/flow/types.ts:47:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| handle | property | `string` | yes |  |
+| location | property | `"body" \| "path" \| "query"` | yes |  |
+| required | property | `boolean` | yes |  |
+| schema | property | `DataSchema \| undefined` | no |  |
+
+## FlowApiOperationRateLimit
+
+Kind: `type`
+Module: `src/flow/types.ts`
+Source: `src/flow/types.ts:119:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| kind | property | `"unknown"` | yes |  |
+
+## FlowApiOperationResult
+
+Kind: `type`
+Module: `src/flow/types.ts`
+Source: `src/flow/types.ts:104:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| artifact | property | `{ readonly kind: "artifact"; }` | yes |  |
+| response | property | `{ readonly status?: number; readonly schema?: DataSchema; } \| undefined` | no |  |
+
+## FlowApiOperationSource
+
+Kind: `type`
+Module: `src/flow/types.ts`
+Source: `src/flow/types.ts:29:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| handle | property | `string` | yes |  |
 
 ## getDataSourceKind
 
@@ -965,6 +1161,21 @@ Source: `src/openapi/types.ts:5:1`
 | --- | --- | --- | --- | --- |
 | description | property | `string \| undefined` | no |  |
 | url | property | `string` | yes |  |
+
+## ResolvedFlowApiOperation
+
+Kind: `type`
+Module: `src/flow/types.ts`
+Source: `src/flow/types.ts:70:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| api | property | `ApiDefinition` | yes |  |
+| body | property | `import("@ankhorage/contracts/dist/serializable").SerializableValue \| undefined` | no |  |
+| operation | property | `DataOperationConfig` | yes |  |
+| parameters | property | `readonly { readonly name: string; readonly value: DataContractValue; }[]` | yes |  |
 
 ## SUPPORTED_API_ORIGINS
 

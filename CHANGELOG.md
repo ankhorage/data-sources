@@ -1,5 +1,17 @@
 # @ankhorage/data-sources
 
+## 2.2.0
+
+### Minor Changes
+
+- 83e5b71: Expose credential-free API operation descriptors for Flow capability registries.
+
+### Patch Changes
+
+- 7649abd: Add canonical authored repository metadata for organization-wide tooling and documentation consumers.
+- 8e84acb: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 83b1385: Update Ankhorage dependencies: `@ankhorage/contracts`.
+
 ## 2.1.13
 
 ### Patch Changes

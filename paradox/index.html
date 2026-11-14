@@ -116,7 +116,8 @@
       <aside class="sidebar">
         <p class="muted">Generated with Paradox</p>
         <h1>@ankhorage/data-sources</h1>
-        <p>Provider-neutral data source and endpoint system for APIs, databases, and runtime bindings.</p>
+        <p>Provides provider-neutral discovery, normalization, validation, and execution building blocks for REST, GraphQL, and OpenAPI data sources.</p>
+        <p>Give independently deployable consumers a canonical way to describe and operate API data sources without coupling their application logic to one transport or provider.</p>
         <input id="search" class="search" type="search" placeholder="Search current view" />
         <nav aria-label="Documentation sections">
           <ul class="nav-list">
@@ -145,6 +146,51 @@
     <button class="nav-button" type="button" data-target="src/discovery/scopeOpenApiDocument.ts">
       src/discovery/scopeOpenApiDocument.ts
       <small>2 functions</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/flow/createFlowApiOperationHandle.ts">
+      src/flow/createFlowApiOperationHandle.ts
+      <small>5 functions</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/flow/index.ts">
+      src/flow/index.ts
+      <small>12 functions</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/flow/matchesFlowSchema.ts">
+      src/flow/matchesFlowSchema.ts
+      <small>11 functions</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/flow/projectFlowApiOperationResult.ts">
+      src/flow/projectFlowApiOperationResult.ts
+      <small>7 functions</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/flow/projectFlowOperationOutput.ts">
+      src/flow/projectFlowOperationOutput.ts
+      <small>2 functions</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/flow/projectFlowTransport.ts">
+      src/flow/projectFlowTransport.ts
+      <small>2 functions</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/flow/redactFlowDiagnostics.ts">
+      src/flow/redactFlowDiagnostics.ts
+      <small>1 function</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/flow/resolveFlowApiOperation.ts">
+      src/flow/resolveFlowApiOperation.ts
+      <small>8 functions</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/flow/schema.ts">
+      src/flow/schema.ts
+      <small>10 functions</small>
     </button>
   </li><li>
     <button class="nav-button" type="button" data-target="src/graphql/index.ts">
@@ -221,9 +267,9 @@
     <section class="panel">
       <h2>Package overview</h2>
       <div class="summary">
-        <div><strong>83</strong><span class="muted">public exports</span></div>
+        <div><strong>99</strong><span class="muted">public exports</span></div>
         <div><strong>0</strong><span class="muted">components</span></div>
-        <div><strong>24</strong><span class="muted">modules</span></div>
+        <div><strong>34</strong><span class="muted">modules</span></div>
         <div><strong>1</strong><span class="muted">entrypoints</span></div>
       </div>
       <h3>Entrypoints</h3>
@@ -376,6 +422,56 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/openapi/index.ts</code></p>
     <p><strong>Exports:</strong> <code>scopeOpenApiDocument</code></p>
+  </article><article class="item" data-search="src/flow/createFlowApiOperationHandle.ts createFlowApiOperationHandle">
+    <h3>src/flow/createFlowApiOperationHandle.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <code>createFlowApiOperationHandle</code></p>
+  </article><article class="item" data-search="src/flow/index.ts src/flow/createFlowApiOperationHandle.ts src/flow/projectFlowApiOperationResult.ts src/flow/projectFlowOperationOutput.ts src/flow/projectFlowTransport.ts src/flow/redactFlowDiagnostics.ts src/flow/resolveFlowApiOperation.ts src/flow/schema.ts src/flow/types.ts createFlowApiOperationOwner FlowApiOperationAuthRequirement FlowApiOperationBindings FlowApiOperationDescriptor FlowApiOperationEndpoint FlowApiOperationErrorCategory FlowApiOperationInput FlowApiOperationMethod FlowApiOperationOwner FlowApiOperationOwnerOptions FlowApiOperationPagination FlowApiOperationParameter FlowApiOperationRateLimit FlowApiOperationResult FlowApiOperationSource ResolvedFlowApiOperation">
+    <h3>src/flow/index.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/flow/createFlowApiOperationHandle.ts</code>, <code>src/flow/projectFlowApiOperationResult.ts</code>, <code>src/flow/projectFlowOperationOutput.ts</code>, <code>src/flow/projectFlowTransport.ts</code>, <code>src/flow/redactFlowDiagnostics.ts</code>, <code>src/flow/resolveFlowApiOperation.ts</code>, <code>src/flow/schema.ts</code>, <code>src/flow/types.ts</code></p>
+    <p><strong>Exports:</strong> <code>createFlowApiOperationOwner</code>, <code>FlowApiOperationAuthRequirement</code>, <code>FlowApiOperationBindings</code>, <code>FlowApiOperationDescriptor</code>, <code>FlowApiOperationEndpoint</code>, <code>FlowApiOperationErrorCategory</code>, <code>FlowApiOperationInput</code>, <code>FlowApiOperationMethod</code>, <code>FlowApiOperationOwner</code>, <code>FlowApiOperationOwnerOptions</code>, <code>FlowApiOperationPagination</code>, <code>FlowApiOperationParameter</code>, <code>FlowApiOperationRateLimit</code>, <code>FlowApiOperationResult</code>, <code>FlowApiOperationSource</code>, <code>ResolvedFlowApiOperation</code></p>
+  </article><article class="item" data-search="src/flow/matchesFlowSchema.ts matchesFlowSchema">
+    <h3>src/flow/matchesFlowSchema.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <code>matchesFlowSchema</code></p>
+  </article><article class="item" data-search="src/flow/projectFlowApiOperationResult.ts src/flow/matchesFlowSchema.ts src/flow/types.ts projectFlowApiOperationResult">
+    <h3>src/flow/projectFlowApiOperationResult.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/flow/matchesFlowSchema.ts</code>, <code>src/flow/types.ts</code></p>
+    <p><strong>Exports:</strong> <code>projectFlowApiOperationResult</code></p>
+  </article><article class="item" data-search="src/flow/projectFlowOperationOutput.ts src/flow/schema.ts src/flow/types.ts projectFlowOperationOutput">
+    <h3>src/flow/projectFlowOperationOutput.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/flow/schema.ts</code>, <code>src/flow/types.ts</code></p>
+    <p><strong>Exports:</strong> <code>projectFlowOperationOutput</code></p>
+  </article><article class="item" data-search="src/flow/projectFlowTransport.ts src/flow/types.ts projectFlowTransport">
+    <h3>src/flow/projectFlowTransport.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/flow/types.ts</code></p>
+    <p><strong>Exports:</strong> <code>projectFlowTransport</code></p>
+  </article><article class="item" data-search="src/flow/redactFlowDiagnostics.ts redactFlowDiagnostics">
+    <h3>src/flow/redactFlowDiagnostics.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <code>redactFlowDiagnostics</code></p>
+  </article><article class="item" data-search="src/flow/resolveFlowApiOperation.ts src/flow/matchesFlowSchema.ts src/flow/types.ts resolveFlowApiOperation">
+    <h3>src/flow/resolveFlowApiOperation.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/flow/matchesFlowSchema.ts</code>, <code>src/flow/types.ts</code></p>
+    <p><strong>Exports:</strong> <code>resolveFlowApiOperation</code></p>
+  </article><article class="item" data-search="src/flow/schema.ts projectFlowDataSchema">
+    <h3>src/flow/schema.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <code>projectFlowDataSchema</code></p>
+  </article><article class="item" data-search="src/flow/types.ts FlowApiOperationAuthRequirement FlowApiOperationBindings FlowApiOperationDescriptor FlowApiOperationEndpoint FlowApiOperationErrorCategory FlowApiOperationInput FlowApiOperationMethod FlowApiOperationOwner FlowApiOperationOwnerOptions FlowApiOperationPagination FlowApiOperationParameter FlowApiOperationRateLimit FlowApiOperationResult FlowApiOperationSource ResolvedFlowApiOperation">
+    <h3>src/flow/types.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <code>FlowApiOperationAuthRequirement</code>, <code>FlowApiOperationBindings</code>, <code>FlowApiOperationDescriptor</code>, <code>FlowApiOperationEndpoint</code>, <code>FlowApiOperationErrorCategory</code>, <code>FlowApiOperationInput</code>, <code>FlowApiOperationMethod</code>, <code>FlowApiOperationOwner</code>, <code>FlowApiOperationOwnerOptions</code>, <code>FlowApiOperationPagination</code>, <code>FlowApiOperationParameter</code>, <code>FlowApiOperationRateLimit</code>, <code>FlowApiOperationResult</code>, <code>FlowApiOperationSource</code>, <code>ResolvedFlowApiOperation</code></p>
   </article><article class="item" data-search="src/graphql/index.ts src/graphql/introspection.ts src/graphql/operation.ts src/graphql/types.ts createGraphQlApi createGraphQlIntrospectionRequest GRAPHQL_INTROSPECTION_QUERY GraphQlApiDefinition GraphQlIntrospectionEnumValue GraphQlIntrospectionField GraphQlIntrospectionInputValue GraphQlIntrospectionRequest GraphQlIntrospectionResult GraphQlIntrospectionSchema GraphQlIntrospectionType GraphQlIntrospectionTypeRef GraphQlOperationDefinition GraphQlOperationKind normalizeGraphQlApi normalizeGraphQlIntrospectionOperations normalizeGraphQlIntrospectionSchemas normalizeGraphQlOperationId validateGraphQlApi">
     <h3>src/graphql/index.ts</h3>
     <p class="muted">Referenced module</p>
@@ -396,11 +492,11 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
     <p><strong>Exports:</strong> <code>GraphQlApiDefinition</code>, <code>GraphQlIntrospectionEnumValue</code>, <code>GraphQlIntrospectionField</code>, <code>GraphQlIntrospectionInputValue</code>, <code>GraphQlIntrospectionResult</code>, <code>GraphQlIntrospectionSchema</code>, <code>GraphQlIntrospectionType</code>, <code>GraphQlIntrospectionTypeRef</code>, <code>GraphQlOperationDefinition</code>, <code>GraphQlOperationKind</code></p>
-  </article><article class="item" data-search="src/index.ts buildEndpointTestRequest createGraphQlApi createGraphQlIntrospectionRequest createManualRestApi createOpenApiDiscoveryCandidates DATA_SOURCES_PACKAGE_NAME DataSourcesPackageInfo DEFAULT_OPENAPI_DISCOVERY_PATHS discoverOpenApi DiscoverOpenApiInput DiscoverOpenApiResult EndpointTestCredential EndpointTestCredentialResolver EndpointTestFetch EndpointTestFetchInit EndpointTestFetchResponse EndpointTestHeaders EndpointTestInput EndpointTestInputValues EndpointTestRequestDiagnostic EndpointTestResponseDiagnostic EndpointTestResult ExternalApiFetch ExternalApiFetchInit ExternalApiFetchResponse extractRestPathParams getDataSourceKind getDataSourcesPackageInfo GRAPHQL_INTROSPECTION_QUERY GraphQlApiDefinition GraphQlIntrospectionEnumValue GraphQlIntrospectionField GraphQlIntrospectionInputValue GraphQlIntrospectionRequest GraphQlIntrospectionResult GraphQlIntrospectionSchema GraphQlIntrospectionType GraphQlIntrospectionTypeRef GraphQlOperationDefinition GraphQlOperationKind importOpenApiDocument introspectGraphQlApi IntrospectGraphQlApiInput IntrospectGraphQlApiResult isManualRestMethod isSupportedApiOrigin isSupportedApiProtocol isSupportedDataSourceKind ManualRestApiDefinition ManualRestEndpointDefinition ManualRestMethod ManualRestOperationDefinition normalizeGraphQlApi normalizeGraphQlIntrospectionOperations normalizeGraphQlIntrospectionSchemas normalizeGraphQlOperationId normalizeManualRestApi normalizeManualRestMethod normalizeOpenApiEndpointId normalizeOpenApiOperationId normalizeOpenApiSchema OpenApiComponentsObject OpenApiDiscoveryAttempt OpenApiDiscoveryAttemptOutcome OpenApiDocumentObject OpenApiHttpMethod OpenApiImportInput OpenApiImportResult OpenApiMediaTypeObject OpenApiOperationObject OpenApiParameterObject OpenApiPathItemObject OpenApiRequestBodyObject OpenApiResponseObject OpenApiSchemaObject OpenApiServerObject SUPPORTED_API_ORIGINS SUPPORTED_API_PROTOCOLS SUPPORTED_DATA_SOURCE_KINDS SupportedApiOrigin testEndpoint validateGraphQlApi validateManualRestApi">
+  </article><article class="item" data-search="src/index.ts buildEndpointTestRequest createFlowApiOperationOwner createGraphQlApi createGraphQlIntrospectionRequest createManualRestApi createOpenApiDiscoveryCandidates DATA_SOURCES_PACKAGE_NAME DataSourcesPackageInfo DEFAULT_OPENAPI_DISCOVERY_PATHS discoverOpenApi DiscoverOpenApiInput DiscoverOpenApiResult EndpointTestCredential EndpointTestCredentialResolver EndpointTestFetch EndpointTestFetchInit EndpointTestFetchResponse EndpointTestHeaders EndpointTestInput EndpointTestInputValues EndpointTestRequestDiagnostic EndpointTestResponseDiagnostic EndpointTestResult ExternalApiFetch ExternalApiFetchInit ExternalApiFetchResponse extractRestPathParams FlowApiOperationAuthRequirement FlowApiOperationBindings FlowApiOperationDescriptor FlowApiOperationEndpoint FlowApiOperationErrorCategory FlowApiOperationInput FlowApiOperationMethod FlowApiOperationOwner FlowApiOperationOwnerOptions FlowApiOperationPagination FlowApiOperationParameter FlowApiOperationRateLimit FlowApiOperationResult FlowApiOperationSource getDataSourceKind getDataSourcesPackageInfo GRAPHQL_INTROSPECTION_QUERY GraphQlApiDefinition GraphQlIntrospectionEnumValue GraphQlIntrospectionField GraphQlIntrospectionInputValue GraphQlIntrospectionRequest GraphQlIntrospectionResult GraphQlIntrospectionSchema GraphQlIntrospectionType GraphQlIntrospectionTypeRef GraphQlOperationDefinition GraphQlOperationKind importOpenApiDocument introspectGraphQlApi IntrospectGraphQlApiInput IntrospectGraphQlApiResult isManualRestMethod isSupportedApiOrigin isSupportedApiProtocol isSupportedDataSourceKind ManualRestApiDefinition ManualRestEndpointDefinition ManualRestMethod ManualRestOperationDefinition normalizeGraphQlApi normalizeGraphQlIntrospectionOperations normalizeGraphQlIntrospectionSchemas normalizeGraphQlOperationId normalizeManualRestApi normalizeManualRestMethod normalizeOpenApiEndpointId normalizeOpenApiOperationId normalizeOpenApiSchema OpenApiComponentsObject OpenApiDiscoveryAttempt OpenApiDiscoveryAttemptOutcome OpenApiDocumentObject OpenApiHttpMethod OpenApiImportInput OpenApiImportResult OpenApiMediaTypeObject OpenApiOperationObject OpenApiParameterObject OpenApiPathItemObject OpenApiRequestBodyObject OpenApiResponseObject OpenApiSchemaObject OpenApiServerObject ResolvedFlowApiOperation SUPPORTED_API_ORIGINS SUPPORTED_API_PROTOCOLS SUPPORTED_DATA_SOURCE_KINDS SupportedApiOrigin testEndpoint validateGraphQlApi validateManualRestApi">
     <h3>src/index.ts</h3>
     <p class="muted">Configured entrypoint</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>buildEndpointTestRequest</code>, <code>createGraphQlApi</code>, <code>createGraphQlIntrospectionRequest</code>, <code>createManualRestApi</code>, <code>createOpenApiDiscoveryCandidates</code>, <code>DATA_SOURCES_PACKAGE_NAME</code>, <code>DataSourcesPackageInfo</code>, <code>DEFAULT_OPENAPI_DISCOVERY_PATHS</code>, <code>discoverOpenApi</code>, <code>DiscoverOpenApiInput</code>, <code>DiscoverOpenApiResult</code>, <code>EndpointTestCredential</code>, <code>EndpointTestCredentialResolver</code>, <code>EndpointTestFetch</code>, <code>EndpointTestFetchInit</code>, <code>EndpointTestFetchResponse</code>, <code>EndpointTestHeaders</code>, <code>EndpointTestInput</code>, <code>EndpointTestInputValues</code>, <code>EndpointTestRequestDiagnostic</code>, <code>EndpointTestResponseDiagnostic</code>, <code>EndpointTestResult</code>, <code>ExternalApiFetch</code>, <code>ExternalApiFetchInit</code>, <code>ExternalApiFetchResponse</code>, <code>extractRestPathParams</code>, <code>getDataSourceKind</code>, <code>getDataSourcesPackageInfo</code>, <code>GRAPHQL_INTROSPECTION_QUERY</code>, <code>GraphQlApiDefinition</code>, <code>GraphQlIntrospectionEnumValue</code>, <code>GraphQlIntrospectionField</code>, <code>GraphQlIntrospectionInputValue</code>, <code>GraphQlIntrospectionRequest</code>, <code>GraphQlIntrospectionResult</code>, <code>GraphQlIntrospectionSchema</code>, <code>GraphQlIntrospectionType</code>, <code>GraphQlIntrospectionTypeRef</code>, <code>GraphQlOperationDefinition</code>, <code>GraphQlOperationKind</code>, <code>importOpenApiDocument</code>, <code>introspectGraphQlApi</code>, <code>IntrospectGraphQlApiInput</code>, <code>IntrospectGraphQlApiResult</code>, <code>isManualRestMethod</code>, <code>isSupportedApiOrigin</code>, <code>isSupportedApiProtocol</code>, <code>isSupportedDataSourceKind</code>, <code>ManualRestApiDefinition</code>, <code>ManualRestEndpointDefinition</code>, <code>ManualRestMethod</code>, <code>ManualRestOperationDefinition</code>, <code>normalizeGraphQlApi</code>, <code>normalizeGraphQlIntrospectionOperations</code>, <code>normalizeGraphQlIntrospectionSchemas</code>, <code>normalizeGraphQlOperationId</code>, <code>normalizeManualRestApi</code>, <code>normalizeManualRestMethod</code>, <code>normalizeOpenApiEndpointId</code>, <code>normalizeOpenApiOperationId</code>, <code>normalizeOpenApiSchema</code>, <code>OpenApiComponentsObject</code>, <code>OpenApiDiscoveryAttempt</code>, <code>OpenApiDiscoveryAttemptOutcome</code>, <code>OpenApiDocumentObject</code>, <code>OpenApiHttpMethod</code>, <code>OpenApiImportInput</code>, <code>OpenApiImportResult</code>, <code>OpenApiMediaTypeObject</code>, <code>OpenApiOperationObject</code>, <code>OpenApiParameterObject</code>, <code>OpenApiPathItemObject</code>, <code>OpenApiRequestBodyObject</code>, <code>OpenApiResponseObject</code>, <code>OpenApiSchemaObject</code>, <code>OpenApiServerObject</code>, <code>SUPPORTED_API_ORIGINS</code>, <code>SUPPORTED_API_PROTOCOLS</code>, <code>SUPPORTED_DATA_SOURCE_KINDS</code>, <code>SupportedApiOrigin</code>, <code>testEndpoint</code>, <code>validateGraphQlApi</code>, <code>validateManualRestApi</code></p>
+    <p><strong>Exports:</strong> <code>buildEndpointTestRequest</code>, <code>createFlowApiOperationOwner</code>, <code>createGraphQlApi</code>, <code>createGraphQlIntrospectionRequest</code>, <code>createManualRestApi</code>, <code>createOpenApiDiscoveryCandidates</code>, <code>DATA_SOURCES_PACKAGE_NAME</code>, <code>DataSourcesPackageInfo</code>, <code>DEFAULT_OPENAPI_DISCOVERY_PATHS</code>, <code>discoverOpenApi</code>, <code>DiscoverOpenApiInput</code>, <code>DiscoverOpenApiResult</code>, <code>EndpointTestCredential</code>, <code>EndpointTestCredentialResolver</code>, <code>EndpointTestFetch</code>, <code>EndpointTestFetchInit</code>, <code>EndpointTestFetchResponse</code>, <code>EndpointTestHeaders</code>, <code>EndpointTestInput</code>, <code>EndpointTestInputValues</code>, <code>EndpointTestRequestDiagnostic</code>, <code>EndpointTestResponseDiagnostic</code>, <code>EndpointTestResult</code>, <code>ExternalApiFetch</code>, <code>ExternalApiFetchInit</code>, <code>ExternalApiFetchResponse</code>, <code>extractRestPathParams</code>, <code>FlowApiOperationAuthRequirement</code>, <code>FlowApiOperationBindings</code>, <code>FlowApiOperationDescriptor</code>, <code>FlowApiOperationEndpoint</code>, <code>FlowApiOperationErrorCategory</code>, <code>FlowApiOperationInput</code>, <code>FlowApiOperationMethod</code>, <code>FlowApiOperationOwner</code>, <code>FlowApiOperationOwnerOptions</code>, <code>FlowApiOperationPagination</code>, <code>FlowApiOperationParameter</code>, <code>FlowApiOperationRateLimit</code>, <code>FlowApiOperationResult</code>, <code>FlowApiOperationSource</code>, <code>getDataSourceKind</code>, <code>getDataSourcesPackageInfo</code>, <code>GRAPHQL_INTROSPECTION_QUERY</code>, <code>GraphQlApiDefinition</code>, <code>GraphQlIntrospectionEnumValue</code>, <code>GraphQlIntrospectionField</code>, <code>GraphQlIntrospectionInputValue</code>, <code>GraphQlIntrospectionRequest</code>, <code>GraphQlIntrospectionResult</code>, <code>GraphQlIntrospectionSchema</code>, <code>GraphQlIntrospectionType</code>, <code>GraphQlIntrospectionTypeRef</code>, <code>GraphQlOperationDefinition</code>, <code>GraphQlOperationKind</code>, <code>importOpenApiDocument</code>, <code>introspectGraphQlApi</code>, <code>IntrospectGraphQlApiInput</code>, <code>IntrospectGraphQlApiResult</code>, <code>isManualRestMethod</code>, <code>isSupportedApiOrigin</code>, <code>isSupportedApiProtocol</code>, <code>isSupportedDataSourceKind</code>, <code>ManualRestApiDefinition</code>, <code>ManualRestEndpointDefinition</code>, <code>ManualRestMethod</code>, <code>ManualRestOperationDefinition</code>, <code>normalizeGraphQlApi</code>, <code>normalizeGraphQlIntrospectionOperations</code>, <code>normalizeGraphQlIntrospectionSchemas</code>, <code>normalizeGraphQlOperationId</code>, <code>normalizeManualRestApi</code>, <code>normalizeManualRestMethod</code>, <code>normalizeOpenApiEndpointId</code>, <code>normalizeOpenApiOperationId</code>, <code>normalizeOpenApiSchema</code>, <code>OpenApiComponentsObject</code>, <code>OpenApiDiscoveryAttempt</code>, <code>OpenApiDiscoveryAttemptOutcome</code>, <code>OpenApiDocumentObject</code>, <code>OpenApiHttpMethod</code>, <code>OpenApiImportInput</code>, <code>OpenApiImportResult</code>, <code>OpenApiMediaTypeObject</code>, <code>OpenApiOperationObject</code>, <code>OpenApiParameterObject</code>, <code>OpenApiPathItemObject</code>, <code>OpenApiRequestBodyObject</code>, <code>OpenApiResponseObject</code>, <code>OpenApiSchemaObject</code>, <code>OpenApiServerObject</code>, <code>ResolvedFlowApiOperation</code>, <code>SUPPORTED_API_ORIGINS</code>, <code>SUPPORTED_API_PROTOCOLS</code>, <code>SUPPORTED_DATA_SOURCE_KINDS</code>, <code>SupportedApiOrigin</code>, <code>testEndpoint</code>, <code>validateGraphQlApi</code>, <code>validateManualRestApi</code></p>
   </article><article class="item" data-search="src/openapi/endpoints.ts src/openapi/operation.ts src/openapi/types.ts normalizeOpenApiEndpointId normalizeOpenApiEndpoints">
     <h3>src/openapi/endpoints.ts</h3>
     <p class="muted">Referenced module</p>
@@ -829,6 +925,479 @@
     <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
     
     
+  </article>
+            </section>
+            <section>
+              <h3>src/flow/index.ts</h3>
+              <article class="item" id="symbol-createflowapioperationowner" data-search="createFlowApiOperationOwner  function src/flow/index.ts Projects one server-resolved API operation into a credential-free Flow capability descriptor.&#10;&#10;The projection retains only typed public declarations. It never copies unclassified metadata,&#10;URLs, credentials, defaults, headers, cookies, or executable values. index.test.ts#never persists or diagnoses unclassified source identities FlowApiOperationOwner FlowApiOperationOwnerOptions (options: FlowApiOperationOwnerOptions) =&gt; FlowApiOperationOwner">
+    <h4>createFlowApiOperationOwner</h4>
+    
+    <p class="muted">function • <code>src/flow/index.ts:44:1</code></p>
+    <p>Projects one server-resolved API operation into a credential-free Flow capability descriptor.
+
+The projection retains only typed public declarations. It never copies unclassified metadata,
+URLs, credentials, defaults, headers, cookies, or executable values.</p>
+    <p><strong>Security tests:</strong> <code>index.test.ts#never persists or diagnoses unclassified source identities</code></p>
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">FlowApiOperationOwner</li><li class="chip">FlowApiOperationOwnerOptions</li></ul></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>(options: FlowApiOperationOwnerOptions) =&gt; FlowApiOperationOwner</pre>
+        <table>
+                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                        <td><code>options</code></td>
+                        <td><code>FlowApiOperationOwnerOptions</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+              </table>
+        <p><strong>Returns:</strong> <code>FlowApiOperationOwner</code></p>
+      </div>
+    
+  </article>
+            </section>
+            <section>
+              <h3>src/flow/types.ts</h3>
+              <article class="item" id="symbol-flowapioperationauthrequirement" data-search="FlowApiOperationAuthRequirement  type src/flow/types.ts ">
+    <h4>FlowApiOperationAuthRequirement</h4>
+    
+    <p class="muted">type • <code>src/flow/types.ts:124:1</code></p>
+    
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>kind</code></td>
+            <td>property</td>
+            <td><code>&quot;apiKey&quot; | &quot;basic&quot; | &quot;bearer&quot; | &quot;oauth2&quot; | undefined</code></td>
+            <td>no</td>
+            <td></td>
+          </tr><tr>
+            <td><code>required</code></td>
+            <td>property</td>
+            <td><code>boolean</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-flowapioperationbindings" data-search="FlowApiOperationBindings  type src/flow/types.ts ">
+    <h4>FlowApiOperationBindings</h4>
+    
+    <p class="muted">type • <code>src/flow/types.ts:55:1</code></p>
+    
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>body</code></td>
+            <td>property</td>
+            <td><code>import(&quot;@ankhorage/contracts/dist/serializable&quot;).SerializableValue | undefined</code></td>
+            <td>no</td>
+            <td></td>
+          </tr><tr>
+            <td><code>parameters</code></td>
+            <td>property</td>
+            <td><code>Readonly&lt;Record&lt;string, import(&quot;@ankhorage/contracts/dist/serializable&quot;).SerializableValue&gt;&gt; | undefined</code></td>
+            <td>no</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-flowapioperationdescriptor" data-search="FlowApiOperationDescriptor  type src/flow/types.ts  FlowApiOperationAuthRequirement FlowApiOperationEndpoint FlowApiOperationErrorCategory FlowApiOperationInput FlowApiOperationMethod FlowApiOperationPagination FlowApiOperationRateLimit FlowApiOperationResult FlowApiOperationSource">
+    <h4>FlowApiOperationDescriptor</h4>
+    
+    <p class="muted">type • <code>src/flow/types.ts:12:1</code></p>
+    
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">FlowApiOperationAuthRequirement</li><li class="chip">FlowApiOperationEndpoint</li><li class="chip">FlowApiOperationErrorCategory</li><li class="chip">FlowApiOperationInput</li><li class="chip">FlowApiOperationMethod</li><li class="chip">FlowApiOperationPagination</li><li class="chip">FlowApiOperationRateLimit</li><li class="chip">FlowApiOperationResult</li><li class="chip">FlowApiOperationSource</li></ul></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>auth</code></td>
+            <td>property</td>
+            <td><code>FlowApiOperationAuthRequirement</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>capability</code></td>
+            <td>property</td>
+            <td><code>FlowProviderCapabilityRef</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>endpoint</code></td>
+            <td>property</td>
+            <td><code>FlowApiOperationEndpoint</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>errors</code></td>
+            <td>property</td>
+            <td><code>readonly FlowApiOperationErrorCategory[]</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>id</code></td>
+            <td>property</td>
+            <td><code>string</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>input</code></td>
+            <td>property</td>
+            <td><code>FlowApiOperationInput</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>intent</code></td>
+            <td>property</td>
+            <td><code>DataOperationIntent</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>method</code></td>
+            <td>property</td>
+            <td><code>FlowApiOperationMethod | undefined</code></td>
+            <td>no</td>
+            <td></td>
+          </tr><tr>
+            <td><code>pagination</code></td>
+            <td>property</td>
+            <td><code>FlowApiOperationPagination | undefined</code></td>
+            <td>no</td>
+            <td></td>
+          </tr><tr>
+            <td><code>protocol</code></td>
+            <td>property</td>
+            <td><code>&quot;graphql&quot; | &quot;http&quot;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>rateLimit</code></td>
+            <td>property</td>
+            <td><code>FlowApiOperationRateLimit</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>result</code></td>
+            <td>property</td>
+            <td><code>FlowApiOperationResult</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>source</code></td>
+            <td>property</td>
+            <td><code>FlowApiOperationSource</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-flowapioperationendpoint" data-search="FlowApiOperationEndpoint  type src/flow/types.ts ">
+    <h4>FlowApiOperationEndpoint</h4>
+    
+    <p class="muted">type • <code>src/flow/types.ts:34:1</code></p>
+    
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>kind</code></td>
+            <td>property</td>
+            <td><code>&quot;graphql&quot; | &quot;http&quot;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-flowapioperationerrorcategory" data-search="FlowApiOperationErrorCategory  unknown src/flow/types.ts ">
+    <h4>FlowApiOperationErrorCategory</h4>
+    
+    <p class="muted">unknown • <code>src/flow/types.ts:115:1</code></p>
+    
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    
+  </article><article class="item" id="symbol-flowapioperationinput" data-search="FlowApiOperationInput  type src/flow/types.ts  FlowApiOperationParameter">
+    <h4>FlowApiOperationInput</h4>
+    
+    <p class="muted">type • <code>src/flow/types.ts:39:1</code></p>
+    
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">FlowApiOperationParameter</li></ul></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>body</code></td>
+            <td>property</td>
+            <td><code>{ readonly schema?: DataSchema; } | undefined</code></td>
+            <td>no</td>
+            <td></td>
+          </tr><tr>
+            <td><code>parameters</code></td>
+            <td>property</td>
+            <td><code>readonly FlowApiOperationParameter[]</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-flowapioperationmethod" data-search="FlowApiOperationMethod  unknown src/flow/types.ts ">
+    <h4>FlowApiOperationMethod</h4>
+    
+    <p class="muted">unknown • <code>src/flow/types.ts:95:1</code></p>
+    
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    
+  </article><article class="item" id="symbol-flowapioperationowner" data-search="FlowApiOperationOwner  type src/flow/types.ts  FlowApiOperationBindings FlowApiOperationDescriptor ResolvedFlowApiOperation">
+    <h4>FlowApiOperationOwner</h4>
+    
+    <p class="muted">type • <code>src/flow/types.ts:78:1</code></p>
+    
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">FlowApiOperationBindings</li><li class="chip">FlowApiOperationDescriptor</li><li class="chip">ResolvedFlowApiOperation</li></ul></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>project</code></td>
+            <td>method</td>
+            <td><code>(api: ApiDefinition, endpointId: string, operationId: string) =&gt; DataSourceDiagnosticResult&lt;FlowApiOperationDescriptor&gt;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>projectResult</code></td>
+            <td>method</td>
+            <td><code>(descriptor: FlowApiOperationDescriptor, value: DataContractValue) =&gt; DataSourceDiagnosticResult&lt;DataContractValue&gt;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>resolve</code></td>
+            <td>method</td>
+            <td><code>(descriptor: FlowApiOperationDescriptor, bindings: FlowApiOperationBindings) =&gt; DataSourceDiagnosticResult&lt;ResolvedFlowApiOperation&gt;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-flowapioperationowneroptions" data-search="FlowApiOperationOwnerOptions  type src/flow/types.ts ">
+    <h4>FlowApiOperationOwnerOptions</h4>
+    
+    <p class="muted">type • <code>src/flow/types.ts:65:1</code></p>
+    
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>handleKey</code></td>
+            <td>property</td>
+            <td><code>Uint8Array&lt;ArrayBufferLike&gt;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-flowapioperationpagination" data-search="FlowApiOperationPagination  type src/flow/types.ts ">
+    <h4>FlowApiOperationPagination</h4>
+    
+    <p class="muted">type • <code>src/flow/types.ts:99:1</code></p>
+    
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>kind</code></td>
+            <td>property</td>
+            <td><code>&quot;cursor&quot; | &quot;limit-offset&quot; | &quot;page&quot; | &quot;unknown&quot;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-flowapioperationparameter" data-search="FlowApiOperationParameter  type src/flow/types.ts ">
+    <h4>FlowApiOperationParameter</h4>
+    
+    <p class="muted">type • <code>src/flow/types.ts:47:1</code></p>
+    
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>handle</code></td>
+            <td>property</td>
+            <td><code>string</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>location</code></td>
+            <td>property</td>
+            <td><code>&quot;body&quot; | &quot;path&quot; | &quot;query&quot;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>required</code></td>
+            <td>property</td>
+            <td><code>boolean</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>schema</code></td>
+            <td>property</td>
+            <td><code>DataSchema | undefined</code></td>
+            <td>no</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-flowapioperationratelimit" data-search="FlowApiOperationRateLimit  type src/flow/types.ts ">
+    <h4>FlowApiOperationRateLimit</h4>
+    
+    <p class="muted">type • <code>src/flow/types.ts:119:1</code></p>
+    
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>kind</code></td>
+            <td>property</td>
+            <td><code>&quot;unknown&quot;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-flowapioperationresult" data-search="FlowApiOperationResult  type src/flow/types.ts ">
+    <h4>FlowApiOperationResult</h4>
+    
+    <p class="muted">type • <code>src/flow/types.ts:104:1</code></p>
+    
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>artifact</code></td>
+            <td>property</td>
+            <td><code>{ readonly kind: &quot;artifact&quot;; }</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>response</code></td>
+            <td>property</td>
+            <td><code>{ readonly status?: number; readonly schema?: DataSchema; } | undefined</code></td>
+            <td>no</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-flowapioperationsource" data-search="FlowApiOperationSource  type src/flow/types.ts ">
+    <h4>FlowApiOperationSource</h4>
+    
+    <p class="muted">type • <code>src/flow/types.ts:29:1</code></p>
+    
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>handle</code></td>
+            <td>property</td>
+            <td><code>string</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-resolvedflowapioperation" data-search="ResolvedFlowApiOperation  type src/flow/types.ts ">
+    <h4>ResolvedFlowApiOperation</h4>
+    
+    <p class="muted">type • <code>src/flow/types.ts:70:1</code></p>
+    
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>api</code></td>
+            <td>property</td>
+            <td><code>ApiDefinition</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>body</code></td>
+            <td>property</td>
+            <td><code>import(&quot;@ankhorage/contracts/dist/serializable&quot;).SerializableValue | undefined</code></td>
+            <td>no</td>
+            <td></td>
+          </tr><tr>
+            <td><code>operation</code></td>
+            <td>property</td>
+            <td><code>DataOperationConfig</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>parameters</code></td>
+            <td>property</td>
+            <td><code>readonly { readonly name: string; readonly value: DataContractValue; }[]</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
   </article>
             </section>
             <section>
@@ -3067,6 +3636,41 @@
   module_src_discovery_scopeOpenApiDocument_ts[&quot;src/discovery/scopeOpenApiDocument.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_discovery_scopeOpenApiDocument_ts
   module_src_discovery_scopeOpenApiDocument_ts --&gt; module_src_openapi_index_ts
+  module_src_flow_createFlowApiOperationHandle_ts[&quot;src/flow/createFlowApiOperationHandle.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_createFlowApiOperationHandle_ts
+  module_src_flow_index_ts[&quot;src/flow/index.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_index_ts
+  module_src_flow_index_ts --&gt; module_src_flow_createFlowApiOperationHandle_ts
+  module_src_flow_index_ts --&gt; module_src_flow_projectFlowApiOperationResult_ts
+  module_src_flow_index_ts --&gt; module_src_flow_projectFlowOperationOutput_ts
+  module_src_flow_index_ts --&gt; module_src_flow_projectFlowTransport_ts
+  module_src_flow_index_ts --&gt; module_src_flow_redactFlowDiagnostics_ts
+  module_src_flow_index_ts --&gt; module_src_flow_resolveFlowApiOperation_ts
+  module_src_flow_index_ts --&gt; module_src_flow_schema_ts
+  module_src_flow_index_ts --&gt; module_src_flow_types_ts
+  module_src_flow_matchesFlowSchema_ts[&quot;src/flow/matchesFlowSchema.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_matchesFlowSchema_ts
+  module_src_flow_projectFlowApiOperationResult_ts[&quot;src/flow/projectFlowApiOperationResult.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_projectFlowApiOperationResult_ts
+  module_src_flow_projectFlowApiOperationResult_ts --&gt; module_src_flow_matchesFlowSchema_ts
+  module_src_flow_projectFlowApiOperationResult_ts --&gt; module_src_flow_types_ts
+  module_src_flow_projectFlowOperationOutput_ts[&quot;src/flow/projectFlowOperationOutput.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_projectFlowOperationOutput_ts
+  module_src_flow_projectFlowOperationOutput_ts --&gt; module_src_flow_schema_ts
+  module_src_flow_projectFlowOperationOutput_ts --&gt; module_src_flow_types_ts
+  module_src_flow_projectFlowTransport_ts[&quot;src/flow/projectFlowTransport.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_projectFlowTransport_ts
+  module_src_flow_projectFlowTransport_ts --&gt; module_src_flow_types_ts
+  module_src_flow_redactFlowDiagnostics_ts[&quot;src/flow/redactFlowDiagnostics.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_redactFlowDiagnostics_ts
+  module_src_flow_resolveFlowApiOperation_ts[&quot;src/flow/resolveFlowApiOperation.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_resolveFlowApiOperation_ts
+  module_src_flow_resolveFlowApiOperation_ts --&gt; module_src_flow_matchesFlowSchema_ts
+  module_src_flow_resolveFlowApiOperation_ts --&gt; module_src_flow_types_ts
+  module_src_flow_schema_ts[&quot;src/flow/schema.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_schema_ts
+  module_src_flow_types_ts[&quot;src/flow/types.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_types_ts
   module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_graphql_index_ts
   module_src_graphql_index_ts --&gt; module_src_graphql_introspection_ts
@@ -3152,6 +3756,41 @@
   module_src_discovery_scopeOpenApiDocument_ts[&quot;src/discovery/scopeOpenApiDocument.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_discovery_scopeOpenApiDocument_ts
   module_src_discovery_scopeOpenApiDocument_ts --&gt; module_src_openapi_index_ts
+  module_src_flow_createFlowApiOperationHandle_ts[&quot;src/flow/createFlowApiOperationHandle.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_createFlowApiOperationHandle_ts
+  module_src_flow_index_ts[&quot;src/flow/index.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_index_ts
+  module_src_flow_index_ts --&gt; module_src_flow_createFlowApiOperationHandle_ts
+  module_src_flow_index_ts --&gt; module_src_flow_projectFlowApiOperationResult_ts
+  module_src_flow_index_ts --&gt; module_src_flow_projectFlowOperationOutput_ts
+  module_src_flow_index_ts --&gt; module_src_flow_projectFlowTransport_ts
+  module_src_flow_index_ts --&gt; module_src_flow_redactFlowDiagnostics_ts
+  module_src_flow_index_ts --&gt; module_src_flow_resolveFlowApiOperation_ts
+  module_src_flow_index_ts --&gt; module_src_flow_schema_ts
+  module_src_flow_index_ts --&gt; module_src_flow_types_ts
+  module_src_flow_matchesFlowSchema_ts[&quot;src/flow/matchesFlowSchema.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_matchesFlowSchema_ts
+  module_src_flow_projectFlowApiOperationResult_ts[&quot;src/flow/projectFlowApiOperationResult.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_projectFlowApiOperationResult_ts
+  module_src_flow_projectFlowApiOperationResult_ts --&gt; module_src_flow_matchesFlowSchema_ts
+  module_src_flow_projectFlowApiOperationResult_ts --&gt; module_src_flow_types_ts
+  module_src_flow_projectFlowOperationOutput_ts[&quot;src/flow/projectFlowOperationOutput.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_projectFlowOperationOutput_ts
+  module_src_flow_projectFlowOperationOutput_ts --&gt; module_src_flow_schema_ts
+  module_src_flow_projectFlowOperationOutput_ts --&gt; module_src_flow_types_ts
+  module_src_flow_projectFlowTransport_ts[&quot;src/flow/projectFlowTransport.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_projectFlowTransport_ts
+  module_src_flow_projectFlowTransport_ts --&gt; module_src_flow_types_ts
+  module_src_flow_redactFlowDiagnostics_ts[&quot;src/flow/redactFlowDiagnostics.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_redactFlowDiagnostics_ts
+  module_src_flow_resolveFlowApiOperation_ts[&quot;src/flow/resolveFlowApiOperation.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_resolveFlowApiOperation_ts
+  module_src_flow_resolveFlowApiOperation_ts --&gt; module_src_flow_matchesFlowSchema_ts
+  module_src_flow_resolveFlowApiOperation_ts --&gt; module_src_flow_types_ts
+  module_src_flow_schema_ts[&quot;src/flow/schema.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_schema_ts
+  module_src_flow_types_ts[&quot;src/flow/types.ts&quot;]
+  package__ankhorage_data_sources -.-&gt; module_src_flow_types_ts
   module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   package__ankhorage_data_sources -.-&gt; module_src_graphql_index_ts
   module_src_graphql_index_ts --&gt; module_src_graphql_introspection_ts
@@ -3220,6 +3859,16 @@
   module_src_discovery_index_ts[&quot;src/discovery/index.ts&quot;]
   module_src_discovery_openapiDiscoveryPlan_ts[&quot;src/discovery/openapiDiscoveryPlan.ts&quot;]
   module_src_discovery_scopeOpenApiDocument_ts[&quot;src/discovery/scopeOpenApiDocument.ts&quot;]
+  module_src_flow_createFlowApiOperationHandle_ts[&quot;src/flow/createFlowApiOperationHandle.ts&quot;]
+  module_src_flow_index_ts[&quot;src/flow/index.ts&quot;]
+  module_src_flow_matchesFlowSchema_ts[&quot;src/flow/matchesFlowSchema.ts&quot;]
+  module_src_flow_projectFlowApiOperationResult_ts[&quot;src/flow/projectFlowApiOperationResult.ts&quot;]
+  module_src_flow_projectFlowOperationOutput_ts[&quot;src/flow/projectFlowOperationOutput.ts&quot;]
+  module_src_flow_projectFlowTransport_ts[&quot;src/flow/projectFlowTransport.ts&quot;]
+  module_src_flow_redactFlowDiagnostics_ts[&quot;src/flow/redactFlowDiagnostics.ts&quot;]
+  module_src_flow_resolveFlowApiOperation_ts[&quot;src/flow/resolveFlowApiOperation.ts&quot;]
+  module_src_flow_schema_ts[&quot;src/flow/schema.ts&quot;]
+  module_src_flow_types_ts[&quot;src/flow/types.ts&quot;]
   module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   module_src_graphql_introspection_ts[&quot;src/graphql/introspection.ts&quot;]
   module_src_graphql_operation_ts[&quot;src/graphql/operation.ts&quot;]
@@ -3246,6 +3895,21 @@
   module_src_discovery_index_ts --&gt; module_src_openapi_index_ts
   module_src_discovery_openapiDiscoveryPlan_ts --&gt; module_src_discovery_http_ts
   module_src_discovery_scopeOpenApiDocument_ts --&gt; module_src_openapi_index_ts
+  module_src_flow_index_ts --&gt; module_src_flow_createFlowApiOperationHandle_ts
+  module_src_flow_index_ts --&gt; module_src_flow_projectFlowApiOperationResult_ts
+  module_src_flow_index_ts --&gt; module_src_flow_projectFlowOperationOutput_ts
+  module_src_flow_index_ts --&gt; module_src_flow_projectFlowTransport_ts
+  module_src_flow_index_ts --&gt; module_src_flow_redactFlowDiagnostics_ts
+  module_src_flow_index_ts --&gt; module_src_flow_resolveFlowApiOperation_ts
+  module_src_flow_index_ts --&gt; module_src_flow_schema_ts
+  module_src_flow_index_ts --&gt; module_src_flow_types_ts
+  module_src_flow_projectFlowApiOperationResult_ts --&gt; module_src_flow_matchesFlowSchema_ts
+  module_src_flow_projectFlowApiOperationResult_ts --&gt; module_src_flow_types_ts
+  module_src_flow_projectFlowOperationOutput_ts --&gt; module_src_flow_schema_ts
+  module_src_flow_projectFlowOperationOutput_ts --&gt; module_src_flow_types_ts
+  module_src_flow_projectFlowTransport_ts --&gt; module_src_flow_types_ts
+  module_src_flow_resolveFlowApiOperation_ts --&gt; module_src_flow_matchesFlowSchema_ts
+  module_src_flow_resolveFlowApiOperation_ts --&gt; module_src_flow_types_ts
   module_src_graphql_index_ts --&gt; module_src_graphql_introspection_ts
   module_src_graphql_index_ts --&gt; module_src_graphql_operation_ts
   module_src_graphql_index_ts --&gt; module_src_graphql_types_ts
@@ -3279,6 +3943,16 @@
   module_src_discovery_index_ts[&quot;src/discovery/index.ts&quot;]
   module_src_discovery_openapiDiscoveryPlan_ts[&quot;src/discovery/openapiDiscoveryPlan.ts&quot;]
   module_src_discovery_scopeOpenApiDocument_ts[&quot;src/discovery/scopeOpenApiDocument.ts&quot;]
+  module_src_flow_createFlowApiOperationHandle_ts[&quot;src/flow/createFlowApiOperationHandle.ts&quot;]
+  module_src_flow_index_ts[&quot;src/flow/index.ts&quot;]
+  module_src_flow_matchesFlowSchema_ts[&quot;src/flow/matchesFlowSchema.ts&quot;]
+  module_src_flow_projectFlowApiOperationResult_ts[&quot;src/flow/projectFlowApiOperationResult.ts&quot;]
+  module_src_flow_projectFlowOperationOutput_ts[&quot;src/flow/projectFlowOperationOutput.ts&quot;]
+  module_src_flow_projectFlowTransport_ts[&quot;src/flow/projectFlowTransport.ts&quot;]
+  module_src_flow_redactFlowDiagnostics_ts[&quot;src/flow/redactFlowDiagnostics.ts&quot;]
+  module_src_flow_resolveFlowApiOperation_ts[&quot;src/flow/resolveFlowApiOperation.ts&quot;]
+  module_src_flow_schema_ts[&quot;src/flow/schema.ts&quot;]
+  module_src_flow_types_ts[&quot;src/flow/types.ts&quot;]
   module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   module_src_graphql_introspection_ts[&quot;src/graphql/introspection.ts&quot;]
   module_src_graphql_operation_ts[&quot;src/graphql/operation.ts&quot;]
@@ -3305,6 +3979,21 @@
   module_src_discovery_index_ts --&gt; module_src_openapi_index_ts
   module_src_discovery_openapiDiscoveryPlan_ts --&gt; module_src_discovery_http_ts
   module_src_discovery_scopeOpenApiDocument_ts --&gt; module_src_openapi_index_ts
+  module_src_flow_index_ts --&gt; module_src_flow_createFlowApiOperationHandle_ts
+  module_src_flow_index_ts --&gt; module_src_flow_projectFlowApiOperationResult_ts
+  module_src_flow_index_ts --&gt; module_src_flow_projectFlowOperationOutput_ts
+  module_src_flow_index_ts --&gt; module_src_flow_projectFlowTransport_ts
+  module_src_flow_index_ts --&gt; module_src_flow_redactFlowDiagnostics_ts
+  module_src_flow_index_ts --&gt; module_src_flow_resolveFlowApiOperation_ts
+  module_src_flow_index_ts --&gt; module_src_flow_schema_ts
+  module_src_flow_index_ts --&gt; module_src_flow_types_ts
+  module_src_flow_projectFlowApiOperationResult_ts --&gt; module_src_flow_matchesFlowSchema_ts
+  module_src_flow_projectFlowApiOperationResult_ts --&gt; module_src_flow_types_ts
+  module_src_flow_projectFlowOperationOutput_ts --&gt; module_src_flow_schema_ts
+  module_src_flow_projectFlowOperationOutput_ts --&gt; module_src_flow_types_ts
+  module_src_flow_projectFlowTransport_ts --&gt; module_src_flow_types_ts
+  module_src_flow_resolveFlowApiOperation_ts --&gt; module_src_flow_matchesFlowSchema_ts
+  module_src_flow_resolveFlowApiOperation_ts --&gt; module_src_flow_types_ts
   module_src_graphql_index_ts --&gt; module_src_graphql_introspection_ts
   module_src_graphql_index_ts --&gt; module_src_graphql_operation_ts
   module_src_graphql_index_ts --&gt; module_src_graphql_types_ts
@@ -3340,6 +4029,16 @@
   module_src_discovery_index_ts[&quot;src/discovery/index.ts&quot;]
   module_src_discovery_openapiDiscoveryPlan_ts[&quot;src/discovery/openapiDiscoveryPlan.ts&quot;]
   module_src_discovery_scopeOpenApiDocument_ts[&quot;src/discovery/scopeOpenApiDocument.ts&quot;]
+  module_src_flow_createFlowApiOperationHandle_ts[&quot;src/flow/createFlowApiOperationHandle.ts&quot;]
+  module_src_flow_index_ts[&quot;src/flow/index.ts&quot;]
+  module_src_flow_matchesFlowSchema_ts[&quot;src/flow/matchesFlowSchema.ts&quot;]
+  module_src_flow_projectFlowApiOperationResult_ts[&quot;src/flow/projectFlowApiOperationResult.ts&quot;]
+  module_src_flow_projectFlowOperationOutput_ts[&quot;src/flow/projectFlowOperationOutput.ts&quot;]
+  module_src_flow_projectFlowTransport_ts[&quot;src/flow/projectFlowTransport.ts&quot;]
+  module_src_flow_redactFlowDiagnostics_ts[&quot;src/flow/redactFlowDiagnostics.ts&quot;]
+  module_src_flow_resolveFlowApiOperation_ts[&quot;src/flow/resolveFlowApiOperation.ts&quot;]
+  module_src_flow_schema_ts[&quot;src/flow/schema.ts&quot;]
+  module_src_flow_types_ts[&quot;src/flow/types.ts&quot;]
   module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   module_src_graphql_introspection_ts[&quot;src/graphql/introspection.ts&quot;]
   module_src_graphql_operation_ts[&quot;src/graphql/operation.ts&quot;]
@@ -3361,6 +4060,10 @@
   module_src_test_runner_index_ts --&gt; export_buildEndpointTestRequest
   export_buildEndpointTestRequest -.-&gt; export_EndpointTestInput
   export_buildEndpointTestRequest -.-&gt; export_EndpointTestResult
+  export_createFlowApiOperationOwner[&quot;createFlowApiOperationOwner&quot;]
+  module_src_flow_index_ts --&gt; export_createFlowApiOperationOwner
+  export_createFlowApiOperationOwner -.-&gt; export_FlowApiOperationOwner
+  export_createFlowApiOperationOwner -.-&gt; export_FlowApiOperationOwnerOptions
   export_createGraphQlApi[&quot;createGraphQlApi&quot;]
   module_src_graphql_index_ts --&gt; export_createGraphQlApi
   export_createGraphQlApi -.-&gt; export_GraphQlApiDefinition
@@ -3419,6 +4122,47 @@
   module_src_discovery_index_ts --&gt; export_ExternalApiFetchResponse
   export_extractRestPathParams[&quot;extractRestPathParams&quot;]
   module_src_rest_index_ts --&gt; export_extractRestPathParams
+  export_FlowApiOperationAuthRequirement[&quot;FlowApiOperationAuthRequirement&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationAuthRequirement
+  export_FlowApiOperationBindings[&quot;FlowApiOperationBindings&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationBindings
+  export_FlowApiOperationDescriptor[&quot;FlowApiOperationDescriptor&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationDescriptor
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationAuthRequirement
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationEndpoint
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationErrorCategory
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationInput
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationMethod
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationPagination
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationRateLimit
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationResult
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationSource
+  export_FlowApiOperationEndpoint[&quot;FlowApiOperationEndpoint&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationEndpoint
+  export_FlowApiOperationErrorCategory[&quot;FlowApiOperationErrorCategory&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationErrorCategory
+  export_FlowApiOperationInput[&quot;FlowApiOperationInput&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationInput
+  export_FlowApiOperationInput -.-&gt; export_FlowApiOperationParameter
+  export_FlowApiOperationMethod[&quot;FlowApiOperationMethod&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationMethod
+  export_FlowApiOperationOwner[&quot;FlowApiOperationOwner&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationOwner
+  export_FlowApiOperationOwner -.-&gt; export_FlowApiOperationBindings
+  export_FlowApiOperationOwner -.-&gt; export_FlowApiOperationDescriptor
+  export_FlowApiOperationOwner -.-&gt; export_ResolvedFlowApiOperation
+  export_FlowApiOperationOwnerOptions[&quot;FlowApiOperationOwnerOptions&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationOwnerOptions
+  export_FlowApiOperationPagination[&quot;FlowApiOperationPagination&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationPagination
+  export_FlowApiOperationParameter[&quot;FlowApiOperationParameter&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationParameter
+  export_FlowApiOperationRateLimit[&quot;FlowApiOperationRateLimit&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationRateLimit
+  export_FlowApiOperationResult[&quot;FlowApiOperationResult&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationResult
+  export_FlowApiOperationSource[&quot;FlowApiOperationSource&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationSource
   export_getDataSourceKind[&quot;getDataSourceKind&quot;]
   module_src_packageInfo_ts --&gt; export_getDataSourceKind
   export_getDataSourcesPackageInfo[&quot;getDataSourcesPackageInfo&quot;]
@@ -3560,6 +4304,8 @@
   module_src_openapi_types_ts --&gt; export_OpenApiSchemaObject
   export_OpenApiServerObject[&quot;OpenApiServerObject&quot;]
   module_src_openapi_types_ts --&gt; export_OpenApiServerObject
+  export_ResolvedFlowApiOperation[&quot;ResolvedFlowApiOperation&quot;]
+  module_src_flow_types_ts --&gt; export_ResolvedFlowApiOperation
   export_SUPPORTED_API_ORIGINS[&quot;SUPPORTED_API_ORIGINS&quot;]
   module_src_packageInfo_ts --&gt; export_SUPPORTED_API_ORIGINS
   export_SUPPORTED_API_PROTOCOLS[&quot;SUPPORTED_API_PROTOCOLS&quot;]
@@ -3589,6 +4335,16 @@
   module_src_discovery_index_ts[&quot;src/discovery/index.ts&quot;]
   module_src_discovery_openapiDiscoveryPlan_ts[&quot;src/discovery/openapiDiscoveryPlan.ts&quot;]
   module_src_discovery_scopeOpenApiDocument_ts[&quot;src/discovery/scopeOpenApiDocument.ts&quot;]
+  module_src_flow_createFlowApiOperationHandle_ts[&quot;src/flow/createFlowApiOperationHandle.ts&quot;]
+  module_src_flow_index_ts[&quot;src/flow/index.ts&quot;]
+  module_src_flow_matchesFlowSchema_ts[&quot;src/flow/matchesFlowSchema.ts&quot;]
+  module_src_flow_projectFlowApiOperationResult_ts[&quot;src/flow/projectFlowApiOperationResult.ts&quot;]
+  module_src_flow_projectFlowOperationOutput_ts[&quot;src/flow/projectFlowOperationOutput.ts&quot;]
+  module_src_flow_projectFlowTransport_ts[&quot;src/flow/projectFlowTransport.ts&quot;]
+  module_src_flow_redactFlowDiagnostics_ts[&quot;src/flow/redactFlowDiagnostics.ts&quot;]
+  module_src_flow_resolveFlowApiOperation_ts[&quot;src/flow/resolveFlowApiOperation.ts&quot;]
+  module_src_flow_schema_ts[&quot;src/flow/schema.ts&quot;]
+  module_src_flow_types_ts[&quot;src/flow/types.ts&quot;]
   module_src_graphql_index_ts[&quot;src/graphql/index.ts&quot;]
   module_src_graphql_introspection_ts[&quot;src/graphql/introspection.ts&quot;]
   module_src_graphql_operation_ts[&quot;src/graphql/operation.ts&quot;]
@@ -3610,6 +4366,10 @@
   module_src_test_runner_index_ts --&gt; export_buildEndpointTestRequest
   export_buildEndpointTestRequest -.-&gt; export_EndpointTestInput
   export_buildEndpointTestRequest -.-&gt; export_EndpointTestResult
+  export_createFlowApiOperationOwner[&quot;createFlowApiOperationOwner&quot;]
+  module_src_flow_index_ts --&gt; export_createFlowApiOperationOwner
+  export_createFlowApiOperationOwner -.-&gt; export_FlowApiOperationOwner
+  export_createFlowApiOperationOwner -.-&gt; export_FlowApiOperationOwnerOptions
   export_createGraphQlApi[&quot;createGraphQlApi&quot;]
   module_src_graphql_index_ts --&gt; export_createGraphQlApi
   export_createGraphQlApi -.-&gt; export_GraphQlApiDefinition
@@ -3668,6 +4428,47 @@
   module_src_discovery_index_ts --&gt; export_ExternalApiFetchResponse
   export_extractRestPathParams[&quot;extractRestPathParams&quot;]
   module_src_rest_index_ts --&gt; export_extractRestPathParams
+  export_FlowApiOperationAuthRequirement[&quot;FlowApiOperationAuthRequirement&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationAuthRequirement
+  export_FlowApiOperationBindings[&quot;FlowApiOperationBindings&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationBindings
+  export_FlowApiOperationDescriptor[&quot;FlowApiOperationDescriptor&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationDescriptor
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationAuthRequirement
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationEndpoint
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationErrorCategory
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationInput
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationMethod
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationPagination
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationRateLimit
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationResult
+  export_FlowApiOperationDescriptor -.-&gt; export_FlowApiOperationSource
+  export_FlowApiOperationEndpoint[&quot;FlowApiOperationEndpoint&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationEndpoint
+  export_FlowApiOperationErrorCategory[&quot;FlowApiOperationErrorCategory&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationErrorCategory
+  export_FlowApiOperationInput[&quot;FlowApiOperationInput&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationInput
+  export_FlowApiOperationInput -.-&gt; export_FlowApiOperationParameter
+  export_FlowApiOperationMethod[&quot;FlowApiOperationMethod&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationMethod
+  export_FlowApiOperationOwner[&quot;FlowApiOperationOwner&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationOwner
+  export_FlowApiOperationOwner -.-&gt; export_FlowApiOperationBindings
+  export_FlowApiOperationOwner -.-&gt; export_FlowApiOperationDescriptor
+  export_FlowApiOperationOwner -.-&gt; export_ResolvedFlowApiOperation
+  export_FlowApiOperationOwnerOptions[&quot;FlowApiOperationOwnerOptions&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationOwnerOptions
+  export_FlowApiOperationPagination[&quot;FlowApiOperationPagination&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationPagination
+  export_FlowApiOperationParameter[&quot;FlowApiOperationParameter&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationParameter
+  export_FlowApiOperationRateLimit[&quot;FlowApiOperationRateLimit&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationRateLimit
+  export_FlowApiOperationResult[&quot;FlowApiOperationResult&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationResult
+  export_FlowApiOperationSource[&quot;FlowApiOperationSource&quot;]
+  module_src_flow_types_ts --&gt; export_FlowApiOperationSource
   export_getDataSourceKind[&quot;getDataSourceKind&quot;]
   module_src_packageInfo_ts --&gt; export_getDataSourceKind
   export_getDataSourcesPackageInfo[&quot;getDataSourcesPackageInfo&quot;]
@@ -3809,6 +4610,8 @@
   module_src_openapi_types_ts --&gt; export_OpenApiSchemaObject
   export_OpenApiServerObject[&quot;OpenApiServerObject&quot;]
   module_src_openapi_types_ts --&gt; export_OpenApiServerObject
+  export_ResolvedFlowApiOperation[&quot;ResolvedFlowApiOperation&quot;]
+  module_src_flow_types_ts --&gt; export_ResolvedFlowApiOperation
   export_SUPPORTED_API_ORIGINS[&quot;SUPPORTED_API_ORIGINS&quot;]
   module_src_packageInfo_ts --&gt; export_SUPPORTED_API_ORIGINS
   export_SUPPORTED_API_PROTOCOLS[&quot;SUPPORTED_API_PROTOCOLS&quot;]
@@ -3827,6 +4630,24 @@
   export_validateManualRestApi[&quot;validateManualRestApi&quot;]
   module_src_rest_index_ts --&gt; export_validateManualRestApi
   export_validateManualRestApi -.-&gt; export_ManualRestApiDefinition
+</pre>
+    </details>
+  </article><article class="item" data-search="createFlowApiOperationOwner sequence diagrams/sequences/create-flow-api-operation-owner.mmd">
+    <h3>createFlowApiOperationOwner sequence</h3>
+    <p class="muted"><code>diagrams/sequences/create-flow-api-operation-owner.mmd</code></p>
+    <div class="mermaid">sequenceDiagram
+  participant participant_copyFlowHandleKey as copyFlowHandleKey
+  participant participant_createFlowApiOperationOwner as createFlowApiOperationOwner
+  participant_createFlowApiOperationOwner-&gt;&gt;participant_copyFlowHandleKey: copyFlowHandleKey()
+  participant_copyFlowHandleKey--&gt;&gt;participant_createFlowApiOperationOwner: return
+</div>
+    <details>
+      <summary>View Mermaid source</summary>
+      <pre>sequenceDiagram
+  participant participant_copyFlowHandleKey as copyFlowHandleKey
+  participant participant_createFlowApiOperationOwner as createFlowApiOperationOwner
+  participant_createFlowApiOperationOwner-&gt;&gt;participant_copyFlowHandleKey: copyFlowHandleKey()
+  participant_copyFlowHandleKey--&gt;&gt;participant_createFlowApiOperationOwner: return
 </pre>
     </details>
   </article><article class="item" data-search="createGraphQlApi sequence diagrams/sequences/create-graph-ql-api.mmd">
@@ -4127,6 +4948,11 @@
     </details>
   </article>
     </section>
+          <section class="panel" data-search="donation sponsor support">
+            <h2>Donation</h2>
+            <p>If this project is useful to you, you can support its continued development.</p>
+            <p><a href="https://github.com/sponsors/ankhorage">Support @ankhorage</a></p>
+          </section>
         </section>
         <section id="view-src-discovery-http-ts" class="view" data-view="src/discovery/http.ts" hidden>
     <section class="panel">
@@ -4240,6 +5066,344 @@
     <h3>redactDiagnosticUrl</h3>
     <p class="muted"><code>src/discovery/scopeOpenApiDocument.ts:38:1</code></p>
     <p>Removes credentials, query parameters, and fragments from a URL included in diagnostics.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-flow-createflowapioperationhandle-ts" class="view" data-view="src/flow/createFlowApiOperationHandle.ts" hidden>
+    <section class="panel">
+      <h2>src/flow/createFlowApiOperationHandle.ts</h2>
+      <article class="item" data-search="createFlowApiOperationHandle src/flow/createFlowApiOperationHandle.ts Creates stable, opaque handles for one server-resolved API operation revision.">
+    <h3>createFlowApiOperationHandle</h3>
+    <p class="muted"><code>src/flow/createFlowApiOperationHandle.ts:6:1</code></p>
+    <p>Creates stable, opaque handles for one server-resolved API operation revision.</p>
+    
+  </article><article class="item" data-search="projectEndpointRevision src/flow/createFlowApiOperationHandle.ts Selects endpoint fields that alter the operation&#39;s server-side meaning without credentials.">
+    <h3>projectEndpointRevision</h3>
+    <p class="muted"><code>src/flow/createFlowApiOperationHandle.ts:32:1</code></p>
+    <p>Selects endpoint fields that alter the operation&#39;s server-side meaning without credentials.</p>
+    
+  </article><article class="item" data-search="hmacFlowHandlePart src/flow/createFlowApiOperationHandle.ts Derives a versioned HMAC identifier that cannot be dictionary-matched without the owner key.">
+    <h3>hmacFlowHandlePart</h3>
+    <p class="muted"><code>src/flow/createFlowApiOperationHandle.ts:43:1</code></p>
+    <p>Derives a versioned HMAC identifier that cannot be dictionary-matched without the owner key.</p>
+    
+  </article><article class="item" data-search="projectApiRevision src/flow/createFlowApiOperationHandle.ts Selects API transport fields that can change the resolved execution target without credentials.">
+    <h3>projectApiRevision</h3>
+    <p class="muted"><code>src/flow/createFlowApiOperationHandle.ts:48:1</code></p>
+    <p>Selects API transport fields that can change the resolved execution target without credentials.</p>
+    
+  </article><article class="item" data-search="projectOperationRevision src/flow/createFlowApiOperationHandle.ts Selects operation fields that invalidate a persisted binding when their source revision changes.">
+    <h3>projectOperationRevision</h3>
+    <p class="muted"><code>src/flow/createFlowApiOperationHandle.ts:67:1</code></p>
+    <p>Selects operation fields that invalidate a persisted binding when their source revision changes.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-flow-index-ts" class="view" data-view="src/flow/index.ts" hidden>
+    <section class="panel">
+      <h2>src/flow/index.ts</h2>
+      <article class="item" data-search="createFlowApiOperationOwner src/flow/index.ts Projects one server-resolved API operation into a credential-free Flow capability descriptor.&#10;&#10;The projection retains only typed public declarations. It never copies unclassified metadata,&#10;URLs, credentials, defaults, headers, cookies, or executable values. index.test.ts#never persists or diagnoses unclassified source identities">
+    <h3>createFlowApiOperationOwner</h3>
+    <p class="muted"><code>src/flow/index.ts:44:1</code></p>
+    <p>Projects one server-resolved API operation into a credential-free Flow capability descriptor.
+
+The projection retains only typed public declarations. It never copies unclassified metadata,
+URLs, credentials, defaults, headers, cookies, or executable values.</p>
+    <p><strong>Security tests:</strong> <code>index.test.ts#never persists or diagnoses unclassified source identities</code></p>
+  </article><article class="item" data-search="copyFlowHandleKey src/flow/index.ts Copies caller-owned mutable key material before creating the owner registry.">
+    <h3>copyFlowHandleKey</h3>
+    <p class="muted"><code>src/flow/index.ts:89:1</code></p>
+    <p>Copies caller-owned mutable key material before creating the owner registry.</p>
+    
+  </article><article class="item" data-search="projectFlowApiOperation src/flow/index.ts ">
+    <h3>projectFlowApiOperation</h3>
+    <p class="muted"><code>src/flow/index.ts:97:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="selectOperation src/flow/index.ts ">
+    <h3>selectOperation</h3>
+    <p class="muted"><code>src/flow/index.ts:149:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="validateProjection src/flow/index.ts ">
+    <h3>validateProjection</h3>
+    <p class="muted"><code>src/flow/index.ts:166:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="projectEndpoint src/flow/index.ts ">
+    <h3>projectEndpoint</h3>
+    <p class="muted"><code>src/flow/index.ts:193:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="projectProtocol src/flow/index.ts ">
+    <h3>projectProtocol</h3>
+    <p class="muted"><code>src/flow/index.ts:198:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="projectInput src/flow/index.ts ">
+    <h3>projectInput</h3>
+    <p class="muted"><code>src/flow/index.ts:203:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="projectParameter src/flow/index.ts ">
+    <h3>projectParameter</h3>
+    <p class="muted"><code>src/flow/index.ts:239:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="projectAuth src/flow/index.ts ">
+    <h3>projectAuth</h3>
+    <p class="muted"><code>src/flow/index.ts:273:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="isFlowAuthKind src/flow/index.ts ">
+    <h3>isFlowAuthKind</h3>
+    <p class="muted"><code>src/flow/index.ts:288:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="projectionDiagnostic src/flow/index.ts ">
+    <h3>projectionDiagnostic</h3>
+    <p class="muted"><code>src/flow/index.ts:295:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-flow-matchesflowschema-ts" class="view" data-view="src/flow/matchesFlowSchema.ts" hidden>
+    <section class="panel">
+      <h2>src/flow/matchesFlowSchema.ts</h2>
+      <article class="item" data-search="matchesFlowSchema src/flow/matchesFlowSchema.ts Validates a serializable Flow value against its declared projected schema.">
+    <h3>matchesFlowSchema</h3>
+    <p class="muted"><code>src/flow/matchesFlowSchema.ts:8:1</code></p>
+    <p>Validates a serializable Flow value against its declared projected schema.</p>
+    
+  </article><article class="item" data-search="acceptsNull src/flow/matchesFlowSchema.ts Matches an explicit nullable declaration without treating absent schemas as nullable.">
+    <h3>acceptsNull</h3>
+    <p class="muted"><code>src/flow/matchesFlowSchema.ts:23:1</code></p>
+    <p>Matches an explicit nullable declaration without treating absent schemas as nullable.</p>
+    
+  </article><article class="item" data-search="flowSchemaTypes src/flow/matchesFlowSchema.ts Narrows one schema&#39;s declared primitive alternatives into a uniform list.">
+    <h3>flowSchemaTypes</h3>
+    <p class="muted"><code>src/flow/matchesFlowSchema.ts:28:1</code></p>
+    <p>Narrows one schema&#39;s declared primitive alternatives into a uniform list.</p>
+    
+  </article><article class="item" data-search="isFlowSchemaTypeList src/flow/matchesFlowSchema.ts Narrows a schema&#39;s readonly primitive alternatives without widening them to unknown values.">
+    <h3>isFlowSchemaTypeList</h3>
+    <p class="muted"><code>src/flow/matchesFlowSchema.ts:34:1</code></p>
+    <p>Narrows a schema&#39;s readonly primitive alternatives without widening them to unknown values.</p>
+    
+  </article><article class="item" data-search="matchesFlowTypes src/flow/matchesFlowSchema.ts Matches explicit primitive alternatives when a schema declares them.">
+    <h3>matchesFlowTypes</h3>
+    <p class="muted"><code>src/flow/matchesFlowSchema.ts:41:1</code></p>
+    <p>Matches explicit primitive alternatives when a schema declares them.</p>
+    
+  </article><article class="item" data-search="matchesFlowCompositions src/flow/matchesFlowSchema.ts Enforces each public schema composition without permitting an undeclared alternative.">
+    <h3>matchesFlowCompositions</h3>
+    <p class="muted"><code>src/flow/matchesFlowSchema.ts:47:1</code></p>
+    <p>Enforces each public schema composition without permitting an undeclared alternative.</p>
+    
+  </article><article class="item" data-search="matchesFlowObject src/flow/matchesFlowSchema.ts Allows object fields only when they have a projected opaque handle and required handle.">
+    <h3>matchesFlowObject</h3>
+    <p class="muted"><code>src/flow/matchesFlowSchema.ts:57:1</code></p>
+    <p>Allows object fields only when they have a projected opaque handle and required handle.</p>
+    
+  </article><article class="item" data-search="matchesFlowArray src/flow/matchesFlowSchema.ts Requires an item schema before a list can cross the owner boundary.">
+    <h3>matchesFlowArray</h3>
+    <p class="muted"><code>src/flow/matchesFlowSchema.ts:67:1</code></p>
+    <p>Requires an item schema before a list can cross the owner boundary.</p>
+    
+  </article><article class="item" data-search="matchesFlowType src/flow/matchesFlowSchema.ts Matches one serializable value against one closed public primitive type.">
+    <h3>matchesFlowType</h3>
+    <p class="muted"><code>src/flow/matchesFlowSchema.ts:72:1</code></p>
+    <p>Matches one serializable value against one closed public primitive type.</p>
+    
+  </article><article class="item" data-search="isDataContractRecord src/flow/matchesFlowSchema.ts Narrows serializable values to records before validating their declared properties.">
+    <h3>isDataContractRecord</h3>
+    <p class="muted"><code>src/flow/matchesFlowSchema.ts:83:1</code></p>
+    <p>Narrows serializable values to records before validating their declared properties.</p>
+    
+  </article><article class="item" data-search="isDataContractList src/flow/matchesFlowSchema.ts Narrows serializable values to lists before validating their declared items.">
+    <h3>isDataContractList</h3>
+    <p class="muted"><code>src/flow/matchesFlowSchema.ts:90:1</code></p>
+    <p>Narrows serializable values to lists before validating their declared items.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-flow-projectflowapioperationresult-ts" class="view" data-view="src/flow/projectFlowApiOperationResult.ts" hidden>
+    <section class="panel">
+      <h2>src/flow/projectFlowApiOperationResult.ts</h2>
+      <article class="item" data-search="projectFlowApiOperationResult src/flow/projectFlowApiOperationResult.ts Converts a provider response into the registered opaque Flow result field handles.">
+    <h3>projectFlowApiOperationResult</h3>
+    <p class="muted"><code>src/flow/projectFlowApiOperationResult.ts:19:1</code></p>
+    <p>Converts a provider response into the registered opaque Flow result field handles.</p>
+    
+  </article><article class="item" data-search="projectFlowResultValue src/flow/projectFlowApiOperationResult.ts Replaces provider-owned object keys only through the owner-side registered field mapping.">
+    <h3>projectFlowResultValue</h3>
+    <p class="muted"><code>src/flow/projectFlowApiOperationResult.ts:45:1</code></p>
+    <p>Replaces provider-owned object keys only through the owner-side registered field mapping.</p>
+    
+  </article><article class="item" data-search="findSchemaProperty src/flow/projectFlowApiOperationResult.ts Finds a schema property without trusting inherited source object keys.">
+    <h3>findSchemaProperty</h3>
+    <p class="muted"><code>src/flow/projectFlowApiOperationResult.ts:80:1</code></p>
+    <p>Finds a schema property without trusting inherited source object keys.</p>
+    
+  </article><article class="item" data-search="findHandle src/flow/projectFlowApiOperationResult.ts Finds a registered raw name only within the projected schema&#39;s current structural position.">
+    <h3>findHandle</h3>
+    <p class="muted"><code>src/flow/projectFlowApiOperationResult.ts:89:1</code></p>
+    <p>Finds a registered raw name only within the projected schema&#39;s current structural position.</p>
+    
+  </article><article class="item" data-search="resultNotFound src/flow/projectFlowApiOperationResult.ts Creates a redacted failure when a provider response cannot cross the owner boundary.">
+    <h3>resultNotFound</h3>
+    <p class="muted"><code>src/flow/projectFlowApiOperationResult.ts:100:1</code></p>
+    <p>Creates a redacted failure when a provider response cannot cross the owner boundary.</p>
+    
+  </article><article class="item" data-search="isDataContractRecord src/flow/projectFlowApiOperationResult.ts Narrows serializable values to records before replacing their provider-owned field identities.">
+    <h3>isDataContractRecord</h3>
+    <p class="muted"><code>src/flow/projectFlowApiOperationResult.ts:114:1</code></p>
+    <p>Narrows serializable values to records before replacing their provider-owned field identities.</p>
+    
+  </article><article class="item" data-search="isDataContractList src/flow/projectFlowApiOperationResult.ts Narrows serializable values to lists before projecting each declared result item.">
+    <h3>isDataContractList</h3>
+    <p class="muted"><code>src/flow/projectFlowApiOperationResult.ts:121:1</code></p>
+    <p>Narrows serializable values to lists before projecting each declared result item.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-flow-projectflowoperationoutput-ts" class="view" data-view="src/flow/projectFlowOperationOutput.ts" hidden>
+    <section class="panel">
+      <h2>src/flow/projectFlowOperationOutput.ts</h2>
+      <article class="item" data-search="projectFlowOperationOutput src/flow/projectFlowOperationOutput.ts Projects the credential-free response and pagination output for one Flow operation.">
+    <h3>projectFlowOperationOutput</h3>
+    <p class="muted"><code>src/flow/projectFlowOperationOutput.ts:11:1</code></p>
+    <p>Projects the credential-free response and pagination output for one Flow operation.</p>
+    
+  </article><article class="item" data-search="flowPaginationKind src/flow/projectFlowOperationOutput.ts Narrows open provider pagination categories to Flow&#39;s public vocabulary.">
+    <h3>flowPaginationKind</h3>
+    <p class="muted"><code>src/flow/projectFlowOperationOutput.ts:46:1</code></p>
+    <p>Narrows open provider pagination categories to Flow&#39;s public vocabulary.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-flow-projectflowtransport-ts" class="view" data-view="src/flow/projectFlowTransport.ts" hidden>
+    <section class="panel">
+      <h2>src/flow/projectFlowTransport.ts</h2>
+      <article class="item" data-search="projectFlowTransport src/flow/projectFlowTransport.ts ">
+    <h3>projectFlowTransport</h3>
+    <p class="muted"><code>src/flow/projectFlowTransport.ts:8:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="isFlowHttpMethod src/flow/projectFlowTransport.ts ">
+    <h3>isFlowHttpMethod</h3>
+    <p class="muted"><code>src/flow/projectFlowTransport.ts:15:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-flow-redactflowdiagnostics-ts" class="view" data-view="src/flow/redactFlowDiagnostics.ts" hidden>
+    <section class="panel">
+      <h2>src/flow/redactFlowDiagnostics.ts</h2>
+      <article class="item" data-search="redactFlowDiagnostics src/flow/redactFlowDiagnostics.ts ">
+    <h3>redactFlowDiagnostics</h3>
+    <p class="muted"><code>src/flow/redactFlowDiagnostics.ts:4:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-flow-resolveflowapioperation-ts" class="view" data-view="src/flow/resolveFlowApiOperation.ts" hidden>
+    <section class="panel">
+      <h2>src/flow/resolveFlowApiOperation.ts</h2>
+      <article class="item" data-search="resolveFlowApiOperation src/flow/resolveFlowApiOperation.ts ">
+    <h3>resolveFlowApiOperation</h3>
+    <p class="muted"><code>src/flow/resolveFlowApiOperation.ts:25:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="resolveFlowParameters src/flow/resolveFlowApiOperation.ts ">
+    <h3>resolveFlowParameters</h3>
+    <p class="muted"><code>src/flow/resolveFlowApiOperation.ts:53:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="resolveFlowBody src/flow/resolveFlowApiOperation.ts ">
+    <h3>resolveFlowBody</h3>
+    <p class="muted"><code>src/flow/resolveFlowApiOperation.ts:81:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="notFound src/flow/resolveFlowApiOperation.ts ">
+    <h3>notFound</h3>
+    <p class="muted"><code>src/flow/resolveFlowApiOperation.ts:93:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="resolveFlowValue src/flow/resolveFlowApiOperation.ts ">
+    <h3>resolveFlowValue</h3>
+    <p class="muted"><code>src/flow/resolveFlowApiOperation.ts:107:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="findFlowProperty src/flow/resolveFlowApiOperation.ts ">
+    <h3>findFlowProperty</h3>
+    <p class="muted"><code>src/flow/resolveFlowApiOperation.ts:133:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="isDataContractRecord src/flow/resolveFlowApiOperation.ts ">
+    <h3>isDataContractRecord</h3>
+    <p class="muted"><code>src/flow/resolveFlowApiOperation.ts:146:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="isDataContractList src/flow/resolveFlowApiOperation.ts ">
+    <h3>isDataContractList</h3>
+    <p class="muted"><code>src/flow/resolveFlowApiOperation.ts:153:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-flow-schema-ts" class="view" data-view="src/flow/schema.ts" hidden>
+    <section class="panel">
+      <h2>src/flow/schema.ts</h2>
+      <article class="item" data-search="projectFlowDataSchema src/flow/schema.ts ">
+    <h3>projectFlowDataSchema</h3>
+    <p class="muted"><code>src/flow/schema.ts:4:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="projectSchemaIdentity src/flow/schema.ts ">
+    <h3>projectSchemaIdentity</h3>
+    <p class="muted"><code>src/flow/schema.ts:28:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="projectSchemaComposition src/flow/schema.ts ">
+    <h3>projectSchemaComposition</h3>
+    <p class="muted"><code>src/flow/schema.ts:36:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="projectChildren src/flow/schema.ts ">
+    <h3>projectChildren</h3>
+    <p class="muted"><code>src/flow/schema.ts:55:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="projectProperties src/flow/schema.ts ">
+    <h3>projectProperties</h3>
+    <p class="muted"><code>src/flow/schema.ts:91:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="isOptionalProjectionValid src/flow/schema.ts ">
+    <h3>isOptionalProjectionValid</h3>
+    <p class="muted"><code>src/flow/schema.ts:134:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="projectOptionalSchema src/flow/schema.ts ">
+    <h3>projectOptionalSchema</h3>
+    <p class="muted"><code>src/flow/schema.ts:154:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="projectOptional src/flow/schema.ts ">
+    <h3>projectOptional</h3>
+    <p class="muted"><code>src/flow/schema.ts:165:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="projectList src/flow/schema.ts ">
+    <h3>projectList</h3>
+    <p class="muted"><code>src/flow/schema.ts:177:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="unsafeSchemaDiagnostic src/flow/schema.ts ">
+    <h3>unsafeSchemaDiagnostic</h3>
+    <p class="muted"><code>src/flow/schema.ts:192:1</code></p>
+    <p class="empty">No description available.</p>
     
   </article>
     </section>

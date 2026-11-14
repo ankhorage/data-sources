@@ -6,6 +6,16 @@ graph LR
   module_src_discovery_index_ts["src/discovery/index.ts"]
   module_src_discovery_openapiDiscoveryPlan_ts["src/discovery/openapiDiscoveryPlan.ts"]
   module_src_discovery_scopeOpenApiDocument_ts["src/discovery/scopeOpenApiDocument.ts"]
+  module_src_flow_createFlowApiOperationHandle_ts["src/flow/createFlowApiOperationHandle.ts"]
+  module_src_flow_index_ts["src/flow/index.ts"]
+  module_src_flow_matchesFlowSchema_ts["src/flow/matchesFlowSchema.ts"]
+  module_src_flow_projectFlowApiOperationResult_ts["src/flow/projectFlowApiOperationResult.ts"]
+  module_src_flow_projectFlowOperationOutput_ts["src/flow/projectFlowOperationOutput.ts"]
+  module_src_flow_projectFlowTransport_ts["src/flow/projectFlowTransport.ts"]
+  module_src_flow_redactFlowDiagnostics_ts["src/flow/redactFlowDiagnostics.ts"]
+  module_src_flow_resolveFlowApiOperation_ts["src/flow/resolveFlowApiOperation.ts"]
+  module_src_flow_schema_ts["src/flow/schema.ts"]
+  module_src_flow_types_ts["src/flow/types.ts"]
   module_src_graphql_index_ts["src/graphql/index.ts"]
   module_src_graphql_introspection_ts["src/graphql/introspection.ts"]
   module_src_graphql_operation_ts["src/graphql/operation.ts"]
@@ -27,6 +37,10 @@ graph LR
   module_src_test_runner_index_ts --> export_buildEndpointTestRequest
   export_buildEndpointTestRequest -.-> export_EndpointTestInput
   export_buildEndpointTestRequest -.-> export_EndpointTestResult
+  export_createFlowApiOperationOwner["createFlowApiOperationOwner"]
+  module_src_flow_index_ts --> export_createFlowApiOperationOwner
+  export_createFlowApiOperationOwner -.-> export_FlowApiOperationOwner
+  export_createFlowApiOperationOwner -.-> export_FlowApiOperationOwnerOptions
   export_createGraphQlApi["createGraphQlApi"]
   module_src_graphql_index_ts --> export_createGraphQlApi
   export_createGraphQlApi -.-> export_GraphQlApiDefinition
@@ -85,6 +99,47 @@ graph LR
   module_src_discovery_index_ts --> export_ExternalApiFetchResponse
   export_extractRestPathParams["extractRestPathParams"]
   module_src_rest_index_ts --> export_extractRestPathParams
+  export_FlowApiOperationAuthRequirement["FlowApiOperationAuthRequirement"]
+  module_src_flow_types_ts --> export_FlowApiOperationAuthRequirement
+  export_FlowApiOperationBindings["FlowApiOperationBindings"]
+  module_src_flow_types_ts --> export_FlowApiOperationBindings
+  export_FlowApiOperationDescriptor["FlowApiOperationDescriptor"]
+  module_src_flow_types_ts --> export_FlowApiOperationDescriptor
+  export_FlowApiOperationDescriptor -.-> export_FlowApiOperationAuthRequirement
+  export_FlowApiOperationDescriptor -.-> export_FlowApiOperationEndpoint
+  export_FlowApiOperationDescriptor -.-> export_FlowApiOperationErrorCategory
+  export_FlowApiOperationDescriptor -.-> export_FlowApiOperationInput
+  export_FlowApiOperationDescriptor -.-> export_FlowApiOperationMethod
+  export_FlowApiOperationDescriptor -.-> export_FlowApiOperationPagination
+  export_FlowApiOperationDescriptor -.-> export_FlowApiOperationRateLimit
+  export_FlowApiOperationDescriptor -.-> export_FlowApiOperationResult
+  export_FlowApiOperationDescriptor -.-> export_FlowApiOperationSource
+  export_FlowApiOperationEndpoint["FlowApiOperationEndpoint"]
+  module_src_flow_types_ts --> export_FlowApiOperationEndpoint
+  export_FlowApiOperationErrorCategory["FlowApiOperationErrorCategory"]
+  module_src_flow_types_ts --> export_FlowApiOperationErrorCategory
+  export_FlowApiOperationInput["FlowApiOperationInput"]
+  module_src_flow_types_ts --> export_FlowApiOperationInput
+  export_FlowApiOperationInput -.-> export_FlowApiOperationParameter
+  export_FlowApiOperationMethod["FlowApiOperationMethod"]
+  module_src_flow_types_ts --> export_FlowApiOperationMethod
+  export_FlowApiOperationOwner["FlowApiOperationOwner"]
+  module_src_flow_types_ts --> export_FlowApiOperationOwner
+  export_FlowApiOperationOwner -.-> export_FlowApiOperationBindings
+  export_FlowApiOperationOwner -.-> export_FlowApiOperationDescriptor
+  export_FlowApiOperationOwner -.-> export_ResolvedFlowApiOperation
+  export_FlowApiOperationOwnerOptions["FlowApiOperationOwnerOptions"]
+  module_src_flow_types_ts --> export_FlowApiOperationOwnerOptions
+  export_FlowApiOperationPagination["FlowApiOperationPagination"]
+  module_src_flow_types_ts --> export_FlowApiOperationPagination
+  export_FlowApiOperationParameter["FlowApiOperationParameter"]
+  module_src_flow_types_ts --> export_FlowApiOperationParameter
+  export_FlowApiOperationRateLimit["FlowApiOperationRateLimit"]
+  module_src_flow_types_ts --> export_FlowApiOperationRateLimit
+  export_FlowApiOperationResult["FlowApiOperationResult"]
+  module_src_flow_types_ts --> export_FlowApiOperationResult
+  export_FlowApiOperationSource["FlowApiOperationSource"]
+  module_src_flow_types_ts --> export_FlowApiOperationSource
   export_getDataSourceKind["getDataSourceKind"]
   module_src_packageInfo_ts --> export_getDataSourceKind
   export_getDataSourcesPackageInfo["getDataSourcesPackageInfo"]
@@ -226,6 +281,8 @@ graph LR
   module_src_openapi_types_ts --> export_OpenApiSchemaObject
   export_OpenApiServerObject["OpenApiServerObject"]
   module_src_openapi_types_ts --> export_OpenApiServerObject
+  export_ResolvedFlowApiOperation["ResolvedFlowApiOperation"]
+  module_src_flow_types_ts --> export_ResolvedFlowApiOperation
   export_SUPPORTED_API_ORIGINS["SUPPORTED_API_ORIGINS"]
   module_src_packageInfo_ts --> export_SUPPORTED_API_ORIGINS
   export_SUPPORTED_API_PROTOCOLS["SUPPORTED_API_PROTOCOLS"]

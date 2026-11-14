@@ -3,9 +3,11 @@
 
 # @ankhorage/data-sources
 
-![license: MIT](././paradox/badges/license.svg) ![npm: v2.1.13](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![paradox: warnings](././paradox/badges/docs.svg)
+![license: MIT](././paradox/badges/license.svg) ![npm: v2.2.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: configured](././paradox/badges/tests.svg) ![paradox: warnings](././paradox/badges/docs.svg)
 
-Provider-neutral data source and endpoint system for APIs, databases, and runtime bindings.
+Provides provider-neutral discovery, normalization, validation, and execution building blocks for REST, GraphQL, and OpenAPI data sources.
+
+Give independently deployable consumers a canonical way to describe and operate API data sources without coupling their application logic to one transport or provider.
 
 ## Usage
 
@@ -21,19 +23,17 @@ bun add --global @ankhorage/ankh
 ankh data-sources --help
 ```
 
-## Generated documentation
+## Documentation
 
-- [Interactive documentation app](././paradox/index.html)
-- [Public API reference](././paradox/exports.md)
-- [Component registry](././paradox/components.md)
-- [Architecture overview](././paradox/diagrams/architecture-overview.mmd)
-- [Module relationships](././paradox/diagrams/module-relationships.mmd)
-- [Export graph](././paradox/diagrams/export-graph.mmd)
-- [createGraphQlApi sequence](././paradox/diagrams/sequences/create-graph-ql-api.mmd)
-- [createManualRestApi sequence](././paradox/diagrams/sequences/create-manual-rest-api.mmd)
-- [createOpenApiDiscoveryCandidates sequence](././paradox/diagrams/sequences/create-open-api-discovery-candidates.mmd)
-- [importOpenApiDocument sequence](././paradox/diagrams/sequences/import-open-api-document.mmd)
-- [normalizeGraphQlApi sequence](././paradox/diagrams/sequences/normalize-graph-ql-api.mmd)
-- [normalizeGraphQlIntrospectionOperations sequence](././paradox/diagrams/sequences/normalize-graph-ql-introspection-operations.mmd)
-- [normalizeOpenApiSchema sequence](././paradox/diagrams/sequences/normalize-open-api-schema.mmd)
-- [validateManualRestApi sequence](././paradox/diagrams/sequences/validate-manual-rest-api.mmd)
+Open `./paradox/index.html` locally in your browser to browse the complete documentation.
+
+## Contributors
+
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
+
+## Donation
+
+If this project is useful to you, you can support its continued development.
+
+[Support @ankhorage](https://github.com/sponsors/ankhorage)
