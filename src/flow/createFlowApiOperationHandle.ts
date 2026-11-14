@@ -10,7 +10,6 @@ export function createFlowApiOperationHandle(
   operationId: string,
   operation: DataOperationConfig | undefined,
 ): { readonly operation: string; readonly field: (name: string) => string } {
-  assertFlowHandleKey(handleKey);
   const operationHandle = `flow:v2:operation:${hmacFlowHandlePart(
     handleKey,
     JSON.stringify({
@@ -27,12 +26,6 @@ export function createFlowApiOperationHandle(
     field: (name) =>
       `flow:v2:field:${hmacFlowHandlePart(handleKey, `${operationHandle}\u0000${name}`)}`,
   };
-}
-
-/*** Rejects insufficient HMAC material before any public descriptor can be projected. */
-function assertFlowHandleKey(handleKey: Uint8Array): void {
-  if (handleKey.byteLength < 32)
-    throw new TypeError('A Flow operation handle key must contain at least 32 bytes.');
 }
 
 /*** Selects endpoint fields that alter the operation's server-side meaning without credentials. */

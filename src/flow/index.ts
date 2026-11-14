@@ -84,7 +84,10 @@ export function createFlowApiOperationOwner(
 
 /*** Copies caller-owned mutable key material before creating the owner registry. */
 function copyFlowHandleKey(options: FlowApiOperationOwnerOptions): Uint8Array {
-  return Uint8Array.from(options.handleKey);
+  const handleKey = Uint8Array.from(options.handleKey);
+  if (handleKey.byteLength < 32)
+    throw new TypeError('A Flow operation handle key must contain at least 32 bytes.');
+  return handleKey;
 }
 
 /** Projects an owner-resolved operation using handles that reveal no source identities. */

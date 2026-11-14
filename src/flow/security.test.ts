@@ -52,6 +52,7 @@ it('does not treat a copied handle as authorization outside its registered owner
 });
 
 it('rejects insufficient owner key material', () => {
-  const owner = createFlowApiOperationOwner({ handleKey: new Uint8Array(31) });
-  expect(() => owner.project(securityApi(), 'items', 'items.list')).toThrow('at least 32 bytes');
+  expect(() => createFlowApiOperationOwner({ handleKey: new Uint8Array(31) })).toThrow(
+    'at least 32 bytes',
+  );
 });
