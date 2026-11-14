@@ -5,6 +5,7 @@ export function projectFlowDataSchema(
   schema: DataSchema,
   diagnostics: DataSourceDiagnostic[],
   path: string,
+  createFieldHandle: (name: string) => string,
 ): DataSchema | undefined {
   if (schema.default !== undefined || schema.const !== undefined) {
     diagnostics.push(
@@ -12,11 +13,11 @@ export function projectFlowDataSchema(
     );
     return undefined;
   }
-  const children = projectChildren(schema, diagnostics, path);
+  const children = projectChildren(schema, diagnostics, path, createFieldHandle);
   if (children === undefined) return undefined;
   return {
     ...projectSchemaIdentity(schema),
-    ...projectSchemaComposition(schema, children),
+    ...projectSchemaComposition(schema, children, diagnostics, path, createFieldHandle),
   };
 }
 
@@ -38,6 +39,9 @@ function projectSchemaComposition(
     readonly oneOf?: readonly DataSchema[];
     readonly additionalProperties?: boolean | DataSchema;
   },
+  diagnostics: DataSourceDiagnostic[],
+  path: string,
+  createFieldHandle: (name: string) => string,
 ): DataSchema {
   return {
     ...(children.additionalProperties === undefined
@@ -47,6 +51,7 @@ function projectSchemaComposition(
     ...(children.allOf === undefined ? {} : { allOf: children.allOf }),
     ...(children.anyOf === undefined ? {} : { anyOf: children.anyOf }),
     ...(children.oneOf === undefined ? {} : { oneOf: children.oneOf }),
+    ...projectProperties(schema, diagnostics, path, createFieldHandle),
   };
 }
 
@@ -55,6 +60,7 @@ function projectChildren(
   schema: DataSchema,
   diagnostics: DataSourceDiagnostic[],
   path: string,
+  createFieldHandle: (name: string) => string,
 ):
   | {
       readonly items?: DataSchema;
@@ -64,14 +70,15 @@ function projectChildren(
       readonly additionalProperties?: boolean | DataSchema;
     }
   | undefined {
-  const items = projectOptional(schema.items, diagnostics, `${path}[]`);
-  const allOf = projectList(schema.allOf, diagnostics, `${path}.allOf`);
-  const anyOf = projectList(schema.anyOf, diagnostics, `${path}.anyOf`);
-  const oneOf = projectList(schema.oneOf, diagnostics, `${path}.oneOf`);
+  const items = projectOptional(schema.items, diagnostics, `${path}[]`, createFieldHandle);
+  const allOf = projectList(schema.allOf, diagnostics, `${path}.allOf`, createFieldHandle);
+  const anyOf = projectList(schema.anyOf, diagnostics, `${path}.anyOf`, createFieldHandle);
+  const oneOf = projectList(schema.oneOf, diagnostics, `${path}.oneOf`, createFieldHandle);
   const additionalProperties = projectOptionalSchema(
     schema.additionalProperties,
     diagnostics,
     `${path}.*`,
+    createFieldHandle,
   );
   if (!isOptionalProjectionValid(schema, { items, allOf, anyOf, oneOf, additionalProperties }))
     return undefined;
@@ -81,6 +88,36 @@ function projectChildren(
     ...(anyOf === undefined ? {} : { anyOf }),
     ...(oneOf === undefined ? {} : { oneOf }),
     ...(additionalProperties === undefined ? {} : { additionalProperties }),
+  };
+}
+
+/** Replaces every source property identity with a registry-owned opaque field handle. */
+function projectProperties(
+  schema: DataSchema,
+  diagnostics: DataSourceDiagnostic[],
+  path: string,
+  createFieldHandle: (name: string) => string,
+): Pick<DataSchema, 'properties' | 'required'> {
+  if (schema.properties === undefined) return {};
+  const handles = new Map<string, string>();
+  const properties = Object.fromEntries(
+    Object.entries(schema.properties).flatMap(([name, child]) => {
+      const handle = createFieldHandle(name);
+      handles.set(name, handle);
+      const projected = projectFlowDataSchema(
+        child,
+        diagnostics,
+        `${path}.property`,
+        createFieldHandle,
+      );
+      return projected === undefined ? [] : [[handle, projected]];
+    }),
+  );
+  return {
+    properties,
+    ...(schema.required === undefined
+      ? {}
+      : { required: schema.required.flatMap((name) => handles.get(name) ?? []) }),
   };
 }
 
@@ -109,9 +146,10 @@ function projectOptionalSchema(
   value: DataSchema['additionalProperties'],
   diagnostics: DataSourceDiagnostic[],
   path: string,
+  createFieldHandle: (name: string) => string,
 ): boolean | DataSchema | undefined {
   if (value === undefined || typeof value === 'boolean') return value;
-  return projectFlowDataSchema(value, diagnostics, path);
+  return projectFlowDataSchema(value, diagnostics, path, createFieldHandle);
 }
 
 /** Projects one optional nested schema. */
@@ -119,8 +157,11 @@ function projectOptional(
   schema: DataSchema | undefined,
   diagnostics: DataSourceDiagnostic[],
   path: string,
+  createFieldHandle: (name: string) => string,
 ): DataSchema | undefined {
-  return schema === undefined ? undefined : projectFlowDataSchema(schema, diagnostics, path);
+  return schema === undefined
+    ? undefined
+    : projectFlowDataSchema(schema, diagnostics, path, createFieldHandle);
 }
 
 /** Projects alternatives only when every alternative is safe. */
@@ -128,10 +169,11 @@ function projectList(
   schemas: readonly DataSchema[] | undefined,
   diagnostics: DataSourceDiagnostic[],
   path: string,
+  createFieldHandle: (name: string) => string,
 ): readonly DataSchema[] | undefined {
   if (schemas === undefined) return undefined;
   const projected = schemas.map((schema, index) =>
-    projectFlowDataSchema(schema, diagnostics, `${path}.${index}`),
+    projectFlowDataSchema(schema, diagnostics, `${path}.${index}`, createFieldHandle),
   );
   const publicSchemas = projected.flatMap((schema) => (schema === undefined ? [] : [schema]));
   return publicSchemas.length === schemas.length ? publicSchemas : undefined;

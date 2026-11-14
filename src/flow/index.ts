@@ -2,49 +2,98 @@ import type {
   ApiDefinition,
   CredentialRef,
   DataOperationConfig,
-  DataOperationMethod,
   DataOperationPagination,
   DataOperationParameter,
   DataSourceDiagnostic,
   DataSourceDiagnosticResult,
 } from '@ankhorage/contracts/data';
 
+import { projectFlowTransport } from './projectFlowTransport';
+import { redactFlowDiagnostics } from './redactFlowDiagnostics';
+import { resolveFlowApiOperation } from './resolveFlowApiOperation';
 import { projectFlowDataSchema } from './schema';
 import type {
   FlowApiOperationAuthRequirement,
   FlowApiOperationDescriptor,
   FlowApiOperationInput,
-  FlowApiOperationMethod,
+  FlowApiOperationOwner,
   FlowApiOperationParameter,
   FlowApiOperationResult,
 } from './types';
 
 export type * from './types';
 
-const SENSITIVE_NAME = /(?:api[_-]?key|authorization|credential|cookie|password|secret|token)/iu;
 const FLOW_PROVIDER_ID = '@ankhorage/data-sources';
-const FLOW_HTTP_METHODS = ['DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT'] as const;
 
 /*** Projects one server-resolved API operation into a credential-free Flow capability descriptor.
  *
  * @security The projection keeps only typed, public structural declarations. It never copies
  * unclassified metadata, URLs, credentials, defaults, headers, cookies, or executable values.
  */
-export function projectFlowApiOperation(
+export function createFlowApiOperationOwner(): FlowApiOperationOwner {
+  const entries = new Map<
+    string,
+    {
+      readonly api: ApiDefinition;
+      readonly operation: DataOperationConfig;
+      readonly parameterNames: ReadonlyMap<string, string>;
+    }
+  >();
+  const descriptors = new WeakMap<ApiDefinition, Map<string, FlowApiOperationDescriptor>>();
+  let nextHandle = 0;
+  const createHandle = (kind: string): string => `flow-${kind}-${String(nextHandle++)}`;
+  return {
+    project: (api, endpointId, operationId) => {
+      const sourceKey = `${endpointId}\u0000${operationId}`;
+      const existing = descriptors.get(api)?.get(sourceKey);
+      if (existing !== undefined) return { ok: true, data: existing };
+      const operationHandle = createHandle('operation');
+      const parameterNames = new Map<string, string>();
+      const result = projectFlowApiOperation(
+        api,
+        endpointId,
+        operationId,
+        operationHandle,
+        (name) => {
+          const handle = createHandle('field');
+          parameterNames.set(handle, name);
+          return handle;
+        },
+      );
+      if (result.ok) {
+        const { operation } = selectOperation(api, endpointId, operationId);
+        if (operation !== undefined) {
+          entries.set(operationHandle, { api, operation, parameterNames });
+          const descriptorsForApi =
+            descriptors.get(api) ?? new Map<string, FlowApiOperationDescriptor>();
+          descriptorsForApi.set(sourceKey, result.data);
+          descriptors.set(api, descriptorsForApi);
+        }
+      }
+      return result;
+    },
+    resolve: (descriptor, bindings) => resolveFlowApiOperation(entries, descriptor, bindings),
+  };
+}
+
+/** Projects an owner-resolved operation using handles that reveal no source identities. */
+function projectFlowApiOperation(
   api: ApiDefinition,
   endpointId: string,
   operationId: string,
+  operationHandle: string,
+  createFieldHandle: (name: string) => string,
 ): DataSourceDiagnosticResult<FlowApiOperationDescriptor> {
   const { endpoint, operation } = selectOperation(api, endpointId, operationId);
   const diagnostics = validateProjection(api, endpointId, operationId, endpoint, operation);
   if (diagnostics.length > 0 || endpoint === undefined || operation === undefined) {
     return {
       ok: false,
-      diagnostics: identifyDiagnostics(diagnostics, api.id, endpointId, operationId),
+      diagnostics: redactFlowDiagnostics(diagnostics),
     };
   }
 
-  const input = projectInput(operation, diagnostics);
+  const input = projectInput(operation, diagnostics, createFieldHandle);
   const auth = projectAuth(
     operation.credential ?? endpoint.credential ?? api.credential,
     diagnostics,
@@ -53,20 +102,20 @@ export function projectFlowApiOperation(
   if (diagnostics.length > 0 || input === undefined || auth === undefined || result === undefined) {
     return {
       ok: false,
-      diagnostics: identifyDiagnostics(diagnostics, api.id, endpointId, operationId),
+      diagnostics: redactFlowDiagnostics(diagnostics),
     };
   }
 
-  const id = createFlowApiOperationDescriptorId(api.id, endpointId, operationId);
+  const id = operationHandle;
   return {
     ok: true,
     data: {
       id,
       capability: { providerId: FLOW_PROVIDER_ID, capabilityId: id },
-      source: { apiId: api.id, endpointId, operationId },
+      source: { handle: operationHandle },
       protocol: projectProtocol(operation),
       intent: operation.intent,
-      ...projectMethod(operation.method),
+      ...projectFlowTransport(operation.method),
       endpoint: projectEndpoint(operation),
       input,
       result,
@@ -96,14 +145,6 @@ function selectOperation(
 }
 
 /*** Creates a stable Flow capability identifier from the complete server-side operation identity. */
-export function createFlowApiOperationDescriptorId(
-  apiId: string,
-  endpointId: string,
-  operationId: string,
-): string {
-  return `data-sources.api/${encodeURIComponent(apiId)}/${encodeURIComponent(endpointId)}/${encodeURIComponent(operationId)}`;
-}
-
 /** Validates that the requested source operation exists and uses a supported transport. */
 function validateProjection(
   api: ApiDefinition,
@@ -141,26 +182,15 @@ function projectProtocol(operation: DataOperationConfig): FlowApiOperationDescri
   return operation.protocol === 'http' ? 'http' : 'graphql';
 }
 
-/** Preserves a method only when it is one of Flow's closed HTTP method declarations. */
-function projectMethod(
-  method: DataOperationMethod | undefined,
-): Pick<FlowApiOperationDescriptor, 'method'> {
-  return method !== undefined && isFlowHttpMethod(method) ? { method } : {};
-}
-
-/** Narrows open Data Sources methods to Flow's public transport vocabulary. */
-function isFlowHttpMethod(method: DataOperationMethod): method is FlowApiOperationMethod {
-  return FLOW_HTTP_METHODS.some((candidate) => candidate === method);
-}
-
 /** Projects request fields only after recursively validating their public schema. */
 function projectInput(
   operation: DataOperationConfig,
   diagnostics: DataSourceDiagnostic[],
+  createFieldHandle: (name: string) => string,
 ): FlowApiOperationInput | undefined {
   const parameters = operation.request?.parameters ?? [];
   const projectedParameters = parameters.map((parameter) =>
-    projectParameter(parameter, diagnostics),
+    projectParameter(parameter, diagnostics, createFieldHandle),
   );
   const publicParameters = projectedParameters.flatMap((parameter) =>
     parameter === undefined ? [] : [parameter],
@@ -169,7 +199,7 @@ function projectInput(
   const bodySchema =
     request?.schema === undefined
       ? undefined
-      : projectFlowDataSchema(request.schema, diagnostics, 'request');
+      : projectFlowDataSchema(request.schema, diagnostics, 'request', createFieldHandle);
   if (
     publicParameters.length !== parameters.length ||
     (request?.schema !== undefined && bodySchema === undefined)
@@ -192,15 +222,12 @@ function projectInput(
 function projectParameter(
   parameter: DataOperationParameter,
   diagnostics: DataSourceDiagnostic[],
+  createFieldHandle: (name: string) => string,
 ): FlowApiOperationParameter | undefined {
   if (parameter.location === 'header' || parameter.location === 'cookie') {
     diagnostics.push(
       projectionDiagnostic('', '', '', 'Parameter uses a secret-prone transport location.'),
     );
-    return undefined;
-  }
-  if (SENSITIVE_NAME.test(parameter.name)) {
-    diagnostics.push(projectionDiagnostic('', '', '', 'Parameter has an unsafe public name.'));
     return undefined;
   }
   if (parameter.default !== undefined) {
@@ -210,10 +237,12 @@ function projectParameter(
   const schema =
     parameter.schema === undefined
       ? undefined
-      : projectFlowDataSchema(parameter.schema, diagnostics, 'parameter');
+      : projectFlowDataSchema(parameter.schema, diagnostics, 'parameter', createFieldHandle);
   if (parameter.schema !== undefined && schema === undefined) return undefined;
   return {
+    handle: createFieldHandle(parameter.name),
     location: parameter.location,
+    required: parameter.required ?? false,
     ...(schema === undefined ? {} : { schema }),
   };
 }
@@ -227,7 +256,7 @@ function projectResult(
   const schema =
     response?.schema === undefined
       ? undefined
-      : projectFlowDataSchema(response.schema, diagnostics, 'response');
+      : projectFlowDataSchema(response.schema, diagnostics, 'response', () => 'result-field');
   if (response?.schema !== undefined && schema === undefined) return undefined;
   return {
     ...(response === undefined
@@ -298,19 +327,4 @@ function projectionDiagnostic(
     ...(endpointId.length === 0 ? {} : { endpointId }),
     ...(operationId.length === 0 ? {} : { operationId }),
   };
-}
-
-/** Adds source identity to rejected projections without copying rejected values into diagnostics. */
-function identifyDiagnostics(
-  diagnostics: readonly DataSourceDiagnostic[],
-  apiId: string,
-  endpointId: string,
-  operationId: string,
-): readonly DataSourceDiagnostic[] {
-  return diagnostics.map((diagnostic) => ({
-    ...diagnostic,
-    apiId: diagnostic.apiId ?? apiId,
-    endpointId: diagnostic.endpointId ?? endpointId,
-    operationId: diagnostic.operationId ?? operationId,
-  }));
 }

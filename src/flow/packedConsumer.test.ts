@@ -16,9 +16,9 @@ it('supports a packed consumer using the published Flow capability contract', ()
       join(consumerDirectory, 'package.json'),
       JSON.stringify({ name: 'flow-consumer', private: true, version: '0.0.0' }),
     );
-    run('bun', ['add', archive, '--ignore-scripts'], consumerDirectory);
+    run('bun', ['add', archive, '--ignore-scripts'], consumerDirectory, temporaryRoot);
     writeFileSync(join(consumerDirectory, 'consumer.ts'), consumerSource);
-    run('bun', ['run', 'consumer.ts'], consumerDirectory);
+    run('bun', ['run', 'consumer.ts'], consumerDirectory, temporaryRoot);
   } finally {
     rmSync(temporaryRoot, { force: true, recursive: true });
   }
@@ -28,17 +28,28 @@ it('supports a packed consumer using the published Flow capability contract', ()
 function packDataSources(temporaryRoot: string): string {
   const packageDirectory = join(temporaryRoot, 'package');
   mkdirSync(packageDirectory);
-  run('npm', ['pack', '--ignore-scripts', '--pack-destination', packageDirectory], repositoryRoot);
+  run(
+    'npm',
+    ['pack', '--ignore-scripts', '--pack-destination', packageDirectory],
+    repositoryRoot,
+    temporaryRoot,
+  );
   const archive = readdirSync(packageDirectory).find((file) => file.endsWith('.tgz'));
   if (archive === undefined) throw new Error('Packed Data Sources archive was not created.');
   return join(packageDirectory, archive);
 }
 
 /** Runs one consumer setup command and surfaces both process streams on failure. */
-function run(command: string, arguments_: readonly string[], cwd: string): void {
+function run(
+  command: string,
+  arguments_: readonly string[],
+  cwd: string,
+  cacheDirectory: string,
+): void {
   const result = Bun.spawnSync({
     cmd: [command, ...arguments_],
     cwd,
+    env: { ...process.env, npm_config_cache: join(cacheDirectory, '.npm-cache') },
     stderr: 'pipe',
     stdout: 'pipe',
   });
@@ -47,7 +58,7 @@ function run(command: string, arguments_: readonly string[], cwd: string): void 
 }
 
 const consumerSource = `
-import { createManualRestApi, projectFlowApiOperation } from '@ankhorage/data-sources';
+import { createFlowApiOperationOwner, createManualRestApi } from '@ankhorage/data-sources';
 import type { FlowProviderCapabilityRef } from '@ankhorage/contracts/flow';
 
 const api = createManualRestApi({
@@ -56,7 +67,7 @@ const api = createManualRestApi({
   endpoints: [{ id: 'items', path: '/items', operations: [{ id: 'items.list', intent: 'read', method: 'GET' }] }],
 });
 if (!api.ok) throw new Error('API fixture was rejected.');
-const descriptor = projectFlowApiOperation(api.data, 'items', 'items.list');
+const descriptor = createFlowApiOperationOwner().project(api.data, 'items', 'items.list');
 if (!descriptor.ok) throw new Error('Flow projection was rejected.');
 const capability: FlowProviderCapabilityRef = descriptor.data.capability;
 if (capability.providerId !== '@ankhorage/data-sources') throw new Error('Unexpected provider.');

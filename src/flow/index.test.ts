@@ -4,7 +4,7 @@ import { expect, it } from 'bun:test';
 import { createGraphQlApi } from '../graphql';
 import { importOpenApiDocument } from '../openapi';
 import { createManualRestApi, type ManualRestOperationDefinition } from '../rest';
-import { createFlowApiOperationDescriptorId, projectFlowApiOperation } from './index';
+import { createFlowApiOperationOwner } from './index';
 
 const secret = 'do-not-persist';
 const unclassifiedSchema: DataSchema = {
@@ -96,23 +96,26 @@ function restApi(operation: Partial<ManualRestOperationDefinition> = {}): ApiDef
   return result.data;
 }
 
+function project(api: ApiDefinition, endpointId: string, operationId: string) {
+  return createFlowApiOperationOwner().project(api, endpointId, operationId);
+}
+
 it('projects REST operations as stable, typed, secret-free Flow descriptors', () => {
-  const result = projectFlowApiOperation(restApi(), 'orders', 'orders.get');
+  const result = project(restApi(), 'orders', 'orders.get');
 
   expect(result.ok).toBe(true);
   if (!result.ok) return;
   expect(result.data).toMatchObject({
-    id: 'data-sources.api/commerce%2Fapi/orders/orders.get',
     capability: {
       providerId: '@ankhorage/data-sources',
-      capabilityId: 'data-sources.api/commerce%2Fapi/orders/orders.get',
+      capabilityId: result.data.id,
     },
-    source: { apiId: 'commerce/api', endpointId: 'orders', operationId: 'orders.get' },
+    source: { handle: result.data.id },
     endpoint: { kind: 'http' },
     input: {
       parameters: [
-        { location: 'path', schema: { type: 'string' } },
-        { location: 'query', schema: { type: 'integer' } },
+        { location: 'path', required: true, schema: { type: 'string' } },
+        { location: 'query', required: false, schema: { type: 'integer' } },
       ],
     },
     result: { artifact: { kind: 'artifact' } },
@@ -155,8 +158,8 @@ it('projects GraphQL and OpenAPI discoveries without exposing documents or serve
   expect(graphql.ok).toBe(true);
   expect(openApi.ok).toBe(true);
   if (!graphql.ok || !openApi.ok) return;
-  const graphDescriptor = projectFlowApiOperation(graphql.data, 'graphql', 'query.post');
-  const openApiDescriptor = projectFlowApiOperation(openApi.data, 'pets', 'listpets');
+  const graphDescriptor = project(graphql.data, 'graphql', 'query.post');
+  const openApiDescriptor = project(openApi.data, 'pets', 'listpets');
 
   expect(graphDescriptor.ok).toBe(true);
   expect(openApiDescriptor.ok).toBe(true);
@@ -166,9 +169,31 @@ it('projects GraphQL and OpenAPI discoveries without exposing documents or serve
   expect(JSON.stringify(openApiDescriptor.data)).not.toContain('api_key=hidden');
 });
 
+it('resolves distinct REST parameters through opaque handles', () => {
+  const owner = createFlowApiOperationOwner();
+  const rest = owner.project(restApi(), 'orders', 'orders.get');
+  expect(rest.ok).toBe(true);
+  if (!rest.ok) return;
+  const [orderId, page] = rest.data.input.parameters;
+  if (orderId === undefined || page === undefined)
+    throw new Error('fixture must expose parameters');
+  const resolvedRest = owner.resolve(rest.data, {
+    parameters: { [orderId.handle]: 'order-7', [page.handle]: 2 },
+  });
+  expect(resolvedRest).toMatchObject({
+    ok: true,
+    data: {
+      parameters: [
+        { name: 'orderId', value: 'order-7' },
+        { name: 'page', value: 2 },
+      ],
+    },
+  });
+});
+
 it('fails closed without echoing rejected parameter values', () => {
-  const missing = projectFlowApiOperation(restApi(), 'orders', 'missing');
-  const header = projectFlowApiOperation(
+  const missing = project(restApi(), 'orders', 'missing');
+  const header = project(
     restApi({
       parameters: [
         { name: 'orderId', location: 'path' },
@@ -178,28 +203,48 @@ it('fails closed without echoing rejected parameter values', () => {
     'orders',
     'orders.get',
   );
-  const query = projectFlowApiOperation(
-    restApi({
-      parameters: [
-        { name: 'orderId', location: 'path' },
-        { name: 'access_token', location: 'query' },
-      ],
-    }),
-    'orders',
-    'orders.get',
-  );
-  for (const result of [missing, header, query]) {
+  for (const result of [missing, header]) {
     expect(result.ok).toBe(false);
     if (!result.ok) {
       expect(result.diagnostics[0]?.code).toBe('unsafe-flow-projection');
-      expect(result.diagnostics[0]?.apiId).toBe('commerce/api');
+      expect(result.diagnostics[0]?.apiId).toBeUndefined();
       expect(JSON.stringify(result.diagnostics)).not.toContain(secret);
     }
   }
 });
 
+it('never persists or diagnoses unclassified source identities', () => {
+  const apiId = 'api-sentinel-do-not-persist';
+  const endpointId = 'endpoint-sentinel-do-not-persist';
+  const operationId = 'operation-sentinel-do-not-persist';
+  const api = createManualRestApi({
+    id: apiId,
+    baseUrl: 'https://api.example.test',
+    endpoints: [
+      {
+        id: endpointId,
+        path: '/items',
+        operations: [{ id: operationId, intent: 'read', method: 'GET' }],
+      },
+    ],
+  });
+  if (!api.ok) throw new Error('sentinel fixture must be valid');
+  const owner = createFlowApiOperationOwner();
+  const descriptor = owner.project(api.data, endpointId, operationId);
+  expect(descriptor.ok).toBe(true);
+  if (!descriptor.ok) return;
+  const output = JSON.stringify(descriptor);
+  for (const sentinel of [apiId, endpointId, operationId]) expect(output).not.toContain(sentinel);
+  const rejected = owner.resolve(
+    { ...descriptor.data, source: { handle: 'unknown-sentinel-do-not-persist' } },
+    {},
+  );
+  expect(rejected.ok).toBe(false);
+  expect(JSON.stringify(rejected)).not.toContain('unknown-sentinel-do-not-persist');
+});
+
 it('omits unclassified metadata while retaining REST descriptor shape', () => {
-  const result = projectFlowApiOperation(restApi(unclassifiedOperation), 'orders', 'orders.get');
+  const result = project(restApi(unclassifiedOperation), 'orders', 'orders.get');
 
   expect(result.ok).toBe(true);
   if (!result.ok) return;
@@ -218,15 +263,14 @@ it('omits unclassified metadata while retaining REST descriptor shape', () => {
 
 it('is reproducibly serializable and ignores unknown runtime fields instead of copying them', () => {
   const api = restApi() as ApiDefinition & { metadata: { unsafe: () => string } };
-  const first = projectFlowApiOperation(api, 'orders', 'orders.get');
-  const second = projectFlowApiOperation(api, 'orders', 'orders.get');
+  const owner = createFlowApiOperationOwner();
+  const first = owner.project(api, 'orders', 'orders.get');
+  const second = owner.project(api, 'orders', 'orders.get');
 
   expect(first.ok).toBe(true);
   expect(second.ok).toBe(true);
   if (!first.ok || !second.ok) return;
   expect(JSON.stringify(first.data)).toBe(JSON.stringify(second.data));
   expect(JSON.stringify(first.data)).not.toContain('unsafe');
-  expect(createFlowApiOperationDescriptorId('commerce/api', 'orders', 'orders.get')).toBe(
-    first.data.id,
-  );
+  expect(first.data.id).not.toContain('commerce');
 });

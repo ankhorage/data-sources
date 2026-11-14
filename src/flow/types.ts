@@ -1,4 +1,11 @@
-import type { DataOperationIntent, DataSchema, OperationId } from '@ankhorage/contracts/data';
+import type {
+  ApiDefinition,
+  DataContractValue,
+  DataOperationConfig,
+  DataOperationIntent,
+  DataSchema,
+  DataSourceDiagnosticResult,
+} from '@ankhorage/contracts/data';
 import type { FlowProviderCapabilityRef } from '@ankhorage/contracts/flow';
 
 /** A credential-free, serializable description of one Data Sources operation. */
@@ -20,9 +27,7 @@ export interface FlowApiOperationDescriptor {
 
 /** The server-side Data Sources identity resolved when a Flow capability is invoked. */
 export interface FlowApiOperationSource {
-  readonly apiId: string;
-  readonly endpointId: string;
-  readonly operationId: OperationId;
+  readonly handle: string;
 }
 
 /** Transport information that is safe to persist in a graph. */
@@ -40,8 +45,37 @@ export interface FlowApiOperationInput {
 
 /** A public input parameter after secret-bearing transport positions are rejected. */
 export interface FlowApiOperationParameter {
+  readonly handle: string;
   readonly location: 'body' | 'path' | 'query';
+  readonly required: boolean;
   readonly schema?: DataSchema;
+}
+
+/** Values bound by a Flow consumer using only persisted opaque handles. */
+export interface FlowApiOperationBindings {
+  readonly parameters?: Readonly<Record<string, DataContractValue>>;
+  readonly body?: DataContractValue;
+}
+
+/** The private owner-side resolution of a descriptor and its Flow bindings. */
+export interface ResolvedFlowApiOperation {
+  readonly api: ApiDefinition;
+  readonly operation: DataOperationConfig;
+  readonly parameters: readonly { readonly name: string; readonly value: DataContractValue }[];
+  readonly body?: DataContractValue;
+}
+
+/** Server-side owner boundary: only this registry retains raw source identities and field names. */
+export interface FlowApiOperationOwner {
+  project(
+    api: ApiDefinition,
+    endpointId: string,
+    operationId: string,
+  ): DataSourceDiagnosticResult<FlowApiOperationDescriptor>;
+  resolve(
+    descriptor: FlowApiOperationDescriptor,
+    bindings: FlowApiOperationBindings,
+  ): DataSourceDiagnosticResult<ResolvedFlowApiOperation>;
 }
 
 /** Public HTTP methods recognized by the Flow descriptor protocol. */

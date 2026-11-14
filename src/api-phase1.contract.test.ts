@@ -18,7 +18,7 @@ describe('API phase 1 public surface', () => {
     expect(typeof publicApi.createGraphQlApi).toBe('function');
     expect(typeof publicApi.discoverOpenApi).toBe('function');
     expect(typeof publicApi.introspectGraphQlApi).toBe('function');
-    expect(typeof publicApi.projectFlowApiOperation).toBe('function');
+    expect(typeof publicApi.createFlowApiOperationOwner).toBe('function');
     expect(publicApi.createManualRestDataSource).toBeUndefined();
     expect(publicApi.createGraphQlDataSource).toBeUndefined();
   });
