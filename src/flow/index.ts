@@ -36,8 +36,10 @@ interface FlowApiOperationOwnerEntry {
 
 /*** Projects one server-resolved API operation into a credential-free Flow capability descriptor.
  *
- * @security The projection keeps only typed, public structural declarations. It never copies
- * unclassified metadata, URLs, credentials, defaults, headers, cookies, or executable values.
+ * The projection retains only typed public declarations. It never copies unclassified metadata,
+ * URLs, credentials, defaults, headers, cookies, or executable values.
+ *
+ * @security index.test.ts#never persists or diagnoses unclassified source identities
  */
 export function createFlowApiOperationOwner(
   options: FlowApiOperationOwnerOptions,
