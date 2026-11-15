@@ -6,7 +6,7 @@ import type {
   OperationId,
 } from '@ankhorage/contracts/data';
 
-import type { GraphQlOperationDefinition, GraphQlOperationKind } from './types';
+import type { GraphQlOperationDefinition, GraphQlOperationKind } from './types.js';
 
 type DataContractRecord = Record<string, DataContractValue>;
 

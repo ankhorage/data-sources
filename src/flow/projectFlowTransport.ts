@@ -1,6 +1,6 @@
 import type { DataOperationMethod } from '@ankhorage/contracts/data';
 
-import type { FlowApiOperationDescriptor, FlowApiOperationMethod } from './types';
+import type { FlowApiOperationDescriptor, FlowApiOperationMethod } from './types.js';
 
 const FLOW_HTTP_METHODS = ['DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT'] as const;
 

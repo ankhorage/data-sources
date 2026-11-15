@@ -1,4 +1,4 @@
-import { normalizeCandidateUrl, parseHttpUrl } from './http';
+import { normalizeCandidateUrl, parseHttpUrl } from './http.js';
 
 /*** Builds the ordered OpenAPI probe plan and the normalized service scope requested by the caller. */
 export function createOpenApiDiscoveryPlan(

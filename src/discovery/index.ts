@@ -10,17 +10,17 @@ import {
   createGraphQlApi,
   createGraphQlIntrospectionRequest,
   type GraphQlIntrospectionResult,
-} from '../graphql';
-import { importOpenApiDocument, type OpenApiDocumentObject } from '../openapi';
+} from '../graphql/index.js';
+import { importOpenApiDocument, type OpenApiDocumentObject } from '../openapi/index.js';
 import {
   isSuccessfulStatus,
   normalizeCandidateUrl,
   parseHttpUrl,
   parseJsonResponse,
   readRecord,
-} from './http';
-import { createOpenApiDiscoveryPlan } from './openapiDiscoveryPlan';
-import { scopeOpenApiDocument } from './scopeOpenApiDocument';
+} from './http.js';
+import { createOpenApiDiscoveryPlan } from './openapiDiscoveryPlan.js';
+import { scopeOpenApiDocument } from './scopeOpenApiDocument.js';
 
 export const DEFAULT_OPENAPI_DISCOVERY_PATHS = [
   'openapi.json',

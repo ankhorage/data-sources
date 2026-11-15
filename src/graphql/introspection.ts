@@ -1,6 +1,6 @@
 import type { DataSchema, DataSchemaRegistry } from '@ankhorage/contracts/data';
 
-import { normalizeGraphQlOperationId } from './operation';
+import { normalizeGraphQlOperationId } from './operation.js';
 import type {
   GraphQlIntrospectionInputValue,
   GraphQlIntrospectionResult,
@@ -8,7 +8,7 @@ import type {
   GraphQlIntrospectionTypeRef,
   GraphQlOperationDefinition,
   GraphQlOperationKind,
-} from './types';
+} from './types.js';
 
 const OBJECT_TYPE_KINDS = new Set(['OBJECT', 'INTERFACE', 'INPUT_OBJECT']);
 

@@ -7,12 +7,12 @@ import type {
 } from '@ankhorage/contracts/data';
 import { isDataSchema } from '@ankhorage/contracts/data';
 
-import { matchesFlowSchema } from './matchesFlowSchema';
+import { matchesFlowSchema } from './matchesFlowSchema.js';
 import type {
   FlowApiOperationBindings,
   FlowApiOperationDescriptor,
   ResolvedFlowApiOperation,
-} from './types';
+} from './types.js';
 
 interface OwnerEntry {
   readonly api: ApiDefinition;

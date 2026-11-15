@@ -6,8 +6,8 @@ import type {
 } from '@ankhorage/contracts/data';
 import { isDataSchema } from '@ankhorage/contracts/data';
 
-import { matchesFlowSchema } from './matchesFlowSchema';
-import type { FlowApiOperationDescriptor } from './types';
+import { matchesFlowSchema } from './matchesFlowSchema.js';
+import type { FlowApiOperationDescriptor } from './types.js';
 
 interface FlowResultOwnerEntry {
   readonly operation: DataOperationConfig;

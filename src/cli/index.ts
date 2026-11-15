@@ -1,1 +1,1 @@
-export { default } from '../ankh.provider';
+export { default } from '../ankh.provider.js';

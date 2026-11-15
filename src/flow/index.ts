@@ -7,13 +7,13 @@ import type {
   DataSourceDiagnosticResult,
 } from '@ankhorage/contracts/data';
 
-import { createFlowApiOperationHandle } from './createFlowApiOperationHandle';
-import { projectFlowApiOperationResult } from './projectFlowApiOperationResult';
-import { projectFlowOperationOutput } from './projectFlowOperationOutput';
-import { projectFlowTransport } from './projectFlowTransport';
-import { redactFlowDiagnostics } from './redactFlowDiagnostics';
-import { resolveFlowApiOperation } from './resolveFlowApiOperation';
-import { projectFlowDataSchema } from './schema';
+import { createFlowApiOperationHandle } from './createFlowApiOperationHandle.js';
+import { projectFlowApiOperationResult } from './projectFlowApiOperationResult.js';
+import { projectFlowOperationOutput } from './projectFlowOperationOutput.js';
+import { projectFlowTransport } from './projectFlowTransport.js';
+import { redactFlowDiagnostics } from './redactFlowDiagnostics.js';
+import { resolveFlowApiOperation } from './resolveFlowApiOperation.js';
+import { projectFlowDataSchema } from './schema.js';
 import type {
   FlowApiOperationAuthRequirement,
   FlowApiOperationDescriptor,
@@ -21,9 +21,9 @@ import type {
   FlowApiOperationOwner,
   FlowApiOperationOwnerOptions,
   FlowApiOperationParameter,
-} from './types';
+} from './types.js';
 
-export type * from './types';
+export type * from './types.js';
 
 const FLOW_PROVIDER_ID = '@ankhorage/data-sources';
 

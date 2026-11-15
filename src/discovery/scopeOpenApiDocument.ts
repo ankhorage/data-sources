@@ -1,6 +1,6 @@
 import type { DataSourceDiagnostic } from '@ankhorage/contracts/data';
 
-import type { OpenApiDocumentObject } from '../openapi';
+import type { OpenApiDocumentObject } from '../openapi/index.js';
 
 /*** Filters an origin-root OpenAPI document to the requested service path without rewriting paths. */
 export function scopeOpenApiDocument(

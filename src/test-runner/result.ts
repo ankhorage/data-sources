@@ -5,7 +5,7 @@ import type {
   EndpointTestRequestDiagnostic,
   EndpointTestResponseDiagnostic,
   EndpointTestResult,
-} from './types';
+} from './types.js';
 
 export function createDiagnostic(
   input: EndpointTestInput,

@@ -1,7 +1,7 @@
 import type { AnkhCommandDescriptor } from '@ankhorage/contracts/cli';
 
-import { CAPABILITIES } from './capabilities';
-import { DATA_SOURCES_PACKAGE_NAME, SUPPORTED_DATA_SOURCE_KINDS } from './packageInfo';
+import { CAPABILITIES } from './capabilities/index.js';
+import { DATA_SOURCES_PACKAGE_NAME, SUPPORTED_DATA_SOURCE_KINDS } from './packageInfo.js';
 
 const DATA_SOURCES_PACKAGE_VERSION = '0.5.1';
 const DATA_SOURCES_COMMAND_CATEGORY = 'data-sources';

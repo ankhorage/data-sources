@@ -5,13 +5,13 @@ import type {
   OperationId,
 } from '@ankhorage/contracts/data';
 
-import { normalizeOpenApiOperation } from './operation';
+import { normalizeOpenApiOperation } from './operation.js';
 import type {
   OpenApiHttpMethod,
   OpenApiImportInput,
   OpenApiOperationObject,
   OpenApiPathItemObject,
-} from './types';
+} from './types.js';
 
 const OPENAPI_HTTP_METHODS = [
   'delete',
