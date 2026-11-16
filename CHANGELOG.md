@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 2.2.1
+
+### Patch Changes
+
+- ce6c795: Fix the browser root export for Expo Metro and React Native Web consumers.
+
 ## 2.2.0
 
 ### Minor Changes

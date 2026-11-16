@@ -429,7 +429,7 @@
       {
         "name": "metadata",
         "kind": "property",
-        "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
+        "type": "import(\"@ankhorage/contracts/dist/serializable.js\").SerializableValue | undefined",
         "required": false,
         "description": null
       },
@@ -2452,7 +2452,7 @@
       {
         "name": "metadata",
         "kind": "property",
-        "type": "import(\"@ankhorage/contracts/dist/serializable\").SerializableValue | undefined",
+        "type": "import(\"@ankhorage/contracts/dist/serializable.js\").SerializableValue | undefined",
         "required": false,
         "description": null
       },

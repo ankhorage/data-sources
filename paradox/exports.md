@@ -138,7 +138,7 @@ Source: `src/discovery/index.ts:62:1`
 | description | property | `string \| undefined` | no |  |
 | fetch | property | `ExternalApiFetch` | yes |  |
 | id | property | `string` | yes |  |
-| metadata | property | `import("@ankhorage/contracts/dist/serializable").SerializableValue \| undefined` | no |  |
+| metadata | property | `import("@ankhorage/contracts/dist/serializable.js").SerializableValue \| undefined` | no |  |
 | name | property | `string \| undefined` | no |  |
 | url | property | `string` | yes |  |
 
@@ -727,7 +727,7 @@ Source: `src/discovery/index.ts:88:1`
 | fetch | property | `ExternalApiFetch` | yes |  |
 | headers | property | `Readonly<Record<string, string>> \| undefined` | no |  |
 | id | property | `string` | yes |  |
-| metadata | property | `import("@ankhorage/contracts/dist/serializable").SerializableValue \| undefined` | no |  |
+| metadata | property | `import("@ankhorage/contracts/dist/serializable.js").SerializableValue \| undefined` | no |  |
 | name | property | `string \| undefined` | no |  |
 | schemaVersion | property | `string \| undefined` | no |  |
 
