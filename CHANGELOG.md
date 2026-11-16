@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 2.2.2
+
+### Patch Changes
+
+- bf907c7: Isolate Node-only Flow handle HMAC code from browser and React Native root exports.
+
 ## 2.2.1
 
 ### Patch Changes
