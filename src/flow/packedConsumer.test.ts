@@ -6,7 +6,7 @@ import { expect, it } from 'bun:test';
 
 const repositoryRoot = resolve(import.meta.dir, '../..');
 
-it('supports Node, Bun, and Expo web consumers across every published runtime entrypoint', () => {
+it('supports Node, Bun, and Expo consumers across every published runtime entrypoint', () => {
   const temporaryRoot = mkdtempSync(join(tmpdir(), 'data-sources-flow-consumer-'));
   try {
     const archive = packDataSources(temporaryRoot);
@@ -18,7 +18,7 @@ it('supports Node, Bun, and Expo web consumers across every published runtime en
     );
     run('bun', ['add', archive, '--ignore-scripts'], consumerDirectory, temporaryRoot);
     verifyNodeAndBunConsumers(consumerDirectory, temporaryRoot);
-    verifyExpoWebConsumer(consumerDirectory, temporaryRoot);
+    verifyExpoConsumers(consumerDirectory, temporaryRoot);
   } finally {
     rmSync(temporaryRoot, { force: true, recursive: true });
   }
@@ -40,19 +40,28 @@ function verifyNodeAndBunConsumers(consumerDirectory: string, temporaryRoot: str
     temporaryRoot,
   );
   run('bunx', ['tsc', '--noEmit', '--project', 'tsconfig.json'], consumerDirectory, temporaryRoot);
-  run('bun', ['run', 'consumer.ts'], consumerDirectory, temporaryRoot);
-}
-
-function verifyExpoWebConsumer(consumerDirectory: string, temporaryRoot: string): void {
-  writeFileSync(join(consumerDirectory, 'app.json'), expoAppConfig);
-  writeFileSync(join(consumerDirectory, 'index.tsx'), expoConsumerSource);
-  run('bun', expoDependencies, consumerDirectory, temporaryRoot);
+  writeFileSync(join(consumerDirectory, 'platform-consumer.ts'), platformConsumerSource);
+  writeFileSync(join(consumerDirectory, 'tsconfig.platform.json'), platformNodeNextConfig);
   run(
     'bunx',
-    ['expo', 'export', '--platform', 'web', '--output-dir', 'dist-web'],
+    ['tsc', '--noEmit', '--project', 'tsconfig.platform.json'],
     consumerDirectory,
     temporaryRoot,
   );
+  run('bun', ['run', 'consumer.ts'], consumerDirectory, temporaryRoot);
+}
+
+function verifyExpoConsumers(consumerDirectory: string, temporaryRoot: string): void {
+  writeFileSync(join(consumerDirectory, 'app.json'), expoAppConfig);
+  writeFileSync(join(consumerDirectory, 'index.tsx'), expoConsumerSource);
+  run('bun', expoDependencies, consumerDirectory, temporaryRoot);
+  for (const platform of expoPlatforms)
+    run(
+      'bunx',
+      ['expo', 'export', '--platform', platform, '--output-dir', `dist-${platform}`],
+      consumerDirectory,
+      temporaryRoot,
+    );
 }
 
 /** Packs the exact built checkout as an isolated consumer dependency. */
@@ -119,6 +128,17 @@ await Promise.all([
 ]);
 `;
 
+const platformConsumerSource = `
+import { createManualRestApi } from '@ankhorage/data-sources';
+
+const api = createManualRestApi({
+  id: 'platform-consumer-api',
+  baseUrl: 'https://api.example.test',
+  endpoints: [],
+});
+if (!api.ok) throw new Error('API fixture was rejected.');
+`;
+
 const expoAppConfig = JSON.stringify({
   expo: {
     name: 'data-sources-packed-consumer',
@@ -145,6 +165,8 @@ const expoDependencies = [
   '--ignore-scripts',
 ];
 
+const expoPlatforms = ['web', 'android', 'ios'] as const;
+
 const nodeNextConfig = JSON.stringify({
   compilerOptions: {
     lib: ['ES2022', 'DOM'],
@@ -155,4 +177,17 @@ const nodeNextConfig = JSON.stringify({
     target: 'ES2022',
   },
   include: ['consumer.ts'],
+});
+
+const platformNodeNextConfig = JSON.stringify({
+  compilerOptions: {
+    customConditions: ['react-native'],
+    lib: ['ES2022', 'DOM'],
+    module: 'NodeNext',
+    moduleResolution: 'NodeNext',
+    noEmit: true,
+    strict: true,
+    target: 'ES2022',
+  },
+  include: ['platform-consumer.ts'],
 });

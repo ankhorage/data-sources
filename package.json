@@ -103,7 +103,16 @@
   ],
   "exports": {
     ".": {
-      "browser": "./dist/index.js",
+      "react-native": {
+        "types": "./dist/platform/index.d.ts",
+        "import": "./dist/platform/index.js",
+        "default": "./dist/platform/index.js"
+      },
+      "browser": {
+        "types": "./dist/platform/index.d.ts",
+        "import": "./dist/platform/index.js",
+        "default": "./dist/platform/index.js"
+      },
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
