@@ -18,6 +18,7 @@ it('supports Node, Bun, and Expo consumers across every published runtime entryp
     );
     run('bun', ['add', archive, '--ignore-scripts'], consumerDirectory, temporaryRoot);
     verifyNodeAndBunConsumers(consumerDirectory, temporaryRoot);
+    verifyPlatformRejectsServerFlow(consumerDirectory, temporaryRoot);
     verifyExpoConsumers(consumerDirectory, temporaryRoot);
   } finally {
     rmSync(temporaryRoot, { force: true, recursive: true });
@@ -64,6 +65,16 @@ function verifyExpoConsumers(consumerDirectory: string, temporaryRoot: string): 
     );
 }
 
+/** Verifies platform conditions reject the server-only Flow HMAC boundary. */
+function verifyPlatformRejectsServerFlow(consumerDirectory: string, temporaryRoot: string): void {
+  run(
+    'node',
+    ['--conditions=browser', '--input-type=module', '--eval', platformFlowRejectionSource],
+    consumerDirectory,
+    temporaryRoot,
+  );
+}
+
 /** Packs the exact built checkout as an isolated consumer dependency. */
 function packDataSources(temporaryRoot: string): string {
   const packageDirectory = join(temporaryRoot, 'package');
@@ -103,7 +114,8 @@ function run(
 }
 
 const consumerSource = `
-import { createFlowApiOperationOwner, createManualRestApi } from '@ankhorage/data-sources';
+import { createManualRestApi } from '@ankhorage/data-sources';
+import { createFlowApiOperationOwner } from '@ankhorage/data-sources/flow';
 import type { FlowProviderCapabilityRef } from '@ankhorage/contracts/flow';
 
 const api = createManualRestApi({
@@ -123,6 +135,7 @@ if (capability.providerId !== '@ankhorage/data-sources') throw new Error('Unexpe
 const nodeConsumerSource = `
 await Promise.all([
   import('@ankhorage/data-sources'),
+  import('@ankhorage/data-sources/flow'),
   import('@ankhorage/data-sources/cli'),
   import('@ankhorage/data-sources/capabilities'),
 ]);
@@ -137,6 +150,15 @@ const api = createManualRestApi({
   endpoints: [],
 });
 if (!api.ok) throw new Error('API fixture was rejected.');
+`;
+
+const platformFlowRejectionSource = `
+import('@ankhorage/data-sources/flow').then(
+  () => { throw new Error('Platform conditions must not resolve the server-only Flow API.'); },
+  (error) => {
+    if (error.code !== 'ERR_PACKAGE_PATH_NOT_EXPORTED') throw error;
+  },
+);
 `;
 
 const expoAppConfig = JSON.stringify({

@@ -122,6 +122,13 @@
       "import": "./dist/cli/index.js",
       "default": "./dist/cli/index.js"
     },
+    "./flow": {
+      "react-native": null,
+      "browser": null,
+      "types": "./dist/flow/index.d.ts",
+      "import": "./dist/flow/index.js",
+      "default": "./dist/flow/index.js"
+    },
     "./package.json": "./package.json",
     "./capabilities": {
       "types": "./dist/capabilities/index.d.ts",
