@@ -137,11 +137,11 @@ export default function App() {
 
 const expoDependencies = [
   'add',
-  'expo@~57.0.0',
-  'react@19.2.0',
-  'react-dom@19.2.0',
-  'react-native@0.83.2',
-  'react-native-web@~0.21.2',
+  'expo@57.0.33',
+  'react@19.2.3',
+  'react-dom@19.2.3',
+  'react-native@0.86.3',
+  'react-native-web@0.21.4',
   '--ignore-scripts',
 ];
 
