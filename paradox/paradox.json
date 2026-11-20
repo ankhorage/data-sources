@@ -3,6 +3,7 @@
   "packageId": "@ankhorage/data-sources",
   "description": "Provides provider-neutral discovery, normalization, validation, and execution building blocks for REST, GraphQL, and OpenAPI data sources.",
   "purpose": "Give independently deployable consumers a canonical way to describe and operate API data sources without coupling their application logic to one transport or provider.",
+  "productDocumentation": null,
   "collaborators": true,
   "donation": {
     "account": "ankhorage"
@@ -17,7 +18,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v2.2.3",
+      "value": "v2.2.4",
       "color": "cb3837"
     },
     {
