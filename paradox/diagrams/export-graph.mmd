@@ -34,6 +34,7 @@ graph LR
   module_src_test_runner_result_ts["src/test-runner/result.ts"]
   module_src_test_runner_serialization_ts["src/test-runner/serialization.ts"]
   module_src_test_runner_types_ts["src/test-runner/types.ts"]
+  module_src_types_zefix_ts["src/types/zefix.ts"]
   export_buildEndpointTestRequest["buildEndpointTestRequest"]
   module_src_test_runner_index_ts --> export_buildEndpointTestRequest
   export_buildEndpointTestRequest -.-> export_EndpointTestInput
@@ -302,3 +303,82 @@ graph LR
   export_validateManualRestApi["validateManualRestApi"]
   module_src_rest_index_ts --> export_validateManualRestApi
   export_validateManualRestApi -.-> export_ManualRestApiDefinition
+  export_ZefixAddress["ZefixAddress"]
+  module_src_types_zefix_ts --> export_ZefixAddress
+  export_ZefixBfsCommunity["ZefixBfsCommunity"]
+  module_src_types_zefix_ts --> export_ZefixBfsCommunity
+  export_ZefixCompanyFull["ZefixCompanyFull"]
+  module_src_types_zefix_ts --> export_ZefixCompanyFull
+  export_ZefixCompanyFull -.-> export_ZefixAddress
+  export_ZefixCompanyFull -.-> export_ZefixCompanyOldName
+  export_ZefixCompanyFull -.-> export_ZefixCompanyShort
+  export_ZefixCompanyFull -.-> export_ZefixCompanyStatus
+  export_ZefixCompanyFull -.-> export_ZefixDFIEString
+  export_ZefixCompanyFull -.-> export_ZefixLegalForm
+  export_ZefixCompanyFull -.-> export_ZefixSogcPublication
+  export_ZefixCompanyOldName["ZefixCompanyOldName"]
+  module_src_types_zefix_ts --> export_ZefixCompanyOldName
+  export_ZefixCompanySearchQuery["ZefixCompanySearchQuery"]
+  module_src_types_zefix_ts --> export_ZefixCompanySearchQuery
+  export_ZefixCompanyShort["ZefixCompanyShort"]
+  module_src_types_zefix_ts --> export_ZefixCompanyShort
+  export_ZefixCompanyShort -.-> export_ZefixCompanyStatus
+  export_ZefixCompanyShort -.-> export_ZefixLegalForm
+  export_ZefixCompanyStatus["ZefixCompanyStatus"]
+  module_src_types_zefix_ts --> export_ZefixCompanyStatus
+  export_ZefixDate["ZefixDate"]
+  module_src_types_zefix_ts --> export_ZefixDate
+  export_ZefixDFIEString["ZefixDFIEString"]
+  module_src_types_zefix_ts --> export_ZefixDFIEString
+  export_ZefixErrorDetails["ZefixErrorDetails"]
+  module_src_types_zefix_ts --> export_ZefixErrorDetails
+  export_ZefixErrorDetails -.-> export_ZefixErrorType
+  export_ZefixErrorType["ZefixErrorType"]
+  module_src_types_zefix_ts --> export_ZefixErrorType
+  export_ZefixLegalForm["ZefixLegalForm"]
+  module_src_types_zefix_ts --> export_ZefixLegalForm
+  export_ZefixLegalForm -.-> export_ZefixDFIEString
+  export_ZefixMutationType["ZefixMutationType"]
+  module_src_types_zefix_ts --> export_ZefixMutationType
+  export_ZefixOperation["ZefixOperation"]
+  module_src_types_zefix_ts --> export_ZefixOperation
+  export_ZefixOperationResponse["ZefixOperationResponse"]
+  module_src_types_zefix_ts --> export_ZefixOperationResponse
+  export_ZefixOperations["ZefixOperations"]
+  module_src_types_zefix_ts --> export_ZefixOperations
+  export_ZefixOperations -.-> export_ZefixBfsCommunity
+  export_ZefixOperations -.-> export_ZefixCompanyFull
+  export_ZefixOperations -.-> export_ZefixCompanySearchQuery
+  export_ZefixOperations -.-> export_ZefixCompanyShort
+  export_ZefixOperations -.-> export_ZefixDate
+  export_ZefixOperations -.-> export_ZefixLegalForm
+  export_ZefixOperations -.-> export_ZefixRegistryOfCommerce
+  export_ZefixOperations -.-> export_ZefixSogcPublicationAndCompanyShort
+  export_ZefixRegistryOfCommerce["ZefixRegistryOfCommerce"]
+  module_src_types_zefix_ts --> export_ZefixRegistryOfCommerce
+  export_ZefixRestApiErrorResponse["ZefixRestApiErrorResponse"]
+  module_src_types_zefix_ts --> export_ZefixRestApiErrorResponse
+  export_ZefixRestApiErrorResponse -.-> export_ZefixErrorDetails
+  export_ZefixSchemas["ZefixSchemas"]
+  module_src_types_zefix_ts --> export_ZefixSchemas
+  export_ZefixSchemas -.-> export_ZefixAddress
+  export_ZefixSchemas -.-> export_ZefixBfsCommunity
+  export_ZefixSchemas -.-> export_ZefixCompanyFull
+  export_ZefixSchemas -.-> export_ZefixCompanyOldName
+  export_ZefixSchemas -.-> export_ZefixCompanySearchQuery
+  export_ZefixSchemas -.-> export_ZefixCompanyShort
+  export_ZefixSchemas -.-> export_ZefixDFIEString
+  export_ZefixSchemas -.-> export_ZefixErrorDetails
+  export_ZefixSchemas -.-> export_ZefixLegalForm
+  export_ZefixSchemas -.-> export_ZefixMutationType
+  export_ZefixSchemas -.-> export_ZefixRegistryOfCommerce
+  export_ZefixSchemas -.-> export_ZefixRestApiErrorResponse
+  export_ZefixSchemas -.-> export_ZefixSogcPublication
+  export_ZefixSchemas -.-> export_ZefixSogcPublicationAndCompanyShort
+  export_ZefixSogcPublication["ZefixSogcPublication"]
+  module_src_types_zefix_ts --> export_ZefixSogcPublication
+  export_ZefixSogcPublication -.-> export_ZefixMutationType
+  export_ZefixSogcPublicationAndCompanyShort["ZefixSogcPublicationAndCompanyShort"]
+  module_src_types_zefix_ts --> export_ZefixSogcPublicationAndCompanyShort
+  export_ZefixSogcPublicationAndCompanyShort -.-> export_ZefixCompanyShort
+  export_ZefixSogcPublicationAndCompanyShort -.-> export_ZefixSogcPublication

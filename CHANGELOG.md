@@ -1,5 +1,11 @@
 # @ankhorage/data-sources
 
+## 2.3.0
+
+### Minor Changes
+
+- fdf4977: Expose complete public Zefix PublicREST v2.7.2.4 TypeScript wire contracts, including all documented schemas and typed operation responses.
+
 ## 2.2.5
 
 ### Patch Changes

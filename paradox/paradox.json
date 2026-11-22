@@ -18,7 +18,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v2.2.5",
+      "value": "v2.3.0",
       "color": "cb3837"
     },
     {
@@ -632,7 +632,28 @@
         "SupportedApiOrigin",
         "testEndpoint",
         "validateGraphQlApi",
-        "validateManualRestApi"
+        "validateManualRestApi",
+        "ZefixAddress",
+        "ZefixBfsCommunity",
+        "ZefixCompanyFull",
+        "ZefixCompanyOldName",
+        "ZefixCompanySearchQuery",
+        "ZefixCompanyShort",
+        "ZefixCompanyStatus",
+        "ZefixDate",
+        "ZefixDFIEString",
+        "ZefixErrorDetails",
+        "ZefixErrorType",
+        "ZefixLegalForm",
+        "ZefixMutationType",
+        "ZefixOperation",
+        "ZefixOperationResponse",
+        "ZefixOperations",
+        "ZefixRegistryOfCommerce",
+        "ZefixRestApiErrorResponse",
+        "ZefixSchemas",
+        "ZefixSogcPublication",
+        "ZefixSogcPublicationAndCompanyShort"
       ]
     },
     {
@@ -822,7 +843,28 @@
         "SupportedApiOrigin",
         "testEndpoint",
         "validateGraphQlApi",
-        "validateManualRestApi"
+        "validateManualRestApi",
+        "ZefixAddress",
+        "ZefixBfsCommunity",
+        "ZefixCompanyFull",
+        "ZefixCompanyOldName",
+        "ZefixCompanySearchQuery",
+        "ZefixCompanyShort",
+        "ZefixCompanyStatus",
+        "ZefixDate",
+        "ZefixDFIEString",
+        "ZefixErrorDetails",
+        "ZefixErrorType",
+        "ZefixLegalForm",
+        "ZefixMutationType",
+        "ZefixOperation",
+        "ZefixOperationResponse",
+        "ZefixOperations",
+        "ZefixRegistryOfCommerce",
+        "ZefixRestApiErrorResponse",
+        "ZefixSchemas",
+        "ZefixSogcPublication",
+        "ZefixSogcPublicationAndCompanyShort"
       ]
     },
     {
@@ -924,6 +966,34 @@
         "EndpointTestRequestDiagnostic",
         "EndpointTestResponseDiagnostic",
         "EndpointTestResult"
+      ]
+    },
+    {
+      "path": "src/types/zefix.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ZefixAddress",
+        "ZefixBfsCommunity",
+        "ZefixCompanyFull",
+        "ZefixCompanyOldName",
+        "ZefixCompanySearchQuery",
+        "ZefixCompanyShort",
+        "ZefixCompanyStatus",
+        "ZefixDate",
+        "ZefixDFIEString",
+        "ZefixErrorDetails",
+        "ZefixErrorType",
+        "ZefixLegalForm",
+        "ZefixMutationType",
+        "ZefixOperation",
+        "ZefixOperationResponse",
+        "ZefixOperations",
+        "ZefixRegistryOfCommerce",
+        "ZefixRestApiErrorResponse",
+        "ZefixSchemas",
+        "ZefixSogcPublication",
+        "ZefixSogcPublicationAndCompanyShort"
       ]
     }
   ],
@@ -5210,6 +5280,1356 @@
       ],
       "members": [],
       "structuredRows": []
+    },
+    {
+      "name": "ZefixAddress",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 131,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "addon",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "careOf",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "city",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "houseNumber",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "organisation",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "poBox",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "street",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "swissZipCode",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixBfsCommunity",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 172,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "bfsId",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "canton",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "registryOfCommerceId",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixCompanyFull",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 151,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ZefixAddress",
+        "ZefixCompanyOldName",
+        "ZefixCompanyShort",
+        "ZefixCompanyStatus",
+        "ZefixDFIEString",
+        "ZefixLegalForm",
+        "ZefixSogcPublication"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "address",
+          "kind": "property",
+          "type": "ZefixAddress | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "auditCompanies",
+          "kind": "property",
+          "type": "readonly ZefixCompanyShort[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "branchOffices",
+          "kind": "property",
+          "type": "readonly ZefixCompanyShort[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "canton",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "cantonalExcerptWeb",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "capitalCurrency",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "capitalNominal",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "chid",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "deletionDate",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "ehraid",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "furtherHeadOffices",
+          "kind": "property",
+          "type": "readonly ZefixCompanyShort[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "hasTakenOver",
+          "kind": "property",
+          "type": "readonly ZefixCompanyShort[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "headOffices",
+          "kind": "property",
+          "type": "readonly ZefixCompanyShort[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "legalForm",
+          "kind": "property",
+          "type": "ZefixLegalForm | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "legalSeat",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "legalSeatId",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "oldNames",
+          "kind": "property",
+          "type": "readonly ZefixCompanyOldName[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "purpose",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "registryOfCommerceId",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "sogcDate",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "sogcPub",
+          "kind": "property",
+          "type": "readonly ZefixSogcPublication[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "status",
+          "kind": "property",
+          "type": "ZefixCompanyStatus | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "translation",
+          "kind": "property",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "uid",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "wasTakenOverBy",
+          "kind": "property",
+          "type": "readonly ZefixCompanyShort[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "zefixDetailWeb",
+          "kind": "property",
+          "type": "ZefixDFIEString | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixCompanyOldName",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 143,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "sequenceNr",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "translation",
+          "kind": "property",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixCompanySearchQuery",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 39,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "activeOnly",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "canton",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "legalFormId",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "legalFormUid",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "legalSeatId",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "registryOfCommerceId",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixCompanyShort",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 72,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ZefixCompanyStatus",
+        "ZefixLegalForm"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "chid",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "deletionDate",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "ehraid",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "legalForm",
+          "kind": "property",
+          "type": "ZefixLegalForm | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "legalSeat",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "legalSeatId",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "registryOfCommerceId",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "sogcDate",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "status",
+          "kind": "property",
+          "type": "ZefixCompanyStatus | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "uid",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixCompanyStatus",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 25,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixDate",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 14,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixDFIEString",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 56,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "de",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "en",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "fr",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "it",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixErrorDetails",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 28,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ZefixErrorType"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "message",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "type",
+          "kind": "property",
+          "type": "ZefixErrorType | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixErrorType",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 17,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixLegalForm",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 64,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ZefixDFIEString"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "ZefixDFIEString | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "shortName",
+          "kind": "property",
+          "type": "ZefixDFIEString | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "uid",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixMutationType",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 88,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "key",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixOperation",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 239,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixOperationResponse",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 242,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixOperations",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 198,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ZefixBfsCommunity",
+        "ZefixCompanyFull",
+        "ZefixCompanySearchQuery",
+        "ZefixCompanyShort",
+        "ZefixDate",
+        "ZefixLegalForm",
+        "ZefixRegistryOfCommerce",
+        "ZefixSogcPublicationAndCompanyShort"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "GET /api/v1/community",
+          "kind": "property",
+          "type": "{ readonly response: readonly ZefixBfsCommunity[]; }",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "GET /api/v1/company/chid/{id}",
+          "kind": "property",
+          "type": "{ readonly path: { readonly id: string; }; readonly response: readonly ZefixCompanyFull[]; }",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "GET /api/v1/company/ehraid/{id}",
+          "kind": "property",
+          "type": "{ readonly path: { readonly id: number; }; readonly response: ZefixCompanyFull; }",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "GET /api/v1/company/uid/{id}",
+          "kind": "property",
+          "type": "{ readonly path: { readonly id: string; }; readonly response: readonly ZefixCompanyFull[]; }",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "GET /api/v1/legalForm",
+          "kind": "property",
+          "type": "{ readonly response: readonly ZefixLegalForm[]; }",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "GET /api/v1/registryOfCommerce",
+          "kind": "property",
+          "type": "{ readonly response: readonly ZefixRegistryOfCommerce[]; }",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "GET /api/v1/registryOfCommerce/byBfsCommunityId/{id}",
+          "kind": "property",
+          "type": "{ readonly path: { readonly id: string; }; readonly response: ZefixRegistryOfCommerce; }",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "GET /api/v1/sogc/{id}",
+          "kind": "property",
+          "type": "{ readonly path: { readonly id: number; }; readonly response: ZefixSogcPublicationAndCompanyShort; }",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "GET /api/v1/sogc/bydate/{date}",
+          "kind": "property",
+          "type": "{ readonly path: { readonly date: ZefixDate; }; readonly response: readonly ZefixSogcPublicationAndCompanyShort[]; }",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "POST /api/v1/company/search",
+          "kind": "property",
+          "type": "{ readonly body: ZefixCompanySearchQuery; readonly response: readonly ZefixCompanyShort[]; }",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixRegistryOfCommerce",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 112,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "address1",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "address2",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "address3",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "address4",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "canton",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "homepage",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "registryOfCommerceId",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "url2",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "url3",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "url4",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "url5",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixRestApiErrorResponse",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 34,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ZefixErrorDetails"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "error",
+          "kind": "property",
+          "type": "ZefixErrorDetails | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixSchemas",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 180,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ZefixAddress",
+        "ZefixBfsCommunity",
+        "ZefixCompanyFull",
+        "ZefixCompanyOldName",
+        "ZefixCompanySearchQuery",
+        "ZefixCompanyShort",
+        "ZefixDFIEString",
+        "ZefixErrorDetails",
+        "ZefixLegalForm",
+        "ZefixMutationType",
+        "ZefixRegistryOfCommerce",
+        "ZefixRestApiErrorResponse",
+        "ZefixSogcPublication",
+        "ZefixSogcPublicationAndCompanyShort"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "Address",
+          "kind": "property",
+          "type": "ZefixAddress",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "BfsCommunity",
+          "kind": "property",
+          "type": "ZefixBfsCommunity",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "CompanyFull",
+          "kind": "property",
+          "type": "ZefixCompanyFull",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "CompanyOldName",
+          "kind": "property",
+          "type": "ZefixCompanyOldName",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "CompanySearchQuery",
+          "kind": "property",
+          "type": "ZefixCompanySearchQuery",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "CompanyShort",
+          "kind": "property",
+          "type": "ZefixCompanyShort",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "DFIEString",
+          "kind": "property",
+          "type": "ZefixDFIEString",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "ErrorDetails",
+          "kind": "property",
+          "type": "ZefixErrorDetails",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "LegalForm",
+          "kind": "property",
+          "type": "ZefixLegalForm",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "MutationType",
+          "kind": "property",
+          "type": "ZefixMutationType",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "RegistryOfCommerce",
+          "kind": "property",
+          "type": "ZefixRegistryOfCommerce",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "RestApiErrorResponse",
+          "kind": "property",
+          "type": "ZefixRestApiErrorResponse",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "SogcPublication",
+          "kind": "property",
+          "type": "ZefixSogcPublication",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "SogcPublicationAndCompanyShort",
+          "kind": "property",
+          "type": "ZefixSogcPublicationAndCompanyShort",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixSogcPublication",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 94,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ZefixMutationType"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "message",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "mutationTypes",
+          "kind": "property",
+          "type": "readonly ZefixMutationType[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "registryOfCommerceCanton",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "registryOfCommerceId",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "registryOfCommerceJournalDate",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "registryOfCommerceJournalId",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "sogcDate",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "sogcId",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixSogcPublicationAndCompanyShort",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/zefix.ts",
+      "sourceLocation": {
+        "filePath": "src/types/zefix.ts",
+        "line": 106,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ZefixCompanyShort",
+        "ZefixSogcPublication"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "companyShort",
+          "kind": "property",
+          "type": "ZefixCompanyShort | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "sogcPublication",
+          "kind": "property",
+          "type": "ZefixSogcPublication | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
     }
   ],
   "components": [],
@@ -7372,6 +8792,11 @@
         "sourcePath": "src/index.ts"
       },
       {
+        "fromPath": "src/index.ts",
+        "toPath": "src/types/zefix.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
         "fromPath": "src/cli/index.ts",
         "toPath": "src/ankh.provider.ts",
         "sourcePath": "src/cli/index.ts"
@@ -7589,6 +9014,11 @@
       {
         "fromPath": "src/platform/index.ts",
         "toPath": "src/test-runner/index.ts",
+        "sourcePath": "src/platform/index.ts"
+      },
+      {
+        "fromPath": "src/platform/index.ts",
+        "toPath": "src/types/zefix.ts",
         "sourcePath": "src/platform/index.ts"
       },
       {
@@ -9715,6 +11145,191 @@
         "fromSymbol": "EndpointTestResponseDiagnostic",
         "toType": "SerializableValue",
         "sourcePath": "src/test-runner/types.ts"
+      },
+      {
+        "fromSymbol": "ZefixErrorDetails",
+        "toType": "ZefixErrorType",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixRestApiErrorResponse",
+        "toType": "ZefixErrorDetails",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixLegalForm",
+        "toType": "ZefixDFIEString",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixCompanyShort",
+        "toType": "ZefixCompanyStatus",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixCompanyShort",
+        "toType": "ZefixLegalForm",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSogcPublication",
+        "toType": "ZefixMutationType",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSogcPublicationAndCompanyShort",
+        "toType": "ZefixCompanyShort",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSogcPublicationAndCompanyShort",
+        "toType": "ZefixSogcPublication",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixCompanyFull",
+        "toType": "ZefixAddress",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixCompanyFull",
+        "toType": "ZefixCompanyOldName",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixCompanyFull",
+        "toType": "ZefixCompanyShort",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixCompanyFull",
+        "toType": "ZefixCompanyStatus",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixCompanyFull",
+        "toType": "ZefixDFIEString",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixCompanyFull",
+        "toType": "ZefixLegalForm",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixCompanyFull",
+        "toType": "ZefixSogcPublication",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSchemas",
+        "toType": "ZefixAddress",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSchemas",
+        "toType": "ZefixBfsCommunity",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSchemas",
+        "toType": "ZefixCompanyFull",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSchemas",
+        "toType": "ZefixCompanyOldName",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSchemas",
+        "toType": "ZefixCompanySearchQuery",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSchemas",
+        "toType": "ZefixCompanyShort",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSchemas",
+        "toType": "ZefixDFIEString",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSchemas",
+        "toType": "ZefixErrorDetails",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSchemas",
+        "toType": "ZefixLegalForm",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSchemas",
+        "toType": "ZefixMutationType",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSchemas",
+        "toType": "ZefixRegistryOfCommerce",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSchemas",
+        "toType": "ZefixRestApiErrorResponse",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSchemas",
+        "toType": "ZefixSogcPublication",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixSchemas",
+        "toType": "ZefixSogcPublicationAndCompanyShort",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixOperations",
+        "toType": "ZefixBfsCommunity",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixOperations",
+        "toType": "ZefixCompanyFull",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixOperations",
+        "toType": "ZefixCompanySearchQuery",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixOperations",
+        "toType": "ZefixCompanyShort",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixOperations",
+        "toType": "ZefixDate",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixOperations",
+        "toType": "ZefixLegalForm",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixOperations",
+        "toType": "ZefixRegistryOfCommerce",
+        "sourcePath": "src/types/zefix.ts"
+      },
+      {
+        "fromSymbol": "ZefixOperations",
+        "toType": "ZefixSogcPublicationAndCompanyShort",
+        "sourcePath": "src/types/zefix.ts"
       }
     ],
     "componentComposition": []

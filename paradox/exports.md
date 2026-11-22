@@ -1236,3 +1236,327 @@ Source: `src/rest/index.ts:86:1`
 - `(definition: ManualRestApiDefinition) => readonly DataSourceDiagnostic[]`
   - definition: `ManualRestApiDefinition`
   - returns: `readonly DataSourceDiagnostic[]`
+
+## ZefixAddress
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:131:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| addon | property | `string \| undefined` | no |  |
+| careOf | property | `string \| undefined` | no |  |
+| city | property | `string \| undefined` | no |  |
+| houseNumber | property | `string \| undefined` | no |  |
+| organisation | property | `string \| undefined` | no |  |
+| poBox | property | `string \| undefined` | no |  |
+| street | property | `string \| undefined` | no |  |
+| swissZipCode | property | `string \| undefined` | no |  |
+
+## ZefixBfsCommunity
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:172:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| bfsId | property | `number \| undefined` | no |  |
+| canton | property | `string \| undefined` | no |  |
+| name | property | `string \| undefined` | no |  |
+| registryOfCommerceId | property | `number \| undefined` | no |  |
+
+## ZefixCompanyFull
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:151:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| address | property | `ZefixAddress \| undefined` | no |  |
+| auditCompanies | property | `readonly ZefixCompanyShort[] \| undefined` | no |  |
+| branchOffices | property | `readonly ZefixCompanyShort[] \| undefined` | no |  |
+| canton | property | `string \| undefined` | no |  |
+| cantonalExcerptWeb | property | `string \| undefined` | no |  |
+| capitalCurrency | property | `string \| undefined` | no |  |
+| capitalNominal | property | `string \| undefined` | no |  |
+| chid | property | `string \| undefined` | no |  |
+| deletionDate | property | `string \| undefined` | no |  |
+| ehraid | property | `number \| undefined` | no |  |
+| furtherHeadOffices | property | `readonly ZefixCompanyShort[] \| undefined` | no |  |
+| hasTakenOver | property | `readonly ZefixCompanyShort[] \| undefined` | no |  |
+| headOffices | property | `readonly ZefixCompanyShort[] \| undefined` | no |  |
+| legalForm | property | `ZefixLegalForm \| undefined` | no |  |
+| legalSeat | property | `string \| undefined` | no |  |
+| legalSeatId | property | `number \| undefined` | no |  |
+| name | property | `string \| undefined` | no |  |
+| oldNames | property | `readonly ZefixCompanyOldName[] \| undefined` | no |  |
+| purpose | property | `string \| undefined` | no |  |
+| registryOfCommerceId | property | `number \| undefined` | no |  |
+| sogcDate | property | `string \| undefined` | no |  |
+| sogcPub | property | `readonly ZefixSogcPublication[] \| undefined` | no |  |
+| status | property | `ZefixCompanyStatus \| undefined` | no |  |
+| translation | property | `readonly string[] \| undefined` | no |  |
+| uid | property | `string \| undefined` | no |  |
+| wasTakenOverBy | property | `readonly ZefixCompanyShort[] \| undefined` | no |  |
+| zefixDetailWeb | property | `ZefixDFIEString \| undefined` | no |  |
+
+## ZefixCompanyOldName
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:143:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| name | property | `string \| undefined` | no |  |
+| sequenceNr | property | `number \| undefined` | no |  |
+| translation | property | `readonly string[] \| undefined` | no |  |
+
+## ZefixCompanySearchQuery
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:39:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| activeOnly | property | `boolean \| undefined` | no |  |
+| canton | property | `string \| undefined` | no |  |
+| legalFormId | property | `number \| undefined` | no |  |
+| legalFormUid | property | `string \| undefined` | no |  |
+| legalSeatId | property | `number \| undefined` | no |  |
+| name | property | `string` | yes |  |
+| registryOfCommerceId | property | `number \| undefined` | no |  |
+
+## ZefixCompanyShort
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:72:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| chid | property | `string \| undefined` | no |  |
+| deletionDate | property | `string \| undefined` | no |  |
+| ehraid | property | `number \| undefined` | no |  |
+| legalForm | property | `ZefixLegalForm \| undefined` | no |  |
+| legalSeat | property | `string \| undefined` | no |  |
+| legalSeatId | property | `number \| undefined` | no |  |
+| name | property | `string \| undefined` | no |  |
+| registryOfCommerceId | property | `number \| undefined` | no |  |
+| sogcDate | property | `string \| undefined` | no |  |
+| status | property | `ZefixCompanyStatus \| undefined` | no |  |
+| uid | property | `string \| undefined` | no |  |
+
+## ZefixCompanyStatus
+
+Kind: `unknown`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:25:1`
+
+## ZefixDate
+
+Kind: `unknown`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:14:1`
+
+## ZefixDFIEString
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:56:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| de | property | `string \| undefined` | no |  |
+| en | property | `string \| undefined` | no |  |
+| fr | property | `string \| undefined` | no |  |
+| it | property | `string \| undefined` | no |  |
+
+## ZefixErrorDetails
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:28:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| message | property | `string \| undefined` | no |  |
+| type | property | `ZefixErrorType \| undefined` | no |  |
+
+## ZefixErrorType
+
+Kind: `unknown`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:17:1`
+
+## ZefixLegalForm
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:64:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `number \| undefined` | no |  |
+| name | property | `ZefixDFIEString \| undefined` | no |  |
+| shortName | property | `ZefixDFIEString \| undefined` | no |  |
+| uid | property | `string \| undefined` | no |  |
+
+## ZefixMutationType
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:88:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `number \| undefined` | no |  |
+| key | property | `string \| undefined` | no |  |
+
+## ZefixOperation
+
+Kind: `unknown`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:239:1`
+
+## ZefixOperationResponse
+
+Kind: `unknown`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:242:1`
+
+## ZefixOperations
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:198:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| GET /api/v1/community | property | `{ readonly response: readonly ZefixBfsCommunity[]; }` | yes |  |
+| GET /api/v1/company/chid/{id} | property | `{ readonly path: { readonly id: string; }; readonly response: readonly ZefixCompanyFull[]; }` | yes |  |
+| GET /api/v1/company/ehraid/{id} | property | `{ readonly path: { readonly id: number; }; readonly response: ZefixCompanyFull; }` | yes |  |
+| GET /api/v1/company/uid/{id} | property | `{ readonly path: { readonly id: string; }; readonly response: readonly ZefixCompanyFull[]; }` | yes |  |
+| GET /api/v1/legalForm | property | `{ readonly response: readonly ZefixLegalForm[]; }` | yes |  |
+| GET /api/v1/registryOfCommerce | property | `{ readonly response: readonly ZefixRegistryOfCommerce[]; }` | yes |  |
+| GET /api/v1/registryOfCommerce/byBfsCommunityId/{id} | property | `{ readonly path: { readonly id: string; }; readonly response: ZefixRegistryOfCommerce; }` | yes |  |
+| GET /api/v1/sogc/{id} | property | `{ readonly path: { readonly id: number; }; readonly response: ZefixSogcPublicationAndCompanyShort; }` | yes |  |
+| GET /api/v1/sogc/bydate/{date} | property | `{ readonly path: { readonly date: ZefixDate; }; readonly response: readonly ZefixSogcPublicationAndCompanyShort[]; }` | yes |  |
+| POST /api/v1/company/search | property | `{ readonly body: ZefixCompanySearchQuery; readonly response: readonly ZefixCompanyShort[]; }` | yes |  |
+
+## ZefixRegistryOfCommerce
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:112:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| address1 | property | `string \| undefined` | no |  |
+| address2 | property | `string \| undefined` | no |  |
+| address3 | property | `string \| undefined` | no |  |
+| address4 | property | `string \| undefined` | no |  |
+| canton | property | `string \| undefined` | no |  |
+| homepage | property | `string \| undefined` | no |  |
+| registryOfCommerceId | property | `number \| undefined` | no |  |
+| url2 | property | `string \| undefined` | no |  |
+| url3 | property | `string \| undefined` | no |  |
+| url4 | property | `string \| undefined` | no |  |
+| url5 | property | `string \| undefined` | no |  |
+
+## ZefixRestApiErrorResponse
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:34:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| error | property | `ZefixErrorDetails \| undefined` | no |  |
+
+## ZefixSchemas
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:180:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| Address | property | `ZefixAddress` | yes |  |
+| BfsCommunity | property | `ZefixBfsCommunity` | yes |  |
+| CompanyFull | property | `ZefixCompanyFull` | yes |  |
+| CompanyOldName | property | `ZefixCompanyOldName` | yes |  |
+| CompanySearchQuery | property | `ZefixCompanySearchQuery` | yes |  |
+| CompanyShort | property | `ZefixCompanyShort` | yes |  |
+| DFIEString | property | `ZefixDFIEString` | yes |  |
+| ErrorDetails | property | `ZefixErrorDetails` | yes |  |
+| LegalForm | property | `ZefixLegalForm` | yes |  |
+| MutationType | property | `ZefixMutationType` | yes |  |
+| RegistryOfCommerce | property | `ZefixRegistryOfCommerce` | yes |  |
+| RestApiErrorResponse | property | `ZefixRestApiErrorResponse` | yes |  |
+| SogcPublication | property | `ZefixSogcPublication` | yes |  |
+| SogcPublicationAndCompanyShort | property | `ZefixSogcPublicationAndCompanyShort` | yes |  |
+
+## ZefixSogcPublication
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:94:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| message | property | `string \| undefined` | no |  |
+| mutationTypes | property | `readonly ZefixMutationType[] \| undefined` | no |  |
+| registryOfCommerceCanton | property | `string \| undefined` | no |  |
+| registryOfCommerceId | property | `number \| undefined` | no |  |
+| registryOfCommerceJournalDate | property | `string \| undefined` | no |  |
+| registryOfCommerceJournalId | property | `number \| undefined` | no |  |
+| sogcDate | property | `string \| undefined` | no |  |
+| sogcId | property | `number \| undefined` | no |  |
+
+## ZefixSogcPublicationAndCompanyShort
+
+Kind: `type`
+Module: `src/types/zefix.ts`
+Source: `src/types/zefix.ts:106:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| companyShort | property | `ZefixCompanyShort \| undefined` | no |  |
+| sogcPublication | property | `ZefixSogcPublication \| undefined` | no |  |
