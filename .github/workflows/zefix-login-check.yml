@@ -1,0 +1,85 @@
+# One-shot manual operation. Never run on PRs, pushes, schedules or bots.
+name: Zefix login check
+
+on:
+  workflow_dispatch:
+
+# Creating an immutable-at-runtime claim tag and disabling the workflow require write access.
+# No Zefix request occurs unless BOTH operations succeed.
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: zefix-login-check-once
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/main' && github.actor == 'artiphishle' && github.triggering_actor == 'artiphishle'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Claim one-time execution and disable future dispatches
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ZEFIX_USERNAME: ${{ secrets.ZEFIX_USERNAME }}
+          ZEFIX_PASSWORD: ${{ secrets.ZEFIX_PASSWORD }}
+        run: |
+          set -euo pipefail
+          if [ -z "$ZEFIX_USERNAME" ] || [ -z "$ZEFIX_PASSWORD" ]; then
+            echo "::error title=Missing Zefix credentials::Set both repository secrets before running the one-shot check."
+            exit 1
+          fi
+
+          # GitHub ref creation is atomic: existing tags, rejected writes and API failures
+          # all stop the job BEFORE any Zefix network request.
+          # This marker survives workflow re-runs and separate GitHub runners.
+          if ! gh api --method POST "repos/${GITHUB_REPOSITORY}/git/refs" \
+              -f ref="refs/tags/zefix-login-check-consumed" \
+              -f sha="${GITHUB_SHA}" >/dev/null 2>&1; then
+            echo "::error title=Zefix check unavailable::One-shot claim already exists or cannot be created. No Zefix request sent."
+            exit 1
+          fi
+
+          # Fail closed if automatic disabling is not permitted. The claim is still consumed.
+          if ! gh api --method PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/zefix-login-check.yml/disable" \
+              >/dev/null 2>&1; then
+            echo "::error title=Cannot disable Zefix workflow::Claim consumed; no Zefix request sent. Manual investigation required."
+            exit 1
+          fi
+          echo "One-shot claim recorded; workflow disabled for future dispatches."
+
+      - name: Checkout trusted main
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.4.2'
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build package
+        run: bun run build
+
+      - name: Verify Zefix Basic authentication once
+        env:
+          ZEFIX_USERNAME: ${{ secrets.ZEFIX_USERNAME }}
+          ZEFIX_PASSWORD: ${{ secrets.ZEFIX_PASSWORD }}
+        run: |
+          bun -e '
+            import { verifyZefixAuthenticationAsync } from "./dist/index.js";
+
+            const status = await verifyZefixAuthenticationAsync({
+              username: process.env.ZEFIX_USERNAME,
+              password: process.env.ZEFIX_PASSWORD,
+            });
+
+            // No headers, credentials, provider bodies or network exception messages are logged.
+            console.log("Zefix authentication status: " + status);
+            if (status !== "authenticated") process.exitCode = 1;
+          '
