@@ -4,3 +4,4 @@ export * from '../openapi/index.js';
 export * from '../packageInfo.js';
 export * from '../rest/index.js';
 export * from '../test-runner/index.js';
+export type * from '../types/zefix.js';
