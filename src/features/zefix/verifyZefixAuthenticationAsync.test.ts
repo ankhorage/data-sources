@@ -4,18 +4,24 @@ import { verifyZefixAuthenticationAsync } from '../../index.js';
 
 describe('Zefix Basic authentication', () => {
   it('performs one protected request and returns only a safe status', async () => {
-    const requests: Array<{ url: string; authorization: string | null; redirect: RequestRedirect }> = [];
+    const requests: {
+      url: string;
+      authorization: string | null;
+      redirect: RequestRedirect;
+    }[] = [];
     const result = await verifyZefixAuthenticationAsync({
       username: 'user@example.ch',
       password: 'a-private-password',
-      fetch: async (url, init) => {
+      fetch: (url, init) => {
         const headers = new Headers(init?.headers);
+        const requestUrl =
+          typeof url === 'string' ? url : url instanceof Request ? url.url : url.toString();
         requests.push({
-          url: String(url),
+          url: requestUrl,
           authorization: headers.get('authorization'),
           redirect: init?.redirect ?? 'follow',
         });
-        return new Response('[{"id":1}]', { status: 200 });
+        return Promise.resolve(new Response('[{"id":1}]', { status: 200 }));
       },
     });
 
@@ -40,7 +46,9 @@ describe('Zefix Basic authentication', () => {
     });
     expect(result).toBe('missing-credentials');
   });
+});
 
+describe('Zefix authentication failures', () => {
   it.each([
     [401, 'unauthorized'],
     [403, 'forbidden'],
@@ -50,7 +58,8 @@ describe('Zefix Basic authentication', () => {
     const result = await verifyZefixAuthenticationAsync({
       username: 'user',
       password: 'secret',
-      fetch: async () => new Response('upstream body with private details', { status }),
+      fetch: () =>
+        Promise.resolve(new Response('upstream body with private details', { status })),
     });
     expect(result).toBe(expected);
     expect(JSON.stringify(result)).not.toContain('private details');

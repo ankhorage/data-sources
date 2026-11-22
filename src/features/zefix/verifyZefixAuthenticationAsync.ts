@@ -23,7 +23,12 @@ export async function verifyZefixAuthenticationAsync(input: {
   | 'upstream-error'
 > {
   const { username, password } = input;
-  if (username === undefined || username.trim().length === 0 || password === undefined || password.length === 0)
+  if (
+    username === undefined ||
+    username.trim().length === 0 ||
+    password === undefined ||
+    password.length === 0
+  )
     return 'missing-credentials';
 
   const encodedCredentials = btoa(
