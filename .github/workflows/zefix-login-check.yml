@@ -1,0 +1,52 @@
+# Manual-only, main-only secret verification. Never run on pull_request.
+name: Zefix login check
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: zefix-login-check
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout trusted main
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.4.2'
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build package
+        run: bun run build
+
+      - name: Verify Zefix Basic authentication once
+        env:
+          ZEFIX_USERNAME: ${{ secrets.ZEFIX_USERNAME }}
+          ZEFIX_PASSWORD: ${{ secrets.ZEFIX_PASSWORD }}
+        run: |
+          bun -e '
+            import { verifyZefixAuthenticationAsync } from "./dist/index.js";
+
+            const status = await verifyZefixAuthenticationAsync({
+              username: process.env.ZEFIX_USERNAME,
+              password: process.env.ZEFIX_PASSWORD,
+            });
+
+            // No headers, secret values, provider bodies or exceptions are logged.
+            console.log("Zefix authentication status: " + status);
+            if (status !== "authenticated") process.exitCode = 1;
+          '
