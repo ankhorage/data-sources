@@ -1,4 +1,5 @@
 export * from '../discovery/index.js';
+export { verifyZefixAuthenticationAsync } from '../features/zefix/verifyZefixAuthenticationAsync.js';
 export * from '../graphql/index.js';
 export * from '../openapi/index.js';
 export * from '../packageInfo.js';
