@@ -58,8 +58,7 @@ describe('Zefix authentication failures', () => {
     const result = await verifyZefixAuthenticationAsync({
       username: 'user',
       password: 'secret',
-      fetch: () =>
-        Promise.resolve(new Response('upstream body with private details', { status })),
+      fetch: () => Promise.resolve(new Response('upstream body with private details', { status })),
     });
     expect(result).toBe(expected);
     expect(JSON.stringify(result)).not.toContain('private details');

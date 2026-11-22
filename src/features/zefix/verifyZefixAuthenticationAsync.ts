@@ -13,15 +13,7 @@ export async function verifyZefixAuthenticationAsync(input: {
   readonly username?: string;
   readonly password?: string;
   readonly fetch?: typeof globalThis.fetch;
-}): Promise<
-  | 'authenticated'
-  | 'missing-credentials'
-  | 'unauthorized'
-  | 'forbidden'
-  | 'rate-limited'
-  | 'network-error'
-  | 'upstream-error'
-> {
+}): Promise<ZefixAuthenticationStatus> {
   const { username, password } = input;
   if (
     username === undefined ||
@@ -65,6 +57,15 @@ export async function verifyZefixAuthenticationAsync(input: {
     return 'network-error';
   return 'upstream-error';
 }
+
+type ZefixAuthenticationStatus =
+  | 'authenticated'
+  | 'missing-credentials'
+  | 'unauthorized'
+  | 'forbidden'
+  | 'rate-limited'
+  | 'network-error'
+  | 'upstream-error';
 
 const ZEFIX_AUTHENTICATION_API = normalizeManualRestApi({
   id: 'zefix',
