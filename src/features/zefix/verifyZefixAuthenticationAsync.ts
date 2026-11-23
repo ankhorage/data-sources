@@ -6,8 +6,7 @@ import { testEndpoint } from '../../test-runner/index.js';
  *
  * Only call this function on a trusted server. The returned status intentionally excludes
  * credentials, request headers, upstream response bodies, and provider diagnostics.
- * @security Keep Zefix credentials in a server-side secret store; never relay the raw
- * test-runner result or this function's input to clients or logs.
+ * @security verifyZefixAuthenticationAsync.test.ts#performs one protected request and returns only a safe status
  */
 export async function verifyZefixAuthenticationAsync(input: {
   readonly username?: string;
