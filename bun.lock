@@ -40,7 +40,7 @@
 
     "@ankhorage/rules-repository": ["@ankhorage/rules-repository@0.6.0", "", { "dependencies": { "@ankhorage/contracts": "^26.17.0", "@ankhorage/rules": "^0.6.0" } }, "sha512-D7Vi1ReSo0O+79/zpyzbkJ2y9BfZY0It8wPHR3LrPe8Wk3VRX0mXEzQW4kgAIx6PBhqQa86+2GG1dLMMHZugjA=="],
 
-    "@ankhorage/utility": ["@ankhorage/utility@1.10.1", "", { "peerDependencies": { "fastify": "^5.12.5" }, "optionalPeers": ["fastify"] }, "sha512-NZEIF05j3rbfOJk083fAAiZL6nCC2IPiDCjsWgH/bRF8V0G5uVnVlJ7gACJp+Nu2VPf+LEyTLtmtwgMVBPQonA=="],
+    "@ankhorage/utility": ["@ankhorage/utility@1.11.0", "", { "peerDependencies": { "fastify": "^5.12.5" }, "optionalPeers": ["fastify"] }, "sha512-SskvBXAdU1SNmyi4mWn0Dcv1ljzAVlTE3vcdHQaYiPBCONtLjCgfUFUHooBfKZBPvoM+o9848Yk+EJVTSy5vfA=="],
 
     "@babel/code-frame": ["@babel/code-frame@7.29.7", "", { "dependencies": { "@babel/helper-validator-identifier": "^7.29.7", "js-tokens": "^4.0.0", "picocolors": "^1.1.1" } }, "sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw=="],
 
@@ -829,8 +829,6 @@
     "zod-validation-error": ["zod-validation-error@4.0.2", "", { "peerDependencies": { "zod": "^3.25.0 || ^4.0.0" } }, "sha512-Q6/nZLe6jxuU80qb/4uJ4t5v2VEZ44lzQjPDhYJNztRQ4wyWc6VF3D3Kb/fAuPetZQnhS3hnajCf9CsWesghLQ=="],
 
     "@ankhorage/apm/@ankhorage/project-detector": ["@ankhorage/project-detector@0.1.1", "", { "dependencies": { "@ankhorage/utility": "^0.8.0", "minimatch": "^10.2.6", "yaml": "^2.9.1" }, "peerDependencies": { "@ankhorage/ankh": "^0.8.13" }, "optionalPeers": ["@ankhorage/ankh"], "bin": { "project-detector": "dist/cli/runAsync.js" } }, "sha512-Cvzdh7xuJRhJkXnqIOlSzSrxauj8DQNOFER34qSYWmTxNyKAAjg0w93syQ2b6uT/l6yci6RlqT2c7YGZ1SDUMg=="],
-
-    "@ankhorage/contracts/@ankhorage/utility": ["@ankhorage/utility@1.11.0", "", { "peerDependencies": { "fastify": "^5.12.5" }, "optionalPeers": ["fastify"] }, "sha512-SskvBXAdU1SNmyi4mWn0Dcv1ljzAVlTE3vcdHQaYiPBCONtLjCgfUFUHooBfKZBPvoM+o9848Yk+EJVTSy5vfA=="],
 
     "@ankhorage/devtools/@ankhorage/utility": ["@ankhorage/utility@0.5.5", "", { "dependencies": { "@ankhorage/contracts": "^12.0.1" }, "peerDependencies": { "@techstark/opencv-js": "^5.0.0-release.1", "pixelmatch": "^7.2.0", "sharp": "^0.35.4", "tesseract.js": "^7.0.0" }, "optionalPeers": ["@techstark/opencv-js", "pixelmatch", "sharp", "tesseract.js"] }, "sha512-so1NXcIOQjEPNsNpdGp9McXsw8oIo4Mw/pF3y2x69f1MbwqEC79H7I0dResKs52S8Il4JeO/e5RO3Sf4yDdMGA=="],
 

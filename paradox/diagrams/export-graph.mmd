@@ -6,6 +6,9 @@ graph LR
   module_src_discovery_index_ts["src/discovery/index.ts"]
   module_src_discovery_openapiDiscoveryPlan_ts["src/discovery/openapiDiscoveryPlan.ts"]
   module_src_discovery_scopeOpenApiDocument_ts["src/discovery/scopeOpenApiDocument.ts"]
+  module_src_features_zefix_createZefixPublicRestApi_ts["src/features/zefix/createZefixPublicRestApi.ts"]
+  module_src_features_zefix_mapZefixCompanyResult_ts["src/features/zefix/mapZefixCompanyResult.ts"]
+  module_src_features_zefix_verifyZefixAuthenticationAsync_ts["src/features/zefix/verifyZefixAuthenticationAsync.ts"]
   module_src_flow_createFlowApiOperationHandle_ts["src/flow/createFlowApiOperationHandle.ts"]
   module_src_flow_index_ts["src/flow/index.ts"]
   module_src_flow_matchesFlowSchema_ts["src/flow/matchesFlowSchema.ts"]
@@ -54,6 +57,8 @@ graph LR
   export_createManualRestApi -.-> export_ManualRestApiDefinition
   export_createOpenApiDiscoveryCandidates["createOpenApiDiscoveryCandidates"]
   module_src_discovery_index_ts --> export_createOpenApiDiscoveryCandidates
+  export_createZefixPublicRestApi["createZefixPublicRestApi"]
+  module_src_features_zefix_createZefixPublicRestApi_ts --> export_createZefixPublicRestApi
   export_DATA_SOURCES_PACKAGE_NAME["DATA_SOURCES_PACKAGE_NAME"]
   module_src_packageInfo_ts --> export_DATA_SOURCES_PACKAGE_NAME
   export_DataSourcesPackageInfo["DataSourcesPackageInfo"]
@@ -214,6 +219,11 @@ graph LR
   module_src_rest_index_ts --> export_ManualRestMethod
   export_ManualRestOperationDefinition["ManualRestOperationDefinition"]
   module_src_rest_index_ts --> export_ManualRestOperationDefinition
+  export_mapZefixCompanyResult["mapZefixCompanyResult"]
+  module_src_features_zefix_mapZefixCompanyResult_ts --> export_mapZefixCompanyResult
+  export_mapZefixCompanyResult -.-> export_ZefixCompanyFull
+  export_mapZefixCompanyResult -.-> export_ZefixCompanyResult
+  export_mapZefixCompanyResult -.-> export_ZefixCompanyShort
   export_normalizeGraphQlApi["normalizeGraphQlApi"]
   module_src_graphql_index_ts --> export_normalizeGraphQlApi
   export_normalizeGraphQlApi -.-> export_GraphQlApiDefinition
@@ -303,6 +313,8 @@ graph LR
   export_validateManualRestApi["validateManualRestApi"]
   module_src_rest_index_ts --> export_validateManualRestApi
   export_validateManualRestApi -.-> export_ManualRestApiDefinition
+  export_verifyZefixAuthenticationAsync["verifyZefixAuthenticationAsync"]
+  module_src_features_zefix_verifyZefixAuthenticationAsync_ts --> export_verifyZefixAuthenticationAsync
   export_ZefixAddress["ZefixAddress"]
   module_src_types_zefix_ts --> export_ZefixAddress
   export_ZefixBfsCommunity["ZefixBfsCommunity"]
@@ -318,6 +330,16 @@ graph LR
   export_ZefixCompanyFull -.-> export_ZefixSogcPublication
   export_ZefixCompanyOldName["ZefixCompanyOldName"]
   module_src_types_zefix_ts --> export_ZefixCompanyOldName
+  export_ZefixCompanyResult["ZefixCompanyResult"]
+  module_src_features_zefix_mapZefixCompanyResult_ts --> export_ZefixCompanyResult
+  export_ZefixCompanyResult -.-> export_ZefixCompanyFull
+  export_ZefixCompanyResult -.-> export_ZefixCompanyResultCompany
+  export_ZefixCompanyResult -.-> export_ZefixCompanyShort
+  export_ZefixCompanyResultCompany["ZefixCompanyResultCompany"]
+  module_src_features_zefix_mapZefixCompanyResult_ts --> export_ZefixCompanyResultCompany
+  export_ZefixCompanyResultCompany -.-> export_ZefixAddress
+  export_ZefixCompanyResultCompany -.-> export_ZefixCompanyStatus
+  export_ZefixCompanyResultCompany -.-> export_ZefixLegalForm
   export_ZefixCompanySearchQuery["ZefixCompanySearchQuery"]
   module_src_types_zefix_ts --> export_ZefixCompanySearchQuery
   export_ZefixCompanyShort["ZefixCompanyShort"]

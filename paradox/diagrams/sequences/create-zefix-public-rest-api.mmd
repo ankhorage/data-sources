@@ -1,0 +1,5 @@
+sequenceDiagram
+  participant participant_createZefixPublicRestApi as createZefixPublicRestApi
+  participant participant_normalizeManualRestApi as normalizeManualRestApi
+  participant_createZefixPublicRestApi->>participant_normalizeManualRestApi: normalizeManualRestApi()
+  participant_normalizeManualRestApi-->>participant_createZefixPublicRestApi: return

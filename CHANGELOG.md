@@ -1,5 +1,20 @@
 # @ankhorage/data-sources
 
+## 2.4.0
+
+### Minor Changes
+
+- 36990ab: Add portable Zefix company search and UID lookup descriptors plus a safe company result mapper.
+- 2ff9586: Add a credential-safe, one-request Zefix PublicREST Basic authentication check built on the existing REST executor.
+
+### Patch Changes
+
+- adb9dbd: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- e8396af: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- b191642: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- 34694a2: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- c7a6a0d: Update Ankhorage dependencies: `@ankhorage/contracts`.
+
 ## 2.3.0
 
 ### Minor Changes

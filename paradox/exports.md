@@ -81,6 +81,23 @@ Creates the ordered, deduplicated URLs probed during OpenAPI discovery.
   - rawUrl: `string`
   - returns: `readonly string[]`
 
+## createZefixPublicRestApi
+
+Kind: `function`
+Module: `src/features/zefix/createZefixPublicRestApi.ts`
+Source: `src/features/zefix/createZefixPublicRestApi.ts:12:1`
+
+Create the portable Zefix PublicREST descriptor for company search and UID lookup.
+
+The descriptor holds only the Basic credential reference. A trusted host must resolve that
+reference before the existing endpoint executor sends a request; credentials never belong in
+this API definition or in a client bundle.
+
+### Signatures
+
+- `() => ExternalRestApiDefinition`
+  - returns: `ExternalRestApiDefinition`
+
 ## DATA_SOURCES_PACKAGE_NAME
 
 Kind: `value`
@@ -851,6 +868,24 @@ Source: `src/rest/index.ts:24:1`
 | request | property | `DataOperationRequest \| undefined` | no |  |
 | response | property | `DataOperationResponse \| undefined` | no |  |
 
+## mapZefixCompanyResult
+
+Kind: `function`
+Module: `src/features/zefix/mapZefixCompanyResult.ts`
+Source: `src/features/zefix/mapZefixCompanyResult.ts:16:1`
+
+Map one Zefix company DTO into a portable, provenance-preserving acquisition result.
+
+The returned `wire` object is the provider record and remains distinct from the curated
+`company` projection. Manual CRM contacts, activities, follow-ups, and user-entered fields are
+intentionally absent: they must be stored by their application owner, not mixed with Zefix data.
+
+### Signatures
+
+- `(wire: ZefixCompanyShort | ZefixCompanyFull) => ZefixCompanyResult | undefined`
+  - wire: `ZefixCompanyShort | ZefixCompanyFull`
+  - returns: `ZefixCompanyResult | undefined`
+
 ## normalizeGraphQlApi
 
 Kind: `function`
@@ -1237,6 +1272,25 @@ Source: `src/rest/index.ts:86:1`
   - definition: `ManualRestApiDefinition`
   - returns: `readonly DataSourceDiagnostic[]`
 
+## verifyZefixAuthenticationAsync
+
+Kind: `function`
+Module: `src/features/zefix/verifyZefixAuthenticationAsync.ts`
+Source: `src/features/zefix/verifyZefixAuthenticationAsync.ts:11:1`
+
+Verify Zefix HTTP Basic credentials with exactly one protected, non-personal-data request.
+
+Only call this function on a trusted server. The returned status intentionally excludes
+credentials, request headers, upstream response bodies, and provider diagnostics.
+
+Security tests: `verifyZefixAuthenticationAsync.test.ts#performs one protected request and returns only a safe status`
+
+### Signatures
+
+- `(input: { readonly username?: string; readonly password?: string; readonly fetch?: typeof globalThis.fetch; }) => Promise<ZefixAuthenticationStatus>`
+  - input: `{ readonly username?: string; readonly password?: string; readonly fetch?: typeof globalThis.fetch; }`
+  - returns: `Promise<ZefixAuthenticationStatus>`
+
 ## ZefixAddress
 
 Kind: `type`
@@ -1322,6 +1376,41 @@ Source: `src/types/zefix.ts:143:1`
 | name | property | `string \| undefined` | no |  |
 | sequenceNr | property | `number \| undefined` | no |  |
 | translation | property | `readonly string[] \| undefined` | no |  |
+
+## ZefixCompanyResult
+
+Kind: `type`
+Module: `src/features/zefix/mapZefixCompanyResult.ts`
+Source: `src/features/zefix/mapZefixCompanyResult.ts:39:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| company | property | `ZefixCompanyResultCompany` | yes |  |
+| provider | property | `"zefix"` | yes |  |
+| wire | property | `ZefixCompanyShort \| ZefixCompanyFull` | yes |  |
+
+## ZefixCompanyResultCompany
+
+Kind: `type`
+Module: `src/features/zefix/mapZefixCompanyResult.ts`
+Source: `src/features/zefix/mapZefixCompanyResult.ts:47:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| address | property | `ZefixAddress \| undefined` | no |  |
+| canton | property | `string \| undefined` | no |  |
+| chid | property | `string \| undefined` | no |  |
+| ehraid | property | `number \| undefined` | no |  |
+| legalForm | property | `ZefixLegalForm \| undefined` | no |  |
+| legalSeat | property | `string \| undefined` | no |  |
+| name | property | `string \| undefined` | no |  |
+| purpose | property | `string \| undefined` | no |  |
+| status | property | `ZefixCompanyStatus \| undefined` | no |  |
+| uid | property | `string` | yes |  |
 
 ## ZefixCompanySearchQuery
 

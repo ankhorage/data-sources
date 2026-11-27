@@ -25,6 +25,16 @@ graph TD
   module_src_discovery_scopeOpenApiDocument_ts["src/discovery/scopeOpenApiDocument.ts"]
   package__ankhorage_data_sources -.-> module_src_discovery_scopeOpenApiDocument_ts
   module_src_discovery_scopeOpenApiDocument_ts --> module_src_openapi_index_ts
+  module_src_features_zefix_createZefixPublicRestApi_ts["src/features/zefix/createZefixPublicRestApi.ts"]
+  package__ankhorage_data_sources -.-> module_src_features_zefix_createZefixPublicRestApi_ts
+  module_src_features_zefix_createZefixPublicRestApi_ts --> module_src_rest_index_ts
+  module_src_features_zefix_mapZefixCompanyResult_ts["src/features/zefix/mapZefixCompanyResult.ts"]
+  package__ankhorage_data_sources -.-> module_src_features_zefix_mapZefixCompanyResult_ts
+  module_src_features_zefix_mapZefixCompanyResult_ts --> module_src_types_zefix_ts
+  module_src_features_zefix_verifyZefixAuthenticationAsync_ts["src/features/zefix/verifyZefixAuthenticationAsync.ts"]
+  package__ankhorage_data_sources -.-> module_src_features_zefix_verifyZefixAuthenticationAsync_ts
+  module_src_features_zefix_verifyZefixAuthenticationAsync_ts --> module_src_rest_index_ts
+  module_src_features_zefix_verifyZefixAuthenticationAsync_ts --> module_src_test_runner_index_ts
   module_src_flow_createFlowApiOperationHandle_ts["src/flow/createFlowApiOperationHandle.ts"]
   package__ankhorage_data_sources -.-> module_src_flow_createFlowApiOperationHandle_ts
   module_src_flow_index_ts["src/flow/index.ts"]

@@ -18,7 +18,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v2.3.0",
+      "value": "v2.4.0",
       "color": "cb3837"
     },
     {
@@ -331,6 +331,39 @@
       ]
     },
     {
+      "path": "src/features/zefix/createZefixPublicRestApi.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/rest/index.ts"
+      ],
+      "exports": [
+        "createZefixPublicRestApi"
+      ]
+    },
+    {
+      "path": "src/features/zefix/mapZefixCompanyResult.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/zefix.ts"
+      ],
+      "exports": [
+        "mapZefixCompanyResult",
+        "ZefixCompanyResult",
+        "ZefixCompanyResultCompany"
+      ]
+    },
+    {
+      "path": "src/features/zefix/verifyZefixAuthenticationAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/rest/index.ts",
+        "src/test-runner/index.ts"
+      ],
+      "exports": [
+        "verifyZefixAuthenticationAsync"
+      ]
+    },
+    {
       "path": "src/flow/createFlowApiOperationHandle.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -540,6 +573,7 @@
         "createGraphQlIntrospectionRequest",
         "createManualRestApi",
         "createOpenApiDiscoveryCandidates",
+        "createZefixPublicRestApi",
         "DATA_SOURCES_PACKAGE_NAME",
         "DataSourcesPackageInfo",
         "DEFAULT_OPENAPI_DISCOVERY_PATHS",
@@ -601,6 +635,7 @@
         "ManualRestEndpointDefinition",
         "ManualRestMethod",
         "ManualRestOperationDefinition",
+        "mapZefixCompanyResult",
         "normalizeGraphQlApi",
         "normalizeGraphQlIntrospectionOperations",
         "normalizeGraphQlIntrospectionSchemas",
@@ -633,10 +668,13 @@
         "testEndpoint",
         "validateGraphQlApi",
         "validateManualRestApi",
+        "verifyZefixAuthenticationAsync",
         "ZefixAddress",
         "ZefixBfsCommunity",
         "ZefixCompanyFull",
         "ZefixCompanyOldName",
+        "ZefixCompanyResult",
+        "ZefixCompanyResultCompany",
         "ZefixCompanySearchQuery",
         "ZefixCompanyShort",
         "ZefixCompanyStatus",
@@ -766,6 +804,7 @@
         "createGraphQlIntrospectionRequest",
         "createManualRestApi",
         "createOpenApiDiscoveryCandidates",
+        "createZefixPublicRestApi",
         "DATA_SOURCES_PACKAGE_NAME",
         "DataSourcesPackageInfo",
         "DEFAULT_OPENAPI_DISCOVERY_PATHS",
@@ -813,6 +852,7 @@
         "ManualRestEndpointDefinition",
         "ManualRestMethod",
         "ManualRestOperationDefinition",
+        "mapZefixCompanyResult",
         "normalizeGraphQlApi",
         "normalizeGraphQlIntrospectionOperations",
         "normalizeGraphQlIntrospectionSchemas",
@@ -844,10 +884,13 @@
         "testEndpoint",
         "validateGraphQlApi",
         "validateManualRestApi",
+        "verifyZefixAuthenticationAsync",
         "ZefixAddress",
         "ZefixBfsCommunity",
         "ZefixCompanyFull",
         "ZefixCompanyOldName",
+        "ZefixCompanyResult",
+        "ZefixCompanyResultCompany",
         "ZefixCompanySearchQuery",
         "ZefixCompanyShort",
         "ZefixCompanyStatus",
@@ -1221,6 +1264,35 @@
             }
           ],
           "returnType": "readonly string[]",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "createZefixPublicRestApi",
+      "title": null,
+      "description": "Create the portable Zefix PublicREST descriptor for company search and UID lookup.\n\nThe descriptor holds only the Basic credential reference. A trusted host must resolve that\nreference before the existing endpoint executor sends a request; credentials never belong in\nthis API definition or in a client bundle.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/zefix/createZefixPublicRestApi.ts",
+      "sourceLocation": {
+        "filePath": "src/features/zefix/createZefixPublicRestApi.ts",
+        "line": 12,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "() => ExternalRestApiDefinition",
+          "parameters": [],
+          "returnType": "ExternalRestApiDefinition",
           "returnDescription": null
         }
       ],
@@ -3923,6 +3995,46 @@
       "structuredRows": []
     },
     {
+      "name": "mapZefixCompanyResult",
+      "title": null,
+      "description": "Map one Zefix company DTO into a portable, provenance-preserving acquisition result.\n\nThe returned `wire` object is the provider record and remains distinct from the curated\n`company` projection. Manual CRM contacts, activities, follow-ups, and user-entered fields are\nintentionally absent: they must be stored by their application owner, not mixed with Zefix data.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/zefix/mapZefixCompanyResult.ts",
+      "sourceLocation": {
+        "filePath": "src/features/zefix/mapZefixCompanyResult.ts",
+        "line": 16,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ZefixCompanyFull",
+        "ZefixCompanyResult",
+        "ZefixCompanyShort"
+      ],
+      "signatures": [
+        {
+          "label": "(wire: ZefixCompanyShort | ZefixCompanyFull) => ZefixCompanyResult | undefined",
+          "parameters": [
+            {
+              "name": "wire",
+              "type": "ZefixCompanyShort | ZefixCompanyFull",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "ZefixCompanyResult | undefined",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "normalizeGraphQlApi",
       "title": null,
       "description": null,
@@ -5282,6 +5394,44 @@
       "structuredRows": []
     },
     {
+      "name": "verifyZefixAuthenticationAsync",
+      "title": null,
+      "description": "Verify Zefix HTTP Basic credentials with exactly one protected, non-personal-data request.\n\nOnly call this function on a trusted server. The returned status intentionally excludes\ncredentials, request headers, upstream response bodies, and provider diagnostics.",
+      "isReadme": false,
+      "see": [],
+      "security": [
+        "verifyZefixAuthenticationAsync.test.ts#performs one protected request and returns only a safe status"
+      ],
+      "kind": "function",
+      "modulePath": "src/features/zefix/verifyZefixAuthenticationAsync.ts",
+      "sourceLocation": {
+        "filePath": "src/features/zefix/verifyZefixAuthenticationAsync.ts",
+        "line": 11,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(input: { readonly username?: string; readonly password?: string; readonly fetch?: typeof globalThis.fetch; }) => Promise<ZefixAuthenticationStatus>",
+          "parameters": [
+            {
+              "name": "input",
+              "type": "{ readonly username?: string; readonly password?: string; readonly fetch?: typeof globalThis.fetch; }",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "Promise<ZefixAuthenticationStatus>",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "ZefixAddress",
       "title": null,
       "description": null,
@@ -5670,6 +5820,151 @@
           "kind": "property",
           "type": "readonly string[] | undefined",
           "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixCompanyResult",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/features/zefix/mapZefixCompanyResult.ts",
+      "sourceLocation": {
+        "filePath": "src/features/zefix/mapZefixCompanyResult.ts",
+        "line": 39,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ZefixCompanyFull",
+        "ZefixCompanyResultCompany",
+        "ZefixCompanyShort"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "company",
+          "kind": "property",
+          "type": "ZefixCompanyResultCompany",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "provider",
+          "kind": "property",
+          "type": "\"zefix\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "wire",
+          "kind": "property",
+          "type": "ZefixCompanyShort | ZefixCompanyFull",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ZefixCompanyResultCompany",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/features/zefix/mapZefixCompanyResult.ts",
+      "sourceLocation": {
+        "filePath": "src/features/zefix/mapZefixCompanyResult.ts",
+        "line": 47,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ZefixAddress",
+        "ZefixCompanyStatus",
+        "ZefixLegalForm"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "address",
+          "kind": "property",
+          "type": "ZefixAddress | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "canton",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "chid",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "ehraid",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "legalForm",
+          "kind": "property",
+          "type": "ZefixLegalForm | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "legalSeat",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "purpose",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "status",
+          "kind": "property",
+          "type": "ZefixCompanyStatus | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "uid",
+          "kind": "property",
+          "type": "string",
+          "required": true,
           "description": null
         }
       ],
@@ -6840,6 +7135,41 @@
       "sourceLocation": {
         "filePath": "src/discovery/scopeOpenApiDocument.ts",
         "line": 38,
+        "column": 1
+      }
+    },
+    {
+      "name": "createZefixPublicRestApi",
+      "description": "Create the portable Zefix PublicREST descriptor for company search and UID lookup.\n\nThe descriptor holds only the Basic credential reference. A trusted host must resolve that\nreference before the existing endpoint executor sends a request; credentials never belong in\nthis API definition or in a client bundle.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/zefix/createZefixPublicRestApi.ts",
+        "line": 12,
+        "column": 1
+      }
+    },
+    {
+      "name": "mapZefixCompanyResult",
+      "description": "Map one Zefix company DTO into a portable, provenance-preserving acquisition result.\n\nThe returned `wire` object is the provider record and remains distinct from the curated\n`company` projection. Manual CRM contacts, activities, follow-ups, and user-entered fields are\nintentionally absent: they must be stored by their application owner, not mixed with Zefix data.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/zefix/mapZefixCompanyResult.ts",
+        "line": 16,
+        "column": 1
+      }
+    },
+    {
+      "name": "verifyZefixAuthenticationAsync",
+      "description": "Verify Zefix HTTP Basic credentials with exactly one protected, non-personal-data request.\n\nOnly call this function on a trusted server. The returned status intentionally excludes\ncredentials, request headers, upstream response bodies, and provider diagnostics.",
+      "see": [],
+      "security": [
+        "verifyZefixAuthenticationAsync.test.ts#performs one protected request and returns only a safe status"
+      ],
+      "sourceLocation": {
+        "filePath": "src/features/zefix/verifyZefixAuthenticationAsync.ts",
+        "line": 11,
         "column": 1
       }
     },
@@ -8569,6 +8899,14 @@
     },
     {
       "kind": "export",
+      "name": "createZefixPublicRestApi",
+      "sourcePath": "src/features/zefix/createZefixPublicRestApi.ts",
+      "symbolName": "createZefixPublicRestApi",
+      "description": "Create the portable Zefix PublicREST descriptor for company search and UID lookup.\n\nThe descriptor holds only the Basic credential reference. A trusted host must resolve that\nreference before the existing endpoint executor sends a request; credentials never belong in\nthis API definition or in a client bundle.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "discoverOpenApi",
       "sourcePath": "src/discovery/index.ts",
       "symbolName": "discoverOpenApi",
@@ -8645,6 +8983,14 @@
       "sourcePath": "src/packageInfo.ts",
       "symbolName": "isSupportedDataSourceKind",
       "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "mapZefixCompanyResult",
+      "sourcePath": "src/features/zefix/mapZefixCompanyResult.ts",
+      "symbolName": "mapZefixCompanyResult",
+      "description": "Map one Zefix company DTO into a portable, provenance-preserving acquisition result.\n\nThe returned `wire` object is the provider record and remains distinct from the curated\n`company` projection. Manual CRM contacts, activities, follow-ups, and user-entered fields are\nintentionally absent: they must be stored by their application owner, not mixed with Zefix data.",
       "isReadme": false
     },
     {
@@ -8742,6 +9088,14 @@
       "symbolName": "validateManualRestApi",
       "description": null,
       "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "verifyZefixAuthenticationAsync",
+      "sourcePath": "src/features/zefix/verifyZefixAuthenticationAsync.ts",
+      "symbolName": "verifyZefixAuthenticationAsync",
+      "description": "Verify Zefix HTTP Basic credentials with exactly one protected, non-personal-data request.\n\nOnly call this function on a trusted server. The returned status intentionally excludes\ncredentials, request headers, upstream response bodies, and provider diagnostics.",
+      "isReadme": false
     }
   ],
   "graphs": {
@@ -8759,6 +9113,21 @@
       {
         "fromPath": "src/index.ts",
         "toPath": "src/discovery/index.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/zefix/createZefixPublicRestApi.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/zefix/mapZefixCompanyResult.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/zefix/verifyZefixAuthenticationAsync.ts",
         "sourcePath": "src/index.ts"
       },
       {
@@ -8993,6 +9362,21 @@
       },
       {
         "fromPath": "src/platform/index.ts",
+        "toPath": "src/features/zefix/createZefixPublicRestApi.ts",
+        "sourcePath": "src/platform/index.ts"
+      },
+      {
+        "fromPath": "src/platform/index.ts",
+        "toPath": "src/features/zefix/mapZefixCompanyResult.ts",
+        "sourcePath": "src/platform/index.ts"
+      },
+      {
+        "fromPath": "src/platform/index.ts",
+        "toPath": "src/features/zefix/verifyZefixAuthenticationAsync.ts",
+        "sourcePath": "src/platform/index.ts"
+      },
+      {
+        "fromPath": "src/platform/index.ts",
         "toPath": "src/graphql/index.ts",
         "sourcePath": "src/platform/index.ts"
       },
@@ -9060,6 +9444,26 @@
         "fromPath": "src/test-runner/serialization.ts",
         "toPath": "src/test-runner/types.ts",
         "sourcePath": "src/test-runner/serialization.ts"
+      },
+      {
+        "fromPath": "src/features/zefix/createZefixPublicRestApi.ts",
+        "toPath": "src/rest/index.ts",
+        "sourcePath": "src/features/zefix/createZefixPublicRestApi.ts"
+      },
+      {
+        "fromPath": "src/features/zefix/mapZefixCompanyResult.ts",
+        "toPath": "src/types/zefix.ts",
+        "sourcePath": "src/features/zefix/mapZefixCompanyResult.ts"
+      },
+      {
+        "fromPath": "src/features/zefix/verifyZefixAuthenticationAsync.ts",
+        "toPath": "src/rest/index.ts",
+        "sourcePath": "src/features/zefix/verifyZefixAuthenticationAsync.ts"
+      },
+      {
+        "fromPath": "src/features/zefix/verifyZefixAuthenticationAsync.ts",
+        "toPath": "src/test-runner/index.ts",
+        "sourcePath": "src/features/zefix/verifyZefixAuthenticationAsync.ts"
       }
     ],
     "calls": [
@@ -10418,9 +10822,88 @@
         "toSymbol": "readValue",
         "callExpression": "readValue",
         "sourcePath": "src/test-runner/serialization.ts"
+      },
+      {
+        "fromSymbol": "createZefixPublicRestApi",
+        "toSymbol": "normalizeManualRestApi",
+        "callExpression": "normalizeManualRestApi",
+        "sourcePath": "src/features/zefix/createZefixPublicRestApi.ts"
+      },
+      {
+        "fromSymbol": "verifyZefixAuthenticationAsync",
+        "toSymbol": "testEndpoint",
+        "callExpression": "testEndpoint",
+        "sourcePath": "src/features/zefix/verifyZefixAuthenticationAsync.ts"
+      },
+      {
+        "fromSymbol": "fetch",
+        "toSymbol": "fetch",
+        "callExpression": "fetch",
+        "sourcePath": "src/features/zefix/verifyZefixAuthenticationAsync.ts"
+      },
+      {
+        "fromSymbol": "src/features/zefix/verifyZefixAuthenticationAsync.ts",
+        "toSymbol": "normalizeManualRestApi",
+        "callExpression": "normalizeManualRestApi",
+        "sourcePath": "src/features/zefix/verifyZefixAuthenticationAsync.ts"
       }
     ],
     "typeReferences": [
+      {
+        "fromSymbol": "createZefixPublicRestApi",
+        "toType": "ExternalRestApiDefinition",
+        "sourcePath": "src/features/zefix/createZefixPublicRestApi.ts"
+      },
+      {
+        "fromSymbol": "mapZefixCompanyResult",
+        "toType": "ZefixCompanyFull",
+        "sourcePath": "src/features/zefix/mapZefixCompanyResult.ts"
+      },
+      {
+        "fromSymbol": "mapZefixCompanyResult",
+        "toType": "ZefixCompanyResult",
+        "sourcePath": "src/features/zefix/mapZefixCompanyResult.ts"
+      },
+      {
+        "fromSymbol": "mapZefixCompanyResult",
+        "toType": "ZefixCompanyShort",
+        "sourcePath": "src/features/zefix/mapZefixCompanyResult.ts"
+      },
+      {
+        "fromSymbol": "ZefixCompanyResult",
+        "toType": "ZefixCompanyFull",
+        "sourcePath": "src/features/zefix/mapZefixCompanyResult.ts"
+      },
+      {
+        "fromSymbol": "ZefixCompanyResult",
+        "toType": "ZefixCompanyResultCompany",
+        "sourcePath": "src/features/zefix/mapZefixCompanyResult.ts"
+      },
+      {
+        "fromSymbol": "ZefixCompanyResult",
+        "toType": "ZefixCompanyShort",
+        "sourcePath": "src/features/zefix/mapZefixCompanyResult.ts"
+      },
+      {
+        "fromSymbol": "ZefixCompanyResultCompany",
+        "toType": "ZefixAddress",
+        "sourcePath": "src/features/zefix/mapZefixCompanyResult.ts"
+      },
+      {
+        "fromSymbol": "ZefixCompanyResultCompany",
+        "toType": "ZefixCompanyStatus",
+        "sourcePath": "src/features/zefix/mapZefixCompanyResult.ts"
+      },
+      {
+        "fromSymbol": "ZefixCompanyResultCompany",
+        "toType": "ZefixLegalForm",
+        "sourcePath": "src/features/zefix/mapZefixCompanyResult.ts"
+      },
+      {
+        "fromSymbol": "verifyZefixAuthenticationAsync",
+        "toType": "ZefixAuthenticationStatus",
+        "sourcePath": "src/features/zefix/verifyZefixAuthenticationAsync.ts"
+      },
       {
         "fromSymbol": "discoverOpenApi",
         "toType": "DiscoverOpenApiInput",
